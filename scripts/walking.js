@@ -26,7 +26,7 @@ key = { // the variables we’ll use to see if a key is being pressed
 };
 
 function drawDriver() {
-  move(0, true, false);
+  moveDriver(0, true, false);
   driver.x += 1;
   if (driver.x > canvas.width + driver.w + 1) {
     driver.x = -driver.w;
@@ -34,7 +34,7 @@ function drawDriver() {
   ctx.drawImage(character, driver.sx, driver.sy, driver.w, driver.h, driver.x, driver.y, driver.w, driver.h);
 }
 
-function move(yPos, right, left) {
+function moveDriver(yPos, right, left) {
   driver.faceRight = right;
   driver.faceLeft = left;
   if (driver.counter === driver.endStep) {
@@ -53,13 +53,7 @@ function move(yPos, right, left) {
   driver.counter += 1;
 }
 
-function reset() {
-  driver.sy = driver.start.y;
-  driver.counter = 0;
-  driver.nextStep = 0;
-}
-
-function drawBG() {
+function drawDriverBG() {
   ctx.fillStyle = '#fff';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = '#FFF';
@@ -69,19 +63,15 @@ function drawBG() {
 
 function loopDriver() {
   //clearCanvas();
-  drawBG();
+  drawDriverBG();
   drawDriver();
   requestAnimFrame(loopDriver);
 }
 
-function init() {
+function initDriverWalking() {
   character.src = 'img/rider_scene1.png';
-
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
   loopDriver();
 }
 
 
-init();
+initDriverWalking();
