@@ -60,8 +60,7 @@ function setImageSize(){
   $image = $('#animations');
 
   var max_width = $(window).width();
-  var max_height = $(window).height();
-  console.log(is_mobile);
+  var max_height = $(window).height();  
   if (!is_mobile) { max_height -= BOTTOM_MENU_HEIGHT; }
   var width = $image.width();
   var height = $image.height();
@@ -89,6 +88,7 @@ $(document).ready(function(){
     $('#bottom-menu').hide();
   }
   $(window).bind('orientationchange', function(){ setImageSize(); });
+  window.scrollTo(0,1);
 });
 
 
