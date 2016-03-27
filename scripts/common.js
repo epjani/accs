@@ -3,6 +3,7 @@ BOTTOM_MENU_HEIGHT = 100;
 var canvas = document.getElementById('canvas'); // get our canvas tag in the DOM
 var ctx = canvas.getContext('2d'); // set the context of the canvas
 var background_image = new Image();
+var is_mobile = false;
 
 function drawBG(timeout){
   ctx.drawImage(background_image, 0, 0, canvas.width, canvas.height);
@@ -79,6 +80,13 @@ $(document).ready(function(){
   $('#animations').attr('src', 'img/driving.gif');
   setCanvasSize();
   setImageSize();
+  
+  var md = new MobileDetect(window.navigator.userAgent);
+  is_mobile = md.mobile() != null || md.phone() != null;
+
+  window.addEventListener('load', function(e) {
+    setTimeout(function() { window.scrollTo(0, 1); }, 1);
+  }, false)
 });
 
 
