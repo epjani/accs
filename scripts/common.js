@@ -80,26 +80,10 @@ $(document).ready(function(){
   $('#animations').attr('src', 'img/driving.gif');
   setCanvasSize();
   setImageSize();
-  // var md = new MobileDetect(window.navigator.userAgent);
-  // is_mobile = md.mobile() != null || md.phone() != null;
+  var md = new MobileDetect(window.navigator.userAgent);
+  is_mobile = md.mobile() != null || md.phone() != null;
 
-  // $(window).bind('orientationchange', function(){
-  //       if (window.orientation % 180 == 0){
-  //           $(document.body).css("-webkit-transform-origin", "")
-  //               .css("-webkit-transform", "");               
-  //       } 
-  //       else {                   
-  //           if ( window.orientation > 0) { //clockwise
-  //             $(document.body).css("-webkit-transform-origin", "200px 190px")
-  //               .css("-webkit-transform",  "rotate(-270deg)");  
-  //           }
-  //           else {
-  //             $(document.body).css("-webkit-transform-origin", "280px 190px")
-  //               .css("-webkit-transform",  "rotate(270deg)"); 
-  //           }
-  //       }
-  //   })
-  //  .trigger('orientationchange'); 
+  $(window).bind('orientationchange', function(){ setImageSize(); });
 });
 
 
