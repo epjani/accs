@@ -13,6 +13,10 @@ html, body {
 	margin-top: -4px;
 }
 
+.full-screen-btn {
+	display: none;
+}
+
 @media only screen and (orientation:portrait){
   body {  
     height: 100vw;
