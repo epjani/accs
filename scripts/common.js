@@ -80,26 +80,26 @@ $(document).ready(function(){
   $('#animations').attr('src', 'img/driving.gif');
   setCanvasSize();
   setImageSize();
-  
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
 
-  window.addEventListener('load', function(e) {
-    setTimeout(function() { window.scrollTo(0, 1); }, 1);
-  }, false)
-
-  if (is_mobile) {
-    $('body').css({
-        "-webkit-transform": "rotate(" + 90 + "deg)"
-    });
-  }
+  $(window).bind('orientationchange', function(){
+        if (window.orientation % 180 == 0){
+            $(document.body).css("-webkit-transform-origin", "")
+                .css("-webkit-transform", "");               
+        } 
+        else {                   
+            if ( window.orientation > 0) { //clockwise
+              $(document.body).css("-webkit-transform-origin", "200px 190px")
+                .css("-webkit-transform",  "rotate(-90deg)");  
+            }
+            else {
+              $(document.body).css("-webkit-transform-origin", "280px 190px")
+                .css("-webkit-transform",  "rotate(90deg)"); 
+            }
+        }
+    })
+   .trigger('orientationchange'); 
 });
 
 
-// $(window).bind("orientationchange", function(){
-//     var orientation = window.orientation;
-//     var new_orientation = (orientation) ? 0 : 180 + orientation;
-//     $('body').css({
-//         "-webkit-transform": "rotate(" + new_orientation + "deg)"
-//     });
-// });
