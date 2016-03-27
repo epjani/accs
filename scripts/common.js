@@ -1,4 +1,4 @@
-BOTTOM_MENU_HEIGHT = 100;
+BOTTOM_MENU_HEIGHT = 0;
 
 var canvas = document.getElementById('canvas'); // get our canvas tag in the DOM
 var ctx = canvas.getContext('2d'); // set the context of the canvas
@@ -88,7 +88,7 @@ $(document).ready(function(){
     $('#bottom-menu').hide();
   }
   $(window).bind('orientationchange', function(){ setImageSize(); });
-  window.scrollTo(0,1);
+  document.body.requestFullscreen();
 });
 
 
