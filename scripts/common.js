@@ -88,5 +88,12 @@ $(document).ready(function(){
     setTimeout(function() { window.scrollTo(0, 1); }, 1);
   }, false)
 
+  var show = function() {
+     alert("Orientation type is " + screen.orientation.type);
+     alert("Orientation angle is " + screen.orientation.angle);
+  }
+
+  screen.orientation.addEventListener("change", show);
+  window.onload = show;
   screen.orientation.lock('landscape');
 });
