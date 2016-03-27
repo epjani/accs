@@ -91,11 +91,11 @@ $(document).ready(function(){
         else {                   
             if ( window.orientation > 0) { //clockwise
               $(document.body).css("-webkit-transform-origin", "200px 190px")
-                .css("-webkit-transform",  "rotate(-180deg)");  
+                .css("-webkit-transform",  "rotate(-270deg)");  
             }
             else {
               $(document.body).css("-webkit-transform-origin", "280px 190px")
-                .css("-webkit-transform",  "rotate(180deg)"); 
+                .css("-webkit-transform",  "rotate(270deg)"); 
             }
         }
     })
