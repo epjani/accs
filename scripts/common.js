@@ -60,7 +60,9 @@ function setImageSize(){
   $image = $('#animations');
 
   var max_width = $(window).width();
-  var max_height = $(window).height() - BOTTOM_MENU_HEIGHT;
+  var max_height = $(window).height();
+  console.log(is_mobile);
+  if (!is_mobile) { max_height -= BOTTOM_MENU_HEIGHT; }
   var width = $image.width();
   var height = $image.height();
   
@@ -83,6 +85,9 @@ $(document).ready(function(){
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
 
+  if (is_mobile) {
+    $('#bottom-menu').hide();
+  }
   $(window).bind('orientationchange', function(){ setImageSize(); });
 });
 
