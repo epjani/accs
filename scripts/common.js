@@ -99,6 +99,7 @@ $('.full-screen-btn').on('click', function(){
 });
 function setFullScreen(element) {
 alert('tuuu');
+element.requestFullscreen();
 if (element.requestFullscreen) {
   alert('1');
   element.requestFullscreen();
