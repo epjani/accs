@@ -87,13 +87,6 @@ $(document).ready(function(){
   window.addEventListener('load', function(e) {
     setTimeout(function() { window.scrollTo(0, 1); }, 1);
   }, false)
-});
 
-
-$(window).bind("orientationchange", function(){
-    var orientation = window.orientation;
-    var new_orientation = (orientation) ? 0 : 180 + orientation;
-    $('body').css({
-        "-webkit-transform": "rotate(" + new_orientation + "deg)"
-    });
+  screen.orientation.lock('landscape');
 });
