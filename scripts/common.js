@@ -59,8 +59,8 @@ function setCanvasSize() {
 function setImageSize(){
   $image = $('#animations');
 
-  var max_width = window.innerWidth;
-  var max_height = window.innerHeight - BOTTOM_MENU_HEIGHT;
+  var max_width = $(window).width();
+  var max_height = $(window).height() - BOTTOM_MENU_HEIGHT;
   var width = $image.width();
   var height = $image.height();
   
