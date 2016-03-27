@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="styles/main.css">
+		<meta name="viewport" content="initial-scale=1,user-scalable=no,width=device-width">
 	</head>
-	<body>
-		<canvas id="canvas"></canvas>
-		<div style="height:152px;width:100%;background-color:red;"></div>
+	<body onresize="setCanvasSize();setImageSize();">
+		<canvas id="canvas" ></canvas>
+		<img id="animations" src="img/driving.gif" />
+		<div id="bottom-menu"></div>
 		<script type="text/javascript" src="scripts/jquery-2.2.1.min.js"></script>
 		<script type="text/javascript" src="scripts/modernizr.js"></script>
 		<script type="text/javascript" src="scripts/common.js"></script>
+		<script type="text/javascript" src="scripts/driving.js"></script>
 		<script type="text/javascript" src="scripts/walking.js"></script>
 	</body>
 </html>
