@@ -98,19 +98,15 @@ $('.full-screen-btn').on('click', function(){
   setFullScreen(document.body);
 });
 function setFullScreen(element) {
-alert('tuuu');
+
 element.requestFullscreen();
-if (element.requestFullscreen) {
-  alert('1');
-  element.requestFullscreen();
-} else if (element.webkitRequestFullscreen) {
-  alert('2');
-  element.webkitRequestFullscreen();
-} else if (element.mozRequestFullScreen) {
-  alert('3');
-  element.mozRequestFullScreen();
-} else if (element.msRequestFullscreen) {
-  alert('4');
-  element.msRequestFullscreen();
-}
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
 }
