@@ -98,8 +98,6 @@ $('.full-screen-btn').on('click', function(){
   setFullScreen(document.body);
 });
 function setFullScreen(element) {
-
-element.requestFullscreen();
   if (element.requestFullscreen) {
     element.requestFullscreen();
   } else if (element.webkitRequestFullscreen) {
