@@ -32,6 +32,8 @@ $(document).ready(function(){
   setImageSize();  
 
   setTimeout(go_for_a_walk, 2850);
+
+  $('#map_lobby area').click(function(){ alert('s'); });
 });
 
 window.onload = function(e){ 
