@@ -29,14 +29,14 @@ $(document).ready(function(){
   // $(window).bind('orientationchange', function(){ setImageSize(); });
 
   setCanvasSize();
-  setImageSize();
+  setImageSize();  
 
-  setTimeout(go_for_a_walk, 2850);  
+  setTimeout(go_for_a_walk, 2850);
 });
 
 window.onload = function(e){ 
   setCanvasSize();
-  setImageSize(); 
+  setImageSize();
 }
 
 function go_for_a_walk() {
@@ -45,5 +45,8 @@ function go_for_a_walk() {
 }
 
 function enter_lobby() {
-  
+  $('#animations').hide();
+  $('#map_lobby, #lobby').show();
+  setImageSize();
+  $('map').imageMapResize();
 }

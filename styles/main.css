@@ -17,6 +17,7 @@ html, body {
   height: 100%;
 }
 
+#map_lobby, #lobby { display: none; }
 /*@media only screen and (orientation:portrait){
   body {  
     height: 100vw;
