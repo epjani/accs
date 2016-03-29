@@ -42,6 +42,9 @@ function setCanvasSize() {
 }
 
 function setImageSize(){
+  if (is_mobile)
+    return false;
+  
   $image = $('#animations');
 
   var max_width = $(window).width();

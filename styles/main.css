@@ -13,6 +13,10 @@ html, body {
 	margin-top: -4px;
 }
 
+#animations {
+  height: 100%;
+}
+
 /*@media only screen and (orientation:portrait){
   body {  
     height: 100vw;
