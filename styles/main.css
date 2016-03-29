@@ -13,11 +13,7 @@ html, body {
 	margin-top: -4px;
 }
 
-.full-screen-btn {
-	display: none;
-}
-
-@media only screen and (orientation:portrait){
+/*@media only screen and (orientation:portrait){
   body {  
     height: 100vw;
     -webkit-transform: rotate(90deg);
@@ -35,4 +31,4 @@ html, body {
      -ms-transform: rotate(0deg);
      transform: rotate(0deg);
   }
-}
+}*/

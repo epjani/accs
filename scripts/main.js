@@ -26,12 +26,24 @@ $(document).ready(function(){
     $('.full-screen-btn').show();
   }
 
-  $(window).bind('orientationchange', function(){ setImageSize(); });
+  // $(window).bind('orientationchange', function(){ setImageSize(); });
+
   setCanvasSize();
   setImageSize();
+
+  setTimeout(go_for_a_walk, 2850);  
 });
 
 window.onload = function(e){ 
   setCanvasSize();
   setImageSize(); 
+}
+
+function go_for_a_walk() {
+  $('#animations').attr('src', 'img/walking.gif');
+  setTimeout(enter_lobby, 2800);
+}
+
+function enter_lobby() {
+  
 }
