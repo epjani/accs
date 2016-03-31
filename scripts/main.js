@@ -33,7 +33,9 @@ $(document).ready(function(){
 
   setTimeout(go_for_a_walk, 2850);
 
-  $('#map_lobby area').click(function(){ alert('s'); });
+  $('#map_lobby area').click(function(jsEvent){
+    alert('TODO');
+  });
 
   $('#bottom-menu .menu a.menu-item').on('click', function(jsEvent){
     open_fancybox($(jsEvent.target));
