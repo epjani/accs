@@ -4,29 +4,76 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="styles/main.css">
+		<link rel="stylesheet" href="styles/fancybox/jquery.fancybox.css">
+		<link rel="stylesheet" href="styles/jquery-ui/jquery-ui.min.css">
+		<link rel="stylesheet" href="styles/jquery-ui/jquery-ui.structure.min.css">
+		<link rel="stylesheet" href="styles/jquery-ui/jquery-ui.theme.min.css">
 		<meta name="viewport" content="initial-scale=1,user-scalable=no,width=device-width">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
 	</head>
 	<body onresize="setCanvasSize();setImageSize();">
 		<canvas id="canvas" ></canvas>
-		<img id="animations" src="img/driving.gif" class="resizable" />		
+		<img id="animations" src="img/driving.gif" class="resizable" />
 		<img name="lobby" src="img/lobby.jpg" width="4001" height="2177" id="lobby" usemap="#map_lobby" alt="" class="resizable" />
 		<map name="map_lobby" id="map_lobby">
 			<area shape="poly" coords="3168,1660,3332,1320,3584,1352,3444,1712" href="javascript:;" title="prospect3" alt="prospect3" />
 			<area shape="poly" coords="3180,1212,3348,880,3592,900,3448,1248" href="javascript:;" title="prospect2" alt="prospect2" />
 			<area shape="poly" coords="3196,764,3356,444,3592,460,3452,796" href="javascript:;" title="prospect1" alt="prospect1" />
 			<area shape="poly" coords="2364,228,2948,124,2944,1020,2368,972" href="javascript:;" title="poster1" alt="poster1" />
-			<area shape="poly" coords="976,232,1460,252,1448,972,972,1052" href="javascript:;" title="Whiteboard" alt="Whiteboard" />
+			<area shape="poly" coords="976,232,1460,252,1448,972,972,1052" href="javascript:;" title="Select Exam" alt="Whiteboard" />
 			<area shape="poly" coords="176,180,824,212,836,1284,176,1408" href="javascript:;" title="Go To Exam" alt="Go To Exam" />
 		</map>
 
-		<div id="bottom-menu"></div>
+		<div id="bottom-menu">
+			<a class="company-logo" target="_blank" title="Air Canada" href="http://www.aircanada.com/agents">
+				<img src="img/aircanadalogo.png" alt="Air Canada" height="60" />
+			</a>
+
+			<ul class="menu">
+				<li>
+					<a href="#" class="menu-item fb-trigger" id="instructions">
+						<img src="img/instructions.png" alt="Instructions" />
+					</a>
+				</li>
+				<li>
+					<a href="#" class="menu-item fb-trigger" id="intro">
+						<img src="img/intro.png" alt="Intro" />
+					</a>
+				</li>
+				<li>
+					<a href="#" class="menu-item fb-trigger" id="help">
+						<img src="img/help.png" alt="Help" />
+					</a>
+				</li>
+			</ul>
+			<a class="lli-logo" target="_blank" title="Learning Library" href="http://www.learninglibrary.com">
+				<img src="img/LLIlogo.png" alt="Learning Library" height="60" />
+			</a>
+
+			<div class="fancybox menu-fb" id="fb-instructions" >
+				<div class="header">
+					<img src="img/instructions.png" alt="Instructions" />
+				</div>
+			</div>
+			<div class="fancybox" id="fb-intro" >
+				<div class="header">
+					<img src="img/intro.png" alt="Intro" />
+				</div>
+			</div>
+			<div class="fancybox" id="fb-help" >
+				<div class="header">
+					<img src="img/help.png" alt="Help" />
+				</div>
+			</div>
+		</div>
 		<script type="text/javascript" src="scripts/jquery-2.2.1.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="scripts/modernizr.js"></script>
 		<script type="text/javascript" src="scripts/mobile-detect.js"></script>
 		<script type="text/javascript" src="scripts/resizing-helpers.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
 		<script type="text/javascript" src="scripts/imageMapResizer.min.js"></script>
+		<script type="text/javascript" src="scripts/fancybox/jquery.fancybox.pack.js"></script>
 	</body>
 </html>
