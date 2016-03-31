@@ -43,7 +43,7 @@ window.onload = function(e){
 
 function go_for_a_walk() {
   $('#animations').attr('src', 'img/walking.gif');
-  setTimeout(enter_lobby, 2800);
+  setTimeout(enter_lobby, 3200);
 }
 
 function enter_lobby() {
