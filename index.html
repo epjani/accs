@@ -12,25 +12,46 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
 	</head>
-	<body onresize="setCanvasSize();setImageSize();">
-		<canvas id="canvas" ></canvas>
-		<img id="animations" src="img/driving.gif" class="resizable" />
-		<img name="lobby" src="img/lobby.jpg" width="2200" height="1197" id="lobby" usemap="#map_lobby" alt="" class="resizable" />
-		<map name="map_lobby" id="map_lobby">
-			<area shape="poly" coords="1740,910,1834,724,1970,742,1894,944" href="javascript:;" title="Prospect" alt="Prospect" />
-			<area shape="poly" coords="1750,666,1840,484,1974,500,1900,688" href="javascript:;" title="Prospect" alt="Prospect" />
-			<area shape="poly" coords="1756,422,1844,244,1976,256,1902,436" href="javascript:;" title="Prospect" alt="Prospect" />
-			<area shape="poly" coords="1304,130,1616,68,1616,68,1618,558,1302,536" href="javascript:;" target="None" title="Poster" alt="Poster" />
-			<area shape="poly" coords="536,128,536,580,800,534,802,142" href="javascript:;" target="None" title="Whiteboard" alt="whiteboard" />
-			<area shape="poly" coords="92,774,94,100,458,118,458,706" href="javascript:;" target="None" title="Go to Exam" alt="Go to Exam" />
-		</map>
+	<body onresize="setImageSize();">
+		<div id="top-menu" class="show-on-mobile">
+
+		</div>
+		<div class="container">
+			<img id="animations" src="img/driving.gif" class="resizable" />
+
+			<div class="lobby">
+				<img name="lobby" src="img/lobby.jpg" width="2200" height="1197" id="lobby" usemap="#map_lobby" alt="" class="resizable hide-on-mobile" />
+				<map name="map_lobby" id="map_lobby" class="hide-on-mobile">
+					<area shape="poly" coords="538,432,802,412,798,522,538,556" href="javascript:;" title="Select Case Study" alt="Case study #3" />
+					<area shape="poly" coords="538,328,802,308,802,404,532,424" href="javascript:;" title="Select Case Study" alt="Case study #2" />
+					<area shape="poly" coords="1740,910,1834,724,1970,742,1894,944" href="javascript:;" title="Prospect" alt="Prospect" />
+					<area shape="poly" coords="1750,666,1840,484,1974,500,1900,688" href="javascript:;" title="Prospect" alt="Prospect" />
+					<area shape="poly" coords="1756,422,1844,244,1976,256,1902,436" href="javascript:;" title="Prospect" alt="Prospect" />
+					<area shape="poly" coords="1304,130,1616,68,1616,68,1618,558,1302,536" href="javascript:;" target="None" title="Poster" alt="Poster" />
+					<area shape="poly" coords="536,225,536,322,802,304,802,216" href="javascript:;" target="None" title="Select Case Study" alt="Case study #1" />
+					<area shape="poly" coords="92,774,94,100,458,118,458,706" href="javascript:;" target="None" title="Go to Exam" alt="Go to Exam" />
+				</map>
+
+				<img name="lobby" src="img/lobby-mobile.jpg" width="1238" height="1922" id="lobby" usemap="#map_lobby_mobile" alt="" class="resizable show-on-mobile" />
+				<map name="map_lobby_mobile" id="map_lobby_mobile" class="show-on-mobile">
+					<area shape="poly" coords="830,1340,1150,1340,1154,1756,830,1756" href="javascript:;" target="None" title="Prospect 3" alt="Prospect 3" />
+					<area shape="poly" coords="464,1342,786,1340,786,1756,464,1756" href="javascript:;" target="None" title="Prospect 2" alt="Prospect 2" />
+					<area shape="poly" coords="94,1754,96,1342,420,1342,418,1756" href="javascript:;" target="None" title="Prospect 1" alt="Prospect 1" />
+					<area shape="poly" coords="922,250,1206,248,1208,614,920,610" href="javascript:;" target="None" title="Poster" alt="Poster" />
+					<area shape="poly" coords="534,482,770,482,770,586,534,576" href="javascript:;" target="None" title="Select Case Study" alt="Select Case Study" />
+					<area shape="poly" coords="534,398,770,402,770,476,532,476" href="javascript:;" target="None" title="Select Case Study" alt="Select Case Study" />
+					<area shape="poly" coords="534,312,770,314,770,394,532,390" href="javascript:;" target="None" title="Select Case Study" alt="Select Case Study" />
+					<area shape="poly" coords="30,367,330,382,333,870,33,921" href="javascript:;" target="None" title="Go To Exam" alt="Go To Exam" />
+				</map>
+			</div>
+		</div>
 
 		<div id="bottom-menu">
 			<a class="company-logo" target="_blank" title="Air Canada" href="http://www.aircanada.com/agents">
 				<img src="img/aircanadalogo.png" alt="Air Canada" height="60" />
 			</a>
 
-			<ul class="menu">
+			<ul class="menu hide-on-mobile">
 				<li>
 					<a href="#" class="menu-item fb-trigger" id="instructions">
 						<img src="img/instructions.png" alt="Instructions" />
@@ -67,13 +88,13 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="scripts/jquery-2.2.1.min.js"></script>
-		<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="scripts/modernizr.js"></script>
-		<script type="text/javascript" src="scripts/mobile-detect.js"></script>
+		<script type="text/javascript" src="scripts/lib/jquery-2.2.1.min.js"></script>
+		<script type="text/javascript" src="scripts/lib/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="scripts/lib/modernizr.js"></script>
+		<script type="text/javascript" src="scripts/lib/mobile-detect.js"></script>
 		<script type="text/javascript" src="scripts/resizing-helpers.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
-		<script type="text/javascript" src="scripts/imageMapResizer.min.js"></script>
-		<script type="text/javascript" src="scripts/fancybox/jquery.fancybox.pack.js"></script>
+		<script type="text/javascript" src="scripts/lib/imageMapResizer.min.js"></script>
+		<script type="text/javascript" src="scripts/lib/fancybox/jquery.fancybox.pack.js"></script>
 	</body>
 </html>

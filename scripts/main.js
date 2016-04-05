@@ -1,37 +1,14 @@
 BOTTOM_MENU_HEIGHT = 90;
 
-var canvas = document.getElementById('canvas'); // get our canvas tag in the DOM
-var ctx = canvas.getContext('2d'); // set the context of the canvas
-var background_image = new Image();
 var is_mobile = false;
 
-function drawBG(timeout){
-  ctx.drawImage(background_image, 0, 0, canvas.width, canvas.height);
-}
-
-function clearCanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-
 $(document).ready(function(){
-  canvas.hidden = true;
   $('#animations').attr('src', 'img/driving.gif');
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
 
-  if (is_mobile) {
-    $('#bottom-menu').hide();
-    $('.full-screen-btn').show();
-  }
-
-  // $(window).bind('orientationchange', function(){ setImageSize(); });
-
-  setCanvasSize();
-  setImageSize();
-
-  setTimeout(go_for_a_walk, 2850);
+  configure_for_devices();  
 
   $('#map_lobby area').click(function(jsEvent){
     alert('TODO');
@@ -41,21 +18,22 @@ $(document).ready(function(){
     open_fancybox($(jsEvent.target));
   });
   set_tooltip_styles();
+  setImageSize();
 });
 
 window.onload = function(e){
-  setCanvasSize();
   setImageSize();
+  setTimeout(go_for_a_walk, 2700);
 }
 
 function go_for_a_walk() {
   $('#animations').attr('src', 'img/walking.gif');
-  setTimeout(enter_lobby, 3200);
+  setTimeout(enter_lobby, 3000);
 }
 
 function enter_lobby() {
   $('#animations').hide();
-  $('#map_lobby, #lobby').show();
+  $('.lobby').show();
   setImageSize();
   $('map').imageMapResize();
 }
@@ -84,4 +62,14 @@ function set_tooltip_styles() {
       }
     }
   });
+}
+
+function configure_for_devices() {
+  if (is_mobile) {
+    $('.hide-on-mobile').hide();
+    $('.show-on-mobile').show();
+  } else {
+    $('.hide-on-mobile').show();
+    $('.show-on-mobile').hide();
+  }
 }

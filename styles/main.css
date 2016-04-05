@@ -12,6 +12,12 @@ area { outline: none; display: inline-block; }
   display: none;
 }
 
+#top-menu {
+  height: 50px;
+  background-color: #f1f1f2;
+  width: 100%;
+  position: absolute;
+}
 #bottom-menu {
 	height:60px;
 	width:100%;
@@ -48,6 +54,7 @@ area { outline: none; display: inline-block; }
   height: 100%;
 }
 
+.lobby { display: none; }
 #map_lobby, #lobby { display: none; }
 #map_lobby { position: absolute; }
 
