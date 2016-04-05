@@ -11,6 +11,7 @@ area { outline: none; display: inline-block; }
 .fancybox {
   display: none;
 }
+
 #bottom-menu {
 	height:60px;
 	width:100%;
@@ -48,6 +49,7 @@ area { outline: none; display: inline-block; }
 }
 
 #map_lobby, #lobby { display: none; }
+#map_lobby { position: absolute; }
 
 .ui-tooltip, .arrow:after {
   background: #FFF;
