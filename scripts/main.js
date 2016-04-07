@@ -6,7 +6,7 @@ $(document).ready(function(){
   $('#animations').attr('src', 'img/driving.gif');
 
   var md = new MobileDetect(window.navigator.userAgent);
-  is_mobile = md.mobile() != null || md.phone() != null;
+  is_mobile = (md.mobile() != null || md.phone() != null);
 
   configure_for_devices();  
 
@@ -66,10 +66,15 @@ function set_tooltip_styles() {
 
 function configure_for_devices() {
   if (is_mobile) {
+    $('body').addClass('mobile-view');
     $('.hide-on-mobile').hide();
     $('.show-on-mobile').show();
   } else {
     $('.hide-on-mobile').show();
     $('.show-on-mobile').hide();
   }
+}
+
+function toggle_menu() {
+  $("#top-menu .links").toggle();
 }
