@@ -6,7 +6,7 @@ $(document).ready(function(){
   $('#animations').attr('src', 'img/driving.gif');
 
   var md = new MobileDetect(window.navigator.userAgent);
-  is_mobile = (md.mobile() != null || md.phone() != null);
+  is_mobile = md.mobile() != null || md.phone() != null;
 
   configure_for_devices();  
 

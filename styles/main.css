@@ -20,8 +20,6 @@ area { outline: none; display: inline-block; }
   padding: 15px;
 }
 
-
-
 .fancybox .title {
   display: inline-block;
   font-weight: bold;
@@ -96,8 +94,8 @@ area { outline: none; display: inline-block; }
 
 #top-menu .links {
   background-color: #eae9e9; 
-  padding: 10px 20px;
-  width: 120px;  
+  padding: 15px 20px 10px;
+  width: 155px;  
   list-style: none;
   margin: 0; 
 }
@@ -106,7 +104,7 @@ area { outline: none; display: inline-block; }
   background-color: #EF4940;  
   margin-bottom: 8px;
   border: 2px solid #f5f4f4;
-  padding: 10px 20px;
+  padding: 10px 15px;
 }
 
 #top-menu .links li a {
