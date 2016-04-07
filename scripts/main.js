@@ -42,7 +42,9 @@ function open_fancybox($el) {
   $el = $el.closest('.fb-trigger');
 
   $.fancybox({
-    href: '#fb-' + $el.attr('id')
+    href: '#fb-' + $el.attr('id'),
+    width: 600,
+    autoSize: false
   });
 }
 

@@ -10,12 +10,41 @@ area { outline: none; display: inline-block; }
 
 .fancybox {
   display: none;
+  color: #4c4d4e;
+}
+
+.fancybox .header {
+  border-bottom: 1px solid #bfbdbf;
+  text-align: left;
+  height: 43px;
+  padding: 15px;
+}
+
+
+
+.fancybox .title {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+  line-height: 53px;
+  height: 100%;
+  vertical-align: top;
+}
+
+.fancybox-close {
+  width: 25px !important;
+  height: 25px !important;
+  background-image: url(../img/fancybox-close.png) !important;
+  background-size: auto !important;
+  top: 20px !important;
+  right: 20px !important;
 }
 
 #top-menu {
   height: 40px;
   background-color: #f1f1f2;
   position: absolute;
+  z-index: 5;
 }
 
 #top-menu .links {
@@ -68,7 +97,7 @@ area { outline: none; display: inline-block; }
 #top-menu .links {
   background-color: #eae9e9; 
   padding: 10px 20px;
-  width: 340px;  
+  width: 120px;  
   list-style: none;
   margin: 0; 
 }
