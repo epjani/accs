@@ -129,12 +129,20 @@ area { outline: none; display: inline-block; }
 
 #bottom-menu .company-logo {
   float: left;
-  margin-left: 15px;
+  padding-left: 15px;
+}
+
+.mobile-view #bottom-menu .company-logo {
+  max-width: 65%;
 }
 
 #bottom-menu .lli-logo {
   float: right;
-  margin-right: 15px;
+  padding-right: 15px;
+}
+
+.mobile-view #bottom-menu .lli-logo {
+  max-width: 35%;
 }
 
 #bottom-menu ul {
