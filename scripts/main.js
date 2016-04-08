@@ -9,11 +9,7 @@ $(document).ready(function(){
   is_mobile = md.mobile() != null || md.phone() != null;
 
   configure_for_devices();  
-
-  $('#map_lobby area').click(function(jsEvent){
-    alert('TODO');
-  });
-
+  
   $('#bottom-menu .menu a.menu-item').on('click', function(jsEvent){
     open_fancybox($(jsEvent.target));
   });
