@@ -17,9 +17,8 @@ $(document).ready(function(){
 
 window.onload = function(e){
   $('body').removeClass('hide');
-  $('#animations').attr('src', 'img/driving.gif');
   setImageSize();
-  setTimeout(go_for_a_walk, 2700);
+  setTimeout(go_for_a_walk, 2600);
 }
 
 function go_for_a_walk() {

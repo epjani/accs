@@ -86,6 +86,13 @@ function get_read_element($target) {
 
 function read_lobby_document(id) {
 	lobby_events.clicked_areas[id] = true;
+	if (lobby_events.documents_read()) {
+		open_exam_room();
+	}
+}
+
+function open_exam_room() {
+	$('.lobby img#lobby').attr('src', "img/lobby-open.jpg");
 }
 
 function is_read(doc_id) {
