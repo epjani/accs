@@ -50,7 +50,7 @@ function open_fancybox($el) {
 }
 
 function set_tooltip_styles() {
-  $('area').tooltip({
+  $('area:not(.skip-tooltip)').tooltip({
     track: true,
     position: {
       my: "center bottom-20",
