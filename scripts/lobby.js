@@ -20,7 +20,7 @@ function lobby_click_events() {
 
     if ($target !== undefined) {
     	read_lobby_document($target.attr('id'));
-    }
+    }    
   });
 }
 

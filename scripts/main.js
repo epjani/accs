@@ -13,6 +13,12 @@ $(document).ready(function(){
     open_fancybox($(jsEvent.target));
   });
   set_tooltip_styles();
+
+  $('area').click(function(jsEvent){
+    href = $(jsEvent.target).attr('href');
+    if (href == '#' || href == '')
+      return false;
+  });
 });
 
 window.onload = function(e){
@@ -23,7 +29,7 @@ window.onload = function(e){
 
 function go_for_a_walk() {
   $('#animations').attr('src', 'img/walking.gif');
-  setTimeout(enter_lobby, 3000);
+  setTimeout(enter_lobby, 3100);
 }
 
 function enter_lobby() {
