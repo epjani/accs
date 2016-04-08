@@ -13,6 +13,8 @@ area { outline: none; display: inline-block; }
   color: #4c4d4e;
 }
 
+.hide { display: none; }
+
 .fancybox .header {
   border-bottom: 1px solid #bfbdbf;
   text-align: left;

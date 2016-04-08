@@ -3,8 +3,7 @@ BOTTOM_MENU_HEIGHT = 90;
 var is_mobile = false;
 
 $(document).ready(function(){
-  $('#animations').attr('src', 'img/driving.gif');
-
+  
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
 
@@ -14,10 +13,11 @@ $(document).ready(function(){
     open_fancybox($(jsEvent.target));
   });
   set_tooltip_styles();
-  setImageSize();
 });
 
 window.onload = function(e){
+  $('body').removeClass('hide');
+  $('#animations').attr('src', 'img/driving.gif');
   setImageSize();
   setTimeout(go_for_a_walk, 2700);
 }
