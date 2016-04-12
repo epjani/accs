@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'felt_tipregular';
+    src: url('../fonts/felt_tip_roman-webfont.eot');
+    src: url('../fonts/felt_tip_roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/felt_tip_roman-webfont.woff2') format('woff2'),
+         url('../fonts/felt_tip_roman-webfont.woff') format('woff'),
+         url('../fonts/felt_tip_roman-webfont.ttf') format('truetype'),
+         url('../fonts/felt_tip_roman-webfont.svg#felt_tipregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html, body {
 	margin: 0;
 	width: 100%;
@@ -181,10 +194,29 @@ area { outline: none; display: inline-block; }
   max-width:100%;
 }
 
-.lobby { display: none; }
+.lobby { 
+  display: none; 
+  margin: 0 auto; 
+  position: relative;
+}
+
+.lobby .bg-image { width: 100%; height: 100%; }
 #map_lobby, #lobby { display: none; }
 #map_lobby { position: absolute; }
 
+.lobby .whiteboard {
+  width: 9.5%;
+  height: 16%;
+  position: absolute;
+  top: 19.2%;
+  left: 24.5%;
+  padding-left: 1%;
+}
+
+.lobby .whiteboard img { width: 100%; }
+.lobby .whiteboard #cs2 img, .lobby .whiteboard #cs3 img { margin-top: 5px; }
+.lobby .whiteboard #cs2 img { margin-left: -2px; }
+.lobby .whiteboard #cs3 img { margin-left: -4px; }
 .ui-tooltip, .arrow:after {
   background: #FFF;
   border: 2px solid white;
