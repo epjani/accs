@@ -1,14 +1,16 @@
+// Triggers and events shared accross the app
+
 BOTTOM_MENU_HEIGHT = 90;
 
 var is_mobile = false;
 
 $(document).ready(function(){
-  
+
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
 
-  configure_for_devices();  
-  
+  configure_for_devices();
+
   $('#bottom-menu .menu a.menu-item').on('click', function(jsEvent){
     open_fancybox($(jsEvent.target));
   });

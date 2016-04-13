@@ -10,7 +10,8 @@ var lobby_events = {
 	bind_click_events: lobby_click_events(),
 	bind_go_to_exam_events: lobby_go_to_case_study_click(),
 	documents_read: are_documents_read,
-	read_documents: read_all_the_documents
+	read_documents: read_all_the_documents,
+	hide_room: hide_lobby
 };
 
 
@@ -20,7 +21,7 @@ function lobby_click_events() {
 
     if ($target !== undefined) {
     	read_lobby_document($target.attr('id'));
-    }    
+    }
   });
 }
 
@@ -43,7 +44,7 @@ function read_all_the_documents() {
 }
 
 function lobby_go_to_case_study_click() {
-	$('.go-to-exam, .select-case-study').click(function(jsEvent) {
+	$('.cs-selection').click(function(jsEvent) {
 		if (lobby_events.documents_read()) {
 			go_to_case_study();
 		} else {
@@ -53,7 +54,12 @@ function lobby_go_to_case_study_click() {
 }
 
 function go_to_case_study() {
-	alert('TODO: implement next room');
+	hide_lobby();
+	exam_room_events.enter_room();
+}
+
+function hide_lobby() {
+	$('.container .lobby').hide();
 }
 
 function lobby_requirements_warning() {

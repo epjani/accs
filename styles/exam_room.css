@@ -1,0 +1,22 @@
+.exam-room .ticker {
+  width: 41.5%;
+  position: absolute;
+  top: 2.2%;
+  left: 17.2%;
+  font-size: 100%;
+}
+
+.exam-room .ticker img {
+  width: 100%;
+}
+
+.exam-room .ticker .content {
+  font-family: 'digital-7_italic';
+  position: absolute;
+  top: 28%;
+  left: 0;
+  color: #fff;
+  font-size: 3.5vh;
+  width: 94%;
+  margin-left: 3%;
+}

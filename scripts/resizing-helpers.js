@@ -1,3 +1,5 @@
+// Helpers intendeng for resizing
+
 function setImageSize(){
   if(is_mobile) {
     return;
