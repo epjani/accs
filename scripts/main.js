@@ -67,6 +67,26 @@ function set_tooltip_styles() {
       }
     }
   });
+
+  $('.tt-bubble').tooltip({    
+    position: {
+      my: "left bottom",
+      at: "right-20 center",         
+      collision: "fit",
+
+    },
+    tooltipClass: "tooltip-bubble",
+    content: function() {
+      var content = $("<div class='content'>");
+      var imgEl = $("<img alt='' src='img/tt-bubble.png' />");
+      var textEl = $("<div class='text'>");
+      textEl.text($(this).attr("title"));
+      content.append(imgEl);
+      content.append(textEl);
+      
+      return content;
+    }
+  });
 }
 
 function configure_for_devices() {
