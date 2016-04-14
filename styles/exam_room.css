@@ -35,7 +35,9 @@
   font-size: 5.3vh;
   top: 16%;
   position: absolute;
-  left: 7%;
+  width: 100%;
+  left: 0;
 }
 
-.exam-room .clock .content .minutes, .exam-room .clock .content .seconds { float: left; margin-left: 10px; }
+.exam-room .clock .content .minutes { left: 7%; }
+.exam-room .clock .content .seconds { right: 7%; }

@@ -14,7 +14,6 @@ function setImageSize(){
   var height = $image.height();
 
   dimensions = calculateAspectRatioFit(width, height, max_width, max_height);
-  console.log(dimensions);
 
   $image.css('width', dimensions.width).css('height', dimensions.height);
   setFooterWidth(dimensions.width);
