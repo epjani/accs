@@ -1,6 +1,7 @@
 // Triggers and events shared accross the app
 
 BOTTOM_MENU_HEIGHT = 90;
+LANGUAGE = 'en';
 
 var is_mobile = false;
 

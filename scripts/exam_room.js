@@ -3,9 +3,11 @@ var exam_room_events = {
   countdown: start_counter
 };
 
-function show_exam_room() {
+function show_exam_room(case_study) {
+  set_exam_room_assets(case_study);
   $('.container .exam-room').show();
   setImageSize();
+  start_counter();
 }
 
 function start_counter() {
@@ -27,4 +29,13 @@ function display_time(minutes, seconds) {
   $clock = $('.exam-room .clock .content');
   $clock.find('.minutes').text(minutes);
   $clock.find('.seconds').text(seconds);
+}
+
+function set_exam_room_assets(case_study) {
+  poster_1 = assets_events.exam_room_asset(case_study, 'poster_1');
+  poster_2 = assets_events.exam_room_asset(case_study, 'poster_2');
+  tv = assets_events.exam_room_asset(case_study, 'tv');
+
+  $('.exam-room #poster_1 img').attr('src', poster_1);
+  $('.exam-room #poster_2 img').attr('src', poster_2);
 }
