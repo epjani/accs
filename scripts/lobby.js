@@ -45,17 +45,24 @@ function read_all_the_documents() {
 
 function lobby_go_to_case_study_click() {
 	$('.cs-selection').click(function(jsEvent) {
+
 		if (lobby_events.documents_read()) {
-			go_to_case_study();
+			$target = $(jsEvent.target);
+			if ($target.hasClass('cs-selection')) {
+				case_study = $target.attr('id');
+			} else {
+				case_study = $target.parents('.cs-selection').first().attr('id');
+			}
+			go_to_case_study(case_study);
 		} else {
 			lobby_requirements_warning();
 		}
 	});
 }
 
-function go_to_case_study() {
+function go_to_case_study(case_study) {
 	hide_lobby();
-	exam_room_events.enter_room();
+	exam_room_events.enter_room(case_study);
 }
 
 function hide_lobby() {
