@@ -1,22 +1,41 @@
 .exam-room .ticker {
   width: 41.5%;
   position: absolute;
-  top: 2.2%;
+  top: 2.3%;
   left: 17.2%;
   font-size: 100%;
 }
 
-.exam-room .ticker img {
+.exam-room .ticker img, .exam-room .clock img {
   width: 100%;
 }
 
 .exam-room .ticker .content {
   font-family: 'digital-7_italic';
   position: absolute;
-  top: 28%;
+  top: 31%;
   left: 0;
   color: #fff;
   font-size: 3.5vh;
   width: 94%;
   margin-left: 3%;
 }
+
+.exam-room .clock {
+  width: 12.5%;
+  position: absolute;
+  top: 2%;
+  left: 3%;
+  font-size: 100%;
+}
+
+.exam-room .clock .content {
+  font-family: 'digital-7_italic';
+  color: #fff;
+  font-size: 5.3vh;
+  top: 16%;
+  position: absolute;
+  left: 7%;
+}
+
+.exam-room .clock .content .minutes, .exam-room .clock .content .seconds { float: left; margin-left: 10px; }
