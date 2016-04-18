@@ -52,6 +52,8 @@ area { outline: none; display: inline-block; }
   color: #4c4d4e;
 }
 
+img { outline: none; border: none; }
+
 .hide { display: none; }
 
 .fancybox .header {
@@ -241,6 +243,7 @@ area { outline: none; display: inline-block; }
 
 .lobby .whiteboard a {
   display: block;
+  margin-top: 2px;
 }
 
 .lobby .whiteboard img { width: 100%; }

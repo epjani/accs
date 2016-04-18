@@ -27,12 +27,7 @@ $(document).ready(function(){
 window.onload = function(e){
   $('body').removeClass('hide');
   setImageSize();
-  setTimeout(go_for_a_walk, 2600);
-}
-
-function go_for_a_walk() {
-  $('#animations').attr('src', 'img/walking.gif');
-  setTimeout(enter_lobby, 3100);
+  setTimeout(enter_lobby, 6600);
 }
 
 function enter_lobby() {

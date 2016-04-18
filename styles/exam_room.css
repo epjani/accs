@@ -75,3 +75,15 @@
 .exam-room #tv img {
   width: 100%;
 }
+
+
+/* Firefox specific styles */
+@-moz-document url-prefix() {
+  .exam-room .ticker .content {
+    top: 25%;
+  }
+
+  .exam-room .clock .content {
+    top: 10%;
+  }
+}
