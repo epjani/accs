@@ -118,15 +118,14 @@ function set_whiteboard_tooltip() {
 		track: true,  
     position: {
       my: "left bottom",
-      collision: "fit",
-
+      collision: "fit"
     },
     tooltipClass: "tooltip-bubble",
     content: function() {
       var content = $("<div class='content'>");
       var imgEl = $("<img alt='' src='img/tt-bubble.png' />");
       var textEl = $("<div class='text'>");
-      textEl.text($(this).data("bubble-text"));
+      textEl.text($(this).data("tt-bubble-text"));
       content.append(imgEl);
       content.append(textEl);
       
