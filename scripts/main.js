@@ -27,7 +27,8 @@ $(document).ready(function(){
 window.onload = function(e){
   $('body').removeClass('hide');
   setImageSize();
-  setTimeout(enter_lobby, 6600);
+  // setTimeout(enter_lobby, 6600);
+  enter_lobby();
 }
 
 function enter_lobby() {

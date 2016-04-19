@@ -1,12 +1,12 @@
 var exam_room_events = {
   enter_room: show_exam_room,
-  countdown: start_counter
+  countdown: start_counter,
+  iphone_questions: {}
 };
 
 function show_exam_room(case_study) {
   set_exam_room_assets(case_study);
-  $('.container .exam-room').show();
-  setImageSize();
+  $('.container .exam-room').show();  
   start_counter();
 }
 
@@ -32,6 +32,7 @@ function display_time(minutes, seconds) {
 }
 
 function set_exam_room_assets(case_study) {
+  setup_questions(case_study);
   poster_1 = assets_events.exam_room_asset(case_study, 'poster_1');
   poster_2 = assets_events.exam_room_asset(case_study, 'poster_2');
   tv = assets_events.exam_room_asset(case_study, 'tv');
@@ -39,3 +40,27 @@ function set_exam_room_assets(case_study) {
   $('.exam-room #poster_1 img').attr('src', poster_1);
   $('.exam-room #poster_2 img').attr('src', poster_2);
 }
+
+
+function setup_questions(case_study) {
+  exam_room_events.iphone_questions = IPHONE[LANGUAGE][case_study];
+}
+
+function start_exam($el) {
+  $el = $el.closest('.exam');
+
+  $.fancybox({
+    href: '#' + $el.attr('id') + '-exam',
+    width: '100%',
+    height: '100%',
+    autoSize: false,
+    margin: 0,
+    closeBtn: false
+  });
+}
+
+$(document).ready(function(){
+  $('.exam-room .exam').on('click', function(jsEvent){
+    start_exam($(jsEvent.target));
+  });
+});

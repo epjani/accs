@@ -32,13 +32,13 @@
 			<div class="lobby resizable">
 				<img name="lobby" src="img/lobby.jpg" width="2200" height="1197" id="lobby" usemap="#map_lobby" alt="" class="hide-on-mobile bg-image" />
 				<div class="whiteboard">
-					<a id="case_study_1" class="cs-selection tt-bubble" href="#" title="Select Case Study">
+					<a id="case_study_1" class="cs-selection tt-bubble" href="#" title="Select Case Study" data-case-study="premium_products">
 						<img src="img/whiteboard/case_study1.png" />
 					</a>
-					<a id="case_study_2" class="cs-selection tt-bubble" href="#" title="Select Case Study">
+					<a id="case_study_2" class="cs-selection tt-bubble" href="#" title="Select Case Study" data-case-study="leisure_group">
 						<img src="img/whiteboard/case_study2.png" />
 					</a>
-					<a id="case_study_3" class="cs-selection tt-bubble" href="#" title="Select Case Study">
+					<a id="case_study_3" class="cs-selection tt-bubble" href="#" title="Select Case Study" data-case-study="network_fleet">
 						<img  src="img/whiteboard/case_study3.png" />
 					</a>
 				</div>
@@ -87,19 +87,32 @@
 				</div>
 
 				<div id="tv">
-					<a href="#" class="exam tv" > <img src="img/exam_room/en/case_study_1/tv.png" alt="Tv" /> </a>
+					<a href="#" class="exam tv" > <img src="img/exam_room/tv.png" alt="Tv" /> </a>
 				</div>
 
 				<img name="exam_room" src="img/exam_room.jpg" width="2200" height="1197" id="exam_room" usemap="#map_exam_room" alt="" class="hide-on-mobile bg-image" />
 
 				<map name="map_exam_room" id="map_exam_room">
 					<area shape="rect" coords="2198,1195,2200,1197" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0" />
-					<area id="mobile" href="#" shape="poly" coords="265,901,344,892,360,1056,284,1067" style="outline:none;" target="_self" />
-					<area id="pc" href="#" shape="poly" coords="1069,1060,1099,1056,1138,1083,1155,1126,1135,1135,1105,1126,1072,1091" style="outline:none;" target="_self"     />
-					<area id="phone" href="#" shape="poly" coords="1305,1008,1291,970,1307,949,1284,869,1269,869,1262,835,1282,819,1320,818,1352,882,1372,945,1380,988,1363,1006" style="outline:none;" target="_self"     />
+					<area id="iphone" class="exam" href="#" shape="poly" coords="265,901,344,892,360,1056,284,1067" style="outline:none;" target="_self" />
+					<area id="pc" class="exam" href="#" shape="poly" coords="1069,1060,1099,1056,1138,1083,1155,1126,1135,1135,1105,1126,1072,1091" style="outline:none;" target="_self"     />
+					<area id="phone" class="exam" href="#" shape="poly" coords="1305,1008,1291,970,1307,949,1284,869,1269,869,1262,835,1282,819,1320,818,1352,882,1372,945,1380,988,1363,1006" style="outline:none;" target="_self"     />
 					<area id="coffee" href="#" shape="poly" coords="1547,1144,1582,1139,1603,957,1588,938,1543,932,1497,940,1485,958,1509,1131,1523,1138" style="outline:none;" target="_self"     />
 					<area id="end_exam" href="#" shape="poly" coords="1018,666,1018,178,1279,175,1282,646" style="outline:none;" target="_self"     />
 				</map>
+
+				<!-- .exams -->
+				<div class="exams">
+					<div class="fb-exam hide" id="iphone-exam">
+						<div class="header">
+
+						</div>
+						<div class="content">
+							
+						</div>						
+					</div>
+				</div>
+				<!-- .exams -->
 			</div>
 			<!-- .exam-room -->
 
@@ -201,6 +214,7 @@
 		<script type="text/javascript" src="scripts/lobby.js"></script>
 		<script type="text/javascript" src="scripts/exam_room.js"></script>
 		<script type="text/javascript" src="scripts/configurations/assets_sources.js"></script>
+		<script type="text/javascript" src="scripts/configurations/questions.js"></script>
 		<script type="text/javascript" src="scripts/lib/imageMapResizer.min.js"></script>
 		<script type="text/javascript" src="scripts/lib/fancybox/jquery.fancybox.pack.js"></script>
 	</body>
