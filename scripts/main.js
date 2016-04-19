@@ -15,7 +15,9 @@ $(document).ready(function(){
   $('#bottom-menu .menu a.menu-item').on('click', function(jsEvent){
     open_fancybox($(jsEvent.target));
   });
-  set_tooltip_styles();
+
+  init_bubble_tooltips('.tt-bubble', 'small');
+  init_area_bubble_tooltips('.area-tt-bubble', 'small');
 
   $('area').click(function(jsEvent){
     href = $(jsEvent.target).attr('href');
@@ -48,24 +50,6 @@ function open_fancybox($el) {
   });
 }
 
-function set_tooltip_styles() {
-  $('area:not(.skip-tooltip)').tooltip({
-    track: true,
-    position: {
-      my: "center bottom-20",
-      at: "center top",
-      using: function( position, feedback ) {
-        $( this ).css( position );
-        $( "<div>" )
-          .addClass( "arrow" )
-          .addClass( feedback.vertical )
-          .addClass( feedback.horizontal )
-          .appendTo( this );
-      }
-    }
-  });
-}
-
 function configure_for_devices() {
   if (is_mobile) {
     $('body').addClass('mobile-view');
@@ -79,4 +63,66 @@ function configure_for_devices() {
 
 function toggle_menu() {
   $("#top-menu .links").toggle();
+}
+
+function init_bubble_tooltips(selector, tt_class) {
+  $(selector).tooltip({ 
+    position: {
+      my: "left bottom",
+      at: "center center"
+    },
+    tooltipClass: "tooltip-bubble " + tt_class,
+    content: function() {
+      return getBubbleContent.call(this, tt_class);
+    }
+  });
+}
+
+function init_area_bubble_tooltips(selector, tt_class) {
+  $(selector).tooltip({ 
+    track: true,
+    position: {
+      using: function(_, feedback) {
+        var center = getAreaCenter(feedback.target.element[0].toElement);
+        $(this).css({top: center.y - 110, left: center.x + 170})
+      }
+    },
+    tooltipClass: "tooltip-bubble " + tt_class,
+    content: function() {
+      return getBubbleContent.call(this, tt_class);
+    }
+  });
+}
+
+function getBubbleContent(tt_class) {
+  var content = $("<div class='content'>");
+  var img_url = tt_class == 'small' ? 'img/tt-bubble-small.png' : 'img/tt-bubble.png';
+  var imgEl = $("<img alt='' src='" + img_url + "' />");
+  var textEl = $("<div class='text'>");
+  textEl.text($(this).data("tt-text"));
+  content.append(imgEl);
+  content.append(textEl);
+  
+  return content;
+}
+
+function getAreaCenter(area) {
+  var maxX = 0, minX = Infinity, maxY = 0, minY = Infinity;
+  var i = 0, coords = area.getAttribute('coords').split(',');
+
+  while (i < coords.length) {
+      var x = parseInt(coords[i++],10),
+          y = parseInt(coords[i++],10);
+
+      if (x < minX) minX = x;
+      else if (x > maxX) maxX = x;
+
+      if (y < minY) minY = y;
+      else if (y > maxY) maxY = y;
+  }
+
+  return {
+      x: minX + (maxX - minX) / 2,
+      y: minY + (maxY - minY) / 2
+  };
 }

@@ -103,4 +103,7 @@
   .exam-room .clock .content {
     top: 10%;
   }
+
+.exam-room #poster_1 a, .exam-room #poster_2 a, .exam-room #tv a {
+  display: block;
 }

@@ -7,6 +7,7 @@ var exam_room_events = {
 function show_exam_room(case_study) {
   set_exam_room_assets(case_study);
   $('.container .exam-room').show();  
+  $('map').imageMapResize();
   start_counter();
 }
 
