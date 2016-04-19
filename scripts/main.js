@@ -69,7 +69,8 @@ function init_bubble_tooltips(selector, tt_class) {
   $(selector).tooltip({ 
     position: {
       my: "left bottom",
-      at: "center center"
+      at: "center center",
+      collision: "fit"
     },
     tooltipClass: "tooltip-bubble " + tt_class,
     content: function() {

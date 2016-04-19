@@ -94,6 +94,10 @@
   background-color: #d7d7d7 !important;
 }
 
+.exam-room #poster_1 a, .exam-room #poster_2 a, .exam-room #tv a {
+  display: block;
+}
+
 /* Firefox specific styles */
 @-moz-document url-prefix() {
   .exam-room .ticker .content {
@@ -103,7 +107,4 @@
   .exam-room .clock .content {
     top: 10%;
   }
-
-.exam-room #poster_1 a, .exam-room #poster_2 a, .exam-room #tv a {
-  display: block;
 }
