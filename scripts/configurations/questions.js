@@ -8,32 +8,32 @@ var IPHONE = {
 						{
 							question: "Air Canada’s International Business Class service features luxurious amenities and priority services and provides the ultimate in comfort and convenience with seats that recline:", 
 							answers: [ 
-								{valid: false, text: "130 degree"}, 
-								{valid: false, text: "145 degree"}, 
-								{valid: false, text: "170 degree"}, 
-								{valid: true, text: "Into fully flat beds over 6 feet in length"}
+								{ text: "130 degree"}, 
+								{ text: "145 degree"}, 
+								{ text: "170 degree"}, 
+								{ text: "Into fully flat beds over 6 feet in length"}
 							],
 							valid: [3]
 						},
 						{ 
 							question: "The new Executive Pods on Air Canada’s Boeing 787 aircraft are now also being installed on Air Canada’s fleet of:", 
 							answers: [ 
-								{valid: false, text: "Boeing 767"}, 
-								{valid: true, text: "Boeing 777"}, 
-								{valid: false, text: "Airbus A380"}, 
-								{valid: false, text: "Airbus A321"}
+								{ text: "Boeing 767"}, 
+								{ text: "Boeing 777"}, 
+								{ text: "Airbus A380"}, 
+								{ text: "Airbus A321"}
 							],
-							valid: [2]
+							valid: [1]
 						},
 						{ 
 							question: "International Business Class passengers on Air Canada can expect access to the airport priority services such as Priority Check-in,  Priority Boarding and Priority Security Clearance, as well as: (select all that apply)", 
 							answers: [ 
-								{valid: false, text: "Preferred seating at airport gates"}, 
-								{valid: true, text: "Priority Baggage Handling"}, 
-								{valid: true, text: "Complimentary Maple Leaf Lounge access"}, 
-								{valid: true, text: "Assistance from Air Canada’s Concierge agents"}
+								{ text: "Preferred seating at airport gates"}, 
+								{ text: "Priority Baggage Handling"}, 
+								{ text: "Complimentary Maple Leaf Lounge access"}, 
+								{ text: "Assistance from Air Canada’s Concierge agents"}
 							],
-							valid: [2,3,4]
+							valid: [1,2,3]
 						}
 					]					
 				}				

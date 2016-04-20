@@ -1,7 +1,8 @@
 var exam_room_events = {
   enter_room: show_exam_room,
   countdown: start_counter,
-  iphone_questions: {}
+  iphone_questions: {},
+  total_points: 0
 };
 
 function show_exam_room(case_study) {
@@ -74,7 +75,7 @@ function set_questions($container, questions) {
     $question.find('.text').text(val['question']);
 
     $.each(val['answers'], function(i, answer) {
-      html = '<input type="checkbox" value="' + i + '" />' + answer['text'] + '<br />';
+      html = '<input type="checkbox" name="question_' + index + '" value="' + i + '" />' + answer['text'] + '<br />';
       $question.find('.answers').append(html);
     });
   });
@@ -117,8 +118,36 @@ function change_next_btn_label($container, id) {
   $container.find('.next-btn').text(label);
 }
 
-function submit_exam() {
-  // TODO
+function submit_exam(id) {
+  $container = $('.fb-exam#' + id + '-exam .questions');
+  calculate_points($container, id);
+  
+}
+
+function calculate_points($container, id) {
+  exam_room_events.total_points += get_question_points($container, 0, id);
+  exam_room_events.total_points += get_question_points($container, 1, id);
+  exam_room_events.total_points += get_question_points($container, 2, id);
+}
+
+function get_question_points($container, index, id) {
+  var checked = $container.find('.question_' + index + ' input[type="checkbox"]:checked');
+  var answers = extract_correct_answers(checked);
+  var valid_answers = get_selected_questions(id)['scenarios'][0]['questions'][index]['valid'];
+  var points = array_equal(answers, valid_answers) ? 10 : -5;
+  return points;
+}
+
+function extract_correct_answers(checkboxes) {
+  var answers = [];
+  $.each(checkboxes, function(i, c) {
+    answers.push(parseInt($(c).val()));
+  });
+  return answers;
+}
+
+function array_equal(arr1, arr2) {
+  return $(arr1).not(arr2).length === 0 && $(arr2).not(arr1).length === 0;
 }
 
 $(document).ready(function(){
