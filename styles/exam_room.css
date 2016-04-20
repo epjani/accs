@@ -19,10 +19,11 @@
   font-size: 3.5vh;
   width: 94%;
   margin-left: 3%;
+  color: #0080a5;
 }
 
 .exam-room .clock {
-  width: 12.5%;
+  width: 11.8%;
   position: absolute;
   top: 2%;
   left: 3%;
@@ -33,15 +34,24 @@
   font-family: 'digital-7_italic';
   color: #fff;
   font-size: 5.3vh;
-  top: 16%;
+  top: 20%;
   position: absolute;
   width: 100%;
   left: 0;
+  color: #c81022;
 }
 
 .exam-room .clock .content .minutes { left: 7%; }
 .exam-room .clock .content .seconds { right: 7%; }
 
+.exam-room .total-points { 
+  position: absolute;
+  top: 12%;
+  left: 4.3%;
+  font-size: 4vh;
+  font-weight: bold;
+  color: #c81022;
+}
 .exam-room #poster_1 {
   width: 19%;
   position: absolute;

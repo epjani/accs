@@ -2,7 +2,8 @@ var exam_room_events = {
   enter_room: show_exam_room,
   countdown: start_counter,
   iphone_questions: {},
-  total_points: 0
+  total_points: 0,
+  finished_scenarios: []
 };
 
 function show_exam_room(case_study) {
@@ -63,6 +64,7 @@ function attach_questions(id) {
   $container = $('.fb-exam#' + id + '-exam');
   set_scenario_text($container, questions);
   set_questions($container, questions);
+  change_next_btn_label($container, id);
 }
 
 function set_scenario_text($container, questions) {
@@ -119,9 +121,35 @@ function change_next_btn_label($container, id) {
 }
 
 function submit_exam(id) {
-  $container = $('.fb-exam#' + id + '-exam .questions');
+  $container = $('.fb-exam#' + id + '-exam .questions');  
   calculate_points($container, id);
-  
+  set_score();
+  exam_room_events.finished_scenarios.push(id);
+  clean_scenario($container, id);
+  $.fancybox.close();
+}
+
+function clean_scenario($container, id) {
+  $container.find('.question').addClass('hide');
+  $container.find('.scenario-text').removeClass('hide');
+  clean_scenario_content($container, id);
+  update_exam_room_assets();
+}
+
+function update_exam_room_assets() {
+
+}
+
+function clean_scenario_content($container, id) {
+  $container.find('.scenario-text').html('');
+  $.each($container.find('.question'), function(i, q) {
+    $(q).find('.text').html('');
+    $(q).find('.answers').html('');
+  });
+}
+
+function set_score() {
+  $('.exam-room .total-points').text('Score: ' + exam_room_events.total_points);
 }
 
 function calculate_points($container, id) {
