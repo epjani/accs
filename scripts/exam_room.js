@@ -47,11 +47,46 @@ function setup_questions(case_study) {
   exam_room_events.iphone_questions = IPHONE[LANGUAGE][case_study];
 }
 
+function get_selected_questions(id) {
+  questions = [];
+  switch (id) {
+    case 'iphone':
+      questions = exam_room_events.iphone_questions; break; 
+  }
+
+  return questions;
+}
+
+function attach_questions(id) {
+  questions = get_selected_questions(id);
+  $container = $('.fb-exam#' + id + '-exam');
+  set_scenario_text($container, questions);
+  set_questions($container, questions);
+}
+
+function set_scenario_text($container, questions) {
+  $container.find('.scenario-text').text(questions['scenarios'][0]['text']);
+}
+
+function set_questions($container, questions) {
+  $.each(questions['scenarios'][0]['questions'], function(index, val) {
+    $question = $container.find('.question_' + index);
+    $question.find('.text').text(val['question']);
+
+    $.each(val['answers'], function(i, answer) {
+      html = '<input type="checkbox" value="' + i + '" />' + answer['text'] + '<br />';
+      $question.find('.answers').append(html);
+    });
+  });
+}
+
 function start_exam($el) {
   $el = $el.closest('.exam');
+  id = $el.attr('id');
+  attach_questions(id);
 
   $.fancybox({
-    href: '#' + $el.attr('id') + '-exam',
+    href: '#' + id + '-exam',
     width: '100%',
     height: '100%',
     autoSize: false,
@@ -60,8 +95,46 @@ function start_exam($el) {
   });
 }
 
+function get_next_prev_btn_reference($target, type) {
+  $container = $target.parents('.fb-exam').first().find('.questions');
+  return $container.children("[data-" + type + "-btn]:visible").first();
+}
+
+function next_question(id) {
+  if (id === null) {
+    $.fancybox.close();
+    return;
+  }  
+
+  $scope = $('.fb-exam:visible');
+  change_next_btn_label($scope, id)
+  $scope.find('.question').addClass('hide');
+  $scope.find('.question.question_' + id).removeClass('hide');
+}
+
+function change_next_btn_label($container, id) {
+  label = id == '2' || id == 2 ? 'Submit' : 'Next';
+  $container.find('.next-btn').text(label);
+}
+
+function submit_exam() {
+  // TODO
+}
+
 $(document).ready(function(){
   $('.exam-room .exam').on('click', function(jsEvent){
     start_exam($(jsEvent.target));
+  });
+
+  $('.exam-room .exams .next-btn').on('click', function(jsEvent) {
+    $target = $(jsEvent.target);    
+    reference = get_next_prev_btn_reference($target, 'next').data('next-btn');
+    eval(reference);
+  });
+
+  $('.exam-room .exams .back-btn').on('click', function(jsEvent) {
+    $target = $(jsEvent.target);    
+    reference = get_next_prev_btn_reference($target, 'back').data('back-btn');
+    eval(reference);
   });
 });
