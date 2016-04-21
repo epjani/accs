@@ -72,6 +72,8 @@ function init_bubble_tooltips(selector, tt_class) {
       at: "center center",
       collision: "fit"
     },
+    show: { delay: 300 },
+    track: true,
     tooltipClass: "tooltip-bubble " + tt_class,
     content: function() {
       return getBubbleContent.call(this, tt_class);
