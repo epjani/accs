@@ -68,18 +68,23 @@ function attach_questions(id) {
 }
 
 function set_scenario_text($container, questions) {
-  $container.find('.scenario-text').text(questions['scenarios'][0]['text']);
+  $scenario_text = $container.find('.scenario-text');
+
+  if ($scenario_text.text().trim() == "")
+    $scenario_text.text(questions['scenarios'][0]['text']);
 }
 
 function set_questions($container, questions) {
   $.each(questions['scenarios'][0]['questions'], function(index, val) {
     $question = $container.find('.question_' + index);
-    $question.find('.text').text(val['question']);
+    if ($question.find('.text').text().trim() == "") {
+      $question.find('.text').text(val['question']);
 
-    $.each(val['answers'], function(i, answer) {
-      html = '<input type="checkbox" name="question_' + index + '" value="' + i + '" />' + answer['text'] + '<br />';
-      $question.find('.answers').append(html);
-    });
+      $.each(val['answers'], function(i, answer) {
+        html = '<input type="checkbox" name="question_' + index + '" value="' + i + '" />' + answer['text'] + '<br />';
+        $question.find('.answers').append(html);
+      });
+    }
   });
 }
 

@@ -6,10 +6,6 @@
   font-size: 100%;
 }
 
-.exam-room .ticker img, .exam-room .clock img {
-  width: 100%;
-}
-
 .exam-room .ticker .content {
   font-family: 'digital-7_italic';
   position: absolute;
@@ -59,19 +55,11 @@
   left: 17%;
 }
 
-.exam-room #poster_1 img {
-  width: 100%;
-}
-
 .exam-room #poster_2 {
   width: 8.7%;
   position: absolute;
   top: 17.8%;
   left: 36.5%;
-}
-
-.exam-room #poster_2 img {
-  width: 100%;
 }
 
 .exam-room #tv {
@@ -82,9 +70,54 @@
   transform: skew(0deg, 5deg);
 }
 
-.exam-room #tv img {
-  width: 100%;
+.exam-room .iphone-trigger {
+  position: absolute;
+  bottom: 6%;
+  width: 5.5%;
+  left: 11%;
 }
+
+.exam-room .mouse-trigger {
+  position: absolute;
+  bottom: 3.3%;
+  width: 34%;
+  left: 20%;
+}
+
+.exam-room .mouse-trigger a {
+  width: 12%;
+  height: 62%;
+  position: absolute;
+  right: 1%;
+  top: 27%;
+}
+
+.exam-room .phone-trigger {
+  position: absolute;
+  bottom: 14.3%;
+  width: 12%;
+  right: 36%;
+}
+
+.exam-room .break-trigger {
+  position: absolute;
+  bottom: 4%;
+  width: 6%;
+  height: 18%;
+  right: 26.5%;
+}
+.exam-room .break-trigger a, .exam-room .exit-trigger a { height: 100%; width: 100%; }
+
+.exam-room .exit-trigger {
+  position: absolute;
+  top: 15%;
+  width: 12%;
+  height: 40%;
+  right: 41.5%;
+}
+
+.exam-room .fluid img { width: 100%; }
+.exam-room .fluid a { display: block; }
 
 .fancybox-overlay.iphone {
   background: #fff;

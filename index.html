@@ -66,7 +66,7 @@
 
 			<!-- .exam-room -->
 			<div class="exam-room resizable">
-				<div class="clock">
+				<div class="clock fluid">
 					<img src="img/exam_room/clock.png" alt="Countdown" />
 					<span class="content">
 						<span class="minutes"></span>
@@ -76,64 +76,60 @@
 				<div class="total-points">
 					Score: 0
 				</div>
-				<div class="ticker">
+				<div class="ticker fluid" >
 					<img src="img/exam_room/ticker.png" alt="Ticker" />
 					<div class="marquee content marquee-speed-normal" data-marquee="test text"></div>
 				</div>
 
-				<div id="poster_1">
-					<a href="#" class="exam poster_1 tt-bubble" title="" data-tt-text="View Me!" > 
-						<img src="" alt="Poster 1" /> 
-					</a>
+
+				<div id="poster_1" class="fluid">
+					<a href="#" class="exam poster_1 tt-bubble" title="" data-tt-text="View Me!" ><img src="" alt="Poster 1" /></a>
 				</div>
 
-				<div id="poster_2">
-					<a href="#" class="exam poster_2 tt-bubble" title="" data-tt-text="View Me!" >
-						<img src="" alt="Poster 2" />
-					</a>
+				<div id="poster_2" class="fluid">
+					<a href="#" class="exam poster_2 tt-bubble" title="" data-tt-text="View Me!" ><img src="" alt="Poster 2" /></a>
 				</div>
 
-				<div id="tv">
-					<a href="#" class="exam tv tt-bubble" title="" data-tt-text="Play Me!"> <img src="img/exam_room/tv.png" alt="Tv" /> </a>
+				<div id="tv" class="fluid">
+					<a href="#" class="exam tv tt-bubble" title="" data-tt-text="Play Me!"><img src="img/exam_room/tv.png" alt="Tv" /></a>
 				</div>
 
-				<img name="exam_room" src="img/exam_room.jpg" width="2200" height="1197" id="exam_room" usemap="#map_exam_room" alt="" class="hide-on-mobile bg-image" />
+				<div class="iphone-trigger fluid">
+					<a id="iphone" href="#" class="exam tt-bubble" title="" data-tt-text="Read Me!"><img src="img/exam_room/iphone.png" alt="Iphone" /></a>
+				</div>
 
-				<map name="map_exam_room" id="map_exam_room">
-					<area id="iphone" href="#" shape="poly" coords="265,901,344,892,360,1056,284,1067" class="exam area-tt-bubble" data-tt-text="Read Me!" title="" />
-					<area id="exit" href="#" shape="poly" coords="1021,178,1279,178,1279,644,1022,662" class="area-tt-bubble" data-tt-text="Exit" title="" />
-					<area id="coffee" href="#" shape="poly" coords="1547,1144,1582,1139,1603,957,1588,938,1543,932,1497,940,1485,958,1509,1131,1523,1138" style="outline:none;" target="_self"     />
-					<area id="phone" href="#" shape="poly" coords="1114,855,1127,835,1263,827,1279,816,1318,818,1363,898,1372,942,1380,988,1377,996,1383,1015,1375,1020,1157,1031,1148,1031" class="area-tt-bubble" data-tt-text="Answer Me!" title="" />
-					<area id="mouse" href="#" shape="poly" coords="1065,1064,1070,1089,1076,1101,1082,1112,1092,1121,1105,1127,1115,1136,1135,1140,1151,1138,1156,1122,1154,1106,1146,1087,1128,1071,1100,1056,1072,1054" class="area-tt-bubble" data-tt-text="Click Me!" title=""  />
-				</map>
+				<div class="mouse-trigger fluid">
+					<img src="img/exam_room/mouse.png" alt="Mouse" />
+					<a id="mouse" href="#" class="exam tt-bubble" title="" data-tt-text="Click Me!"></a>
+				</div>
+
+				<div class="phone-trigger fluid">
+					<a id="phone" href="#" class="exam tt-bubble" title="" data-tt-text="Answer Me!"><img src="img/exam_room/phone.png" alt="Phone" /></a>
+				</div>
+
+				<div class="break-trigger fluid"><a id="break" href="#" title=""></a></div>
+
+				<div class="exit-trigger fluid"><a id="exit" href="#" class="tt-bubble" data-tt-text="Exit" title=""></a></div>
+
+				<img name="exam_room" src="img/exam_room.jpg" width="2200" height="1197" id="exam_room" alt="" class="hide-on-mobile bg-image" />
 
 				<!-- .exams -->
 				<div class="exams">
 					<div class="fb-exam hide" id="iphone-exam">
-						<div class="header">
-
-						</div>
 						<div class="content">							
 							<div class="questions">
-								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);">
-								</div>
+								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
 								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
-									<p class="text">Lorem ipsum</p>
-									<div class="answers">
-
-									</div>
+									<p class="text"></p>
+									<div class="answers"></div>
 								</div>
 								<div class="question hide question_1" data-next-btn="next_question(2);" data-back-btn="next_question(0);">
-									<p class="text">Lorem ipsum</p>
-									<div class="answers">
-
-									</div>
+									<p class="text"></p>
+									<div class="answers"></div>
 								</div>
 								<div class="question hide question_2" data-next-btn="submit_exam('iphone');" data-back-btn="next_question(1);">
-									<p class="text">Lorem ipsum</p>
-									<div class="answers">
-
-									</div>
+									<p class="text"></p>
+									<div class="answers"></div>
 								</div>
 							</div>
 						</div>

@@ -127,3 +127,11 @@ function getAreaCenter(area) {
       y: minY + (maxY - minY) / 2
   };
 }
+
+if (typeof(String.prototype.trim) === "undefined")
+{
+    String.prototype.trim = function() 
+    {
+        return String(this).replace(/^\s+|\s+$/g, '');
+    };
+}
