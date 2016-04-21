@@ -116,8 +116,15 @@
 				<!-- .exams -->
 				<div class="exams">
 					<div class="fb-exam hide" id="iphone-exam">
-						<div class="content">							
-							<div class="questions">
+						<div class="content">
+							<div class="scenarios hide">
+								<div class="scenario-template">
+									<a href="#" class="start">
+										<div class="text"></div>
+									</a>
+								</div>
+							</div>		
+							<div class="questions q-template">
 								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
 								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
 									<p class="text"></p>
@@ -240,6 +247,7 @@
 		<script type="text/javascript" src="scripts/main.js"></script>
 		<script type="text/javascript" src="scripts/lobby.js"></script>
 		<script type="text/javascript" src="scripts/exam_room.js"></script>
+		<script type="text/javascript" src="scripts/exam_scenarios.js"></script>
 		<script type="text/javascript" src="scripts/configurations/assets_sources.js"></script>
 		<script type="text/javascript" src="scripts/configurations/questions.js"></script>
 		<script type="text/javascript" src="scripts/lib/imageMapResizer.min.js"></script>
