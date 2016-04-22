@@ -110,7 +110,7 @@ function change_next_btn_label($container, id) {
 
 function submit_exam(id) {
   var $container = $('.fb-exam#' + id + '-exam .questions.active');
-  if ($container.data('scenarios')) {
+  if ($container.data('scenario') != null && ($container.data('scenario') != undefined )) {
     $container.parents('.content').find('.scenarios .select-scenario-' + $container.data('scenario') + ' a').addClass('done');
   } else {
     $container.parents('.content').find('.scenarios a').addClass('done');
@@ -126,6 +126,7 @@ function submit_exam(id) {
 function set_exam_type_as_finished($container, id) {
   scenarios_count = get_selected_questions(id)['scenarios'].length;
   done_scenarios_count = $container.parents('.content').find('.scenarios a.done').length;
+
   if (done_scenarios_count >= scenarios_count) {
     exam_room_events.finished_scenarios.push(id);
     update_exam_room_assets();
@@ -169,7 +170,14 @@ function get_question_points($container, index, id) {
   var checked = $container.find('.question_' + index + ' input[type="checkbox"]:checked');
   var answers = extract_correct_answers(checked);
   var valid_answers = get_selected_questions(id)['scenarios'][0]['questions'][index]['valid'];
-  var points = array_equal(answers, valid_answers) ? 10 : -5;
+  if ($.isArray(valid_answers)) {
+    var points = array_equal(answers, valid_answers) ? 10 : -5;
+  } else {
+    var points = array_equal(answers, valid_answers['answers']) ? 10 : -5;
+    if (points < 0) {
+      points = array_equal(answers, valid_answers['aggregate']) ? 10 : -5;
+    }
+  }
   return points;
 }
 

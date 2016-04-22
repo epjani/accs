@@ -2,6 +2,8 @@ var exam_room_events = {
   enter_room: show_exam_room,
   countdown: start_counter,
   iphone_questions: {},
+  phone_questions: {},
+  mouse_questions: {},
   total_points: 0,
   finished_scenarios: []
 };
@@ -47,13 +49,19 @@ function set_exam_room_assets(case_study) {
 
 function setup_questions(case_study) {
   exam_room_events.iphone_questions = IPHONE[LANGUAGE][case_study];
+  exam_room_events.phone_questions = PHONE[LANGUAGE][case_study];
+  exam_room_events.mouse_questions = MOUSE[LANGUAGE][case_study];
 }
 
 function get_selected_questions(id) {
   questions = [];
   switch (id) {
     case 'iphone':
-      questions = exam_room_events.iphone_questions; break; 
+      questions = exam_room_events.iphone_questions; break;
+    case 'phone':
+      questions = exam_room_events.phone_questions; break;
+    case 'mouse':
+      questions = exam_room_events.mouse_questions; break;
   }
 
   return questions;
