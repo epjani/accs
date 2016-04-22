@@ -7,6 +7,7 @@ function attach_questions(id) {
     set_question_main_text($container, questions['scenarios'][0]);
     set_questions($container, questions['scenarios'][0]);
     change_next_btn_label($container, id);
+    $container.find('.questions').addClass('active');
   } else {
     $container.find('.questions').addClass('hide');
     setup_scenarios($container, questions);
@@ -29,6 +30,7 @@ function setup_scenarios($container, questions) {
 function set_scenarios_questions($container, questions) {
   $.each(questions['scenarios'], function(i, scen) {
     var $template = $container.find('.q-template').clone().addClass('scenario-' + i).removeClass('q-template');
+    $template.attr('data-scenario', i);
     set_question_main_text($template, scen);
     set_questions($template, scen);
     $container.find('.content').append($template);
@@ -77,7 +79,10 @@ function start_exam($el) {
     height: '100%',
     autoSize: false,
     margin: 0,
-    closeBtn: false
+    closeBtn: false,
+    keys : {
+      close  : null
+    }
   });
 }
 
@@ -92,7 +97,7 @@ function next_question(id) {
     return;
   }  
 
-  $scope = $('.fb-exam:visible');
+  $scope = $('.fb-exam:visible .questions.active');
   change_next_btn_label($scope, id)
   $scope.find('.question').addClass('hide');
   $scope.find('.question.question_' + id).removeClass('hide');
@@ -104,23 +109,42 @@ function change_next_btn_label($container, id) {
 }
 
 function submit_exam(id) {
-  $container = $('.fb-exam#' + id + '-exam .questions');  
+  var $container = $('.fb-exam#' + id + '-exam .questions.active');
+  if ($container.data('scenarios')) {
+    $container.parents('.content').find('.scenarios .select-scenario-' + $container.data('scenario') + ' a').addClass('done');
+  } else {
+    $container.parents('.content').find('.scenarios a').addClass('done');
+  }
   calculate_points($container, id);
   set_score();
-  exam_room_events.finished_scenarios.push(id);
+  set_exam_type_as_finished($container, id);
   clean_scenario($container, id);
+  $container.removeClass('active');
   $.fancybox.close();
+}
+
+function set_exam_type_as_finished($container, id) {
+  scenarios_count = get_selected_questions(id)['scenarios'].length;
+  done_scenarios_count = $container.parents('.content').find('.scenarios a.done').length;
+  if (done_scenarios_count >= scenarios_count) {
+    exam_room_events.finished_scenarios.push(id);
+    update_exam_room_assets();
+  }
 }
 
 function clean_scenario($container, id) {
   $container.find('.question').addClass('hide');
   $container.find('.scenario-text').removeClass('hide');
-  clean_scenario_content($container, id);
-  update_exam_room_assets();
+  clean_scenario_content($container, id);  
 }
 
 function update_exam_room_assets() {
-
+  $.each(exam_room_events.finished_scenarios, function(i, exam) {
+    var $trigger = $('.exam-room .' + exam + '-trigger');
+    $trigger.addClass('done');
+    $trigger.find('a').addClass('done').tooltip('disable');
+    $trigger.find('img').attr('src', 'img/exam_room/' + exam + '_done.png');
+  });
 }
 
 function clean_scenario_content($container, id) {
@@ -160,11 +184,11 @@ function extract_correct_answers(checkboxes) {
 function start_scenario($container, index) {
   $container.find('.scenarios').addClass('hide');
   $container.find('.next-btn').removeClass('hide');
-  $container.find('.questions.scenario-' + index).removeClass('hide');
+  $container.find('.questions.scenario-' + index).removeClass('hide').addClass('active');
 }
 
 $(document).ready(function() {
-  $('.fb-exam .scenarios ').on('click', 'a.start', function(jsEvent){
+  $('.fb-exam .scenarios ').on('click', 'a.start:not(".done")', function(jsEvent){
     $target = $(jsEvent.target);
     if (!$target.data('finished')){
       $container = $target.parents('.fb-exam');      

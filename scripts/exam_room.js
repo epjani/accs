@@ -64,7 +64,7 @@ function array_equal(arr1, arr2) {
 }
 
 $(document).ready(function(){
-  $('.exam-room .exam').on('click', function(jsEvent){
+  $('.exam-room').on('click', ".exam:not(.done)", function(jsEvent){
     start_exam($(jsEvent.target));
   });
 

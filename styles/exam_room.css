@@ -76,6 +76,10 @@
   width: 5.5%;
   left: 11%;
 }
+.exam-room .iphone-trigger.done {
+  width: 12.5%;
+  left: 9%;
+}
 
 .exam-room .mouse-trigger {
   position: absolute;
@@ -118,6 +122,7 @@
 
 .exam-room .fluid img { width: 100%; }
 .exam-room .fluid a { display: block; }
+.exam-room .fluid.done a { cursor: default; }
 
 .fancybox-overlay.iphone {
   background: #fff;
