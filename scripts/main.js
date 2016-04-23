@@ -12,8 +12,12 @@ $(document).ready(function(){
 
   configure_for_devices();
 
-  $('#bottom-menu .menu a.menu-item').on('click', function(jsEvent){
-    open_fancybox($(jsEvent.target));
+  $('#bottom-menu .menu a.menu-item').mouseenter(function() {
+    showOverlay($(this), true);
+  });
+
+  $('#lobby-menu a').click(function() {
+    showOverlay($("#" + $(this).data('trigger-for')), false);
   });
 
   init_bubble_tooltips('.tt-bubble', 'small');
@@ -40,14 +44,53 @@ function enter_lobby() {
   $('map').imageMapResize();
 }
 
-function open_fancybox($el) {
-  $el = $el.closest('.fb-trigger');
+function showOverlay($el, autoHide) {
+  var triggerElOffset = $el.offset();
 
-  $.fancybox({
-    href: '#fb-' + $el.attr('id'),
-    width: 600,
-    autoSize: false
+  var $overlay = $("#" + $el.attr('id') + "-overlay");
+  $overlay.css({
+    top: triggerElOffset.top - $overlay.height() - 18,
+    left: (triggerElOffset.left + $el.width() / 2) - $overlay.width() / 2
   });
+
+  $(document).bind('keyup', overlayKeyupHandler);
+
+  showOverlayBackground($el, autoHide);
+  $overlay.show();
+}
+
+function showOverlayBackground($initiator, autoHide) {
+  var $overlayBackground = $('.overlay-background');
+
+  if(autoHide) {
+    var initiatorBoundary = {
+      x1: $initiator.offset().left,
+      x2: $initiator.offset().left + $initiator.outerWidth(),
+      y1: $initiator.offset().top,
+      y2: $initiator.offset().top + $initiator.outerHeight()
+    };
+    $overlayBackground.mousemove(function(event) {
+      if (event.pageX < initiatorBoundary.x1 || event.pageX > initiatorBoundary.x2 || event.pageY < initiatorBoundary.y1 || event.pageY > initiatorBoundary.y2) {
+        $(this).off('mousemove');
+        hideOverlay();
+      }
+    });
+  }
+
+  $overlayBackground.show();
+}
+
+function hideOverlay() {
+  console.log("hide overlay hide hide")
+  $(document).unbind('keyup', overlayKeyupHandler);
+  $('.overlay-background').hide();
+  $('.overlay').hide();
+}
+
+function overlayKeyupHandler(e) {
+  if (e.keyCode == 27 /* ESCAPE */) { 
+    hideOverlay();
+  }
 }
 
 function configure_for_devices() {

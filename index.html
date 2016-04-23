@@ -19,8 +19,8 @@
 		<nav id="top-menu" class="show-on-mobile">
       <button class="toggle-menu" type="button" onclick="toggle_menu();"></button>
       <ul class="links">
-        <li><a id="introduction" href="#" class="read-document" title="Introduction" >INTRODUCTION</a></li>
-        <li><a id="instructions" href="#" class="read-document" title="Instructions">INSTRUCTIONS</a></li>
+        <li><a href="#" class="read-document" title="Introduction" >INTRODUCTION</a></li>
+        <li><a href="#" class="read-document" title="Instructions">INSTRUCTIONS</a></li>
         <li><a id="help" href="#" >HELP</a></li>
       </ul>
     </nav>
@@ -61,6 +61,11 @@
 					<area shape="poly" coords="534,312,770,314,770,394,532,390" href="#" target="None" title="Select Case Study" alt="Select Case Study" />
 					<area shape="poly" coords="30,367,330,382,333,870,33,921" href="#" target="None" title="Go To Exam" alt="Go To Exam" />
 				</map>
+
+				<ul id="lobby-menu">
+	        <li><a data-trigger-for="introduction" href="#" title="Introduction" >INTRODUCTION</a></li>
+	        <li><a data-trigger-for="instructions" href="#" title="Instructions">INSTRUCTIONS</a></li>
+				</ul>
 			</div>
 			<!-- .lobby -->
 
@@ -217,7 +222,6 @@
 				<!-- .exams -->
 			</div>
 			<!-- .exam-room -->
-
 		</div>
 
 		<div id="bottom-menu">
@@ -246,10 +250,13 @@
 				<img src="img/LLIlogo.png" alt="Learning Library" height="60" />
 			</a>
 
-			<div class="fancybox menu-fb" id="fb-instructions" >
+			<div class="overlay-background" onclick="hideOverlay();"></div>
+
+			<div class="overlay" id="instructions-overlay" >
 				<div class="header">
 					<img src="img/instructions-small.png" alt="Instructions" />
-					<span class="title">INSTRUCTIONS</span>
+					<div class="title">INSTRUCTIONS</div>
+					<div class="close" onclick="hideOverlay();" title="Close"></div>
 				</div>
 				<div class="content">
 					<p>
@@ -258,15 +265,16 @@
 					<p>
 						Suspendisse quis vulputate purus. Curabitur sagittis mauris sed sodales cursus. Phasellus ut ex posuere, pretium tellus in, ultrices elit. Aliquam tincidunt, leo id bibendum lobortis, erat urna molestie orci, vel ullamcorper justo sem ut lacus. Vivamus sed pharetra ex, ut consequat mauris. Curabitur sit amet purus quis sem placerat euismod nec a enim. Etiam interdum nulla odio, ac lobortis neque suscipit sit amet. Vestibulum ut efficitur metus, sed fermentum ipsum. Morbi ultrices faucibus eros, vel pellentesque lorem.
 					</p>
-					<p>
-						Sed auctor, neque ac fermentum imperdiet, tellus libero semper mi, quis commodo urna dolor eget tellus. Ut facilisis dictum libero eu scelerisque. Mauris pulvinar sem non ex fermentum consequat. Maecenas et lectus sollicitudin, aliquet mi non, consectetur lorem. Phasellus sed venenatis neque, sed varius urna. Proin finibus vitae est sit amet eleifend. Cras auctor ipsum consectetur libero pellentesque, non accumsan diam dictum. Curabitur eget egestas ligula, efficitur lacinia purus. Phasellus non auctor magna. Nulla nisl massa, vestibulum quis maximus vitae, ornare nec elit. Maecenas imperdiet augue non sagittis tincidunt. Fusce egestas hendrerit eros ac dignissim. Fusce pellentesque, tellus at maximus pulvinar, metus nulla gravida ligula, fermentum tempus leo arcu id lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-					</p>
+				</div>
+				<div class="footer">
 				</div>
 			</div>
-			<div class="fancybox" id="fb-introduction" >
+
+			<div class="overlay" id="introduction-overlay" >
 				<div class="header">
 					<img src="img/intro-small.png" alt="Intro" />
-					<span class="title">INTRO</span>
+					<div class="title">INTRO</div>
+					<div class="close" onclick="hideOverlay();" title="Close"></div>
 				</div>
 				<div class="content">
 					<p>
@@ -275,15 +283,15 @@
 					<p>
 						Suspendisse quis vulputate purus. Curabitur sagittis mauris sed sodales cursus. Phasellus ut ex posuere, pretium tellus in, ultrices elit. Aliquam tincidunt, leo id bibendum lobortis, erat urna molestie orci, vel ullamcorper justo sem ut lacus. Vivamus sed pharetra ex, ut consequat mauris. Curabitur sit amet purus quis sem placerat euismod nec a enim. Etiam interdum nulla odio, ac lobortis neque suscipit sit amet. Vestibulum ut efficitur metus, sed fermentum ipsum. Morbi ultrices faucibus eros, vel pellentesque lorem.
 					</p>
-					<p>
-						Sed auctor, neque ac fermentum imperdiet, tellus libero semper mi, quis commodo urna dolor eget tellus. Ut facilisis dictum libero eu scelerisque. Mauris pulvinar sem non ex fermentum consequat. Maecenas et lectus sollicitudin, aliquet mi non, consectetur lorem. Phasellus sed venenatis neque, sed varius urna. Proin finibus vitae est sit amet eleifend. Cras auctor ipsum consectetur libero pellentesque, non accumsan diam dictum. Curabitur eget egestas ligula, efficitur lacinia purus. Phasellus non auctor magna. Nulla nisl massa, vestibulum quis maximus vitae, ornare nec elit. Maecenas imperdiet augue non sagittis tincidunt. Fusce egestas hendrerit eros ac dignissim. Fusce pellentesque, tellus at maximus pulvinar, metus nulla gravida ligula, fermentum tempus leo arcu id lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-					</p>
+				</div>
+				<div class="footer">
 				</div>
 			</div>
-			<div class="fancybox" id="fb-help" >
+			<div class="overlay" id="help-overlay" >
 				<div class="header">
 					<img src="img/help-small.png" alt="Help" />
-					<span class="title">HELP</span>
+					<div class="title">HELP</div>
+					<div class="close" onclick="hideOverlay();" title="Close"></div>
 				</div>
 				<div class="content">
 					<p>
@@ -295,6 +303,8 @@
 					<p>
 						Sed auctor, neque ac fermentum imperdiet, tellus libero semper mi, quis commodo urna dolor eget tellus. Ut facilisis dictum libero eu scelerisque. Mauris pulvinar sem non ex fermentum consequat. Maecenas et lectus sollicitudin, aliquet mi non, consectetur lorem. Phasellus sed venenatis neque, sed varius urna. Proin finibus vitae est sit amet eleifend. Cras auctor ipsum consectetur libero pellentesque, non accumsan diam dictum. Curabitur eget egestas ligula, efficitur lacinia purus. Phasellus non auctor magna. Nulla nisl massa, vestibulum quis maximus vitae, ornare nec elit. Maecenas imperdiet augue non sagittis tincidunt. Fusce egestas hendrerit eros ac dignissim. Fusce pellentesque, tellus at maximus pulvinar, metus nulla gravida ligula, fermentum tempus leo arcu id lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
 					</p>
+				</div>
+				<div class="footer">					
 				</div>
 			</div>
 
