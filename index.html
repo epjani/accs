@@ -19,8 +19,8 @@
 		<nav id="top-menu" class="show-on-mobile">
       <button class="toggle-menu" type="button" onclick="toggle_menu();"></button>
       <ul class="links">
-        <li><a href="#" class="read-document" title="Introduction" >INTRODUCTION</a></li>
-        <li><a href="#" class="read-document" title="Instructions">INSTRUCTIONS</a></li>
+        <li><a href="#" class="read-document" data-title="Introduction" >INTRODUCTION</a></li>
+        <li><a href="#" class="read-document" data-title="Instructions">INSTRUCTIONS</a></li>
         <li><a id="help" href="#" >HELP</a></li>
       </ul>
     </nav>
@@ -43,10 +43,10 @@
 					</a>
 				</div>
 				<map name="map_lobby" id="map_lobby" class="hide-on-mobile">
-					<area id="brouchure1" class="read-document" shape="poly" coords="1740,910,1834,724,1970,742,1894,944" href="http://www.myvirtualpaper.com/doc/air-canada/2016_premium-class-brochure/2016011801/#0" target="_blank" alt="Onboard a new class of comfort" />
-					<area id="brouchure2" class="read-document" shape="poly" coords="1750,666,1840,484,1974,500,1900,688" href="http://www.myvirtualpaper.com/doc/air-canada/2015_premium-products-brochure/2015113001/#0" target="_blank" alt="Fly in a world of privilege" />
-					<area id="brouchure3" class="read-document" shape="poly" coords="1756,422,1844,244,1976,256,1902,436" href="http://www.myvirtualpaper.com/doc/air-canada/2015_newroutes-brochure/2015090901#0" target="_blank" alt="New destinations await for you" />
-					<area id="poster" class="read-document skip-tooltip" shape="poly" coords="1304,130,1616,68,1616,68,1618,558,1302,536" href="#" target="None" title="Poster" alt="Poster" />
+					<area id="brouchure1" class="read-document" shape="poly" coords="1740,910,1834,724,1970,742,1894,944" href="http://www.myvirtualpaper.com/doc/air-canada/2016_premium-class-brochure/2016011801/#0" target="_blank" data-title="Onboard a new class of comfort" alt="Onboard a new class of comfort" />
+					<area id="brouchure2" class="read-document" shape="poly" coords="1750,666,1840,484,1974,500,1900,688" href="http://www.myvirtualpaper.com/doc/air-canada/2015_premium-products-brochure/2015113001/#0" target="_blank" data-title="Fly in a world of privilege" alt="Fly in a world of privilege" />
+					<area id="brouchure3" class="read-document" shape="poly" coords="1756,422,1844,244,1976,256,1902,436" href="http://www.myvirtualpaper.com/doc/air-canada/2015_newroutes-brochure/2015090901#0" target="_blank" data-title="New destinations await for you" alt="New destinations await for you" />
+					<area id="poster" class="read-document skip-tooltip" shape="poly" coords="1304,130,1616,68,1616,68,1618,558,1302,536" href="#" target="None" data-title="Poster" alt="Poster" />
 				</map>
 
 				<img name="lobby" src="img/lobby-mobile.jpg" id="lobby" usemap="#map_lobby_mobile" alt="" class="show-on-mobile" />
@@ -129,7 +129,7 @@
 										<div class="text"></div>
 									</a>
 								</div>
-							</div>		
+							</div>
 							<div class="questions q-template">
 								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
 								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
@@ -162,7 +162,7 @@
 										<div class="text"></div>
 									</a>
 								</div>
-							</div>		
+							</div>
 							<div class="questions q-template">
 								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
 								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
@@ -195,7 +195,7 @@
 										<div class="text"></div>
 									</a>
 								</div>
-							</div>		
+							</div>
 							<div class="questions q-template">
 								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
 								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
@@ -231,17 +231,17 @@
 
 			<ul class="menu hide-on-mobile">
 				<li>
-					<a href="#" class="menu-item fb-trigger read-document" id="instructions">
+					<a href="#" class="menu-item fb-trigger read-document" id="instructions" data-title="Instructions">
 						<img src="img/instructions.png" alt="Instructions" />
 					</a>
 				</li>
 				<li>
-					<a href="#" class="menu-item fb-trigger read-document" id="introduction">
+					<a href="#" class="menu-item fb-trigger read-document" id="introduction" data-title="Introduction">
 						<img src="img/intro.png" alt="Intro" />
 					</a>
 				</li>
 				<li>
-					<a href="#" class="menu-item fb-trigger" id="help">
+					<a href="#" class="menu-item fb-trigger" id="help" data-title="Help">
 						<img src="img/help.png" alt="Help" />
 					</a>
 				</li>
@@ -304,7 +304,7 @@
 						Sed auctor, neque ac fermentum imperdiet, tellus libero semper mi, quis commodo urna dolor eget tellus. Ut facilisis dictum libero eu scelerisque. Mauris pulvinar sem non ex fermentum consequat. Maecenas et lectus sollicitudin, aliquet mi non, consectetur lorem. Phasellus sed venenatis neque, sed varius urna. Proin finibus vitae est sit amet eleifend. Cras auctor ipsum consectetur libero pellentesque, non accumsan diam dictum. Curabitur eget egestas ligula, efficitur lacinia purus. Phasellus non auctor magna. Nulla nisl massa, vestibulum quis maximus vitae, ornare nec elit. Maecenas imperdiet augue non sagittis tincidunt. Fusce egestas hendrerit eros ac dignissim. Fusce pellentesque, tellus at maximus pulvinar, metus nulla gravida ligula, fermentum tempus leo arcu id lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
 					</p>
 				</div>
-				<div class="footer">					
+				<div class="footer">
 				</div>
 			</div>
 

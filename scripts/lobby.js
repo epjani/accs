@@ -82,7 +82,7 @@ function non_clicked_elements_stringified() {
 	var keys = Object.keys(lobby_events.clicked_areas);
 	$.each(keys, function(i, key) {
 		if (!is_read(key)) {
-			invalid_elements.push($('#' + key).attr('title'));
+			invalid_elements.push($('#' + key).data('title'));
 		}
 	});
 
@@ -114,7 +114,7 @@ function is_read(doc_id) {
 }
 
 function set_whiteboard_tooltips() {
-	$('.whiteboard a').tooltip({  
+	$('.whiteboard a').tooltip({
 		position: {
       my: "left bottom",
       at: "right center",
@@ -129,7 +129,7 @@ function set_whiteboard_tooltips() {
       textEl.text($(this).data("tt-text"));
       content.append(imgEl);
       content.append(textEl);
-      
+
       return content;
     }
   });

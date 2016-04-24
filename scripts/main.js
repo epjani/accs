@@ -46,15 +46,16 @@ function enter_lobby() {
 
 function showOverlay($el, autoHide) {
   var triggerElOffset = $el.offset();
+  var element_id = $el.attr('id');
+  var $overlay = $("#" + element_id + "-overlay");
 
-  var $overlay = $("#" + $el.attr('id') + "-overlay");
   $overlay.css({
     top: triggerElOffset.top - $overlay.height() - 18,
     left: (triggerElOffset.left + $el.width() / 2) - $overlay.width() / 2
   });
 
   $(document).bind('keyup', overlayKeyupHandler);
-
+  read_lobby_document(element_id);
   showOverlayBackground($el, autoHide);
   $overlay.show();
 }
@@ -88,7 +89,7 @@ function hideOverlay() {
 }
 
 function overlayKeyupHandler(e) {
-  if (e.keyCode == 27 /* ESCAPE */) { 
+  if (e.keyCode == 27 /* ESCAPE */) {
     hideOverlay();
   }
 }
@@ -109,7 +110,7 @@ function toggle_menu() {
 }
 
 function init_bubble_tooltips(selector, tt_class) {
-  $(selector).tooltip({ 
+  $(selector).tooltip({
     position: {
       my: "left bottom",
       at: "center center",
@@ -125,7 +126,7 @@ function init_bubble_tooltips(selector, tt_class) {
 }
 
 function init_area_bubble_tooltips(selector, tt_class) {
-  $(selector).tooltip({ 
+  $(selector).tooltip({
     track: true,
     position: {
       using: function(_, feedback) {
@@ -148,7 +149,7 @@ function getBubbleContent(tt_class) {
   textEl.text($(this).data("tt-text"));
   content.append(imgEl);
   content.append(textEl);
-  
+
   return content;
 }
 
@@ -175,7 +176,7 @@ function getAreaCenter(area) {
 
 if (typeof(String.prototype.trim) === "undefined")
 {
-    String.prototype.trim = function() 
+    String.prototype.trim = function()
     {
         return String(this).replace(/^\s+|\s+$/g, '');
     };
