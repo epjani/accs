@@ -105,7 +105,7 @@ function next_question(id) {
 
 function change_next_btn_label($container, id) {
   label = id == '2' || id == 2 ? 'Submit' : 'Next';
-  $container.find('.next-btn').text(label);
+  $container.parents('.fb-exam').first().find('.next-btn').text(label);
 }
 
 function submit_exam(id) {
@@ -126,7 +126,6 @@ function submit_exam(id) {
 function set_exam_type_as_finished($container, id) {
   scenarios_count = get_selected_questions(id)['scenarios'].length;
   done_scenarios_count = $container.parents('.content').find('.scenarios a.done').length;
-
   if (done_scenarios_count >= scenarios_count) {
     exam_room_events.finished_scenarios.push(id);
     update_exam_room_assets();
@@ -140,11 +139,18 @@ function clean_scenario($container, id) {
 }
 
 function update_exam_room_assets() {
+  var DEFAULT_IMAGES = ['phone', 'mouse', 'iphone'];
   $.each(exam_room_events.finished_scenarios, function(i, exam) {
     var $trigger = $('.exam-room .' + exam + '-trigger');
+
     $trigger.addClass('done');
     $trigger.find('a').addClass('done').tooltip('disable');
-    $trigger.find('img').attr('src', 'img/exam_room/' + exam + '_done.png');
+    if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
+      $trigger.find('img').attr('src', 'img/exam_room/' + exam + '_done.png');
+    } else {
+      var src = assets_events.exam_room_asset(exam_room_events.the_case_study, exam + '_done');
+      $trigger.find('img').attr('src', src);
+    }
   });
 }
 

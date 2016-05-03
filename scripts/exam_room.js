@@ -4,11 +4,14 @@ var exam_room_events = {
   iphone_questions: {},
   phone_questions: {},
   mouse_questions: {},
+  poster1_questions: {},
   total_points: 0,
-  finished_scenarios: []
+  finished_scenarios: [],
+  the_case_study: ''
 };
 
 function show_exam_room(case_study) {
+  exam_room_events.the_case_study = case_study;
   set_exam_room_assets(case_study);
   $('.container .exam-room').show();  
   $('map').imageMapResize();
@@ -38,12 +41,12 @@ function display_time(minutes, seconds) {
 
 function set_exam_room_assets(case_study) {
   setup_questions(case_study);
-  poster_1 = assets_events.exam_room_asset(case_study, 'poster_1');
-  poster_2 = assets_events.exam_room_asset(case_study, 'poster_2');
+  poster_1 = assets_events.exam_room_asset(case_study, 'poster1');
+  poster_2 = assets_events.exam_room_asset(case_study, 'poster2');
   tv = assets_events.exam_room_asset(case_study, 'tv');
 
-  $('.exam-room #poster_1 img').attr('src', poster_1);
-  $('.exam-room #poster_2 img').attr('src', poster_2);
+  $('.exam-room #poster1 img').attr('src', poster_1);
+  $('.exam-room #poster2 img').attr('src', poster_2);
 }
 
 
@@ -51,6 +54,7 @@ function setup_questions(case_study) {
   exam_room_events.iphone_questions = IPHONE[LANGUAGE][case_study];
   exam_room_events.phone_questions = PHONE[LANGUAGE][case_study];
   exam_room_events.mouse_questions = MOUSE[LANGUAGE][case_study];
+  exam_room_events.poster1_questions = POSTER1[LANGUAGE][case_study];
 }
 
 function get_selected_questions(id) {
@@ -62,6 +66,8 @@ function get_selected_questions(id) {
       questions = exam_room_events.phone_questions; break;
     case 'mouse':
       questions = exam_room_events.mouse_questions; break;
+    case 'poster1':
+      questions = exam_room_events.poster1_questions; break;
   }
 
   return questions;

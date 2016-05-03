@@ -87,16 +87,16 @@
 				</div>
 
 
-				<div id="poster_1" class="fluid">
-					<a href="#" class="exam poster_1 tt-bubble" title="" data-tt-text="View Me!" ><img src="" alt="Poster 1" /></a>
+				<div class="poster1-trigger fluid">
+					<a id="poster1" href="#" class="exam tt-bubble" title="" data-tt-text="View Me!" ><img src="" alt="Poster 1" /></a>
 				</div>
 
-				<div id="poster_2" class="fluid">
-					<a href="#" class="exam poster_2 tt-bubble" title="" data-tt-text="View Me!" ><img src="" alt="Poster 2" /></a>
+				<div class="poster2-trigger fluid">
+					<a id="poster2" href="#" class="exam tt-bubble" title="" data-tt-text="View Me!" ><img src="" alt="Poster 2" /></a>
 				</div>
 
-				<div id="tv" class="fluid">
-					<a href="#" class="exam tv tt-bubble" title="" data-tt-text="Play Me!"><img src="img/exam_room/tv.png" alt="Tv" /></a>
+				<div class="tv-trigger fluid">
+					<a id="tv" href="#" class="exam tt-bubble" title="" data-tt-text="Play Me!"><img src="img/exam_room/tv.png" alt="Tv" /></a>
 				</div>
 
 				<div class="iphone-trigger fluid">
@@ -217,7 +217,41 @@
 							<button class="next-btn">Next</button>
 						</div>
 					</div>
-					<!-- #email-exam -->
+					<!-- #mouse-exam -->
+
+					<!-- #poster1-exam -->
+					<div class="fb-exam hide" id="poster1-exam">
+						<div class="content">
+							<div class="scenarios hide">
+								<div class="scenario-template">
+									<a href="#" class="start">
+										<div class="text"></div>
+									</a>
+								</div>
+							</div>
+							<div class="questions q-template">
+								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
+								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
+									<p class="text"></p>
+									<div class="answers"></div>
+								</div>
+								<div class="question hide question_1" data-next-btn="next_question(2);" data-back-btn="next_question(0);">
+									<p class="text"></p>
+									<div class="answers"></div>
+								</div>
+								<div class="question hide question_2" data-next-btn="submit_exam('poster1');" data-back-btn="next_question(1);">
+									<p class="text"></p>
+									<div class="answers"></div>
+								</div>
+							</div>
+						</div>
+						<div class="footer">
+							<button class="back-btn">Back</button>
+							<button class="next-btn">Next</button>
+						</div>
+					</div>
+					<!-- #poster1-exam -->
+
 				</div>
 				<!-- .exams -->
 			</div>
