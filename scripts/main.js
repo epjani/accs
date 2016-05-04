@@ -75,7 +75,6 @@ function showOverlayBackground($initiator, autoHide) {
 }
 
 function hideOverlay() {
-  console.log("hide overlay hide hide")
   $(document).unbind('keyup', overlayKeyupHandler);
   $('.overlay-background').hide();
   $('.overlay').hide();

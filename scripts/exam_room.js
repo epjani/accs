@@ -8,6 +8,7 @@ var exam_room_events = {
   poster1_questions: {},
   poster2_questions: {},
   total_points: 0,
+  all_scenarios: ['iphone', 'phone', 'mouse', 'poster1', 'poster2'],
   finished_scenarios: [],
   the_case_study: '',
   timer: null
@@ -50,6 +51,8 @@ function set_exam_room_assets(case_study) {
 
   $('.exam-room #poster1 img').attr('src', poster_1);
   $('.exam-room #poster2 img').attr('src', poster_2);
+  set_score();
+  update_exam_room_assets();
 }
 
 
@@ -84,10 +87,23 @@ function array_equal(arr1, arr2) {
 }
 
 function hide_exam_room() {
-  clearInterval(exam_room_events.timer);
+  clear_exam_room_assets();
   $('.container .exam-room').hide();
   enter_lobby();
   $.fancybox.close();
+}
+
+function clear_exam_room_assets() {
+  clearInterval(exam_room_events.timer);
+  exam_room_events.iphone_questions = {};
+  exam_room_events.phone_questions = {};
+  exam_room_events.mouse_questions = {};
+  exam_room_events.poster1_questions = {};
+  exam_room_events.poster2_questions = {};
+  exam_room_events.total_points = 0;
+  exam_room_events.finished_scenarios = [];
+  exam_room_events.the_case_study = '';
+  exam_room_events.timer = null;
 }
 
 $(document).ready(function(){

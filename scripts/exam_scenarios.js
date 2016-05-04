@@ -140,16 +140,27 @@ function clean_scenario($container, id) {
 
 function update_exam_room_assets() {
   var DEFAULT_IMAGES = ['phone', 'mouse', 'iphone'];
-  $.each(exam_room_events.finished_scenarios, function(i, exam) {
+  $.each(exam_room_events.all_scenarios, function(i, exam) {
     var $trigger = $('.exam-room .' + exam + '-trigger');
 
-    $trigger.addClass('done');
-    $trigger.find('a').addClass('done').tooltip('disable');
-    if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
-      $trigger.find('img').attr('src', 'img/exam_room/' + exam + '_done.png');
+    if($.inArray(exam, exam_room_events.finished_scenarios) >= 0) {
+      $trigger.addClass('done');
+      $trigger.find('a').addClass('done').tooltip('disable');
+      if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
+        $trigger.find('img').attr('src', 'img/exam_room/' + exam + '_done.png');
+      } else {
+        var src = assets_events.exam_room_asset(exam_room_events.the_case_study, exam + '_done');
+        $trigger.find('img').attr('src', src);
+      }
     } else {
-      var src = assets_events.exam_room_asset(exam_room_events.the_case_study, exam + '_done');
-      $trigger.find('img').attr('src', src);
+      $trigger.removeClass('done');
+      $trigger.find('a').removeClass('done').tooltip('enable');
+      if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
+        $trigger.find('img').attr('src', 'img/exam_room/' + exam + '.png');
+      } else {
+        var src = assets_events.exam_room_asset(exam_room_events.the_case_study, exam);
+        $trigger.find('img').attr('src', src);
+      }
     }
   });
 }
