@@ -11,7 +11,8 @@ var lobby_events = {
 	bind_go_to_exam_events: lobby_go_to_case_study_click(),
 	documents_read: are_documents_read,
 	read_documents: read_all_the_documents,
-	hide_room: hide_lobby
+	hide_room: hide_lobby,
+	goto_lobby: enter_lobby
 };
 
 
@@ -23,6 +24,13 @@ function lobby_click_events() {
     	read_lobby_document($target.attr('id'));
     }
   });
+}
+
+function enter_lobby() {
+  $('#animations').hide();
+  $('.lobby').show();
+  setImageSize();
+  $('map').imageMapResize();
 }
 
 function are_documents_read() {

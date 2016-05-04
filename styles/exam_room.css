@@ -37,9 +37,6 @@
   color: #c81022;
 }
 
-.exam-room .clock .content .minutes { left: 7%; }
-.exam-room .clock .content .seconds { right: 7%; }
-
 .exam-room .total-points { 
   position: absolute;
   top: 12%;

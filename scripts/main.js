@@ -33,15 +33,8 @@ $(document).ready(function(){
 window.onload = function(e){
   $('body').removeClass('hide');
   setImageSize();
-  // setTimeout(enter_lobby, 6600);
-  enter_lobby();
-}
-
-function enter_lobby() {
-  $('#animations').hide();
-  $('.lobby').show();
-  setImageSize();
-  $('map').imageMapResize();
+  // setTimeout(lobby_events.goto_lobby, 6600);
+  lobby_events.goto_lobby();
 }
 
 function showOverlay($el, autoHide) {

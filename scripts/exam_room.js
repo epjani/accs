@@ -1,5 +1,6 @@
 var exam_room_events = {
   enter_room: show_exam_room,
+  exit_room: hide_exam_room,
   countdown: start_counter,
   iphone_questions: {},
   phone_questions: {},
@@ -8,7 +9,8 @@ var exam_room_events = {
   poster2_questions: {},
   total_points: 0,
   finished_scenarios: [],
-  the_case_study: ''
+  the_case_study: '',
+  timer: null
 };
 
 function show_exam_room(case_study) {
@@ -22,7 +24,7 @@ function show_exam_room(case_study) {
 function start_counter() {
   var start_time = (new Date()).getTime();
   var seconds_left;
-  var timer = window.setInterval(function(){
+  exam_room_events.timer = window.setInterval(function(){
     var now = (new Date()).getTime();
     seconds_left = 1800 - (now - start_time) / 1000;
     minutes_left = parseInt(seconds_left / 60);
@@ -81,6 +83,13 @@ function array_equal(arr1, arr2) {
   return $(arr1).not(arr2).length === 0 && $(arr2).not(arr1).length === 0;
 }
 
+function hide_exam_room() {
+  clearInterval(exam_room_events.timer);
+  $('.container .exam-room').hide();
+  enter_lobby();
+  $.fancybox.close();
+}
+
 $(document).ready(function(){
   $('.exam-room').on('click', ".exam:not(.done)", function(jsEvent){
     start_exam($(jsEvent.target));
@@ -96,5 +105,12 @@ $(document).ready(function(){
     $target = $(jsEvent.target);    
     reference = get_next_prev_btn_reference($target, 'back').data('back-btn');
     eval(reference);
+  });
+
+  $('.exam-room .exit-trigger').on('click', function(jsEvent) {
+    $('#fb-warning .content').html('Are you sure you want to exit case study?<br /><button onclick="exam_room_events.exit_room();">Yes</button><button onclick="$.fancybox.close();">Cancel</button>');
+    $.fancybox({
+      href: '#fb-warning'
+    });
   });
 });
