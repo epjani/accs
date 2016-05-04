@@ -5,6 +5,7 @@ var exam_room_events = {
   phone_questions: {},
   mouse_questions: {},
   poster1_questions: {},
+  poster2_questions: {},
   total_points: 0,
   finished_scenarios: [],
   the_case_study: ''
@@ -55,6 +56,7 @@ function setup_questions(case_study) {
   exam_room_events.phone_questions = PHONE[LANGUAGE][case_study];
   exam_room_events.mouse_questions = MOUSE[LANGUAGE][case_study];
   exam_room_events.poster1_questions = POSTER1[LANGUAGE][case_study];
+  exam_room_events.poster2_questions = POSTER2[LANGUAGE][case_study];
 }
 
 function get_selected_questions(id) {
@@ -68,6 +70,8 @@ function get_selected_questions(id) {
       questions = exam_room_events.mouse_questions; break;
     case 'poster1':
       questions = exam_room_events.poster1_questions; break;
+    case 'poster2':
+      questions = exam_room_events.poster2_questions; break;
   }
 
   return questions;

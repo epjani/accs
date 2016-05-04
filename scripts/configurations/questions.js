@@ -548,3 +548,125 @@ var POSTER1 = {
 		}
 	}
 }
+
+var POSTER2 = {
+	en: {
+		premium_products: {
+			scenarios: [
+				{
+					text: "Air Canada’s award-winning Maple Leaf Lounges are located at all major airports across Canada and at key international locations.",
+					questions: [
+						{
+							question: "Maple Leaf Lounge access is available on a complimentary basis to Air Canada Business Class passengers and Air Canada Premium rouge passengers on Canada, Sun and North America routes.  Passengers travelling on a Latitude fare, as well as the following can purchase one-time lounge access for a fee (select all that apply):", 
+							answers: [ 
+								{ text: "International Premium rouge"}, 
+								{ text: "Premium Economy"}, 
+								{ text: "Flex"}, 
+								{ text: "Tango"}
+							],
+							valid: [0, 1, 2]
+						},
+						{
+							question: "Outside of North America, Maple Leaf Lounges are located in London (LHR) and: (select all that apply)", 
+							answers: [ 
+								{ text: "Geneva"}, 
+								{ text: "Frankfurt"}, 
+								{ text: "Paris"}, 
+								{ text: "Tokyo"}
+							],
+							valid: [1, 2]
+						},
+						{
+							question: "Annual memberships to the Air Canada Maple Leaf Lounges can be purchased.  Membership options include (select all that apply)", 
+							answers: [ 
+								{ text: "Access to Air Canada Maple Leaf Lounges in Canada only"}, 
+								{ text: "Access to Air Canada Maple Leaf Lounges in Canada and United’s North American lounges"}, 
+								{ text: "Access to Air Canada Maple Leaf Lounges and access to Joint Venture partners Lounges."}, 
+								{ text: "Star Alliance Lounges worldwide"}
+							],
+							valid: [0, 1, 3]
+						}
+					]					
+				}
+			]
+		},
+		leisure_group: {
+			scenarios: [
+				{
+					text: "Looking for ideas for your next winter getaway?  Travellers like the safety of travelling with Air Canada and the advantages of booking a winter getaway with Air Canada Vacations.  ",
+					questions: [
+						{
+							question: "Customers like Air Canada Vacations because of the reliability and extensive network of flights aboard Air Canada & Air Canada rouge, as well as the ability to earn:", 
+							answers: [ 
+								{ text: "Aeroplan miles"}, 
+								{ text: "Air miles"}, 
+								{ text: "Marriott Rewards"}, 
+								{ text: "TravelClub Plus Points"}
+							],
+							valid: [0]
+						},
+						{
+							question: "Air Canada Vacations is especially practical for travellers who live in smaller communities served by regional airports.  The Air Canada and Air Canada Express network across North America can easily and conveniently connect passengers to the Air Canada and Air Canada rouge International network from over:", 
+							answers: [ 
+								{ text: "30 Canadian cities"}, 
+								{ text: "40 Canadian cities"}, 
+								{ text: "50 Canadian cities"}, 
+								{ text: "60 Canadian cities"}
+							],
+							valid: [3]
+						},
+						{
+							question: "Another good reason to book with Air Canada Vacations is the flexibility and choices they can provide because of their robust schedule.  For vacations to destinations where Air Canada & Air Canada rouge fly daily, travellers can book :", 
+							answers: [ 
+								{ text: "3 night stays"}, 
+								{ text: "7 night stays"}, 
+								{ text: "14 night stays"}, 
+								{ text: "stays for the duration of their choice"}
+							],
+							valid: [3]
+						}
+					]					
+				}
+			]
+		},
+		network_fleet: {
+			scenarios: [
+				{
+					text: " How does Air Canada move over 41 Million travellers every year?  Let’s take a look behind the scenes at North America’s only Four Star International Network carrier.",
+					questions: [
+						{
+							question: "Combined, Air Canada, Air Canada rouge and Air Canada express offer service to over:", 
+							answers: [ 
+								{ text: "90 destinations worldwide"}, 
+								{ text: "130 destinations worldwide"}, 
+								{ text: "200 destinations worldwide"}, 
+								{ text: "240 destinations worldwide"}
+							],
+							valid: [2]
+						},
+						{
+							question: "Air Canada's four hubs offer Air Canada customers a streamlined, customer-friendly experience with dedicated transit facilities providing easy security clearance and smooth connections.  Air Canada's Canadian hubs are located in Toronto, Vancouver and:  (select 2)", 
+							answers: [ 
+								{ text: "Ottawa"}, 
+								{ text: "Montreal"}, 
+								{ text: "Halifax"}, 
+								{ text: "Calgary"}
+							],
+							valid: [1, 3]
+						},
+						{
+							question: "Air Canada connects Canada to a vast network of destinations in the U.S.A., Europe, Africa, the Middle East, Asia, Australia, the Caribbean, Mexico, Central America and South America.  Air Canada provides service to/from over:", 
+							answers: [ 
+								{ text: "30 cities in Canada"}, 
+								{ text: "40 cities in Canada"}, 
+								{ text: "50 cities in Canada"}, 
+								{ text: "60 cities in Canada"}
+							],
+							valid: [3]
+						}
+					]					
+				}	
+			]
+		}
+	}
+}
