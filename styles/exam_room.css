@@ -120,6 +120,7 @@
 .exam-room .fluid img { width: 100%; }
 .exam-room .fluid a { display: block; }
 .exam-room .fluid.done a { cursor: default; }
+.exam-room .exit-trigger.done a { cursor: pointer; }
 
 .fancybox-overlay.iphone {
   background: #fff;

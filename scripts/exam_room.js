@@ -11,12 +11,19 @@ var exam_room_events = {
   all_scenarios: ['iphone', 'phone', 'mouse', 'poster1', 'poster2'],
   finished_scenarios: [],
   the_case_study: '',
-  timer: null
+  timer: null,
+  update_ticker: change_ticker_text,
+  ticker_text: default_ticker_text()
 };
+
+function change_ticker_text(text) {
+  $('.ticker .content').attr('data-marquee', text);
+}
 
 function show_exam_room(case_study) {
   exam_room_events.the_case_study = case_study;
   set_exam_room_assets(case_study);
+  exam_room_events.update_ticker(exam_room_events.ticker_text);
   $('.container .exam-room').show();  
   $('map').imageMapResize();
   start_counter();
@@ -106,6 +113,10 @@ function clear_exam_room_assets() {
   exam_room_events.timer = null;
 }
 
+function default_ticker_text() {
+  return 'TICKER TEXT';
+}
+
 $(document).ready(function(){
   $('.exam-room').on('click', ".exam:not(.done)", function(jsEvent){
     start_exam($(jsEvent.target));
@@ -124,9 +135,14 @@ $(document).ready(function(){
   });
 
   $('.exam-room .exit-trigger').on('click', function(jsEvent) {
-    $('#fb-warning .content').html('Are you sure you want to exit case study?<br /><button onclick="exam_room_events.exit_room();">Yes</button><button onclick="$.fancybox.close();">Cancel</button>');
-    $.fancybox({
-      href: '#fb-warning'
-    });
+    $target = $(jsEvent.target).parents('.exit-trigger').first();
+    if ($target.hasClass('done')) {
+      exam_room_events.exit_room();
+    } else {
+      $('#fb-warning .content').html('Are you sure you want to exit case study?<br /><button onclick="exam_room_events.exit_room();">Yes</button><button onclick="$.fancybox.close();">Cancel</button>');
+      $.fancybox({
+        href: '#fb-warning'
+      });
+    }
   });
 });
