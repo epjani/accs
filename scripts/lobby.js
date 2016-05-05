@@ -12,7 +12,8 @@ var lobby_events = {
 	documents_read: are_documents_read,
 	read_documents: read_all_the_documents,
 	hide_room: hide_lobby,
-	goto_lobby: enter_lobby
+	goto_lobby: enter_lobby,
+	finished_case_studies: []
 };
 
 
@@ -31,6 +32,15 @@ function enter_lobby() {
   $('.lobby').show();
   setImageSize();
   $('map').imageMapResize();
+  set_lobby_assets();
+}
+
+function set_lobby_assets() {
+	$.each(lobby_events.finished_case_studies, function(i, cs) {
+		$cstudy = $('.cs-selection#' + cs);
+		$cstudy.addClass('done');
+		$cstudy.find('img').attr('src', 'img/whiteboard/' + cs + '_done.png');
+	});
 }
 
 function are_documents_read() {

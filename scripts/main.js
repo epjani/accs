@@ -1,7 +1,9 @@
 // Triggers and events shared accross the app
-
+var main_variables = {
+  language: 'en',
+  employee_name: 'Test name'
+};
 BOTTOM_MENU_HEIGHT = 90;
-LANGUAGE = 'en';
 
 var is_mobile = false;
 

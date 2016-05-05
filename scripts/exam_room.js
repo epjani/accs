@@ -64,11 +64,11 @@ function set_exam_room_assets(case_study) {
 
 
 function setup_questions(case_study) {
-  exam_room_events.iphone_questions = IPHONE[LANGUAGE][case_study];
-  exam_room_events.phone_questions = PHONE[LANGUAGE][case_study];
-  exam_room_events.mouse_questions = MOUSE[LANGUAGE][case_study];
-  exam_room_events.poster1_questions = POSTER1[LANGUAGE][case_study];
-  exam_room_events.poster2_questions = POSTER2[LANGUAGE][case_study];
+  exam_room_events.iphone_questions = IPHONE[main_variables.language][case_study];
+  exam_room_events.phone_questions = PHONE[main_variables.language][case_study];
+  exam_room_events.mouse_questions = MOUSE[main_variables.language][case_study];
+  exam_room_events.poster1_questions = POSTER1[main_variables.language][case_study];
+  exam_room_events.poster2_questions = POSTER2[main_variables.language][case_study];
 }
 
 function get_selected_questions(id) {

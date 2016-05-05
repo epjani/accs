@@ -133,10 +133,18 @@ function should_end_case_study() {
 function end_case_study() {
   exam_room_events.update_ticker(get_end_study_text());
   $('.exam-room .exit-trigger').addClass('done');
+
+  if (is_study_passed()) {
+    lobby_events.finished_case_studies.push(exam_room_events.the_case_study);
+  }
+}
+
+function is_study_passed() {
+  return exam_room_events.total_points >= 162;
 }
 
 function get_end_study_text() {
-  return exam_room_events.total_points >= 162 ? 'CONGRATULATIONS YOU PASSED!' : 'SORRY YOU WERE UNSUCESSFUL AT THIS ATTEMPT. PLEASE EXIT AND TRY AGAIN.';
+  return is_study_passed() ? 'CONGRATULATIONS YOU PASSED!' : 'SORRY YOU WERE UNSUCESSFUL AT THIS ATTEMPT. PLEASE EXIT AND TRY AGAIN.';
 }
 
 function set_exam_type_as_finished($container, id) {
@@ -157,7 +165,7 @@ function clean_scenario($container, id) {
 function update_exam_room_assets() {
   var DEFAULT_IMAGES = ['phone', 'mouse', 'iphone'];
   $('.exam-room .exit-trigger').removeClass('done');
-  
+
   $.each(exam_room_events.all_scenarios, function(i, exam) {
     var $trigger = $('.exam-room .' + exam + '-trigger');
 

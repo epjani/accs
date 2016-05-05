@@ -3,5 +3,5 @@ var assets_events = {
 }
 
 function get_exam_room_asset(case_study, asset) {
-  return 'img/exam_room/' + LANGUAGE + '/' + case_study + '/' + asset + '.png';
+  return 'img/exam_room/' + main_variables.language + '/' + case_study + '/' + asset + '.png';
 }
