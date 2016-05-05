@@ -45,7 +45,7 @@ function start_counter() {
 }
 
 function display_time(minutes, seconds) {
-  $clock = $('.exam-room .clock .content');
+  $clock = $('.clock .content');
   $clock.find('.minutes').text(minutes);
   $clock.find('.seconds').text(seconds);
 }
