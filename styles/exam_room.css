@@ -231,7 +231,7 @@
   background-color: #edeeef;
 }
 
-.fb-exam .footer button {
+.fb-exam .footer button, .break-btn {
   background-color: #c81022;
   color: #f5f4f4;
   width: 80px;
