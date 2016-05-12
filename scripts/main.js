@@ -14,7 +14,7 @@ $(document).ready(function(){
 
   configure_for_devices();
 
-  $('#bottom-menu .menu a.menu-item').mouseenter(function() {
+  $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function(foo) {
     showOverlay($(this), true);
   });
 

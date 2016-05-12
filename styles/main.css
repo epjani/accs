@@ -60,8 +60,7 @@ area { outline: none; display: inline-block; }
   moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   opacity: 0.5;
-  z-index: 100;
-  /*pointer-events: none;*/
+  z-index: 10000;
 }
 
 .fancybox {
@@ -76,7 +75,7 @@ area { outline: none; display: inline-block; }
   width: 500px;
   max-height: 400px;
   background-color: white;
-  z-index: 100;
+  z-index: 10000;
 }
 
 img { outline: none; border: none; }
@@ -220,7 +219,7 @@ img { outline: none; border: none; }
   font-weight: bold;
 }
 
-#bottom-menu {
+.bottom-menu {
 	height:60px;
 	width:100%;
 	background-color: #f1f1f2;
@@ -229,39 +228,39 @@ img { outline: none; border: none; }
   text-align: center;
 }
 
-.mobile-view #bottom-menu {
+.mobile-view .bottom-menu {
   position: absolute;
   bottom: 0;
 }
 
-#bottom-menu .company-logo {
+.bottom-menu .company-logo {
   float: left;
   padding-left: 15px;
 }
 
-.mobile-view #bottom-menu .company-logo {
+.mobile-view .bottom-menu .company-logo {
   max-width: 65%;
 }
 
-#bottom-menu .lli-logo {
+.bottom-menu .lli-logo {
   float: right;
   padding-right: 15px;
 }
 
-.mobile-view #bottom-menu .lli-logo {
+.mobile-view .bottom-menu .lli-logo {
   max-width: 35%;
 }
 
-#bottom-menu ul {
+.bottom-menu ul {
   display: inline-block;
   padding-left: 0;
   list-style-type: none;
   margin: 10px 0 0 -60px;
 }
 
-#bottom-menu ul a { color: transparent; display: inline-block; }
-#bottom-menu ul li { display: inline-block; }
-#bottom-menu ul li .menu-item img {
+.bottom-menu ul a { color: transparent; display: inline-block; }
+.bottom-menu ul li { display: inline-block; }
+.bottom-menu ul li .menu-item img {
   height: 50px;
 
 }

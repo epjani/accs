@@ -13,6 +13,27 @@ function attach_questions(id) {
     setup_scenarios($container, questions);
     show_scenarios($container)
   }
+
+  // style checkboxes
+  $container.find('.answers input[type="checkbox"]').iCheck({
+    checkboxClass: 'icheckbox_minimal-orange',
+  });
+}
+
+function attach_common_elements(id) {
+  var $container = $('.fb-exam#' + id + '-exam');
+  var $common_elements = $container.find('.common-elements');
+
+  var $clock = $('.exam-room .clock').first().clone();
+  var $score = $('.exam-room .total-points').first().clone();
+  var $footer = $('.bottom-menu').first().clone();
+
+  $common_elements.html('');
+  $common_elements.append($clock).append($score);
+
+  if($container.find('.bottom-menu').length == 0) {
+    $container.append($footer);
+  }
 }
 
 function show_scenarios($container) {
@@ -61,7 +82,11 @@ function set_questions($container, questions) {
       $question.find('.text').text(val['question']);
 
       $.each(val['answers'], function(i, answer) {
-        html = '<input type="checkbox" name="question_' + index + '" value="' + i + '" />' + answer['text'] + '<br />';
+        var chk_id = "chk_" + index + "_" + i;
+        html = '<div class="answer_row">';
+        html += '<input type="checkbox" id="' + chk_id + '" name="question_' + index + '" value="' + i + '" />';
+        html += '<label for="' + chk_id + '">' + answer['text'] + '</label>';
+        html += '</div>';
         $question.find('.answers').append(html);
       });
     }
@@ -72,6 +97,7 @@ function start_exam($el) {
   $el = $el.closest('.exam');
   id = $el.attr('id');
   attach_questions(id);
+  attach_common_elements(id);
 
   $.fancybox({
     href: '#' + id + '-exam',
@@ -200,7 +226,7 @@ function clean_scenario_content($container, id) {
 }
 
 function set_score() {
-  $('.exam-room .total-points').text('Score: ' + exam_room_events.total_points);
+  $('.total-points').text('Score: ' + exam_room_events.total_points);
 }
 
 function calculate_points($container, id) {

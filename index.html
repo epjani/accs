@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="styles/marquee/marquee.css">
 		<link rel="stylesheet" href="styles/jquery-ui/jquery-ui.structure.min.css">
 		<link rel="stylesheet" href="styles/jquery-ui/jquery-ui.theme.min.css">
+		<link rel="stylesheet" href="styles/icheck/minimal/orange.css">
 
 		<meta name="viewport" content="initial-scale=1,user-scalable=no,width=device-width">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -123,6 +124,10 @@
 				<div class="exams">
 					<!-- #iphone-exam -->
 					<div class="fb-exam hide" id="iphone-exam">
+						<div class="common-elements"></div>
+						<div class="icon">
+							<img src="img/exam_room/iphone_icon.png" width="100" height="98" alt="iphone icon" />
+						</div>
 						<div class="content">
 							<div class="scenarios hide">
 								<div class="scenario-template">
@@ -156,6 +161,11 @@
 
 					<!-- #phone-exam -->
 					<div class="fb-exam hide" id="phone-exam">
+						<div class="common-elements"></div>						
+						<div class="icon">
+							<img src="img/exam_room/phone_icon.png" width="100" height="98" alt="phone icon" />
+						</div>
+
 						<div class="content">
 							<div class="scenarios hide">
 								<div class="scenario-template">
@@ -189,6 +199,10 @@
 
 					<!-- #mouse-exam -->
 					<div class="fb-exam hide" id="mouse-exam">
+						<div class="common-elements"></div>
+						<div class="icon">
+							<img src="img/exam_room/iphone_icon.png" width="100" height="98" alt="iphone icon" />
+						</div>
 						<div class="content">
 							<div class="scenarios hide">
 								<div class="scenario-template">
@@ -222,6 +236,10 @@
 
 					<!-- #poster1-exam -->
 					<div class="fb-exam hide" id="poster1-exam">
+						<div class="common-elements"></div>
+						<div class="icon">
+							<img src="img/exam_room/iphone_icon.png" width="100" height="98" alt="iphone icon" />
+						</div>
 						<div class="content">
 							<div class="scenarios hide">
 								<div class="scenario-template">
@@ -255,6 +273,10 @@
 
 					<!-- #poster2-exam -->
 					<div class="fb-exam hide" id="poster2-exam">
+						<div class="common-elements"></div>
+						<div class="icon">
+							<img src="img/exam_room/iphone_icon.png" width="100" height="98" alt="iphone icon" />
+						</div>
 						<div class="content">
 							<div class="scenarios hide">
 								<div class="scenario-template">
@@ -292,7 +314,7 @@
 			<!-- .exam-room -->
 		</div>
 
-		<div id="bottom-menu">
+		<div class="bottom-menu">
 			<a class="company-logo" target="_blank" title="Air Canada" href="http://www.aircanada.com/agents">
 				<img src="img/aircanadalogo.png" alt="Air Canada" height="60" />
 			</a>
@@ -317,73 +339,74 @@
 			<a class="lli-logo" target="_blank" title="Learning Library" href="http://www.learninglibrary.com">
 				<img src="img/LLIlogo.png" alt="Learning Library" height="60" />
 			</a>
+		</div>
 
-			<div class="overlay-background" onclick="hideOverlay();"></div>
+		<div class="overlay-background" onclick="hideOverlay();"></div>
 
-			<div class="overlay" id="instructions-overlay" >
-				<div class="header">
-					<img src="img/instructions-small.png" alt="Instructions" />
-					<div class="title">INSTRUCTIONS</div>
-					<div class="close" onclick="hideOverlay();" title="Close"></div>
-				</div>
-				<div class="content">
-					<p>
-					 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis arcu non egestas dignissim. Donec ac mauris sit amet ligula eleifend finibus eget id nulla. Vestibulum eget egestas sapien. Maecenas ut aliquam arcu. Donec volutpat sollicitudin cursus. Integer quis efficitur nibh, in sagittis nisl. Etiam vestibulum cursus urna at dignissim. Quisque nisl nulla, porta at iaculis vel, malesuada non libero.
-					</p>
-					<p>
-						Suspendisse quis vulputate purus. Curabitur sagittis mauris sed sodales cursus. Phasellus ut ex posuere, pretium tellus in, ultrices elit. Aliquam tincidunt, leo id bibendum lobortis, erat urna molestie orci, vel ullamcorper justo sem ut lacus. Vivamus sed pharetra ex, ut consequat mauris. Curabitur sit amet purus quis sem placerat euismod nec a enim. Etiam interdum nulla odio, ac lobortis neque suscipit sit amet. Vestibulum ut efficitur metus, sed fermentum ipsum. Morbi ultrices faucibus eros, vel pellentesque lorem.
-					</p>
-				</div>
-				<div class="footer">
-				</div>
+		<div class="fancybox" id="fb-warning">
+			<div class="header">
+				<img src="img/help-small.png" alt="Help" />
+				<span class="title">WARNING</span>
 			</div>
+			<div class="content"></div>
+		</div>
 
-			<div class="overlay" id="introduction-overlay" >
-				<div class="header">
-					<img src="img/intro-small.png" alt="Intro" />
-					<div class="title">INTRO</div>
-					<div class="close" onclick="hideOverlay();" title="Close"></div>
-				</div>
-				<div class="content">
-					<p>
-					 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis arcu non egestas dignissim. Donec ac mauris sit amet ligula eleifend finibus eget id nulla. Vestibulum eget egestas sapien. Maecenas ut aliquam arcu. Donec volutpat sollicitudin cursus. Integer quis efficitur nibh, in sagittis nisl. Etiam vestibulum cursus urna at dignissim. Quisque nisl nulla, porta at iaculis vel, malesuada non libero.
-					</p>
-					<p>
-						Suspendisse quis vulputate purus. Curabitur sagittis mauris sed sodales cursus. Phasellus ut ex posuere, pretium tellus in, ultrices elit. Aliquam tincidunt, leo id bibendum lobortis, erat urna molestie orci, vel ullamcorper justo sem ut lacus. Vivamus sed pharetra ex, ut consequat mauris. Curabitur sit amet purus quis sem placerat euismod nec a enim. Etiam interdum nulla odio, ac lobortis neque suscipit sit amet. Vestibulum ut efficitur metus, sed fermentum ipsum. Morbi ultrices faucibus eros, vel pellentesque lorem.
-					</p>
-				</div>
-				<div class="footer">
-				</div>
+		<div class="overlay" id="instructions-overlay" >
+			<div class="header">
+				<img src="img/instructions-small.png" alt="Instructions" />
+				<div class="title">INSTRUCTIONS</div>
+				<div class="close" onclick="hideOverlay();" title="Close"></div>
 			</div>
-			<div class="overlay" id="help-overlay" >
-				<div class="header">
-					<img src="img/help-small.png" alt="Help" />
-					<div class="title">HELP</div>
-					<div class="close" onclick="hideOverlay();" title="Close"></div>
-				</div>
-				<div class="content">
-					<p>
-					 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis arcu non egestas dignissim. Donec ac mauris sit amet ligula eleifend finibus eget id nulla. Vestibulum eget egestas sapien. Maecenas ut aliquam arcu. Donec volutpat sollicitudin cursus. Integer quis efficitur nibh, in sagittis nisl. Etiam vestibulum cursus urna at dignissim. Quisque nisl nulla, porta at iaculis vel, malesuada non libero.
-					</p>
-					<p>
-						Suspendisse quis vulputate purus. Curabitur sagittis mauris sed sodales cursus. Phasellus ut ex posuere, pretium tellus in, ultrices elit. Aliquam tincidunt, leo id bibendum lobortis, erat urna molestie orci, vel ullamcorper justo sem ut lacus. Vivamus sed pharetra ex, ut consequat mauris. Curabitur sit amet purus quis sem placerat euismod nec a enim. Etiam interdum nulla odio, ac lobortis neque suscipit sit amet. Vestibulum ut efficitur metus, sed fermentum ipsum. Morbi ultrices faucibus eros, vel pellentesque lorem.
-					</p>
-					<p>
-						Sed auctor, neque ac fermentum imperdiet, tellus libero semper mi, quis commodo urna dolor eget tellus. Ut facilisis dictum libero eu scelerisque. Mauris pulvinar sem non ex fermentum consequat. Maecenas et lectus sollicitudin, aliquet mi non, consectetur lorem. Phasellus sed venenatis neque, sed varius urna. Proin finibus vitae est sit amet eleifend. Cras auctor ipsum consectetur libero pellentesque, non accumsan diam dictum. Curabitur eget egestas ligula, efficitur lacinia purus. Phasellus non auctor magna. Nulla nisl massa, vestibulum quis maximus vitae, ornare nec elit. Maecenas imperdiet augue non sagittis tincidunt. Fusce egestas hendrerit eros ac dignissim. Fusce pellentesque, tellus at maximus pulvinar, metus nulla gravida ligula, fermentum tempus leo arcu id lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-					</p>
-				</div>
-				<div class="footer">
-				</div>
+			<div class="content">
+				<p>
+				 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis arcu non egestas dignissim. Donec ac mauris sit amet ligula eleifend finibus eget id nulla. Vestibulum eget egestas sapien. Maecenas ut aliquam arcu. Donec volutpat sollicitudin cursus. Integer quis efficitur nibh, in sagittis nisl. Etiam vestibulum cursus urna at dignissim. Quisque nisl nulla, porta at iaculis vel, malesuada non libero.
+				</p>
+				<p>
+					Suspendisse quis vulputate purus. Curabitur sagittis mauris sed sodales cursus. Phasellus ut ex posuere, pretium tellus in, ultrices elit. Aliquam tincidunt, leo id bibendum lobortis, erat urna molestie orci, vel ullamcorper justo sem ut lacus. Vivamus sed pharetra ex, ut consequat mauris. Curabitur sit amet purus quis sem placerat euismod nec a enim. Etiam interdum nulla odio, ac lobortis neque suscipit sit amet. Vestibulum ut efficitur metus, sed fermentum ipsum. Morbi ultrices faucibus eros, vel pellentesque lorem.
+				</p>
 			</div>
-
-			<div class="fancybox" id="fb-warning">
-				<div class="header">
-					<img src="img/help-small.png" alt="Help" />
-					<span class="title">WARNING</span>
-				</div>
-				<div class="content"></div>
+			<div class="footer">
 			</div>
 		</div>
+
+		<div class="overlay" id="introduction-overlay" >
+			<div class="header">
+				<img src="img/intro-small.png" alt="Intro" />
+				<div class="title">INTRO</div>
+				<div class="close" onclick="hideOverlay();" title="Close"></div>
+			</div>
+			<div class="content">
+				<p>
+				 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis arcu non egestas dignissim. Donec ac mauris sit amet ligula eleifend finibus eget id nulla. Vestibulum eget egestas sapien. Maecenas ut aliquam arcu. Donec volutpat sollicitudin cursus. Integer quis efficitur nibh, in sagittis nisl. Etiam vestibulum cursus urna at dignissim. Quisque nisl nulla, porta at iaculis vel, malesuada non libero.
+				</p>
+				<p>
+					Suspendisse quis vulputate purus. Curabitur sagittis mauris sed sodales cursus. Phasellus ut ex posuere, pretium tellus in, ultrices elit. Aliquam tincidunt, leo id bibendum lobortis, erat urna molestie orci, vel ullamcorper justo sem ut lacus. Vivamus sed pharetra ex, ut consequat mauris. Curabitur sit amet purus quis sem placerat euismod nec a enim. Etiam interdum nulla odio, ac lobortis neque suscipit sit amet. Vestibulum ut efficitur metus, sed fermentum ipsum. Morbi ultrices faucibus eros, vel pellentesque lorem.
+				</p>
+			</div>
+			<div class="footer">
+			</div>
+		</div>
+		<div class="overlay" id="help-overlay" >
+			<div class="header">
+				<img src="img/help-small.png" alt="Help" />
+				<div class="title">HELP</div>
+				<div class="close" onclick="hideOverlay();" title="Close"></div>
+			</div>
+			<div class="content">
+				<p>
+				 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis arcu non egestas dignissim. Donec ac mauris sit amet ligula eleifend finibus eget id nulla. Vestibulum eget egestas sapien. Maecenas ut aliquam arcu. Donec volutpat sollicitudin cursus. Integer quis efficitur nibh, in sagittis nisl. Etiam vestibulum cursus urna at dignissim. Quisque nisl nulla, porta at iaculis vel, malesuada non libero.
+				</p>
+				<p>
+					Suspendisse quis vulputate purus. Curabitur sagittis mauris sed sodales cursus. Phasellus ut ex posuere, pretium tellus in, ultrices elit. Aliquam tincidunt, leo id bibendum lobortis, erat urna molestie orci, vel ullamcorper justo sem ut lacus. Vivamus sed pharetra ex, ut consequat mauris. Curabitur sit amet purus quis sem placerat euismod nec a enim. Etiam interdum nulla odio, ac lobortis neque suscipit sit amet. Vestibulum ut efficitur metus, sed fermentum ipsum. Morbi ultrices faucibus eros, vel pellentesque lorem.
+				</p>
+				<p>
+					Sed auctor, neque ac fermentum imperdiet, tellus libero semper mi, quis commodo urna dolor eget tellus. Ut facilisis dictum libero eu scelerisque. Mauris pulvinar sem non ex fermentum consequat. Maecenas et lectus sollicitudin, aliquet mi non, consectetur lorem. Phasellus sed venenatis neque, sed varius urna. Proin finibus vitae est sit amet eleifend. Cras auctor ipsum consectetur libero pellentesque, non accumsan diam dictum. Curabitur eget egestas ligula, efficitur lacinia purus. Phasellus non auctor magna. Nulla nisl massa, vestibulum quis maximus vitae, ornare nec elit. Maecenas imperdiet augue non sagittis tincidunt. Fusce egestas hendrerit eros ac dignissim. Fusce pellentesque, tellus at maximus pulvinar, metus nulla gravida ligula, fermentum tempus leo arcu id lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+				</p>
+			</div>
+			<div class="footer">
+			</div>
+		</div>
+
 		<script type="text/javascript" src="scripts/lib/jquery-2.2.1.min.js"></script>
 		<script type="text/javascript" src="scripts/lib/jquery-ui.min.js"></script>
 		<script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
@@ -398,6 +421,7 @@
 		<script type="text/javascript" src="scripts/configurations/questions.js"></script>
 		<script type="text/javascript" src="scripts/lib/imageMapResizer.min.js"></script>
 		<script type="text/javascript" src="scripts/lib/fancybox/jquery.fancybox.pack.js"></script>
-		<script type="text/javascript" src="scripts/hooks.js"></script>
+		<script type="text/javascript" src="scripts/lib/icheck.min.js"></script>
+		<script type="text/javascript" src="scripts/hooks.js"></script>		
 	</body>
 </html>

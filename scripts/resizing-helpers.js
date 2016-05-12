@@ -25,5 +25,5 @@ function calculateAspectRatioFit(src_width, src_height, max_width, max_height) {
 }
 
 function setFooterWidth(width) {
-  $('#bottom-menu').css('width', width);
+  $('.bottom-menu').css('width', width);
 }

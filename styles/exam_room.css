@@ -1,3 +1,9 @@
+/* FANCYBOX OVERRIDES */
+.fancybox-skin {
+  padding: 0 !important;
+  background-color: #d7d7d7 !important;
+}
+
 .exam-room .ticker {
   width: 41.5%;
   position: absolute;
@@ -18,7 +24,7 @@
   color: #0080a5;
 }
 
-.exam-room .clock {
+.exam-room .clock, .fb-exam .clock {
   width: 11.8%;
   position: absolute;
   top: 2%;
@@ -26,7 +32,19 @@
   font-size: 100%;
 }
 
-.exam-room .clock .content {
+.fb-exam .clock {
+  position: relative;
+  width: 125px;
+  height: 55px;
+  float: left;
+}
+
+.fb-exam .clock img {
+  width: 100%;
+  height: 100%;
+}
+
+.clock .content {
   font-family: 'digital-7_italic';
   color: #fff;
   font-size: 5.3vh;
@@ -37,7 +55,11 @@
   color: #c81022;
 }
 
-.exam-room .total-points { 
+.fb-exam .clock .content {
+  top: 11px;
+}
+
+.exam-room .total-points, .fb-exam .total-points { 
   position: absolute;
   top: 12%;
   left: 4.3%;
@@ -45,6 +67,14 @@
   font-weight: bold;
   color: #c81022;
 }
+
+.fb-exam .total-points { 
+  position: static;
+  margin-top: 10px;
+  margin-left: 35px;
+  float: left;
+}
+
 .exam-room #poster1 {
   width: 19%;
   position: absolute;
@@ -134,11 +164,96 @@
   background-position: right;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
-.fancybox-skin {
-  background-color: #d7d7d7 !important;
+.fb-exam .common-elements {
+  position: absolute;
+  top: 2%;
+  left: 3%;
+  width: 50%;
 }
+
+.fb-exam .icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.fb-exam > .content {
+  margin: 80px 3% 0;
+  background-color: #ffffff;
+  border: 2px solid #b89a81;
+  border-bottom: none;
+  min-height: 60%;
+  float: left;
+  width: 94%;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+}
+
+.fb-exam .scenario-text, .fb-exam .content .text {
+  background-color: #f7f7f7;
+  padding: 20px 20%;
+  margin: 0;
+}
+
+.fb-exam .content .answers {
+  margin-top: 20px;
+  padding-left: 40%;
+  text-align: left;
+}
+
+.fb-exam .content .answer_row {
+  margin-bottom: 20px;
+}
+
+.fb-exam .content .answers label {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.fb-exam .footer {
+  padding: 0 3%;
+  margin-top: 15px;
+  width: 94%;
+  float: left;
+}
+
+.fb-exam .bottom-menu {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  width: 100% !important;
+  background-color: #edeeef;
+}
+
+.fb-exam .footer button {
+  background-color: #c81022;
+  color: #f5f4f4;
+  width: 80px;
+  height: 30px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.fb-exam .footer button:focus {outline:0;}
+
+.fb-exam .footer .back-btn {
+  float: left;
+}
+
+.fb-exam .footer .next-btn {
+  float: right;
+}
+
+
 
 .exam-room #poster_1 a, .exam-room #poster_2 a, .exam-room #tv a {
   display: block;
