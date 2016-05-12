@@ -13,7 +13,19 @@ var lobby_events = {
 	read_documents: read_all_the_documents,
 	hide_room: hide_lobby,
 	goto_lobby: enter_lobby,
-	finished_case_studies: []
+	finished_case_studies: [],
+	case_study_texts: {
+		en: {
+			premium_products: "Premium Products Case Study",
+			leisure_group: "Leisure Group Case Study",
+			network_fleet: "Network Fleet Case Study"
+		},
+		fr: {
+			premium_products: "Premium Products Case Study",
+			leisure_group: "Leisure Group Case Study",
+			network_fleet: "Network Fleet Case Study"
+		}
+	}
 };
 
 

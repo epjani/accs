@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 	// main_variables.employee_name
 	// Name of person who is taking the courses
-	// Default: main_variables.language = 'Test name'
+	// Default: main_variables.employee_name = 'Test name'
 
 	// lobby_events.finished_case_studies
 	// Array of shortcodes for case studies that employee already finished

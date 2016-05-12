@@ -13,7 +13,7 @@ var exam_room_events = {
   the_case_study: '',
   timer: null,
   update_ticker: change_ticker_text,
-  ticker_text: default_ticker_text()
+  ticker_text: default_ticker_text
 };
 
 function change_ticker_text(text) {
@@ -23,7 +23,7 @@ function change_ticker_text(text) {
 function show_exam_room(case_study) {
   exam_room_events.the_case_study = case_study;
   set_exam_room_assets(case_study);
-  exam_room_events.update_ticker(exam_room_events.ticker_text);
+  exam_room_events.update_ticker(exam_room_events.ticker_text());
   $('.container .exam-room').show();  
   $('map').imageMapResize();
   start_counter();
@@ -114,7 +114,11 @@ function clear_exam_room_assets() {
 }
 
 function default_ticker_text() {
-  return 'TICKER TEXT';
+  var default_texts = {
+    en: "Welcome " + main_variables.employee_name + " to " + lobby_events.case_study_texts[main_variables.language][exam_room_events.the_case_study],
+    fr: "Welcome " + main_variables.employee_name + " to " + lobby_events.case_study_texts[main_variables.language][exam_room_events.the_case_study]
+  }
+  return default_texts[main_variables.language];
 }
 
 $(document).ready(function(){
