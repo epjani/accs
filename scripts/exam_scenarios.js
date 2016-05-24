@@ -71,8 +71,17 @@ function set_scenarios_text(questions, $scenario_container) {
 function set_question_main_text($container, questions) {
   $scenario_text = $container.find('.scenario-text');
 
-  if ($scenario_text.text().trim() == "")
-    $scenario_text.text(questions['text']);
+  if ($scenario_text.text().trim() == "") {
+    if(questions['img']) {
+      var $img = $("<img>");
+      $img.attr("src", questions['img']);
+      $img.attr("align", "left");
+
+      $scenario_text.append($img);
+    }
+    
+    $scenario_text.append(questions['text']);
+  }
 }
 
 function set_questions($container, questions) {
@@ -131,7 +140,13 @@ function next_question(id) {
 
 function change_next_btn_label($container, id) {
   label = id == '2' || id == 2 ? 'Submit' : 'Next';
-  $container.parents('.fb-exam').first().find('.next-btn').text(label);
+  var $btn = $container.parents('.fb-exam').first().find('.next-btn');
+  $btn.text(label);
+
+  if(label == 'Submit')
+    $btn.addClass('submit');
+  else
+    $btn.removeClass('submit');
 }
 
 function submit_exam(id) {
