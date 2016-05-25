@@ -4,6 +4,7 @@ $(document).ready(function() {
 	// main_variables.language
 	// Describes language used accross application
 	// Default: main_variables.language = 'en'
+	// Possible values: en/fr
 
 	// main_variables.employee_name
 	// Name of person who is taking the courses
@@ -12,5 +13,5 @@ $(document).ready(function() {
 	// lobby_events.finished_case_studies
 	// Array of shortcodes for case studies that employee already finished
 	// Default: lobby_events.finished_case_studies = []
-	// Possible values: 'iphone', 'phone', 'mouse', 'poster1', 'poster2'
+	// Possible values: 'premium_products', 'leisure_group', 'network_fleet'
 });

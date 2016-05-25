@@ -37,6 +37,7 @@ window.onload = function(e){
   setImageSize();
   // setTimeout(lobby_events.goto_lobby, 6600);
   lobby_events.goto_lobby();
+  load_sounds();
 }
 
 function showOverlay($el, autoHide) {
