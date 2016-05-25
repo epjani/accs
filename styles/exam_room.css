@@ -195,32 +195,35 @@
           box-shadow: 0 8px 6px -6px black;
 }
 
+.fb-exam .info-header {
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+  color: #505359;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
 .fb-exam .scenario-text {
-  background-color: #f7f7f7;
-  padding: 20px 20%;
-  margin: 0;
+  text-align: left;
+  padding: 15px 20px;
 }
 
 #poster1-exam .scenario-text {
-  background-color: transparent;
-  padding: 50px 10px;
-  text-align: left;
+  padding-top: 30px;
 }
 
 #poster1-exam .scenario-text img {
   margin-right: 30px; 
 }
 
-.fb-exam .content .text {
+.fb-exam .question {
+  padding: 15px 20px;
   text-align: left;
-  margin-top: 30px;
-  margin-left: 50px;
-  margin-right: 50px;
 }
 
 .fb-exam .content .answers {
-  margin-top: 20px;
-  padding-left: 50px;
   text-align: left;
 }
 

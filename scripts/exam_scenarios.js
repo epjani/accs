@@ -69,7 +69,7 @@ function set_scenarios_text(questions, $scenario_container) {
 }
 
 function set_question_main_text($container, questions) {
-  $scenario_text = $container.find('.scenario-text');
+  var $scenario_text = $container.find('.scenario-text');
 
   if ($scenario_text.text().trim() == "") {
     if(questions['img']) {
@@ -81,12 +81,18 @@ function set_question_main_text($container, questions) {
     }
     
     $scenario_text.append(questions['text']);
+  
+    // check if info header exists for this exam type 
+    var $info_header = $container.find('.info-header-container .info-header');
+    if($info_header.length > 0) {
+      set_question_info_header($scenario_text, $info_header.first(), {to: 'You'});
+    }
   }
 }
 
 function set_questions($container, questions) {
   $.each(questions['questions'], function(index, val) {
-    $question = $container.find('.question_' + index);
+    var $question = $container.find('.question_' + index);
     if ($question.find('.text').text().trim() == "") {
       $question.find('.text').text(val['question']);
 
@@ -98,8 +104,23 @@ function set_questions($container, questions) {
         html += '</div>';
         $question.find('.answers').append(html);
       });
+
+      // check if info header exists for this exam type 
+      var $info_header = $container.find('.info-header-container .info-header');
+      if($info_header.length > 0) {
+        set_question_info_header($question, $info_header.first(), {to: 'You'});
+      }
     }
   });
+}
+
+function set_question_info_header($el, $info_header, values) {
+  var $cloned_info_header = $info_header.clone();
+  $cloned_info_header.find('.to').text(values['to']);
+  $cloned_info_header.find('.from').text(values['from']);
+  $cloned_info_header.find('.topic').text(values['topic']);
+
+  $el.prepend($cloned_info_header);
 }
 
 function start_exam($el) {
