@@ -432,6 +432,7 @@ var POSTER1 = {
 		premium_products: {
 			scenarios: [
 				{
+					img: "img/exam_room/poster_photo.png",
 					text: "Pamper yourself with Premium Economy, a new class of travel, and experience superior comfort in a dedicated cabin, with enhanced amenities and priority airport services. Available on select international routes.",
 					questions: [
 						{
