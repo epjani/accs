@@ -1,3 +1,4 @@
+var player;
 
 function attach_questions(id) {
   var questions = get_selected_questions(id);
@@ -83,7 +84,18 @@ function set_question_main_text($container, questions, $infoHeader) {
 
       $scenario_text.append($img);
     }
+
     
+
+    if(questions['videoId']) {
+      var $videoContainer = $("<div>");
+      $videoContainer.attr("id", "video-player");
+      $videoContainer.attr("align", "left");
+      $scenario_text.append($videoContainer);
+
+      player = initVideoPlayer(questions['videoId']);
+    }
+  
     $scenario_text.append(questions['text']);
 
     if($infoHeader.length > 0) {
@@ -150,6 +162,8 @@ function get_next_prev_btn_reference($target, type) {
 }
 
 function next_question(id) {
+  stopVideo();
+
   if (id === null) {
     $.fancybox.close();
     return;

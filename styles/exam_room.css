@@ -214,8 +214,9 @@
   padding-top: 30px;
 }
 
-#poster1-exam .scenario-text img {
+#poster1-exam .scenario-text img, #tv-exam iframe {
   margin-right: 30px; 
+  align: left;
 }
 
 #mouse-exam .content {
