@@ -196,6 +196,10 @@ function end_case_study() {
   exam_room_events.update_ticker(get_end_study_text());
   $('.exam-room .exit-trigger').addClass('done');
 
+  var undone_exams = $(exam_room_events.all_scenarios).not(exam_room_events.finished_scenarios).get();
+  $.each( undone_exams , function(i, id){
+    $('.exam-room .exam#' + id).addClass('done');
+  });
   if (is_study_passed()) {
     lobby_events.finished_case_studies.push(exam_room_events.the_case_study);
   }

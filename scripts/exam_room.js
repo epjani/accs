@@ -29,7 +29,8 @@ function show_exam_room(case_study) {
 }
 
 function start_counter() {
-  var thirty_min = 1800000;
+  // var thirty_min = 1800000;
+  var thirty_min = 10000;
   if (CountdownStarted == true) {
     CountDown.Resume(thirty_min);
   } else {
