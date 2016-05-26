@@ -243,6 +243,8 @@ var MOUSE = {
 		premium_products: {
 			scenarios: [
 				{
+					from: "Alexi",
+					topic: "Mr. & Mrs. Jones",
 					text: "Hello, this is Alexi from the Air Canada concierge office.  We wanted to let you know that we were able to assist Mr. & Mrs. Jones in making their connection. We were happy to help.",
 					questions: [
 						{
@@ -278,6 +280,8 @@ var MOUSE = {
 					]					
 				},
 				{
+					from: "Customer",
+					topic: "Latitude fare ticket to Vancouver",
 					text: "Hi.  Thanks for issuing my Latitude fare ticket to Vancouver.  I have a few questions I hope you can answer.  I wasn’t sure what complimentary Priority services I’m entitled to. Can you remind me please? Also, we have employees that will be travelling on regular basis for the next several months.  Are there any Business Class bulk ticket purchase options we should know about?  Lastly, what is the criterion to make Super Elite 100K this year?",
 					questions: [
 						{
@@ -317,6 +321,8 @@ var MOUSE = {
 		leisure_group: {
 			scenarios: [
 				{
+					from: "FROM#TODO#",
+					topic: "TOPIC#TODO#",
 					text: "Hello. I wanted to send you a quick note to thank you for organizing our great trip on Air Canada rouge.  We are looking forward to it.  My husband is a bit of airplane buff, and I know he will ask me what types of aircraft Air Canada rouge fly. Can you tell me about that?",
 					questions: [
 						{
@@ -352,6 +358,8 @@ var MOUSE = {
 					]					
 				},
 				{
+					from: "FROM#TODO#",
+					topic: "TOPIC#TODO#",
 					text: "I need your help in deciding on some vacation plans. I’ve been considering a cruise.  Can I book both my flight and cruise with Air Canada Vacations? If I choose to do a resort instead, can you tell me how I could easily compare the quality and value of the different hotels and resort options?",
 					questions: [
 						{
@@ -390,6 +398,8 @@ var MOUSE = {
 		network_fleet: {
 			scenarios: [
 				{
+					from: "FROM#TODO#",
+					topic: "TOPIC#TODO#",
 					text: "Hi. I hope this email finds you well.  I saw some pretty amazing pricing for Air Canada’s business class, and I’m considering it for my next trip.  Can you give me some details on what I should expect?  Thanks.",
 					questions: [
 						{
