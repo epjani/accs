@@ -1,11 +1,13 @@
+var player;
 
 function attach_questions(id) {
   var questions = get_selected_questions(id);
   var $container = $('.fb-exam#' + id + '-exam');
 
   if (questions['scenarios'].length == 1) {
-    set_question_main_text($container, questions['scenarios'][0]);
-    set_questions($container, questions['scenarios'][0]);
+    var $infoHeader = $container.find('.info-header-container .info-header').first();
+    set_question_main_text($container, questions['scenarios'][0], $infoHeader);
+    set_questions($container, questions['scenarios'][0], $infoHeader);
     change_next_btn_label($container, id);
     $container.find('.questions').addClass('active');
   } else {
@@ -41,7 +43,7 @@ function show_scenarios($container) {
 }
 
 function setup_scenarios($container, questions) {
-  var $scenario_container = $container.find('.scenarios');
+  var $scenario_container = $container.find('.scenarios-content');
   $container.find('.next-btn').addClass('hide');
   set_scenarios_text(questions, $scenario_container);
   set_scenarios_questions($container, questions);
@@ -52,9 +54,11 @@ function set_scenarios_questions($container, questions) {
   $.each(questions['scenarios'], function(i, scen) {
     var $template = $container.find('.q-template').clone().addClass('scenario-' + i).removeClass('q-template');
     $template.attr('data-scenario', i);
-    set_question_main_text($template, scen);
-    set_questions($template, scen);
-    $container.find('.content').append($template);
+
+    var $infoHeader = $container.find('.info-header-container .info-header').first();    
+    set_question_main_text($template, scen, $infoHeader);
+    set_questions($template, scen, $infoHeader);        
+    $container.find('.content').append($template);    
   });
   $container.find('.q-template').remove();
 }
@@ -63,12 +67,13 @@ function set_scenarios_text(questions, $scenario_container) {
   $.each(questions['scenarios'], function(i, scen) {
     var $template = $scenario_container.find('.scenario-template').clone().removeClass('scenario-template').addClass('select-scenario select-scenario-' + i);
     $template.attr('data-index', i);
-    $template.find('.text').text(scen['text']);
+    $template.find('.view-from').text(scen['from']);
+    $template.find('.view-topic').text(scen['topic']);
     $scenario_container.append($template);
   });
 }
 
-function set_question_main_text($container, questions) {
+function set_question_main_text($container, questions, $infoHeader) {
   var $scenario_text = $container.find('.scenario-text');
 
   if ($scenario_text.text().trim() == "") {
@@ -79,18 +84,27 @@ function set_question_main_text($container, questions) {
 
       $scenario_text.append($img);
     }
+
     
-    $scenario_text.append(questions['text']);
+
+    if(questions['videoId']) {
+      var $videoContainer = $("<div>");
+      $videoContainer.attr("id", "video-player");
+      $videoContainer.attr("align", "left");
+      $scenario_text.append($videoContainer);
+
+      player = initVideoPlayer(questions['videoId']);
+    }
   
-    // check if info header exists for this exam type 
-    var $info_header = $container.find('.info-header-container .info-header');
-    if($info_header.length > 0) {
-      set_question_info_header($scenario_text, $info_header.first(), {to: 'You'});
+    $scenario_text.append(questions['text']);
+
+    if($infoHeader.length > 0) {
+      set_question_info_header($scenario_text, $infoHeader.clone(), {to: 'You', from: questions['from'], topic: questions['topic']});      
     }
   }
 }
 
-function set_questions($container, questions) {
+function set_questions($container, questions, $infoHeader) {  
   $.each(questions['questions'], function(index, val) {
     var $question = $container.find('.question_' + index);
     if ($question.find('.text').text().trim() == "") {
@@ -105,22 +119,22 @@ function set_questions($container, questions) {
         $question.find('.answers').append(html);
       });
 
-      // check if info header exists for this exam type 
-      var $info_header = $container.find('.info-header-container .info-header');
-      if($info_header.length > 0) {
-        set_question_info_header($question, $info_header.first(), {to: 'You'});
+      if($infoHeader.length > 0) {
+        set_question_info_header($question, $infoHeader.clone(), {to: 'You', from: questions['from'], topic: questions['topic']});      
       }
     }
   });
 }
 
-function set_question_info_header($el, $info_header, values) {
-  var $cloned_info_header = $info_header.clone();
-  $cloned_info_header.find('.to').text(values['to']);
-  $cloned_info_header.find('.from').text(values['from']);
-  $cloned_info_header.find('.topic').text(values['topic']);
+function set_question_info_header($question, $infoHeader, values) {  
+  $infoHeader.find('.to').text(values['to']);
+  $infoHeader.find('.from').text(values['from']);
+  $infoHeader.find('.topic').text(values['topic']);
 
-  $el.prepend($cloned_info_header);
+  // remove current question info header, if any   
+  $question.find('.info-header').remove();
+ 
+  $question.prepend($infoHeader);    
 }
 
 function start_exam($el) {
@@ -148,6 +162,8 @@ function get_next_prev_btn_reference($target, type) {
 }
 
 function next_question(id) {
+  stopVideo();
+
   if (id === null) {
     $.fancybox.close();
     return;
@@ -159,15 +175,22 @@ function next_question(id) {
   $scope.find('.question.question_' + id).removeClass('hide');
 }
 
-function change_next_btn_label($container, id) {
-  label = id == '2' || id == 2 ? 'Submit' : 'Next';
-  var $btn = $container.parents('.fb-exam').first().find('.next-btn');
+function change_next_btn_label($container, id) {  
+  var $rootElement;
+  if($container.hasClass('fb-exam')) {
+    $rootElement = $container;
+  }
+  else {
+    $rootElement = $container.parents('.fb-exam').first();
+  }
+
+  var label = id == '2' || id == 2 ? 'Submit' : 'Next';  
+  var $btn = $rootElement.find('.next-btn');
   $btn.text(label);
 
+  $btn.removeClass('submit');
   if(label == 'Submit')
-    $btn.addClass('submit');
-  else
-    $btn.removeClass('submit');
+    $btn.addClass('submit');  
 }
 
 function submit_exam(id) {

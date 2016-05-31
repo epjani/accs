@@ -7,6 +7,7 @@ var exam_room_events = {
   mouse_questions: {},
   poster1_questions: {},
   poster2_questions: {},
+  tv_questions: {},
   total_points: 0,
   all_scenarios: ['iphone', 'phone', 'mouse', 'poster1', 'poster2'],
   finished_scenarios: [],
@@ -63,6 +64,7 @@ function setup_questions(case_study) {
   exam_room_events.mouse_questions = MOUSE[main_variables.language][case_study];
   exam_room_events.poster1_questions = POSTER1[main_variables.language][case_study];
   exam_room_events.poster2_questions = POSTER2[main_variables.language][case_study];
+  exam_room_events.tv_questions = TV[main_variables.language][case_study];
 }
 
 function get_selected_questions(id) {
@@ -78,6 +80,8 @@ function get_selected_questions(id) {
       questions = exam_room_events.poster1_questions; break;
     case 'poster2':
       questions = exam_room_events.poster2_questions; break;
+    case 'tv':
+      questions = exam_room_events.tv_questions; break;  
   }
 
   return questions;
@@ -102,6 +106,7 @@ function clear_exam_room_assets() {
   exam_room_events.mouse_questions = {};
   exam_room_events.poster1_questions = {};
   exam_room_events.poster2_questions = {};
+  exam_room_events.tv_questions = {};
   exam_room_events.total_points = 0;
   exam_room_events.finished_scenarios = [];
   exam_room_events.the_case_study = '';
