@@ -156,9 +156,10 @@ $(document).ready(function(){
     if ($target.hasClass('done')) {
       exam_room_events.exit_room();
     } else {
-      $('#fb-warning .content').html('Are you sure you want to exit case study?<br /><button onclick="exam_room_events.exit_room();">Yes</button><button onclick="$.fancybox.close();">Cancel</button>');
+      $('#fb-warning .content').html('<div class="text">Are you sure you want to exit case study?</div><div class="btn-container"><button class="red-btn" onclick="exam_room_events.exit_room();">Yes</button><button style="margin-left:10px;" class="blue-btn" onclick="$.fancybox.close();">Cancel</button></div>');
       $.fancybox({
-        href: '#fb-warning'
+        href: '#fb-warning',
+        width: '400px'
       });
     }
   });

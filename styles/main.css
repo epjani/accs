@@ -37,6 +37,18 @@
 
 }
 
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('../fonts/OpenSans-Bold-webfont.eot');
+    src: url('../fonts/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-Bold-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html, body {
 	margin: 0;
 	width: 100%;
@@ -150,6 +162,28 @@ img { outline: none; border: none; }
   top: 15px !important;
   right: 20px !important;
   cursor: pointer;
+}
+
+.fb-notifications {
+  border-bottom: 6px solid #c2a995;
+}
+
+.fb-notifications .header{
+  text-align: center;
+  border-bottom: none;
+}
+
+.fb-notifications .content .text {
+  padding: 10px;
+  background-color: #FFF;
+  font-family: 'open_sansbold';
+}
+
+.fb-notifications .header img {
+  width: 50px;
+}
+.fancybox.fb-notifications .header img, .fancybox.fb-notifications .title, .overlay .header img {
+  float: none;
 }
 
 #top-menu {

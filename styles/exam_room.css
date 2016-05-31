@@ -400,7 +400,7 @@
   background-color: #edeeef;
 }
 
-.fb-exam .footer button, .break-btn {
+.fb-exam .footer button, .break-btn, .red-btn {
   background-color: #c81022;
   color: #ffffff;
   width: 69px;
@@ -412,10 +412,24 @@
   cursor: pointer;
 }
 
-.fb-exam .footer button.submit {
+.fb-exam .footer button.submit, .blue-btn {
   background-color: #188eae;
 }
 
+.blue-btn {
+  height: 31px;
+  width: 69px;
+  color: #ffffff;
+  width: 69px;
+  height: 31px;
+  border: none;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-container { margin-top: 15px; }
 .fb-exam .footer button:focus {outline:0;}
 
 .fb-exam .footer .back-btn {

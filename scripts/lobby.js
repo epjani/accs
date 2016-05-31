@@ -101,10 +101,14 @@ function hide_lobby() {
 }
 
 function lobby_requirements_warning() {
-	message = "You have to read: " + non_clicked_elements_stringified();
-	$('#fb-warning .content').text(message);
+	// message = "You have to read: " + non_clicked_elements_stringified();
+	message = 'Please review: Introduction, Instructions, Brochures and Poster before proceeding to case study.'
+	$('#fb-warning .content .text').text(message);
 	$.fancybox({
-	  href: '#fb-warning'
+	  href: '#fb-warning',
+	  width: 500,
+	  height: 'auto',
+	  autoSize: false
 	});
 }
 
