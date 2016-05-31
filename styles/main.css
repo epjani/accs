@@ -124,6 +124,8 @@ img { outline: none; border: none; }
   margin-left: -14px;
 }
 
+.text-left { text-align: left; }
+
 .fancybox-close, .overlay .close {
   position: absolute;
   width: 20px !important;
