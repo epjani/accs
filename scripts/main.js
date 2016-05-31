@@ -33,7 +33,7 @@ $(document).ready(function(){
 });
 
 window.onload = function(e){
-  $('#animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random())
+  $('#animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
   $('body').removeClass('hide');
   setImageSize();
   setTimeout(lobby_events.goto_lobby, 6600);

@@ -96,7 +96,7 @@ area { outline: none; display: inline-block; }
 img { outline: none; border: none; }
 
 .hide { display: none; }
-
+.vis-hidden { visibility: hidden; }
 .fancybox .header, .overlay .header {
   position: relative;
   border-bottom: 1px solid #bfbdbf;
