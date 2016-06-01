@@ -18,13 +18,14 @@ var CountDown = (function ($) {
         var Minutes = Time.getMinutes();
         var Seconds = Time.getSeconds();
         
-        if (time_to_beep(Minutes, Seconds)) {
-            beep_sound();
+        if ( Running ) {
+            if (time_to_beep(Minutes, Seconds)) {
+                beep_sound();
+            }
+            if (should_end_exam(Minutes, Seconds)) {
+                end_case_study();
+            }
         }
-        if (should_end_exam(Minutes, Seconds)) {
-            end_case_study();
-        }
-        
         var minutes_left = (Minutes < 10 ? '0' : '') + Minutes;
         var seconds_left = (Seconds < 10 ? '0' : '') + Seconds;
         display_time(minutes_left, seconds_left);
