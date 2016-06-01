@@ -170,9 +170,35 @@ function next_question(id) {
   }  
 
   $scope = $('.fb-exam:visible .questions.active');
-  change_next_btn_label($scope, id)
+  $current = $scope.find('.question:not(".hide")');
+
+  if (!$current.hasClass('scenario-text')) {
+    if (one_question_answered($current)) {
+      go_to_next_question_set($scope, id)
+    } else {
+      $scoped_warning_box = $('.fb-exam:visible #inside-fb-warning');
+      $scoped_warning_box.show();
+      $scoped_warning_box.find('.fancybox').show();
+    } 
+  } else {
+    go_to_next_question_set($scope, id)
+  }
+}
+
+function quit_submit_warning() {
+  $scoped_warning_box = $('.fb-exam:visible #inside-fb-warning');
+  $scoped_warning_box.hide();
+  $scoped_warning_box.find('.fancybox').hide();
+}
+
+function go_to_next_question_set($scope, id) {
+  change_next_btn_label($scope, id);  
   $scope.find('.question').addClass('hide');
   $scope.find('.question.question_' + id).removeClass('hide');
+}
+
+function one_question_answered($question_set) {
+  return $question_set.find('input:checked').length > 0
 }
 
 function change_next_btn_label($container, id) {  
