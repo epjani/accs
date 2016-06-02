@@ -76,8 +76,8 @@ function read_all_the_documents() {
 function lobby_go_to_case_study_click() {
 	$('.cs-selection').click(function(jsEvent) {
 
-		if (true /*lobby_events.documents_read()*/) {
-		// if (lobby_events.documents_read()) {
+		// if (true lobby_events.documents_read()) {
+		if (lobby_events.documents_read()) {
 			$target = $(jsEvent.target);
 			if ($target.hasClass('cs-selection')) {
 				case_study = $target.attr('id');
