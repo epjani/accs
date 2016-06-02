@@ -15,7 +15,7 @@ $(document).ready(function(){
   configure_for_devices();
 
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function(foo) {
-    showOverlay($(this), false);
+    showOverlay($(this), true);
   });
 
   $('#lobby-menu a').click(function() {
@@ -36,8 +36,8 @@ window.onload = function(e){
   $('#animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
   $('body').removeClass('hide');
   setImageSize();
-  setTimeout(lobby_events.goto_lobby, 6600);
-  // lobby_events.goto_lobby();
+  // setTimeout(lobby_events.goto_lobby, 6600);
+  lobby_events.goto_lobby();
   load_sounds();
 }
 
