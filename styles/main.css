@@ -135,14 +135,14 @@ img { outline: none; border: none; }
   height: 100%;
 }
 
-#inside-fb-warning {
+.inside-fb-warning {
   width: 100%;
   height: 100%;  
   z-index: 1000000;
   display: none;  
 }
 
-#inside-fb-warning .bg {
+.inside-fb-warning .bg {
   width: 100%;
   height: 100%;
   background: #000;
@@ -154,7 +154,7 @@ img { outline: none; border: none; }
   position: absolute;
 }
 
-#inside-fb-warning .fb-notifications{
+.inside-fb-warning .fb-notifications{
   width: 400px;
   background: #ccc;
   position: absolute;

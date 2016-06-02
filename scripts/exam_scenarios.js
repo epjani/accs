@@ -161,7 +161,7 @@ function get_next_prev_btn_reference($target, type) {
   return $container.children("[data-" + type + "-btn]:visible").first();
 }
 
-function next_question(id) {
+function next_question(id, skip_warning) {
   stopVideo();
 
   if (id === null) {
@@ -173,10 +173,10 @@ function next_question(id) {
   $current = $scope.find('.question:not(".hide")');
 
   if (!$current.hasClass('scenario-text')) {
-    if (one_question_answered($current)) {
+    if (one_question_answered($current) || skip_warning) {
       go_to_next_question_set($scope, id)
     } else {
-      $scoped_warning_box = $('.fb-exam:visible #inside-fb-warning');
+      $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
       $scoped_warning_box.show();
       $scoped_warning_box.find('.fancybox').show();
     } 
@@ -186,7 +186,7 @@ function next_question(id) {
 }
 
 function quit_submit_warning() {
-  $scoped_warning_box = $('.fb-exam:visible #inside-fb-warning');
+  $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
   $scoped_warning_box.hide();
   $scoped_warning_box.find('.fancybox').hide();
 }
@@ -220,21 +220,30 @@ function change_next_btn_label($container, id) {
 }
 
 function submit_exam(id) {
+
   var $container = $('.fb-exam#' + id + '-exam .questions.active');
-  if ($container.data('scenario') != null && ($container.data('scenario') != undefined )) {
-    $container.parents('.content').find('.scenarios .select-scenario-' + $container.data('scenario') + ' a').addClass('done');
+
+  if (one_question_answered($container.find('.question:not(".hide")'))) {
+    if ($container.data('scenario') != null && ($container.data('scenario') != undefined )) {
+      $container.parents('.content').find('.scenarios .select-scenario-' + $container.data('scenario') + ' a').addClass('done');
+    } else {
+      $container.parents('.content').find('.scenarios a').addClass('done');
+    }
+    calculate_points($container, id);
+    set_score();
+    set_exam_type_as_finished($container, id);
+    clean_scenario($container, id);
+    if (should_end_case_study()) {
+      end_case_study();
+    }
+    $container.removeClass('active');
+    $.fancybox.close();
   } else {
-    $container.parents('.content').find('.scenarios a').addClass('done');
-  }
-  calculate_points($container, id);
-  set_score();
-  set_exam_type_as_finished($container, id);
-  clean_scenario($container, id);
-  if (should_end_case_study()) {
-    end_case_study();
-  }
-  $container.removeClass('active');
-  $.fancybox.close();
+    $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
+    $scoped_warning_box.show();
+    $scoped_warning_box.find('.fancybox').show();
+  } 
+  
 }
 
 function should_end_case_study() {

@@ -152,7 +152,7 @@ $(document).ready(function(){
   });
 
   $('.exam-room .exams .next-btn').on('click', function(jsEvent) {
-    $target = $(jsEvent.target);    
+    $target = $(jsEvent.target);
     reference = get_next_prev_btn_reference($target, 'next').data('next-btn');
     eval(reference);
   });

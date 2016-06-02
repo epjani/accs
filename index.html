@@ -141,22 +141,22 @@
 								</div>
 							</div>
 							<div class="questions q-template">
-								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
-								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
+								<div class="scenario-text question question_text" data-next-btn="next_question(0, false);" data-back-btn="next_question(null, true);"></div>
+								<div class="question hide question_0" data-next-btn="next_question(1, false);" data-back-btn="next_question('text', true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_1" data-next-btn="next_question(2);" data-back-btn="next_question(0);">
+								<div class="question hide question_1" data-next-btn="next_question(2, false);" data-back-btn="next_question(0, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_2" data-next-btn="submit_exam('iphone');" data-back-btn="next_question(1);">
+								<div class="question hide question_2" data-next-btn="submit_exam('iphone');" data-back-btn="next_question(1, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
 							</div>
 						</div>
-						<div id="inside-fb-warning" >
+						<div class="inside-fb-warning" >
 							<div class="bg"></div>
 							<div class="fancybox fb-notifications" >
 								<div class="header">
@@ -200,18 +200,30 @@
 							</div>	
 
 							<div class="questions q-template">
-								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
-								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
+								<div class="scenario-text question question_text" data-next-btn="next_question(0, false);" data-back-btn="next_question(null, true);"></div>
+								<div class="question hide question_0" data-next-btn="next_question(1, false);" data-back-btn="next_question('text', true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_1" data-next-btn="next_question(2);" data-back-btn="next_question(0);">
+								<div class="question hide question_1" data-next-btn="next_question(2, false);" data-back-btn="next_question(0, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_2" data-next-btn="submit_exam('phone');" data-back-btn="next_question(1);">
+								<div class="question hide question_2" data-next-btn="submit_exam('phone');" data-back-btn="next_question(1, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
+								</div>
+							</div>
+						</div>
+						<div class="inside-fb-warning" >
+							<div class="bg"></div>
+							<div class="fancybox fb-notifications" >
+								<div class="header">
+									<img src="img/warning_ico.jpg" alt="warning" />
+								</div>
+								<div class="content"><div class="text">Please choose an answer before you click the submit button.</div></div>
+								<div class="btn-container">
+									<button class="break-btn" onclick="quit_submit_warning();">BACK</button>
 								</div>
 							</div>
 						</div>
@@ -285,18 +297,30 @@
 							</div>	
 
 							<div class="questions q-template">
-								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
-								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
+								<div class="scenario-text question question_text" data-next-btn="next_question(0, false);" data-back-btn="next_question(null, true);"></div>
+								<div class="question hide question_0" data-next-btn="next_question(1, false);" data-back-btn="next_question('text', true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_1" data-next-btn="next_question(2);" data-back-btn="next_question(0);">
+								<div class="question hide question_1" data-next-btn="next_question(2, false);" data-back-btn="next_question(0, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_2" data-next-btn="submit_exam('mouse');" data-back-btn="next_question(1);">
+								<div class="question hide question_2" data-next-btn="submit_exam('mouse');" data-back-btn="next_question(1, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
+								</div>
+							</div>
+						</div>
+						<div class="inside-fb-warning" >
+							<div class="bg"></div>
+							<div class="fancybox fb-notifications" >
+								<div class="header">
+									<img src="img/warning_ico.jpg" alt="warning" />
+								</div>
+								<div class="content"><div class="text">Please choose an answer before you click the submit button.</div></div>
+								<div class="btn-container">
+									<button class="break-btn" onclick="quit_submit_warning();">BACK</button>
 								</div>
 							</div>
 						</div>
@@ -322,18 +346,30 @@
 								</div>
 							</div>
 							<div class="questions q-template">
-								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
-								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
+								<div class="scenario-text question question_text" data-next-btn="next_question(0, false);" data-back-btn="next_question(null, true);"></div>
+								<div class="question hide question_0" data-next-btn="next_question(1, false);" data-back-btn="next_question('text', true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_1" data-next-btn="next_question(2);" data-back-btn="next_question(0);">
+								<div class="question hide question_1" data-next-btn="next_question(2, false);" data-back-btn="next_question(0, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_2" data-next-btn="submit_exam('poster1');" data-back-btn="next_question(1);">
+								<div class="question hide question_2" data-next-btn="submit_exam('poster1');" data-back-btn="next_question(1, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
+								</div>
+							</div>
+						</div>
+						<div class="inside-fb-warning" >
+							<div class="bg"></div>
+							<div class="fancybox fb-notifications" >
+								<div class="header">
+									<img src="img/warning_ico.jpg" alt="warning" />
+								</div>
+								<div class="content"><div class="text">Please choose an answer before you click the submit button.</div></div>
+								<div class="btn-container">
+									<button class="break-btn" onclick="quit_submit_warning();">BACK</button>
 								</div>
 							</div>
 						</div>
@@ -359,18 +395,30 @@
 								</div>
 							</div>
 							<div class="questions q-template">
-								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
-								<div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
+								<div class="scenario-text question question_text" data-next-btn="next_question(0, false);" data-back-btn="next_question(null, true);"></div>
+								<div class="question hide question_0" data-next-btn="next_question(1, false);" data-back-btn="next_question('text');">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_1" data-next-btn="next_question(2);" data-back-btn="next_question(0);">
+								<div class="question hide question_1" data-next-btn="next_question(2, false);" data-back-btn="next_question(0, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div>
-								<div class="question hide question_2" data-next-btn="submit_exam('poster2');" data-back-btn="next_question(1);">
+								<div class="question hide question_2" data-next-btn="submit_exam('poster2');" data-back-btn="next_question(1, true);">
 									<p class="text"></p>
 									<div class="answers"></div>
+								</div>
+							</div>
+						</div>
+						<div class="inside-fb-warning" >
+							<div class="bg"></div>
+							<div class="fancybox fb-notifications" >
+								<div class="header">
+									<img src="img/warning_ico.jpg" alt="warning" />
+								</div>
+								<div class="content"><div class="text">Please choose an answer before you click the submit button.</div></div>
+								<div class="btn-container">
+									<button class="break-btn" onclick="quit_submit_warning();">BACK</button>
 								</div>
 							</div>
 						</div>
@@ -399,7 +447,7 @@
 								</div>
 							</div>
 							<div class="questions q-template">
-								<div class="scenario-text question question_text" data-next-btn="next_question(0);" data-back-btn="next_question(null);"></div>
+								<div class="scenario-text question question_text" data-next-btn="next_question(0, false);" data-back-btn="next_question(null, true);"></div>
 								<!-- <div class="question hide question_0" data-next-btn="next_question(1);" data-back-btn="next_question('text');">
 									<p class="text"></p>
 									<div class="answers"></div>
@@ -412,6 +460,18 @@
 									<p class="text"></p>
 									<div class="answers"></div>
 								</div> -->
+							</div>
+						</div>
+						<div class="inside-fb-warning" >
+							<div class="bg"></div>
+							<div class="fancybox fb-notifications" >
+								<div class="header">
+									<img src="img/warning_ico.jpg" alt="warning" />
+								</div>
+								<div class="content"><div class="text">Please choose an answer before you click the submit button.</div></div>
+								<div class="btn-container">
+									<button class="break-btn" onclick="quit_submit_warning();">BACK</button>
+								</div>
 							</div>
 						</div>
 						<div class="footer">
