@@ -13,10 +13,13 @@ function attach_questions(id) {
   } else {
     $container.find('.questions').addClass('hide');
     setup_scenarios($container, questions);
-    show_scenarios($container)
+    show_scenarios($container);
   }
 
-  // style checkboxes
+   style_checkboxes($container);
+}
+
+function style_checkboxes($container) {
   $container.find('.answers input[type="checkbox"]').iCheck({
     checkboxClass: 'icheckbox_minimal-orange',
   });
@@ -58,7 +61,7 @@ function set_scenarios_questions($container, questions) {
     var $infoHeader = $container.find('.info-header-container .info-header').first();    
     set_question_main_text($template, scen, $infoHeader);
     set_questions($template, scen, $infoHeader);        
-    $container.find('.content').append($template);    
+    $container.find('.content:not(".warning")').append($template);    
   });
   $container.find('.q-template').remove();
 }
@@ -360,13 +363,16 @@ function start_scenario($container, index) {
   $container.find('.scenarios').addClass('hide');
   $container.find('.next-btn').removeClass('hide');
   $container.find('.questions.scenario-' + index).removeClass('hide').addClass('active');
+  $container.find('input:checkbox').prop('checked', false);
+   style_checkboxes($container);
 }
 
 $(document).ready(function() {
   $('.fb-exam .scenarios ').on('click', 'a.start:not(".done")', function(jsEvent){
     $target = $(jsEvent.target);
     if (!$target.data('finished')){
-      $container = $target.parents('.fb-exam');      
+      $container = $target.parents('.fb-exam');
+      change_next_btn_label($container, 0);
       scenario_index = $target.parents('.select-scenario').data('index');
       start_scenario($container, scenario_index);
     }
