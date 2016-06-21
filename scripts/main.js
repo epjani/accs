@@ -30,15 +30,28 @@ $(document).ready(function(){
     if (href == '#' || href == '')
       return false;
   });
+
+  $(".globe-fb-trigger").click(function(){
+    open_globe_content();
+  });
+  init_sounds();
 });
 
+function init_sounds() {
+  createjs.Sound.addEventListener("fileload", handleLoad);
+  createjs.Sound.registerSound("sounds/moped_driving.mp3", "moped_driving");
+}
+
+function handleLoad(event) {  
+  var driving_sound = createjs.Sound.play("moped_driving");
+}
 window.onload = function(e){
+  load_sounds();  
   $('#animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
   $('body').removeClass('hide');
-  setImageSize();
+  setImageSize();  
   setTimeout(lobby_events.goto_lobby, 6600);
   // lobby_events.goto_lobby();
-  load_sounds();
 }
 
 function showOverlay($el, autoHide) {

@@ -194,10 +194,18 @@ function quit_submit_warning() {
   $scoped_warning_box.find('.fancybox').hide();
 }
 
-function go_to_next_question_set($scope, id) {
-  change_next_btn_label($scope, id);  
+function go_to_next_question_set($scope, index) {
+  change_next_btn_label($scope, index);  
   $scope.find('.question').addClass('hide');
-  $scope.find('.question.question_' + id).removeClass('hide');
+  $scope.find('.question.question_' + index).removeClass('hide');
+  handle_points(index-1);
+}
+
+function handle_points(index) {
+  $container = $target.parents('.fb-exam').first().find('.questions');
+  var id = $container.parents('.fb-exam').attr('id').replace('-exam', '');
+  calculate_points($container, id, index);
+  set_score();
 }
 
 function one_question_answered($question_set) {
@@ -227,19 +235,19 @@ function submit_exam(id) {
   var $container = $('.fb-exam#' + id + '-exam .questions.active');
 
   if (one_question_answered($container.find('.question:not(".hide")'))) {
+    handle_points(2);
     if ($container.data('scenario') != null && ($container.data('scenario') != undefined )) {
       $container.parents('.content').find('.scenarios .select-scenario-' + $container.data('scenario') + ' a').addClass('done');
     } else {
       $container.parents('.content').find('.scenarios a').addClass('done');
     }
-    calculate_points($container, id);
-    set_score();
+    
     set_exam_type_as_finished($container, id);
     clean_scenario($container, id);
     if (should_end_case_study()) {
       end_case_study();
     }
-    $container.removeClass('active');
+    $container.removeClass('active');    
     $.fancybox.close();
   } else {
     $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
@@ -330,10 +338,15 @@ function set_score() {
   $('.total-points').text('Score: ' + exam_room_events.total_points);
 }
 
-function calculate_points($container, id) {
-  exam_room_events.total_points += get_question_points($container, 0, id);
-  exam_room_events.total_points += get_question_points($container, 1, id);
-  exam_room_events.total_points += get_question_points($container, 2, id);
+function calculate_points($container, id, index) {
+  var question_points = get_question_points($container, index, id)
+  exam_room_events.total_points += question_points;
+  if (question_points > 0) {
+    play_sound(sounds.correct);
+  } else {
+    play_sound(sounds.incorrect);
+  }
+
 }
 
 function get_question_points($container, index, id) {

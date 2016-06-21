@@ -17,6 +17,7 @@
 		<meta name="mobile-web-app-capable" content="yes">
 	</head>
 	<body onresize="setImageSize();" class="hide">
+		
 		<nav id="top-menu" class="show-on-mobile">
       <button class="toggle-menu" type="button" onclick="toggle_menu();"></button>
       <ul class="links">
@@ -43,6 +44,7 @@
 						<img  src="img/whiteboard/network_fleet.png" />
 					</a>
 				</div>
+				<div class="globe-fb-trigger"></div>
 				<map name="map_lobby" id="map_lobby" class="hide-on-mobile">
 					<area id="brouchure1" class="read-document" shape="poly" coords="1740,910,1834,724,1970,742,1894,944" href="http://www.myvirtualpaper.com/doc/air-canada/2016_premium-class-brochure/2016011801/#0" target="_blank" data-title="Onboard a new class of comfort" alt="Onboard a new class of comfort" />
 					<area id="brouchure2" class="read-document" shape="poly" coords="1750,666,1840,484,1974,500,1900,688" href="http://www.myvirtualpaper.com/doc/air-canada/2015_premium-products-brochure/2015113001/#0" target="_blank" data-title="Fly in a world of privilege" alt="Fly in a world of privilege" />
@@ -622,6 +624,10 @@
 			</div>
 		</div>
 
+		<div id="globe-fb">
+			<img src="img/globe.jpg" alt="Globe">
+		</div>
+
 		<script type="text/javascript" src="scripts/lib/jquery-2.2.1.min.js"></script>
 		<script type="text/javascript" src="scripts/lib/jquery-ui.min.js"></script>
 		<script src="http://www.youtube.com/player_api"></script>
@@ -629,13 +635,13 @@
 		<script type="text/javascript" src="scripts/lib/modernizr.js"></script>
 		<script type="text/javascript" src="scripts/lib/mobile-detect.js"></script>
 		<script type="text/javascript" src="scripts/resizing-helpers.js"></script>
-		<script type="text/javascript" src="scripts/timer.js"></script>		
+		<script type="text/javascript" src="scripts/timer.js"></script>
+		<script type="text/javascript" src="scripts/sounds.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
 		<script type="text/javascript" src="scripts/lobby.js"></script>
 		<script type="text/javascript" src="scripts/exam_room.js"></script>
 		<script type="text/javascript" src="scripts/video.js"></script>
-		<script type="text/javascript" src="scripts/exam_scenarios.js"></script>
-		<script type="text/javascript" src="scripts/sounds.js"></script>
+		<script type="text/javascript" src="scripts/exam_scenarios.js"></script>		
 		<script type="text/javascript" src="scripts/configurations/assets_sources.js"></script>
 		<script type="text/javascript" src="scripts/configurations/questions.js"></script>
 		<script type="text/javascript" src="scripts/lib/imageMapResizer.min.js"></script>

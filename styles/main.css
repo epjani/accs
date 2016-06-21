@@ -395,6 +395,14 @@ img { outline: none; border: none; }
 .lobby .whiteboard #cs2 img, .lobby .whiteboard #cs3 img { margin-top: 5px; }
 .lobby .whiteboard #cs2 img { margin-left: -2px; }
 .lobby .whiteboard #cs3 img { margin-left: -4px; }
+.lobby .globe-fb-trigger { 
+  position: absolute;
+  width: 6%;
+  height: 12%;
+  top: 34.2%;
+  left: 35%;
+  cursor: pointer;
+}
 .ui-tooltip, .arrow:after {
   background: #FFF;
   border: 2px solid white;
@@ -487,3 +495,6 @@ img { outline: none; border: none; }
   line-height: 34px;
   font-size: 16px;
 }
+
+#globe-fb { display: none; }
+#globe-fb img { width: 100%; }

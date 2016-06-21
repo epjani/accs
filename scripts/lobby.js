@@ -76,8 +76,8 @@ function read_all_the_documents() {
 function lobby_go_to_case_study_click() {
 	$('.cs-selection').click(function(jsEvent) {
 
-		// if (true /*lobby_events.documents_read()*/) {
-		if (lobby_events.documents_read()) {
+		if (true /*lobby_events.documents_read()*/) {
+		// if (lobby_events.documents_read()) {
 			$target = $(jsEvent.target);
 			if ($target.hasClass('cs-selection')) {
 				case_study = $target.attr('id');
@@ -141,6 +141,7 @@ function read_lobby_document(id) {
 }
 
 function open_exam_room() {
+	play_sound(sounds.door_opening);
 	$('.lobby img#lobby').attr('src', "img/lobby-open.jpg");
 }
 
@@ -168,4 +169,14 @@ function set_whiteboard_tooltips() {
       return content;
     }
   });
+}
+
+function open_globe_content() {
+	$.fancybox({ 
+		href: '#globe-fb',
+		fitToView : false,
+		autoSize  : false,
+		width			: '90%',
+		height    : 'auto'
+	});
 }
