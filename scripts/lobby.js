@@ -110,6 +110,7 @@ function lobby_requirements_warning() {
 	  height: 'auto',
 	  autoSize: false
 	});
+	play_sound(sounds.incorrect);
 }
 
 function non_clicked_elements_stringified() {
