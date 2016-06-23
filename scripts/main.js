@@ -34,6 +34,7 @@ $(document).ready(function(){
   $(".globe-fb-trigger").click(function(){
     open_globe_content();
   });
+  
   init_sounds();
 });
 

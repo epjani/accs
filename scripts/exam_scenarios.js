@@ -342,11 +342,27 @@ function calculate_points($container, id, index) {
   var question_points = get_question_points($container, index, id)
   exam_room_events.total_points += question_points;
   if (question_points > 0) {
+    show_correct_popup();
     play_sound(sounds.correct);
   } else {
+    show_incorrect_popup();
     play_sound(sounds.incorrect);
   }
 
+}
+
+function show_correct_popup() {
+  $('.bg-overlay').removeClass('hide');
+  $('.correct-answer-warning').removeClass('hide');
+}
+
+function show_incorrect_popup() {
+  $('.bg-overlay').removeClass('hide');
+  $('.incorrect-answer-warning').removeClass('hide');
+}
+
+function hide_question_popup() {
+  $('.bg-overlay, .correct-answer-warning, .incorrect-answer-warning').addClass('hide');
 }
 
 function get_question_points($container, index, id) {
@@ -389,5 +405,9 @@ $(document).ready(function() {
       scenario_index = $target.parents('.select-scenario').data('index');
       start_scenario($container, scenario_index);
     }
+  });
+
+  $(".correct-answer-warning .close-warning, .incorrect-answer-warning .close-warning").on('click', function() {
+    hide_question_popup();
   });
 });
