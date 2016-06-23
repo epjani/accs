@@ -270,6 +270,7 @@ function end_case_study() {
     $('.exam-room .exam#' + id).addClass('done');
   });
   if (is_study_passed()) {
+    submit_case_study(exam_room_events.the_case_study, exam_room_events.total_points);
     lobby_events.finished_case_studies.push(exam_room_events.the_case_study);
   }
 }
