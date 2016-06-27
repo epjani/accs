@@ -34,8 +34,8 @@ $(document).ready(function(){
   $(".globe-fb-trigger").click(function(){
     open_globe_content();
   });
-  
-  init_sounds();
+
+  // init_sounds();
 });
 
 function init_sounds() {
@@ -43,16 +43,16 @@ function init_sounds() {
   createjs.Sound.registerSound("sounds/moped_driving.mp3", "moped_driving");
 }
 
-function handleLoad(event) {  
+function handleLoad(event) {
   var driving_sound = createjs.Sound.play("moped_driving");
 }
 window.onload = function(e){
-  load_sounds();  
+  load_sounds();
   $('#animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
   $('body').removeClass('hide');
-  setImageSize();  
-  setTimeout(lobby_events.goto_lobby, 6600);
-  // lobby_events.goto_lobby();
+  setImageSize();
+  // setTimeout(lobby_events.goto_lobby, 6600);
+  lobby_events.goto_lobby();
 }
 
 function showOverlay($el, autoHide) {
