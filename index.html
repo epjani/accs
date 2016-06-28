@@ -673,7 +673,7 @@
 			</div>
 		</div>
 
-		<div class="evaluation-container" >
+		<div class="evaluation-container hide" >
 			<div class="top-border">
 				<div class="l"><img src="img/red-l.png" height="20" /></div>
 				<div class="r"><img src="img/red-r.png" height="20" /></div>
@@ -683,32 +683,86 @@
 			<div class="header">
 				EVALUATION
 			</div>
-			<form action="">
+			<form action="" class="evaluation-form">
 				<div class="content">
-					<div class="intro">
-						Thank you for taking the time to complete this evaluation! The information you provide will help us to develop online learning experiences that are engaging and relevant to participants. If any of the questions below do not apply to the educational product you just experienced please select N/A. <br />All information you provide will be kept strictly confidential.
-						<div class="please-rate">Please rate the following features of e-learning course you have completed.</div>
+					<input type="hidden" name="case_study" class="evaluation-case-study" />
+					<div class="first-slide">
+						<div class="intro">
+							Thank you for taking the time to complete this evaluation! The information you provide will help us to develop online learning experiences that are engaging and relevant to participants. If any of the questions below do not apply to the educational product you just experienced please select N/A. <br />All information you provide will be kept strictly confidential.
+							<div class="please-rate">Please rate the following features of e-learning course you have completed.</div>
+						</div>
+
+						<div class="grades">
+							<div class="grade one">
+								<div class="number">1</div><div class="text">Relevance of content</div>
+								<div class="radios">
+								  <div class="radio">Very High<span class="wrapper"><input type="radio" name="relevance" value="very_high"></span></div>
+								  <div class="radio">High<span class="wrapper"><input type="radio" name="relevance" value="high"></span></div>
+								  <div class="radio">Neutral<span class="wrapper"><input type="radio" name="relevance" value="neutral"></span></div>
+								  <div class="radio">Low<span class="wrapper"><input type="radio" name="relevance" value="low"></span></div>
+								  <div class="radio">Very Low<span class="wrapper"><input type="radio" name="relevance" value="very_low"></span></div>
+								  <div class="radio">N/A<span class="wrapper"><input type="radio" name="relevance" value="n_a"></span></div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+
+							<div class="grade two">
+								<div class="number">2</div><div class="text">Organization of content</div>
+								<div class="radios">
+								  <div class="radio">Very High<span class="wrapper"><input type="radio" name="organization" value="very_high"></span></div>
+								  <div class="radio">High<span class="wrapper"><input type="radio" name="organization" value="high"></span></div>
+								  <div class="radio">Neutral<span class="wrapper"><input type="radio" name="organization" value="neutral"></span></div>
+								  <div class="radio">Low<span class="wrapper"><input type="radio" name="organization" value="low"></span></div>
+								  <div class="radio">Very Low<span class="wrapper"><input type="radio" name="organization" value="very_low"></span></div>
+								  <div class="radio">N/A<span class="wrapper"><input type="radio" name="organization" value="n_a"></span></div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+
+							<div class="grade three">
+								<div class="number">3</div><div class="text">Quality of interactivity, quizzes, scenarios and excersises</div>
+								<div class="radios">
+								  <div class="radio">Very High<span class="wrapper"><input type="radio" name="quality" value="very_high"></span></div>
+								  <div class="radio">High<span class="wrapper"><input type="radio" name="quality" value="high"></span></div>
+								  <div class="radio">Neutral<span class="wrapper"><input type="radio" name="quality" value="neutral"></span></div>
+								  <div class="radio">Low<span class="wrapper"><input type="radio" name="quality" value="low"></span></div>
+								  <div class="radio">Very Low<span class="wrapper"><input type="radio" name="quality" value="very_low"></span></div>
+								  <div class="radio">N/A<span class="wrapper"><input type="radio" name="quality" value="n_a"></span></div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
 					</div>
 
-					<div class="grades">
-						<div class="grade one">
-							<div class="number">1</div><div class="text">Relevance of content</div>
-							<div class="radios">
-							  <div class="radio">Very High<span class="wrapper"><input type="radio" name="relevance" value="very_high"></span></div>
-							  <div class="radio">High<span class="wrapper"><input type="radio" name="relevance" value="high"></span></div>
-							  <div class="radio">Neutral<span class="wrapper"><input type="radio" name="relevance" value="neutral"></span></div>
-							  <div class="radio">Low<span class="wrapper"><input type="radio" name="relevance" value="low"></span></div>
-							  <div class="radio">Very Low<span class="wrapper"><input type="radio" name="relevance" value="very_low"></span></div>
-							  <div class="radio">N/A<span class="wrapper"><input type="radio" name="relevance" value="n_a"></span></div>
-							</div>
+					<div class="second-slide hide">
+						<div class="question one">
+							<label>What information did you find most helpful?</label>
 							<div class="clearfix"></div>
+							<textarea name="most_helpful_area"></textarea>
 						</div>
+
+						<div class="question two">
+							<label>What information did you find least helpful?</label>
+							<div class="clearfix"></div>
+							<textarea name="least_helpful_area"></textarea>
+						</div>
+
+						<div class="question tree">
+							<label>What can be done to improve the overall quality of experience?</label>
+							<div class="clearfix"></div>
+							<textarea name="what_can_be_done"></textarea>
+						</div>
+					</div>
+
+					<div class="buttons">
+						<button class="red-btn left hide previous">Previous</button>
+						<button class="red-btn right next">Next</button>
 					</div>
 				</div>
 			</form>
 		</div>
 
-		<div class="bg-overlay">
+		<div class="bg-overlay hide">
 
 		</div>
 
@@ -716,6 +770,7 @@
 		<script type="text/javascript" src="scripts/lib/jquery-ui.min.js"></script>
 		<script src="http://www.youtube.com/player_api"></script>
 		<script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
+		<script type="text/javascript" src="scripts/hooks.js"></script>
 		<script type="text/javascript" src="scripts/lib/modernizr.js"></script>
 		<script type="text/javascript" src="scripts/lib/mobile-detect.js"></script>
 		<script type="text/javascript" src="scripts/resizing-helpers.js"></script>
@@ -732,6 +787,5 @@
 		<script type="text/javascript" src="scripts/lib/fancybox/jquery.fancybox.pack.js"></script>
 		<script type="text/javascript" src="scripts/lib/icheck.min.js"></script>
 		<script type="text/javascript" src="scripts/lib/soundjs-0.6.2.min.js"></script>
-		<script type="text/javascript" src="scripts/hooks.js"></script>
 	</body>
 </html>

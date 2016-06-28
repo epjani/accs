@@ -159,6 +159,15 @@ img { outline: none; border: none; }
   z-index: 9998;
 }
 
+.bg-overlay.grey {
+  background: #ccc;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+  filter: alpha(opacity=1);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+
 
 .inside-fb-warning .fb-notifications{
   width: 400px;
@@ -539,7 +548,7 @@ img { outline: none; border: none; }
   margin-left: 6%;
   margin-top: 5%;
   width: 88%;
-  height: 80%;
+  height: auto;
   position: absolute;
   top: 0;
   z-index: 10000;
@@ -603,13 +612,21 @@ img { outline: none; border: none; }
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border: 2px solid #c2a995;
+  margin-top: 10px;
 }
 
 .evaluation-container .grades .grade .number {
   float: left;
   background: #c81022;
-  padding: 15px 25px;
+  padding: 15px 25px 17px 25px;
   color: #fff;
+  overflow: hidden;
+  -webkit-border-bottom-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
 }
 
 .evaluation-container .grades .grade .text {
@@ -619,14 +636,75 @@ img { outline: none; border: none; }
 
 .evaluation-container .grades .grade .radios {
   float: right;
-  padding-top: 15px;
 }
 
-.evaluation-container .grades .grade .radios .radio { float: left; }
+.evaluation-container .grades .grade .radios .radio {
+  float: left;
+  padding: 13px 5px 12px 10px;
+  border-right: 2px solid #c2a995;
+}
+
+.evaluation-container .grades .grade .radios .radio:last-child {
+  border-right: none;
+}
 .evaluation-container .grades .grade .radios .wrapper input { margin: 0; }
 .evaluation-container .grades .grade .radios .wrapper {
   padding: 5px;
   background: #ccc;
   display: inline-block;
   margin-left: 10px;
+}
+
+.evaluation-container .grades .grade .radios .radio input[type='radio'] {
+  -webkit-appearance:none;
+  width: 15px;
+  height: 15px;
+  border:1px solid darkgray;
+  border-radius:50%;
+  outline:none;
+  box-shadow:0 0 5px 0px gray inset;
+}
+
+.evaluation-container .grades .grade .radios .radio input[type='radio']:hover {
+  box-shadow:0 0 5px 0px orange inset;
+}
+
+.evaluation-container .grades .grade .radios .radio input[type='radio']:before {
+  content:'';
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+}
+
+.evaluation-container .grades .grade .radios .radio input[type='radio']:checked:before {
+  background: #c81022;
+}
+
+.evaluation-container .buttons {
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+}
+.evaluation-container .buttons .left { float: left; }
+.evaluation-container .buttons .right { float: right; margin-right: 40px; }
+.evaluation-container .question { padding-right: 20px; }
+.evaluation-container .question label {
+  font-weight: bold;
+  padding-top: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.evaluation-container .question textarea {
+  resize: none;
+  -webkit-border--radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 2px solid #c2a995;
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 40px;
 }

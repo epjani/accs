@@ -14,4 +14,9 @@ $(document).ready(function() {
 	// Array of shortcodes for case studies that employee already finished
 	// Default: lobby_events.finished_case_studies = []
 	// Possible values: 'premium_products', 'leisure_group', 'network_fleet'
+
 });
+
+function submit_evaluation() {
+	// Submit following form: $('.evaluation-form')
+}
