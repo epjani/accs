@@ -230,21 +230,24 @@ function change_next_btn_label($container, id) {
     $btn.addClass('submit');  
 }
 
-function submit_exam(id) {
+function submit_exam(id, forced) {
 
   var $container = $('.fb-exam#' + id + '-exam .questions.active');
 
-  if (one_question_answered($container.find('.question:not(".hide")'))) {
-    handle_points(2);
+  if (forced || one_question_answered($container.find('.question:not(".hide")'))) {
+    if (!forced)
+      handle_points(2);
     if ($container.data('scenario') != null && ($container.data('scenario') != undefined )) {
       $container.parents('.content').find('.scenarios .select-scenario-' + $container.data('scenario') + ' a').addClass('done');
     } else {
       $container.parents('.content').find('.scenarios a').addClass('done');
     }
     
-    set_exam_type_as_finished($container, id);
+    if (!forced)
+      set_exam_type_as_finished($container, id);
+    
     clean_scenario($container, id);
-    if (should_end_case_study()) {
+    if (!forced && should_end_case_study()) {
       end_case_study();
     }
     $container.removeClass('active');    
@@ -352,13 +355,18 @@ function calculate_points($container, id, index) {
 
 }
 
+var CORRECT_EXPRESSIONS = ["WAY TO GO!", "CONGRATS!", "SUPERSTAR", "AMAZING!", "PERFECT!"];
+var INCORRECT_EXPRESSIONS = ["BUMMER!", "NEXT TIME!", "SO CLOSE!", "SORRY!", "TRY AGAIN!"];
+
 function show_correct_popup() {
   $('.bg-overlay').removeClass('hide');
+  $('.correct-answer-warning .blue .text').text(CORRECT_EXPRESSIONS[Math.floor(Math.random()*CORRECT_EXPRESSIONS.length)]);
   $('.correct-answer-warning').removeClass('hide');
 }
 
 function show_incorrect_popup() {
   $('.bg-overlay').removeClass('hide');
+  $('.incorrect-answer-warning .red .text').text(INCORRECT_EXPRESSIONS[Math.floor(Math.random()*INCORRECT_EXPRESSIONS.length)]);
   $('.incorrect-answer-warning').removeClass('hide');
 }
 
@@ -377,10 +385,7 @@ function get_question_points($container, index, id) {
     scenario = 0;
   }
 
-  // console.log(scenario);
-  console.log(answers);
   var valid_answers = get_selected_questions(id)['scenarios'][scenario]['questions'][index]['valid'];
-  console.log(valid_answers);
   if ($.isArray(valid_answers)) {
     var points = array_equal(answers, valid_answers) ? 10 : -5;
   } else {

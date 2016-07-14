@@ -436,7 +436,7 @@
   float: left;
 }
 
-.fb-exam .footer .next-btn {
+.fb-exam .footer .next-btn, .fb-exam .footer .close-btn {
   float: right;
 }
 
