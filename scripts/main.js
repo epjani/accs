@@ -15,7 +15,7 @@ $(document).ready(function(){
   configure_for_devices();
 
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function(foo) {
-    showOverlay($(this), true);
+    showOverlay($(this), false);
   });
 
   $('#lobby-menu a').click(function() {
@@ -51,8 +51,8 @@ window.onload = function(e){
   $('#animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
   $('body').removeClass('hide');
   setImageSize();
-  setTimeout(lobby_events.goto_lobby, 6600);
-  // lobby_events.goto_lobby();
+  // setTimeout(lobby_events.goto_lobby, 6600);
+  lobby_events.goto_lobby();
 }
 
 function showOverlay($el, autoHide) {
@@ -66,7 +66,9 @@ function showOverlay($el, autoHide) {
   });
 
   $(document).bind('keyup', overlayKeyupHandler);
-  read_lobby_document(element_id);
+  if (!lobby_events.documents_read()) {
+    read_lobby_document(element_id);
+  }
   showOverlayBackground($el, autoHide);
   $overlay.show();
 }

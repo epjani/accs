@@ -34,7 +34,9 @@ function lobby_click_events() {
     $target = get_read_element($(jsEvent.target));
 
     if ($target !== undefined) {
-    	read_lobby_document($target.attr('id'));
+    	if (!lobby_events.documents_read()) {
+    		read_lobby_document($target.attr('id'));
+    	}
     }
   });
 }
@@ -76,8 +78,8 @@ function read_all_the_documents() {
 function lobby_go_to_case_study_click() {
 	$('.cs-selection').click(function(jsEvent) {
 
-		// if (true /*lobby_events.documents_read()*/) {
-		if (lobby_events.documents_read()) {
+		if (true /*lobby_events.documents_read()*/) {
+		// if (lobby_events.documents_read()) {
 			$target = $(jsEvent.target);
 			if ($target.hasClass('cs-selection')) {
 				case_study = $target.attr('id');

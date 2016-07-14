@@ -369,7 +369,18 @@ function hide_question_popup() {
 function get_question_points($container, index, id) {
   var checked = $container.find('.question_' + index + ' input[type="checkbox"]:checked');
   var answers = extract_correct_answers(checked);
-  var valid_answers = get_selected_questions(id)['scenarios'][0]['questions'][index]['valid'];
+  var scenario = $('.questions.active').data('scenario');
+
+  if (scenario) {
+    scenario = parseInt(scenario);    
+  } else { 
+    scenario = 0;
+  }
+
+  // console.log(scenario);
+  console.log(answers);
+  var valid_answers = get_selected_questions(id)['scenarios'][scenario]['questions'][index]['valid'];
+  console.log(valid_answers);
   if ($.isArray(valid_answers)) {
     var points = array_equal(answers, valid_answers) ? 10 : -5;
   } else {
