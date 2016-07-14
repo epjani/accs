@@ -173,7 +173,7 @@ function set_whiteboard_tooltips() {
 }
 
 function open_globe_content() {
-	$.fancybox({ 
+	$.fancybox({
 		href: '#globe-fb',
 		fitToView : false,
 		autoSize  : false,

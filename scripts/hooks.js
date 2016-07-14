@@ -15,8 +15,14 @@ $(document).ready(function() {
 	// Default: lobby_events.finished_case_studies = []
 	// Possible values: 'premium_products', 'leisure_group', 'network_fleet'
 
-
-	function submit_case_study(case_study_name, score) {
-		// Implement this
-	}
+	
 });
+
+
+function submit_evaluation() {
+	// Submit following form: $('.evaluation-form')
+}
+
+function submit_case_study(case_study_name, score) {
+	// Implement this
+}
