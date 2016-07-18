@@ -38,6 +38,7 @@
   height: 55px;
   float: left;
   left: -2%;
+  white-space: nowrap;
 }
 .fb-exam .footer .back-btn { display: none; }
 .fb-exam .clock img {
@@ -56,11 +57,15 @@
   color: #c81022;
 }
 
+.fancybox-outer .clock .content {
+  font-size: 4vh;
+}
+
 .fb-exam .clock .content {
   top: 11px;
 }
 
-.exam-room .total-points, .fb-exam .total-points { 
+.exam-room .total-points, .fb-exam .total-points {
   position: absolute;
   top: 12%;
   left: 4.3%;
@@ -69,7 +74,7 @@
   color: #c81022;
 }
 
-.fb-exam .total-points { 
+.fb-exam .total-points {
   position: static;
   margin-top: 10px;
   float: left;
@@ -215,7 +220,7 @@
 }
 
 #poster1-exam .scenario-text img, #tv-exam iframe {
-  margin-right: 30px; 
+  margin-right: 30px;
   align: left;
 }
 
@@ -366,7 +371,7 @@
 }
 
 .fb-exam .questions > .info-header {
-  margin: 15px 20px 0;  
+  margin: 15px 20px 0;
 }
 
 .fb-exam .content .answers {
