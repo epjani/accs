@@ -31,7 +31,7 @@ function show_exam_room(case_study) {
 
 function start_counter() {
   var thirty_min = 1800000;
-  // var thirty_min = 10000;
+  // var thirty_min = 7000;
   if (CountdownStarted == true) {
     CountDown.Resume(thirty_min);
   } else {
@@ -103,6 +103,7 @@ function hide_exam_room() {
 
 function clear_exam_room_assets() {
   CountDown.Pause();
+  CountdownStarted = false;
   display_time('', '');
   exam_room_events.iphone_questions = {};
   exam_room_events.phone_questions = {};

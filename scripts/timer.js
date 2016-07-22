@@ -2,22 +2,22 @@ var CountDown = (function ($) {
     CountdownStarted = false;
     var TimeOut = 10000;
     var TimeGap = 1000;
-    
+
     var CurrentTime = ( new Date() ).getTime();
     var EndTime = ( new Date() ).getTime() + TimeOut;
-    
-    
+
+
     var Running = true;
-    
+
     var UpdateTimer = function() {
         if( CurrentTime + TimeGap < EndTime ) { setTimeout( UpdateTimer, TimeGap ); }
         if( Running ) { CurrentTime += TimeGap; }
-        
+
         var Time = new Date();
         Time.setTime( EndTime - CurrentTime );
         var Minutes = Time.getMinutes();
         var Seconds = Time.getSeconds();
-        
+
         if ( Running ) {
             if (time_to_beep(Minutes, Seconds)) {
                 beep_sound();
@@ -30,11 +30,11 @@ var CountDown = (function ($) {
         var seconds_left = (Seconds < 10 ? '0' : '') + Seconds;
         display_time(minutes_left, seconds_left);
     };
-    
+
     var Pause = function() {
         Running = false;
     };
-    
+
     var Resume = function(timeout) {
         if (timeout != null) {
             display_time('', '');
@@ -44,8 +44,9 @@ var CountDown = (function ($) {
         }
         Running = true;
     };
-    
+
     var Start = function( Timeout ) {
+        Running = true;
         CountdownStarted = true;
         TimeOut = Timeout;
         CurrentTime = ( new Date() ).getTime();
@@ -61,7 +62,7 @@ var CountDown = (function ($) {
 })(jQuery);
 
 function time_to_beep(minutes, seconds) {
-    return (minutes == 10 && seconds == 0) || (minutes == 5 && seconds == 0) || 
+    return (minutes == 10 && seconds == 0) || (minutes == 5 && seconds == 0) ||
     (minutes == 1 && seconds == 0) || (minutes == 0 && seconds == 30) ||
     (minutes == 0 && seconds <= 10)
 }
