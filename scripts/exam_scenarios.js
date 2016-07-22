@@ -7,7 +7,7 @@ function attach_questions(id) {
   if (questions['scenarios'].length == 1) {
     var $infoHeader = $container.find('.info-header-container .info-header').first();
     set_question_main_text($container, questions['scenarios'][0], $infoHeader);
-    set_questions($container, questions['scenarios'][0], $infoHeader);
+    set_questions($container, questions['scenarios'][0], $infoHeader, 0);
     change_next_btn_label($container, id);
     $container.find('.questions').addClass('active');
   } else {
@@ -58,10 +58,10 @@ function set_scenarios_questions($container, questions) {
     var $template = $container.find('.q-template').clone().addClass('scenario-' + i).removeClass('q-template');
     $template.attr('data-scenario', i);
 
-    var $infoHeader = $container.find('.info-header-container .info-header').first();    
+    var $infoHeader = $container.find('.info-header-container .info-header').first();
     set_question_main_text($template, scen, $infoHeader);
-    set_questions($template, scen, $infoHeader);        
-    $container.find('.content:not(".warning")').append($template);    
+    set_questions($template, scen, $infoHeader, i);
+    $container.find('.content:not(".warning")').append($template);
   });
   $container.find('.q-template').remove();
 }
@@ -88,7 +88,7 @@ function set_question_main_text($container, questions, $infoHeader) {
       $scenario_text.append($img);
     }
 
-    
+
 
     if(questions['videoId']) {
       var $videoContainer = $("<div>");
@@ -98,23 +98,23 @@ function set_question_main_text($container, questions, $infoHeader) {
 
       player = initVideoPlayer(questions['videoId']);
     }
-  
+
     $scenario_text.append(questions['text']);
 
     if($infoHeader.length > 0) {
-      set_question_info_header($scenario_text, $infoHeader.clone(), {to: 'You', from: questions['from'], topic: questions['topic']});      
+      set_question_info_header($scenario_text, $infoHeader.clone(), {to: 'You', from: questions['from'], topic: questions['topic']});
     }
   }
 }
 
-function set_questions($container, questions, $infoHeader) {  
+function set_questions($container, questions, $infoHeader, scenario_index) {
   $.each(questions['questions'], function(index, val) {
     var $question = $container.find('.question_' + index);
     if ($question.find('.text').text().trim() == "") {
       $question.find('.text').text(val['question']);
 
       $.each(val['answers'], function(i, answer) {
-        var chk_id = "chk_" + index + "_" + i;
+        var chk_id = "chk_" + scenario_index + "_" + index + "_" + i;
         html = '<div class="answer_row">';
         html += '<input type="checkbox" id="' + chk_id + '" name="question_' + index + '" value="' + i + '" />';
         html += '<label for="' + chk_id + '">' + answer['text'] + '</label>';
@@ -123,21 +123,21 @@ function set_questions($container, questions, $infoHeader) {
       });
 
       if($infoHeader.length > 0) {
-        set_question_info_header($question, $infoHeader.clone(), {to: 'You', from: questions['from'], topic: questions['topic']});      
+        set_question_info_header($question, $infoHeader.clone(), {to: 'You', from: questions['from'], topic: questions['topic']});
       }
     }
   });
 }
 
-function set_question_info_header($question, $infoHeader, values) {  
+function set_question_info_header($question, $infoHeader, values) {
   $infoHeader.find('.to').text(values['to']);
   $infoHeader.find('.from').text(values['from']);
   $infoHeader.find('.topic').text(values['topic']);
 
-  // remove current question info header, if any   
+  // remove current question info header, if any
   $question.find('.info-header').remove();
- 
-  $question.prepend($infoHeader);    
+
+  $question.prepend($infoHeader);
 }
 
 function start_exam($el) {
@@ -170,7 +170,7 @@ function next_question(id, skip_warning) {
   if (id === null) {
     $.fancybox.close();
     return;
-  }  
+  }
 
   $scope = $('.fb-exam:visible .questions.active');
   $current = $scope.find('.question:not(".hide")');
@@ -182,7 +182,7 @@ function next_question(id, skip_warning) {
       $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
       $scoped_warning_box.show();
       $scoped_warning_box.find('.fancybox').show();
-    } 
+    }
   } else {
     go_to_next_question_set($scope, id)
   }
@@ -195,7 +195,7 @@ function quit_submit_warning() {
 }
 
 function go_to_next_question_set($scope, index) {
-  change_next_btn_label($scope, index);  
+  change_next_btn_label($scope, index);
   $scope.find('.question').addClass('hide');
   $scope.find('.question.question_' + index).removeClass('hide');
   handle_points(index-1);
@@ -212,7 +212,7 @@ function one_question_answered($question_set) {
   return $question_set.find('input:checked').length > 0
 }
 
-function change_next_btn_label($container, id) {  
+function change_next_btn_label($container, id) {
   var $rootElement;
   if($container.hasClass('fb-exam')) {
     $rootElement = $container;
@@ -221,13 +221,13 @@ function change_next_btn_label($container, id) {
     $rootElement = $container.parents('.fb-exam').first();
   }
 
-  var label = id == '2' || id == 2 ? 'Submit' : 'Next';  
+  var label = id == '2' || id == 2 ? 'Submit' : 'Next';
   var $btn = $rootElement.find('.next-btn');
   $btn.text(label);
 
   $btn.removeClass('submit');
   if(label == 'Submit')
-    $btn.addClass('submit');  
+    $btn.addClass('submit');
 }
 
 function submit_exam(id, forced) {
@@ -242,22 +242,22 @@ function submit_exam(id, forced) {
     } else {
       $container.parents('.content').find('.scenarios a').addClass('done');
     }
-    
+
     if (!forced)
       set_exam_type_as_finished($container, id);
-    
+
     clean_scenario($container, id);
     if (!forced && should_end_case_study()) {
       end_case_study();
     }
-    $container.removeClass('active');    
+    $container.removeClass('active');
     $.fancybox.close();
   } else {
     $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
     $scoped_warning_box.show();
     $scoped_warning_box.find('.fancybox').show();
-  } 
-  
+  }
+
 }
 
 function should_end_case_study() {
@@ -298,7 +298,7 @@ function set_exam_type_as_finished($container, id) {
 function clean_scenario($container, id) {
   $container.find('.question').addClass('hide');
   $container.find('.scenario-text').removeClass('hide');
-  clean_scenario_content($container, id);  
+  clean_scenario_content($container, id);
 }
 
 function update_exam_room_assets() {
@@ -380,8 +380,8 @@ function get_question_points($container, index, id) {
   var scenario = $('.questions.active').data('scenario');
 
   if (scenario) {
-    scenario = parseInt(scenario);    
-  } else { 
+    scenario = parseInt(scenario);
+  } else {
     scenario = 0;
   }
 
