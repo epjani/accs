@@ -58,7 +58,11 @@
 }
 
 .fancybox-outer .clock .content {
-  font-size: 4vh;
+  font-size: 37px;
+}
+
+.fancybox-outer .exam-room .total-points, .fancybox-outer .fb-exam .total-points {
+  font-size: 30px;
 }
 
 .fb-exam .clock .content {
