@@ -33,9 +33,7 @@ function start_counter() {
   var thirty_min = 1800000;
   // var thirty_min = 7000;
   if (CountdownTriggered == true) {
-    CurrentTime = ( new Date() ).getTime();
-    EndTime = ( new Date() ).getTime() + TimeOut;
-    CountDown.Resume(thirty_min);
+    CountDown.Resume(thirty_min, true);
   } else {
     CountDown.Start(thirty_min);
   }
@@ -95,6 +93,7 @@ function array_equal(arr1, arr2) {
 }
 
 function hide_exam_room() {
+  EndTime = 0
   prompt_evaluation_screen(exam_room_events.the_case_study);
   clear_exam_room_assets();
   $('.container .exam-room').hide();
@@ -105,7 +104,6 @@ function hide_exam_room() {
 
 function clear_exam_room_assets() {
   CountDown.Pause();
-  CountdownStarted = false;
   display_time('', '');
   exam_room_events.iphone_questions = {};
   exam_room_events.phone_questions = {};
