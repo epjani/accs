@@ -1,10 +1,11 @@
 var CountDown = (function ($) {
     CountdownStarted = false;
-    var TimeOut = 10000;
-    var TimeGap = 1000;
+    CountdownTriggered = false;
+    TimeOut = 10000;
+    TimeGap = 1000;
 
-    var CurrentTime = ( new Date() ).getTime();
-    var EndTime = ( new Date() ).getTime() + TimeOut;
+    CurrentTime = ( new Date() ).getTime();
+    EndTime = ( new Date() ).getTime() + TimeOut;
 
 
     var Running = true;
@@ -46,7 +47,7 @@ var CountDown = (function ($) {
     };
 
     var Start = function( Timeout ) {
-        Running = true;
+        CountdownTriggered = true;
         CountdownStarted = true;
         TimeOut = Timeout;
         CurrentTime = ( new Date() ).getTime();

@@ -32,7 +32,9 @@ function show_exam_room(case_study) {
 function start_counter() {
   var thirty_min = 1800000;
   // var thirty_min = 7000;
-  if (CountdownStarted == true) {
+  if (CountdownTriggered == true) {
+    CurrentTime = ( new Date() ).getTime();
+    EndTime = ( new Date() ).getTime() + TimeOut;
     CountDown.Resume(thirty_min);
   } else {
     CountDown.Start(thirty_min);
