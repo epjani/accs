@@ -1,10 +1,10 @@
 var CountDown = (function ($) {
-    CountdownStarted = false;
-    var TimeOut = 10000;
-    var TimeGap = 1000;
+    CountdownTriggered = false;
+    TimeOut = 10000;
+    TimeGap = 1000;
 
-    var CurrentTime = ( new Date() ).getTime();
-    var EndTime = ( new Date() ).getTime() + TimeOut;
+    CurrentTime = ( new Date() ).getTime();
+    EndTime = ( new Date() ).getTime() + TimeOut;
 
 
     var Running = true;
@@ -23,6 +23,7 @@ var CountDown = (function ($) {
                 beep_sound();
             }
             if (should_end_exam(Minutes, Seconds)) {
+                Running = false;
                 end_case_study();
             }
         }
@@ -35,7 +36,7 @@ var CountDown = (function ($) {
         Running = false;
     };
 
-    var Resume = function(timeout) {
+    var Resume = function(timeout, do_update) {
         if (timeout != null) {
             display_time('', '');
             Timeout = timeout;
@@ -43,11 +44,12 @@ var CountDown = (function ($) {
             EndTime = ( new Date() ).getTime() + TimeOut;
         }
         Running = true;
+        if (do_update != null && do_update == true)
+            UpdateTimer();
     };
 
     var Start = function( Timeout ) {
-        Running = true;
-        CountdownStarted = true;
+        CountdownTriggered = true;
         TimeOut = Timeout;
         CurrentTime = ( new Date() ).getTime();
         EndTime = ( new Date() ).getTime() + TimeOut;

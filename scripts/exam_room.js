@@ -32,8 +32,8 @@ function show_exam_room(case_study) {
 function start_counter() {
   var thirty_min = 1800000;
   // var thirty_min = 7000;
-  if (CountdownStarted == true) {
-    CountDown.Resume(thirty_min);
+  if (CountdownTriggered == true) {
+    CountDown.Resume(thirty_min, true);
   } else {
     CountDown.Start(thirty_min);
   }
@@ -93,6 +93,7 @@ function array_equal(arr1, arr2) {
 }
 
 function hide_exam_room() {
+  EndTime = 0
   prompt_evaluation_screen(exam_room_events.the_case_study);
   clear_exam_room_assets();
   $('.container .exam-room').hide();
@@ -103,7 +104,6 @@ function hide_exam_room() {
 
 function clear_exam_room_assets() {
   CountDown.Pause();
-  CountdownStarted = false;
   display_time('', '');
   exam_room_events.iphone_questions = {};
   exam_room_events.phone_questions = {};
@@ -114,6 +114,9 @@ function clear_exam_room_assets() {
   exam_room_events.total_points = 0;
   exam_room_events.finished_scenarios = [];
   exam_room_events.the_case_study = '';
+  $('a.start').removeClass('done');
+  $('.scenario-text').text('');
+  $('.questions .question .text, .questions .question .answers').text('');
 }
 
 function default_ticker_text() {

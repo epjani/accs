@@ -55,7 +55,14 @@ function setup_scenarios($container, questions) {
 
 function set_scenarios_questions($container, questions) {
   $.each(questions['scenarios'], function(i, scen) {
-    var $template = $container.find('.q-template').clone().addClass('scenario-' + i).removeClass('q-template');
+    var $q_template = $container.find('.q-template')
+    if ($q_template.length > 0) {
+      var $template = $q_template.clone().addClass('scenario-' + i).removeClass('q-template');
+    }
+    else {
+      var $template = $container.find('.questions.scenario-' + i)
+    }
+
     $template.attr('data-scenario', i);
 
     var $infoHeader = $container.find('.info-header-container .info-header').first();
@@ -425,7 +432,7 @@ $(document).ready(function() {
     }
   });
 
-  $(".correct-answer-warning .close-warning, .incorrect-answer-warning .close-warning").on('click', function() {
+  $(".correct-answer-warning .close-warning, .correct-answer-warning .content .text, .incorrect-answer-warning .close-warning, .incorrect-answer-warning .content .text").on('click', function() {
     hide_question_popup();
   });
 });
