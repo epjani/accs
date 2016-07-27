@@ -455,6 +455,8 @@
   display: block;
 }
 
+.correct-answer-warning .content .text, .incorrect-answer-warning .content .text { cursor: pointer; }
+
 /* Firefox specific styles */
 @-moz-document url-prefix() {
   .exam-room .ticker .content {

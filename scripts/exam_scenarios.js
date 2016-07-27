@@ -431,7 +431,7 @@ $(document).ready(function() {
     }
   });
 
-  $(".correct-answer-warning .close-warning, .incorrect-answer-warning .close-warning").on('click', function() {
+  $(".correct-answer-warning .close-warning, .correct-answer-warning .content .text, .incorrect-answer-warning .close-warning, .incorrect-answer-warning .content .text").on('click', function() {
     hide_question_popup();
   });
 });
