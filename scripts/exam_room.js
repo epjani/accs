@@ -114,6 +114,9 @@ function clear_exam_room_assets() {
   exam_room_events.total_points = 0;
   exam_room_events.finished_scenarios = [];
   exam_room_events.the_case_study = '';
+  $('a.start').removeClass('done');
+  $('.scenario-text').text('');
+  $('.questions .question .text, .questions .question .answers').text('');
 }
 
 function default_ticker_text() {
