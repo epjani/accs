@@ -151,6 +151,12 @@ function set_question_info_header($question, $infoHeader, values) {
 function start_exam($el) {
   $el = $el.closest('.exam');
   id = $el.attr('id');
+  if (id == 'mouse') {
+    createjs.Sound.play(id);
+  }
+  if (id == 'poster1' || 'poster2') {
+    createjs.Sound.play("swish"); 
+  }
   attach_questions(id);
   attach_common_elements(id);
 
