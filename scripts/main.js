@@ -40,7 +40,7 @@ $(document).ready(function(){
 
 function init_sounds() {
   createjs.Sound.addEventListener("fileload", handleLoad);
-  createjs.Sound.registerSound("sounds/moped_driving.mp3", "moped_driving");  
+  createjs.Sound.registerSound("sounds/moped_driving.mp3", "moped_driving");
 }
 
 function handleLoad(event) {
@@ -53,7 +53,7 @@ window.onload = function(e){
   $('body').removeClass('hide');
   setImageSize();
   setTimeout(lobby_events.goto_lobby, 6600);
-  lobby_events.goto_lobby();
+  // lobby_events.goto_lobby();
 }
 
 function showOverlay($el, autoHide) {
