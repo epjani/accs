@@ -84,7 +84,8 @@ function set_question_main_text($container, questions, $infoHeader) {
       var $img = $("<img>");
       $img.attr("src", questions['img']);
       $img.attr("align", "left");
-
+      $img.attr("width", questions['width'])
+      $container.find('.icon img').attr('src', questions['icon']);
       $scenario_text.append($img);
     }
 

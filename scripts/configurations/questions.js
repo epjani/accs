@@ -444,6 +444,7 @@ var POSTER1 = {
 				{
 					img: "img/exam_room/premium_poster_1.jpg",
 					width: 400,
+					icon: "img/exam_room/premium_poster_1_icon.png",
 					text: "Pamper yourself with Premium Economy, a new class of travel, and experience superior comfort in a dedicated cabin, with enhanced amenities and priority airport services. Available on select international routes.",
 					questions: [
 						{
@@ -525,6 +526,7 @@ var POSTER1 = {
 				{
 					img: "img/exam_room/network_poster_1.jpg",
 					width: 300,
+					icon: "img/exam_room/network_poster_1_icon.png",
 					text: "Air Canada is Canada's largest airline and serves more than 200 destinations on six continents, and is among the 20 largest airlines in the world.",
 					questions: [
 						{
@@ -571,6 +573,7 @@ var POSTER2 = {
 				{
 					img: "img/exam_room/premium_poster_2.jpg",
 					width: 400,
+					icon: "img/exam_room/premium_poster_2_icon.png",
 					text: "Air Canada’s award-winning Maple Leaf Lounges are located at all major airports across Canada and at key international locations.",
 					questions: [
 						{
@@ -612,6 +615,7 @@ var POSTER2 = {
 				{
 					img: "img/exam_room/leisure_poster_2.jpg",
 					width: 200,
+					icon: "img/exam_room/leisure_poster_2_icon.png",
 					text: "Looking for ideas for your next winter getaway?  Travellers like the safety of travelling with Air Canada and the advantages of booking a winter getaway with Air Canada Vacations.  ",
 					questions: [
 						{
@@ -653,6 +657,7 @@ var POSTER2 = {
 				{
 					img: "img/exam_room/network_poster_2.jpg",
 					width: 300,
+					icon: "img/exam_room/network_poster_2_icon.png",
 					text: " How does Air Canada move over 41 Million travellers every year?  Let’s take a look behind the scenes at North America’s only Four Star International Network carrier.",
 					questions: [
 						{
