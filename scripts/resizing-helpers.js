@@ -1,10 +1,6 @@
 // Helpers intendeng for resizing
 
 function setImageSize(){
-  if(is_mobile) {
-    return;
-  }
-
   $image = $('.resizable');
 
   var max_width = $(window).width();
