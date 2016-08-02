@@ -30,12 +30,12 @@ function show_exam_room(case_study) {
 }
 
 function start_counter() {
-  var thirty_min = 1800000;
-  // var thirty_min = 7000;
+  var min_45 = 2700000;
+  // var min_45 = 7000;
   if (CountdownTriggered == true) {
-    CountDown.Resume(thirty_min, true);
+    CountDown.Resume(min_45, true);
   } else {
-    CountDown.Start(thirty_min);
+    CountDown.Start(min_45);
   }
 
 }
