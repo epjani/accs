@@ -6,6 +6,7 @@ var main_variables = {
 BOTTOM_MENU_HEIGHT = 90;
 
 var is_mobile = false;
+var initial_sounds_loaded = false;
 
 $(document).ready(function(){
 
@@ -35,25 +36,27 @@ $(document).ready(function(){
     open_globe_content();
   });
 
-  // init_sounds();
+  init_sounds();
 });
 
 function init_sounds() {
   createjs.Sound.addEventListener("fileload", handleLoad);
-  createjs.Sound.registerSound("sounds/moped_driving.mp3", "moped_driving");
 }
 
 function handleLoad(event) {
-  var driving_sound = createjs.Sound.play("moped_driving");
-  setTimeout(createjs.Sound.play, 3000, "steps");
+  if (!initial_sounds_loaded) {
+    var driving_sound = createjs.Sound.play("moped_driving");
+    setTimeout(createjs.Sound.play, 3000, "steps");
+    initial_sounds_loaded = true;
+  }
 }
 window.onload = function(e){
   load_sounds();
   $('#animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
   $('body').removeClass('hide');
   setImageSize();
-  // setTimeout(lobby_events.goto_lobby, 6600);
-  lobby_events.goto_lobby();
+  setTimeout(lobby_events.goto_lobby, 6600);
+  // lobby_events.goto_lobby();
 }
 
 function showOverlay($el, autoHide) {
