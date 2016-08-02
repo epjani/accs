@@ -8,14 +8,12 @@ BOTTOM_MENU_HEIGHT = 90;
 var is_mobile = false;
 var initial_sounds_loaded = false;
 
-$(document).ready(function(){
+$(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-
-  configure_for_devices();
-
-  $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function(foo) {
+  
+  $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
   });
 
@@ -37,6 +35,21 @@ $(document).ready(function(){
   });
 
   init_sounds();
+
+  $(window).on("orientationchange", function(event) {    
+    // display desktop version in landscape mode 
+    if(event.orientation === 'landscape') {
+      is_mobile = false;            
+    }    
+    else {
+      is_mobile = md.mobile() != null || md.phone() != null;
+    }
+
+    configure_for_devices();
+    setImageSize();
+  });
+
+  configure_for_devices();
 });
 
 function init_sounds() {
