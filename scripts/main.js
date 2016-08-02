@@ -45,6 +45,7 @@ $(document).ready(function() {
     }
 
     configure_for_devices();
+    setImageSize();
   });
 
   configure_for_devices();
