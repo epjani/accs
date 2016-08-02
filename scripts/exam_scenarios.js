@@ -155,7 +155,7 @@ function start_exam($el) {
     createjs.Sound.play(id);
   }
   if (id == 'poster1' || 'poster2') {
-    createjs.Sound.play("swish"); 
+    createjs.Sound.play("swish");
   }
   attach_questions(id);
   attach_common_elements(id);
@@ -171,6 +171,9 @@ function start_exam($el) {
       close  : null
     }
   });
+
+  var sound_name = exam_room_events.the_case_study + '_' + id;
+  play_sound(sound_name);
 }
 
 function get_next_prev_btn_reference($target, type) {
@@ -424,7 +427,21 @@ function start_scenario($container, index) {
   $container.find('.next-btn').removeClass('hide');
   $container.find('.questions.scenario-' + index).removeClass('hide').addClass('active');
   $container.find('input:checkbox').prop('checked', false);
-   style_checkboxes($container);
+  style_checkboxes($container);
+
+  sound_name = get_scenario_sound_name($container, index);
+  play_sound(sound_name);
+}
+
+function get_scenario_sound_name($container, index) {
+  scenario_name = $container.attr('id').replace('-exam', '');
+  sound_name = exam_room_events.the_case_study + '_' + scenario_name;
+
+  if (index != null) {
+    sound_name = sound_name + '_' + parseInt(index + 1);
+  }
+
+  return sound_name;
 }
 
 $(document).ready(function() {
