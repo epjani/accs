@@ -30,12 +30,12 @@ var lobby_events = {
 
 
 function lobby_click_events() {
-	$('#map_lobby area, .read-document').click(function(jsEvent){
+	$('.read-document').click(function(jsEvent){
     $target = get_read_element($(jsEvent.target));
 
     if ($target !== undefined) {
     	if (!lobby_events.documents_read()) {
-    		read_lobby_document($target.attr('id'));
+    		read_lobby_document($target.data('read-doc-id'));
     	}
     }
   });
@@ -132,7 +132,7 @@ function non_clicked_elements_stringified() {
 }
 
 function get_read_element($target) {
-	if ($target.hasClass('read-document'))
+  if ($target.hasClass('read-document'))
 		return $target;
 	else if ($target.parent().hasClass('read-document'))
 		return $target.parent();

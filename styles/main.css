@@ -249,6 +249,7 @@ img { outline: none; border: none; }
   background-color: #f1f1f2;
   position: absolute;
   z-index: 5;
+  background-color: transparent;
 }
 
 #top-menu .links {
@@ -413,9 +414,20 @@ img { outline: none; border: none; }
   padding-left: 1%;
 }
 
+.mobile-view .lobby .whiteboard {
+  width: 6.1%;
+  height: 20%;
+  top: 16.4%;
+  left: 47%;  
+}
+
 .lobby .whiteboard a {
   display: block;
   margin-top: 2px;
+}
+
+.mobile-view .lobby .whiteboard a {
+  margin-top: 3px;
 }
 
 .lobby .whiteboard img { width: 100%; }
