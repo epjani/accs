@@ -5,7 +5,12 @@ function setImageSize(){
 
   var max_width = $(window).width();
   var max_height = $(window).height();
-  if (!is_mobile) { max_height -= BOTTOM_MENU_HEIGHT; }
+  if(is_mobile) {
+    max_height -= TOP_MENU_HEIGHT; 
+  }
+  else { 
+    max_height -= BOTTOM_MENU_HEIGHT; 
+  }
   var width = $image.width();
   var height = $image.height();
 

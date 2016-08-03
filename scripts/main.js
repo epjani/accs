@@ -3,6 +3,7 @@ var main_variables = {
   language: 'en',
   employee_name: 'Test name'
 };
+TOP_MENU_HEIGHT = 40;
 BOTTOM_MENU_HEIGHT = 90;
 
 var is_mobile = false;
@@ -12,6 +13,7 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
+  //is_mobile = true;
   
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
@@ -69,7 +71,7 @@ window.onload = function(e){
   $('body').removeClass('hide');
   setImageSize();
   setTimeout(lobby_events.goto_lobby, 6600);
-  // lobby_events.goto_lobby();
+  //lobby_events.goto_lobby();
 }
 
 function showOverlay($el, autoHide) {
