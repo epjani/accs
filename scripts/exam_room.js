@@ -200,7 +200,7 @@ $(document).ready(function(){
   });
 
   $('.exam-room .exams .next-btn').on('click', function(jsEvent) {
-    createjs.Sound.removeAllSounds();
+    createjs.Sound.stop();
     $target = $(jsEvent.target);
     reference = get_next_prev_btn_reference($target, 'next').data('next-btn');
     eval(reference);

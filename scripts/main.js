@@ -14,7 +14,7 @@ $(document).ready(function() {
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
   //is_mobile = true;
-  
+
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
   });
@@ -38,11 +38,11 @@ $(document).ready(function() {
 
   init_sounds();
 
-  $(window).on("orientationchange", function(event) {    
-    // display desktop version in landscape mode 
+  $(window).on("orientationchange", function(event) {
+    // display desktop version in landscape mode
     if(event.orientation === 'landscape') {
-      is_mobile = false;            
-    }    
+      is_mobile = false;
+    }
     else {
       is_mobile = md.mobile() != null || md.phone() != null;
     }
@@ -60,8 +60,8 @@ function init_sounds() {
 
 function handleLoad(event) {
   if (!initial_sounds_loaded) {
-    var driving_sound = createjs.Sound.play("moped_driving");
-    setTimeout(createjs.Sound.play, 3000, "steps");
+    setTimeout(createjs.Sound.play, 400, "moped_driving");
+    setTimeout(createjs.Sound.play, 2600, "steps");
     initial_sounds_loaded = true;
   }
 }
