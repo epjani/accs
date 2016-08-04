@@ -211,6 +211,9 @@ $(document).ready(function(){
   $('.exam-room .exams .back-btn').on('click', function(jsEvent) {
     $target = $(jsEvent.target);
     reference = get_next_prev_btn_reference($target, 'back').data('back-btn');
+    if (reference == undefined || reference == null || reference == []) {
+      reference = 'next_question(null, true);';
+    }
     eval(reference);
   });
 

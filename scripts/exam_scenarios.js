@@ -191,6 +191,7 @@ function get_next_prev_btn_reference($target, type) {
 
 function next_question(id, skip_warning) {
   stopVideo();
+  createjs.Sound.stop();
 
   if (id === null) {
     $.fancybox.close();
@@ -199,6 +200,7 @@ function next_question(id, skip_warning) {
 
   $scope = $('.fb-exam:visible .questions.active');
   $current = $scope.find('.question:not(".hide")');
+  $back_btn = $scope.parents('.fb-exam').first().find('.back-btn');
 
   if (!$current.hasClass('scenario-text')) {
     if (one_question_answered($current) || skip_warning) {
@@ -209,6 +211,7 @@ function next_question(id, skip_warning) {
       $scoped_warning_box.find('.fancybox').show();
     }
   } else {
+    $back_btn.addClass('hide');
     go_to_next_question_set($scope, id)
   }
 }
@@ -220,10 +223,17 @@ function quit_submit_warning() {
 }
 
 function go_to_next_question_set($scope, index) {
-  change_next_btn_label($scope, index);
   $scope.find('.question').addClass('hide');
-  $scope.find('.question.question_' + index).removeClass('hide');
-  handle_points(index-1);
+  if (index == 'scenarios') {
+    $container = $scope.parents('.fb-exam').first();
+    $container.find('.scenarios').removeClass('hide');
+    $container.find('.back-btn').removeClass('hide');
+  } else {
+    change_next_btn_label($scope, index);
+    $scope.find('.question.question_' + index).removeClass('hide');
+    handle_points(index-1);
+  }
+
 }
 
 function handle_points(index) {
@@ -432,8 +442,9 @@ function extract_correct_answers(checkboxes) {
 }
 
 function start_scenario($container, index) {
+  $container.find('.scenario-text').removeClass('hide');
   $container.find('.scenarios').addClass('hide');
-  $container.find('.next-btn').removeClass('hide');
+  $container.find('.next-btn, .back-btn').removeClass('hide');
   $container.find('.questions.scenario-' + index).removeClass('hide').addClass('active');
   $container.find('input:checkbox').prop('checked', false);
   style_checkboxes($container);
