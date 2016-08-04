@@ -151,11 +151,18 @@ function set_question_info_header($question, $infoHeader, values) {
 function start_exam($el) {
   $el = $el.closest('.exam');
   id = $el.attr('id');
-  if (id == 'mouse') {
-    createjs.Sound.play(id);
-  }
-  if (id == 'poster1' || 'poster2') {
-    createjs.Sound.play("swish");
+
+  switch (id) {
+    case 'mouse':
+    case 'phone': {
+      createjs.Sound.play(id);
+      break;
+    }
+    case 'poster1':
+    case 'poster2': {
+      createjs.Sound.play("swish");
+      break;
+    }
   }
   attach_questions(id);
   attach_common_elements(id);
@@ -173,7 +180,8 @@ function start_exam($el) {
   });
 
   var sound_name = exam_room_events.the_case_study + '_' + id;
-  play_sound(sound_name);
+
+  setTimeout(play_sound, 800, sound_name);
 }
 
 function get_next_prev_btn_reference($target, type) {

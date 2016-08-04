@@ -13,7 +13,9 @@ function load_sounds() {
   createjs.Sound.registerSound("sounds/steps.mp3", "steps");
   createjs.Sound.registerSound("sounds/mouse.mp3", "mouse");
   createjs.Sound.registerSound("sounds/swish.wav", "swish");
+  createjs.Sound.registerSound("sounds/ringing.mp3", "phone");
   createjs.Sound.registerSound("sounds/moped_driving.mp3", "moped_driving");
+
 
   createjs.Sound.registerSound("sounds/case_studies/premium_products/iphone.wav", "premium_products_iphone");
   createjs.Sound.registerSound("sounds/case_studies/premium_products/mouse_2.wav", "premium_products_mouse_2");
