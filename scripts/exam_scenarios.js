@@ -155,12 +155,12 @@ function start_exam($el) {
   switch (id) {
     case 'mouse':
     case 'phone': {
-      createjs.Sound.play(id);
+      play_sound(id);
       break;
     }
     case 'poster1':
     case 'poster2': {
-      createjs.Sound.play("swish");
+      play_sound('swish');
       break;
     }
   }
@@ -300,6 +300,7 @@ function end_case_study() {
   if (is_study_passed()) {
     submit_case_study(exam_room_events.the_case_study, exam_room_events.total_points);
     lobby_events.finished_case_studies.push(exam_room_events.the_case_study);
+    lobby_events.finished_case_studies = Array.from(new Set(lobby_events.finished_case_studies));
   }
 }
 

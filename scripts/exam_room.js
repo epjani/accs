@@ -94,7 +94,9 @@ function array_equal(arr1, arr2) {
 
 function hide_exam_room() {
   EndTime = 0
-  prompt_evaluation_screen(exam_room_events.the_case_study);
+  if (lobby_events.finished_case_studies.length >= 3) {
+    prompt_evaluation_screen(exam_room_events.the_case_study);
+  }
   clear_exam_room_assets();
   $('.container .exam-room').hide();
   enter_lobby();

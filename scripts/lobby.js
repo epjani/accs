@@ -89,7 +89,6 @@ function lobby_go_to_case_study_click() {
       open_exam_room();
       $('.whiteboard a').mouseout();
       setTimeout(go_to_case_study, 1500, case_study);
-			// go_to_case_study(case_study);
 		} else {
 			lobby_requirements_warning();
 		}
