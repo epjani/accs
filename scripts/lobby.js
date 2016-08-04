@@ -166,7 +166,12 @@ function set_whiteboard_tooltips() {
     tooltipClass: "tooltip-bubble",
     content: function() {
       var content = $("<div class='content'>");
-      var imgEl = $("<img alt='' src='img/tt-bubble.png' />");
+      if(is_mobile) {
+        var imgEl = $("<img alt='' src='img/tt-bubble-mobile.png' />");
+      }
+      else {
+        var imgEl = $("<img alt='' src='img/tt-bubble.png' />");
+      }
       var textEl = $("<div class='text'>");
       textEl.text($(this).data("tt-text"));
       content.append(imgEl);

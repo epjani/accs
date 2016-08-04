@@ -13,8 +13,8 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  //is_mobile = true;
-
+  is_mobile = true;
+  
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
   });
@@ -41,10 +41,10 @@ $(document).ready(function() {
   $(window).on("orientationchange", function(event) {
     // display desktop version in landscape mode
     if(event.orientation === 'landscape') {
-      is_mobile = false;
-    }
+      //is_mobile = false;
+    }    
     else {
-      is_mobile = md.mobile() != null || md.phone() != null;
+      //is_mobile = md.mobile() != null || md.phone() != null;
     }
 
     configure_for_devices();
@@ -71,7 +71,7 @@ window.onload = function(e){
   $('body').removeClass('hide');
   setImageSize();
   setTimeout(lobby_events.goto_lobby, 6600);
-  // lobby_events.goto_lobby();
+  lobby_events.goto_lobby();
 }
 
 function showOverlay($el, autoHide) {

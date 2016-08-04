@@ -24,6 +24,11 @@
   color: #0080a5;
 }
 
+.mobile-view .exam-room .ticker .content {
+  top: 22%;
+  font-size: 1.9vh;
+}
+
 .exam-room .clock, .fb-exam .clock {
   width: 11.8%;
   position: absolute;
@@ -57,12 +62,22 @@
   color: #c81022;
 }
 
+.mobile-view .clock .content { 
+  font-size: 2.1vh;
+}
+
 .fancybox-outer .clock .content {
   font-size: 37px;
 }
 
 .fancybox-outer .exam-room .total-points, .fancybox-outer .fb-exam .total-points {
   font-size: 30px;
+}
+
+.mobile-view .fancybox-outer .fb-exam .total-points {
+  font-size: 25px;
+  height: 55px;
+  line-height: 55px;
 }
 
 .fb-exam .clock .content {
@@ -78,10 +93,19 @@
   color: #c81022;
 }
 
+.mobile-view .exam-room .total-points {
+  font-size: 1.7vh;
+  left: 3%;
+}
+
 .fb-exam .total-points {
   position: static;
   margin-top: 10px;
   float: left;
+}
+
+.mobile-view .fb-exam .total-points {
+  margin-top: 0;
 }
 
 .exam-room #poster1 {
@@ -182,7 +206,8 @@
   position: absolute;
   top: 2%;
   left: 3%;
-  width: 50%;
+  width: 70%;
+  height: 55px;  
 }
 
 .fb-exam .icon {
