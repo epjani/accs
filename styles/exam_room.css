@@ -62,8 +62,12 @@
   color: #c81022;
 }
 
+.mobile-view .clock .content {
+  top: 1vh;
+}
+
 .mobile-view .clock .content { 
-  font-size: 2.1vh;
+  font-size: 1.7vh;
 }
 
 .fancybox-outer .clock .content {
@@ -95,7 +99,7 @@
 
 .mobile-view .exam-room .total-points {
   font-size: 1.7vh;
-  left: 3%;
+  top: 4.5vh;
 }
 
 .fb-exam .total-points {
@@ -202,6 +206,10 @@
   font-size: 18px;
 }
 
+.mobile-view .fb-exam {
+  font-size: 14px;
+}
+
 .fb-exam .common-elements {
   position: absolute;
   top: 2%;
@@ -227,6 +235,12 @@
   -webkit-box-shadow: 0 8px 6px -6px black;
      -moz-box-shadow: 0 8px 6px -6px black;
           box-shadow: 0 8px 6px -6px black;
+  overflow: auto;  
+}
+
+.mobile-view .fb-exam > .content {
+  height: 58%;
+  padding-bottom: 10px;
 }
 
 .fb-exam .info-header {
@@ -239,9 +253,19 @@
   margin-bottom: 20px;
 }
 
+.mobile-view .fb-exam .info-header {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
 .fb-exam .scenario-text {
   text-align: left;
   padding: 15px 20px;
+}
+
+.mobile-view .fb-exam .scenario-text {
+  text-align: left;
+  padding: 5px 10px;
 }
 
 #poster1-exam .scenario-text {
@@ -409,6 +433,10 @@
 
 .fb-exam .content .answer_row {
   margin-bottom: 20px;
+}
+
+.mobile-view .fb-exam .content .answer_row {
+  margin-bottom: 10px;
 }
 
 .fb-exam .content .answers label {

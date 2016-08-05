@@ -102,7 +102,7 @@ function go_to_case_study(case_study) {
 
 function hide_lobby() {
 	$('.container .lobby').hide();
-  $('.lobby img#lobby').attr('src', "img/lobby.jpg");
+  $('.lobby img.lobby-img').attr('src', "img/lobby.jpg");
 }
 
 function lobby_requirements_warning() {
@@ -148,7 +148,11 @@ function read_lobby_document(id) {
 
 function open_exam_room() {
 	play_sound(sounds.door_opening);
-	$('.lobby img#lobby').attr('src', "img/lobby-open.jpg");
+  
+  var imgSrc = "img/lobby-open.jpg";
+  if(is_mobile) { var imgSrc = "img/lobby-open.jpg"; }
+  
+	$('.lobby img.lobby-img').attr('src', imgSrc);
 }
 
 function is_read(doc_id) {

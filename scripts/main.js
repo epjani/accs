@@ -3,7 +3,7 @@ var main_variables = {
   language: 'en',
   employee_name: 'Test name'
 };
-TOP_MENU_HEIGHT = 40;
+TOP_MENU_HEIGHT = 30;
 BOTTOM_MENU_HEIGHT = 90;
 
 var is_mobile = false;
@@ -13,7 +13,7 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  is_mobile = true;
+  //is_mobile = false;
   
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
@@ -22,6 +22,27 @@ $(document).ready(function() {
   $('#lobby-menu a').click(function() {
     showOverlay($("#" + $(this).data('trigger-for')), false);
   });
+
+  $('#top-menu a').click(function() {
+    var triggerFor = $(this).data('trigger-for');
+    var fancyId = 'fb-' + $(this).data('trigger-for');
+
+    var content = $('#' + triggerFor + '-overlay').find('.content').html();    
+    // set overlay content
+    $('#' + fancyId).find('.content .text').html(content);
+    
+    $.fancybox({
+      href: '#' + fancyId,
+      width: '80%',
+      height: '20%'
+    });
+  });
+
+  $("#top-menu .toggle-menu").click(function(e) {
+    e.stopPropagation();
+
+    toggleTopMenu();
+  })
 
   init_bubble_tooltips('.tt-bubble', 'small');
   init_area_bubble_tooltips('.area-tt-bubble', 'small');
@@ -38,21 +59,23 @@ $(document).ready(function() {
 
   init_sounds();
 
-  $(window).on("orientationchange", function(event) {
-    // display desktop version in landscape mode
-    if(event.orientation === 'landscape') {
-      //is_mobile = false;
-    }    
-    else {
-      //is_mobile = md.mobile() != null || md.phone() != null;
-    }
-
-    configure_for_devices();
-    setImageSize();
-  });
-
   configure_for_devices();
 });
+
+function toggleTopMenu() {
+    $("#top-menu .links").toggle();
+    
+    if($("#top-menu .links").is(":visible")) {
+      $(document).bind("click", topMenuClickHandler);
+    }
+    else {
+      $(document).unbind("click", topMenuClickHandler);
+    }
+}
+
+function topMenuClickHandler() {  
+  toggleTopMenu();
+}
 
 function init_sounds() {
   createjs.Sound.addEventListener("fileload", handleLoad);
@@ -134,10 +157,6 @@ function configure_for_devices() {
     $('.hide-on-mobile').show();
     $('.show-on-mobile').hide();
   }
-}
-
-function toggle_menu() {
-  $("#top-menu .links").toggle();
 }
 
 function init_bubble_tooltips(selector, tt_class) {

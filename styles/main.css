@@ -192,6 +192,11 @@ img { outline: none; border: none; }
   border-radius: 5px 5px 0 0;
 }
 
+.mobile-view .inside-fb-warning .fb-notifications {
+  width: 80%;
+  margin-left: -40%;
+}
+
 .overlay .footer {
   height: 7px;
   background-color: #c2a995;
@@ -246,9 +251,9 @@ img { outline: none; border: none; }
 #top-menu {
   height: 40px;
   width: 100%;
-  position: absolute;
-  z-index: 5;
   background-color: #f1f1f2;
+  position: absolute;
+  z-index: 5;  
 }
 
 #top-menu .links {
@@ -259,7 +264,7 @@ img { outline: none; border: none; }
   display: block;
   padding: 16px 20px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
   color: #ffffff;
   text-transform: uppercase;
@@ -276,7 +281,7 @@ img { outline: none; border: none; }
   content: "";
   position: absolute;
   left: 10px;
-  top: 25px;
+  top: 20px;
   display: block;
   width: 22px;
   height: 2px;
@@ -287,7 +292,7 @@ img { outline: none; border: none; }
   content: "";
   position: absolute;
   left: 10px;
-  top: 15px;
+  top: 10px;
   display: block;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -300,10 +305,10 @@ img { outline: none; border: none; }
 
 #top-menu .links {
   background-color: #f1f1f2;
-  padding: 10px;
+  padding: 15px 20px 10px;
   width: 155px;
   list-style: none;
-  margin: 0;  
+  margin: 0;
 }
 
 #lobby-menu {
@@ -317,21 +322,15 @@ img { outline: none; border: none; }
 
 #top-menu .links li, #lobby-menu li {
   background-color: #EF4940;
-  margin-top: 5px;
-  border: 1px solid #f5f4f4;
+  margin-bottom: 8px;
+  border: 2px solid #f5f4f4;
+  padding: 10px 15px;
 }
 
 #top-menu .links li a, #lobby-menu li a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 12px;
-  display: block;
-  padding: 5px;
-}
-
-#lobby-menu li a { 
-  font-size: 14px;
 }
 
 .bottom-menu {
@@ -386,7 +385,6 @@ img { outline: none; border: none; }
 
 .mobile-view .container {
   position: absolute;
-  top: 40px;
   bottom: 90px;
   width: 100%;
 }
@@ -421,7 +419,7 @@ img { outline: none; border: none; }
 }
 
 .mobile-view .lobby .whiteboard {
-  width: 14%;
+  width: 17%;
   height: 14.5%;
   top: 16.0%;
   left: 43.4%;  
@@ -509,11 +507,6 @@ img { outline: none; border: none; }
   height: 133px;
 }
 
-.mobile-view .tooltip-bubble .content {
-  width: 100px;
-  height: 89px;
-}
-
 .tooltip-bubble.small .content {
   width: 120px;
   height: 95px;
@@ -546,14 +539,6 @@ img { outline: none; border: none; }
   font-size: 16px;
 }
 
-.mobile-view .tooltip-bubble .text {
-  top: 16px;
-  left: -7px;
-  width: 110px;
-  font-size: 14px;
-  line-height: 16px;
-}
-
 #globe-fb { display: none; }
 #globe-fb img { width: 100%; }
 
@@ -567,6 +552,11 @@ img { outline: none; border: none; }
   display: block;
   width: 400px;
   margin-left: -200px;
+}
+
+.mobile-view .correct-answer-warning .fb-notifications, .mobile-view .incorrect-answer-warning .fb-notifications {
+  width: 80%;
+  margin-left: -40%;
 }
 
 .correct-answer-warning .content.warning, .incorrect-answer-warning .content.warning { padding: 10px 20px; }
