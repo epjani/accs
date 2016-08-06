@@ -13,7 +13,7 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  //is_mobile = false;
+  //is_mobile = true;
   
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
@@ -44,8 +44,9 @@ $(document).ready(function() {
     toggleTopMenu();
   })
 
-  init_bubble_tooltips('.tt-bubble', 'small');
-  init_area_bubble_tooltips('.area-tt-bubble', 'small');
+  if(!is_mobile) {
+    init_bubble_tooltips('.tt-bubble', 'small');
+  } 
 
   $('area').click(function(jsEvent){
     href = $(jsEvent.target).attr('href');
@@ -90,11 +91,11 @@ function handleLoad(event) {
 }
 window.onload = function(e){
   load_sounds();
-  $('#animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
+  $('.animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
   $('body').removeClass('hide');
   setImageSize();
   setTimeout(lobby_events.goto_lobby, 6600);
-  lobby_events.goto_lobby();
+  //lobby_events.goto_lobby();
 }
 
 function showOverlay($el, autoHide) {

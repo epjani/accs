@@ -42,7 +42,7 @@ function lobby_click_events() {
 }
 
 function enter_lobby() {
-  $('#animations').hide();
+  $('.animations').hide();
   $('.lobby').show();
   setImageSize();
   $('map').imageMapResize();
