@@ -158,7 +158,7 @@ function open_exam_room() {
 	play_sound(sounds.door_opening);
   
   var imgSrc = "img/lobby-open.jpg";
-  if(is_mobile) { var imgSrc = "img/lobby-open.jpg"; }
+  if(is_mobile) { var imgSrc = "img/lobby-open-mobile.jpg"; }
   
 	$('.lobby img.lobby-img').attr('src', imgSrc);
 }
