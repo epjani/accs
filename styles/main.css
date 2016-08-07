@@ -191,6 +191,29 @@ img { outline: none; border: none; }
   border-radius: 5px 5px 0 0;
 }
 
+.landscape-warning {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  background-color: #f1f1f2;
+  text-align: center;
+  font-size: 18px;
+}
+
+.landscape-warning .content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: -100px;
+  height: 200px;
+}
+
 .mobile-view .inside-fb-warning .fb-notifications {
   width: 80%;
   margin-left: -40%;
@@ -252,7 +275,8 @@ img { outline: none; border: none; }
   width: 100%;
   background-color: #f1f1f2;
   position: absolute;
-  z-index: 50;  
+  z-index: 50; 
+  text-align: left; 
 }
 
 #top-menu .links {
@@ -260,46 +284,14 @@ img { outline: none; border: none; }
 }
 
 #top-menu .toggle-menu {
-  display: block;
-  padding: 16px 20px;
-  cursor: pointer;
-  font-size: 14px;
-  text-decoration: none;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: transparent;
-  border: none;
+  width: 25px;
+  height: 18px;
+  margin-top: 8px;
+  margin-left: 10px;
 }
 
 #top-menu .toggle-menu:focus {
   outline:0;
-}
-
-#top-menu .toggle-menu:before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 20px;
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: #EF4940;
-}
-
-#top-menu .toggle-menu:after {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  display: block;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  border-top: 2px solid #EF4940;
-  border-bottom: 2px solid #EF4940;
-  width: 22px;
-  height: 3px;
 }
 
 #top-menu .links {

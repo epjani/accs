@@ -13,7 +13,8 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  
+  //is_mobile = true;
+
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
   });
@@ -59,6 +60,9 @@ $(document).ready(function() {
   init_sounds();
 
   configure_for_devices();
+  handleMobileOrientation();
+
+  window.onorientationchange = handleMobileOrientation;
 });
 
 function toggleTopMenu() {
@@ -156,6 +160,19 @@ function configure_for_devices() {
     $('.hide-on-mobile').show();
     $('.show-on-mobile').hide();
   }
+}
+
+function handleMobileOrientation() {
+  if(window.orientation == 0) {
+    // portrait
+    $('.landscape-warning').hide();
+  }
+  else {
+    // landscape
+    $('.landscape-warning').show();
+  }
+
+  setImageSize();
 }
 
 function init_bubble_tooltips(selector, tt_class) {
