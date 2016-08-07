@@ -4,6 +4,11 @@
   background-color: #d7d7d7 !important;
 }
 
+/* JQUERY TOOLTIP OVERRIDES */
+.ui-tooltip {
+  z-index: 5000 !important;
+}
+
 .exam-room .ticker {
   width: 41.5%;
   position: absolute;
@@ -540,10 +545,24 @@
 }
 
 #mouse-exam .checkbox {
+  position: relative;
   border: 1px solid #c7c5c7;
   width: 15px;
   height: 15px;
   float: left;
+}
+
+#mouse-exam .checkbox .check-mark {
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+}
+
+#mouse-exam .done .checkbox .check-mark {
+  display: block;
 }
 
 .mobile-view #mouse-exam .checkbox {
@@ -551,16 +570,22 @@
   height: 10px;
 }
 
+.mobile-view #mouse-exam .checkbox .check-mark {
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+}
+
 #mouse-exam .view, #mouse-exam .view-from, #mouse-exam .view-topic {
   float: left;
   margin-left: 10px;
-  margin-top: 1px;
+  margin-top: -2px;
   width: 42%;
 }
 
 .mobile-view #mouse-exam .view, .mobile-view #mouse-exam .view-from, .mobile-view #mouse-exam .view-topic {
   margin-left: 5px;
-  margin-top: -2px;
 }
 
 .view-topic {
@@ -584,6 +609,11 @@
 
 #mouse-exam .select-scenario a:link, #mouse-exam .select-scenario a:visited, #mouse-exam .select-scenario a:hover, #mouse-exam .select-scenario a:active {
   color: #3c3f43;
+}
+
+#mouse-exam .select-scenario a.done {
+  cursor: default;
+  color: #EBEBE4;
 }
 
 #mouse-exam .select-scenario a .view-from {

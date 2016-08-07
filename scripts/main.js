@@ -13,8 +13,7 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  //is_mobile = true;
-
+  
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
   });
@@ -60,9 +59,11 @@ $(document).ready(function() {
   init_sounds();
 
   configure_for_devices();
-  handleMobileOrientation();
+  if(is_mobile) {
+    handleMobileOrientation();
 
-  window.onorientationchange = handleMobileOrientation;
+    window.onorientationchange = handleMobileOrientation;
+  }  
 });
 
 function toggleTopMenu() {
