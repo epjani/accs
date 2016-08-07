@@ -27,12 +27,7 @@ function show_exam_room(case_study) {
   exam_room_events.countdown();  
   $('.container .exam-room').show();
   setImageSize();
-  $('map').imageMapResize();  
-  displayExamRoomTooltips();
-}
-
-function displayExamRoomTooltips() {
-
+  $('map').imageMapResize();
 }
 
 function start_counter() {

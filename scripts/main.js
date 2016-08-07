@@ -13,7 +13,6 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  //is_mobile = true;
   
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
@@ -33,8 +32,7 @@ $(document).ready(function() {
     
     $.fancybox({
       href: '#' + fancyId,
-      width: '80%',
-      height: '20%'
+      width: '80%'
     });
   });
 

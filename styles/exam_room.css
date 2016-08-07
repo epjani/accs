@@ -121,6 +121,11 @@
   margin-top: 0;
 }
 
+.tt-static {
+  position: absolute;
+  z-index: 10;
+}
+
 .exam-room #poster1 {
   width: 19%;
   position: absolute;
@@ -134,6 +139,12 @@
   left: 1.7%;
 }
 
+.mobile-view .exam-room .poster1-trigger-tt-mobile {
+  top: 21%;
+  left: 1.8%;
+  width: 23.5%;
+}
+
 .exam-room #poster2 {
   width: 8.7%;
   position: absolute;
@@ -143,8 +154,14 @@
 
 .mobile-view .exam-room #poster2 {
   width: 12.9%;
-  top: 33.1%;
+  top: 33.2%;
   left: 29.3%;
+}
+
+.mobile-view .exam-room .poster2-trigger-tt-mobile {
+  top: 21%;
+  left: 27.3%;
+  width: 23.5%;
 }
 
 .exam-room #tv {
@@ -157,8 +174,14 @@
 
 .mobile-view .exam-room #tv {
   width: 31.4%;
-  top: 33.1%;
+  top: 34.2%;
   left: 66.8%;
+}
+
+.mobile-view .exam-room .tv-trigger-tt-mobile {
+  top: 24.4%;
+  left: 72.4%;
+  width: 24.5%;  
 }
 
 .exam-room .iphone-trigger {
@@ -172,6 +195,12 @@
   top: 76.8%;
   width: 9.6%;
   left: 4.4%;
+}
+
+.mobile-view .exam-room .iphone-trigger-tt-mobile {
+  top: 64.3%;
+  width: 23.4%;
+  left: 1.4%;
 }
 
 .exam-room .iphone-trigger.done {
@@ -196,6 +225,12 @@
   top: 85.8%;
   width: 50.7%;
   left: 15.5%;
+}
+
+.mobile-view .exam-room .mouse-trigger-tt-mobile {
+  top: 73.8%;
+  width: 24.3%;
+  left: 38.5%;
 }
 
 .mobile-view .exam-room .mouse-trigger.done {
@@ -230,6 +265,12 @@
   left: 62.2%;
 }
 
+.mobile-view .exam-room .phone-trigger-tt-mobile {
+  top: 62.23%;
+  width: 24.3%;
+  left: 65.2%;
+}
+
 .exam-room .break-trigger {
   position: absolute;
   bottom: 4%;
@@ -262,6 +303,13 @@
   height: 22.8%;
   left: 43.8%;
   right: auto;
+}
+
+.mobile-view .exam-room .exit-trigger-tt-mobile {
+  position: absolute;
+  top: 18.4%;
+  width: 20.1%;
+  left: 51.8%;
 }
 
 .exam-room .fluid img { width: 100%; }
@@ -302,6 +350,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 5;
 }
 
 .fb-exam > .content {
@@ -378,11 +427,19 @@
   border-top: none;
 }
 
+.mobile-view #mouse-exam .content {
+  padding-bottom: 0;
+}
+
 #mouse-exam .scenarios .header {
   position: absolute;
   width: 100%;
   height: 23px;
   background-color: #1791b0;
+}
+
+.mobile-view #mouse-exam .scenarios .header {
+  height: 15px;
 }
 
 #mouse-exam .scenarios {
@@ -403,13 +460,24 @@
   padding-top: 5px;
 }
 
+.mobile-view #mouse-exam .scenarios-left-menu {
+  top: 15px;
+  width: 100px;
+  font-size: 11px;
+}
+
 #mouse-exam .scenarios-left-menu .search {
   height: 22px;
   background-color: #ffffff;
   line-height: 22px;
   position: relative;
   font-size: 12px;
-  margin-top: 10px;
+  margin-top: 8px;
+}
+
+.mobile-view #mouse-exam .scenarios-left-menu .search {
+  font-size: 11px;
+  padding-top: 2px; 
 }
 
 #mouse-exam .scenarios-left-menu .search-icon {
@@ -461,6 +529,12 @@
   font-size: 16px;
 }
 
+.mobile-view #mouse-exam .scenarios-content {
+  top: 15px;
+  left: 101px;
+  font-size: 13px;
+}
+
 #mouse-exam .view-row {
   padding: 15px 10px 5px;
 }
@@ -470,13 +544,27 @@
   width: 15px;
   height: 15px;
   float: left;
+}
 
+.mobile-view #mouse-exam .checkbox {
+  width: 10px;
+  height: 10px;
 }
 
 #mouse-exam .view, #mouse-exam .view-from, #mouse-exam .view-topic {
   float: left;
   margin-left: 10px;
   margin-top: 1px;
+  width: 42%;
+}
+
+.mobile-view #mouse-exam .view, .mobile-view #mouse-exam .view-from, .mobile-view #mouse-exam .view-topic {
+  margin-left: 5px;
+  margin-top: -2px;
+}
+
+.view-topic {
+  float: right;
 }
 
 #mouse-exam .view-row span, #mouse-exam .select-scenario a span {
@@ -610,8 +698,6 @@
 .fb-exam .footer .next-btn, .fb-exam .footer .close-btn {
   float: right;
 }
-
-
 
 .exam-room #poster_1 a, .exam-room #poster_2 a, .exam-room #tv a {
   display: block;
