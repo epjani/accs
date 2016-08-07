@@ -23,10 +23,11 @@ function change_ticker_text(text) {
 function show_exam_room(case_study) {
   exam_room_events.the_case_study = case_study;
   set_exam_room_assets(case_study);
-  exam_room_events.update_ticker(exam_room_events.ticker_text());
+  exam_room_events.update_ticker(exam_room_events.ticker_text());  
+  exam_room_events.countdown();  
   $('.container .exam-room').show();
+  setImageSize();
   $('map').imageMapResize();
-  exam_room_events.countdown();
 }
 
 function start_counter() {

@@ -1,23 +1,27 @@
 // Helpers intendeng for resizing
 
-function setImageSize(){
-  $image = $('.resizable');
+function setImageSize(){ 
+  var $image = $('.resizable:visible');
+
+  if(is_mobile) {
+    $image = $image.not('.animations');
+  }
+
+  $image.css('width', 'auto').css('height', 'auto');
 
   var max_width = $(window).width();
   var max_height = $(window).height();
-  if(is_mobile) {
-    max_height -= TOP_MENU_HEIGHT; 
-  }
-  else { 
-    max_height -= BOTTOM_MENU_HEIGHT; 
-  }
+
   var width = $image.width();
   var height = $image.height();
 
-  dimensions = calculateAspectRatioFit(width, height, max_width, max_height);
+  max_height -= BOTTOM_MENU_HEIGHT;
+  if (is_mobile) { max_height -= TOP_MENU_HEIGHT; }
+
+  var dimensions = calculateAspectRatioFit(width, height, max_width, max_height);
 
   $image.css('width', dimensions.width).css('height', dimensions.height);
-  setFooterWidth(dimensions.width);
+  if(!is_mobile) { setFooterWidth(dimensions.width); }
 }
 
 function calculateAspectRatioFit(src_width, src_height, max_width, max_height) {

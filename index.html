@@ -18,21 +18,30 @@
 	</head>
 	<body onresize="setImageSize();" class="hide">
 
+		<div class="landscape-warning">
+			<div class="content">
+				<img src="img/warning_ico.png" width="100" height="100" alt="" />
+
+				<div>Application looks best in portrait mode. Please rotate and give it a try</div>
+			</div>			
+		</div>
+
 		<nav id="top-menu" class="show-on-mobile">
-      <button class="toggle-menu" type="button" onclick="toggle_menu();"></button>
+      <input type="image" src="img/menu-btn.png" class="toggle-menu" alt="toggle">
       <ul class="links">
-        <li><a href="#" class="read-document" data-title="Introduction" data-read-doc-id="introduction">INTRODUCTION</a></li>
-        <li><a href="#" class="read-document" data-title="Instructions" data-read-doc-id="instructions">INSTRUCTIONS</a></li>
-        <li><a id="help" href="#" >HELP</a></li>
+        <li><a href="#" class="read-document" data-title="Introduction" data-read-doc-id="introduction" data-trigger-for="introduction">INTRODUCTION</a></li>
+        <li><a href="#" class="read-document" data-title="Instructions" data-read-doc-id="instructions" data-trigger-for="instructions">INSTRUCTIONS</a></li>
+        <li><a id="help" href="#" data-trigger-for="help">HELP</a></li>
       </ul>
     </nav>
 
 		<div class="container">
-			<img id="animations" src="img/animations/intro.gif" class="resizable vis-hidden" />
+			<img src="img/animations/intro.gif" width="1024" height="557" class="resizable hide-on-mobile vis-hidden animations" />
+			<img src="img/animations/intro.gif" width="1024" height="557" class="show-on-mobile animations vis-hidden" />
 
 			<!-- .lobby -->
 			<div class="lobby resizable">
-				<img name="lobby" src="img/lobby.jpg" width="2200" height="1197" id="lobby" usemap="#map_lobby" alt="" class="hide-on-mobile bg-image" />
+				<img name="lobby" src="img/lobby.jpg" width="2200" height="1197" usemap="#map_lobby" alt="" class="lobby-img hide-on-mobile bg-image" />
 				<div class="whiteboard">
 					<a id="premium_products" class="cs-selection hide-on-mobile" href="#" title="" data-tt-text="Select Case Study" data-case-study="premium_products">
 						<img src="img/whiteboard/premium_products.png" />
@@ -62,7 +71,7 @@
 					<area data-read-doc-id="poster" class="read-document skip-tooltip" shape="poly" coords="1304,130,1616,68,1616,68,1618,558,1302,536" href="files/poster_text.pdf" target="None" data-title="Poster" alt="Poster" />
 				</map>
 
-				<img name="lobby" src="img/lobby-mobile.jpg" id="lobby" usemap="#map_lobby_mobile" alt="" class="show-on-mobile" />
+				<img name="lobby" src="img/lobby-mobile.jpg" usemap="#map_lobby_mobile" alt="" class="lobby-img show-on-mobile bg-image" width="1238" height="1922" />
 				<map name="map_lobby_mobile" id="map_lobby_mobile">
 					<area data-read-doc-id="brouchure1" class="read-document" shape="poly" coords="830,1340,1150,1340,1154,1756,830,1756" href="http://www.myvirtualpaper.com/doc/air-canada/2016_premium-class-brochure/2016011801/#0" target="_blank" alt="Onboard a new class of comfort" />
 					<area data-read-doc-id="brouchure2" class="read-document" shape="poly" coords="464,1342,786,1340,786,1756,464,1756" href="http://www.myvirtualpaper.com/doc/air-canada/2015_premium-products-brochure/2015113001/#0" target="_blank" alt="Fly in a world of privilege" />
@@ -95,37 +104,57 @@
 					<div class="marquee content marquee-speed-normal" data-marquee="test text"></div>
 				</div>
 
-
+				<img src="img/exam_room/tooltips/view-me-1.png" class="poster1-trigger-tt-mobile show-on-mobile tt-static" alt="" /> 
 				<div class="poster1-trigger fluid">
-					<a id="poster1" href="#" class="exam tt-bubble" title="" data-tt-text="View Me!" ><img src="" alt="Poster 1" /></a>
+					<a id="poster1" href="#" class="exam tt-bubble" title="" data-tt-text="View Me!">
+						<img src="" alt="Poster 1" class="replaceable" />						
+					</a>					
 				</div>
 
+				<img src="img/exam_room/tooltips/view-me-2.png" class="poster2-trigger-tt-mobile show-on-mobile tt-static" alt="" /> 
 				<div class="poster2-trigger fluid">
-					<a id="poster2" href="#" class="exam tt-bubble" title="" data-tt-text="View Me!" ><img src="" alt="Poster 2" /></a>
+					<a id="poster2" href="#" class="exam tt-bubble" title="" data-tt-text="View Me!" >
+						<img src="" alt="Poster 2" class="replaceable"/>
+					</a>					
 				</div>
 
+				<img src="img/exam_room/tooltips/play-me.png" class="tv-trigger-tt-mobile show-on-mobile tt-static" alt="" /> 
 				<div class="tv-trigger fluid">
-					<a id="tv" href="#" class="exam tt-bubble" title="" data-tt-text="Play Me!"><img src="img/exam_room/tv.gif" alt="Tv" /></a>
+					<a id="tv" href="#" class="exam tt-bubble" title="" data-tt-text="Play Me!">
+						<img src="img/exam_room/tv.gif" alt="Tv" class="replaceable" />
+					</a>					
 				</div>
 
+				<img src="img/exam_room/tooltips/read-me.png" class="iphone-trigger-tt-mobile show-on-mobile tt-static" alt="" /> 
 				<div class="iphone-trigger fluid">
-					<a id="iphone" href="#" class="exam tt-bubble" title="" data-tt-text="Read Me!"><img src="img/exam_room/iphone.png" alt="Iphone" /></a>
+					<a id="iphone" href="#" class="exam tt-bubble" title="" data-tt-text="Read Me!">
+						<img src="img/exam_room/iphone.png" alt="Iphone" class="replaceable" />
+					</a>					
 				</div>
 
+				<img src="img/exam_room/tooltips/click-me.png" class="mouse-trigger-tt-mobile show-on-mobile tt-static" alt="" /> 
 				<div class="mouse-trigger fluid">
-					<img src="img/exam_room/mouse.png" alt="Mouse" />
-					<a id="mouse" href="#" class="exam tt-bubble" title="" data-tt-text="Click Me!"></a>
+					<img src="img/exam_room/mouse.png" alt="Mouse" class="replaceable" />
+					<a id="mouse" href="#" class="exam tt-bubble" title="" data-tt-text="Click Me!"></a>					
 				</div>
 
+				<img src="img/exam_room/tooltips/answer-me.png" class="phone-trigger-tt-mobile show-on-mobile tt-static" alt="" /> 
 				<div class="phone-trigger fluid">
-					<a id="phone" href="#" class="exam tt-bubble" title="" data-tt-text="Answer Me!"><img src="img/exam_room/phone.png" alt="Phone" /></a>
+					<a id="phone" href="#" class="exam tt-bubble" title="" data-tt-text="Answer Me!">
+						<img src="img/exam_room/phone.png" alt="Phone" class="replaceable" />						
+					</a>
 				</div>
 
 				<div class="break-trigger fluid"><a id="break" href="#" title=""></a></div>
 
-				<div class="exit-trigger fluid"><a id="exit" href="#" class="tt-bubble" data-tt-text="Exit" title=""></a></div>
+				<img src="img/exam_room/tooltips/exit.png" class="exit-trigger-tt-mobile show-on-mobile tt-static" alt="" /> 
+				<div class="exit-trigger fluid">
+					<a id="exit" href="#" class="tt-bubble" data-tt-text="Exit" title=""></a>					
+				</div>
 
-				<img name="exam_room" src="img/exam_room.jpg" width="2200" height="1197" id="exam_room" alt="" class="hide-on-mobile bg-image" />
+				<img name="exam_room" src="img/exam_room.jpg" id="exam_room" alt="" class="hide-on-mobile bg-image" width="2200" height="1197" />
+
+				<img name="exam_room" src="img/exam_room-mobile.png" id="exam_room" alt="" class="show-on-mobile bg-image" width="1080" height="1457" />
 
 				<!-- .exams -->
 				<div class="exams">
@@ -168,7 +197,7 @@
 							</div>
 						</div>
 						<div class="inside-fb-warning" >
-							<div class="bg"></div>
+							<div class="bg" onclick="quit_submit_warning();"></div>
 							<div class="fancybox fb-notifications" >
 								<div class="header">
 									<img src="img/warning_ico.png" alt="warning" />
@@ -227,7 +256,7 @@
 							</div>
 						</div>
 						<div class="inside-fb-warning" >
-							<div class="bg"></div>
+							<div class="bg" onclick="quit_submit_warning();"></div>
 							<div class="fancybox fb-notifications" >
 								<div class="header">
 									<img src="img/warning_ico.png" alt="warning" />
@@ -290,7 +319,9 @@
 
 									<div class="scenario-template">
 										<a href="#" class="start">
-											<span class="checkbox"></span>
+											<span class="checkbox">
+												<img src="img/check.png" class="check-mark" />
+											</span>
 											<span class="view-from"></span>
 											<span class="view-topic"></span>
 											<div class="clearfix"></div>
@@ -324,7 +355,7 @@
 							</div>
 						</div>
 						<div class="inside-fb-warning" >
-							<div class="bg"></div>
+							<div class="bg" onclick="quit_submit_warning();"></div>
 							<div class="fancybox fb-notifications" >
 								<div class="header">
 									<img src="img/warning_ico.png" alt="warning" />
@@ -372,8 +403,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="inside-fb-warning" >
-							<div class="bg"></div>
+						<div class="inside-fb-warning">
+							<div class="bg" onclick="quit_submit_warning();"></div>
 							<div class="fancybox fb-notifications" >
 								<div class="header">
 									<img src="img/warning_ico.png" alt="warning" />
@@ -422,7 +453,7 @@
 							</div>
 						</div>
 						<div class="inside-fb-warning" >
-							<div class="bg"></div>
+							<div class="bg" onclick="quit_submit_warning();"></div>
 							<div class="fancybox fb-notifications" >
 								<div class="header">
 									<img src="img/warning_ico.png" alt="warning" />
@@ -441,10 +472,7 @@
 					<!-- #poster2-exam -->
 
 					<!-- #tv-exam -->
-					<div class="fb-exam hide" id="tv-exam">
-						<iframe id="foo" type="text/html" width="640" height="390"
-  frameborder="0" class="hide"></iframe>
-
+					<div class="fb-exam hide" id="tv-exam">						
 						<div class="common-elements"></div>
 						<div class="icon">
 							<img src="img/exam_room/tv_icon.png" width="120" height="100" alt="poster icon" />
@@ -462,7 +490,7 @@
 							</div>
 						</div>
 						<div class="inside-fb-warning" >
-							<div class="bg"></div>
+							<div class="bg" onclick="quit_submit_warning();"></div>
 							<div class="fancybox fb-notifications" >
 								<div class="header">
 									<img src="img/warning_ico.png" alt="warning" />
@@ -532,6 +560,42 @@
 					<div class="btn-container">
 						<button class="break-btn" onclick="continue_exam();">BACK</button>
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="fancybox fb-notifications top-menu" id="fb-instructions">
+			<div class="header">
+				<img src="img/instructions-small.png" alt="Instructions" />
+				<div class="title">INSTRUCTIONS</div>
+			</div>
+			<div class="content">
+				<div class="text">				
+					<!-- DYNAMICALLY POPULATED -->
+				</div>
+			</div>
+		</div>
+
+		<div class="fancybox fb-notifications top-menu" id="fb-introduction">
+			<div class="header">
+				<img src="img/intro-small.png" alt="Intro" />
+				<div class="title">INTRO</div>
+			</div>
+			<div class="content">
+				<div class="text">				
+					<!-- DYNAMICALLY POPULATED -->
+				</div>
+			</div>
+		</div>
+
+		<div class="fancybox fb-notifications top-menu" id="fb-help">
+			<div class="header">
+				<img src="img/help-small.png" alt="Help" />
+				<div class="title">HELP</div>
+			</div>
+			<div class="content">
+				<div class="text">				
+					<!-- DYNAMICALLY POPULATED -->
 				</div>
 			</div>
 		</div>

@@ -90,8 +90,15 @@ function set_question_main_text($container, questions, $infoHeader) {
     if(questions['img']) {
       var $img = $("<img>");
       $img.attr("src", questions['img']);
-      $img.attr("align", "left");
-      $img.attr("width", questions['width'])
+      if(!is_mobile) {
+        $img.attr("align", "left");
+        $img.attr("width", questions['width'])
+      }
+      else {
+        $img.attr("width", '80%').css('margin', '15px 10%');        
+
+      }
+      
       $container.find('.icon img').attr('src', questions['icon']);
       $scenario_text.append($img);
     }
@@ -101,7 +108,12 @@ function set_question_main_text($container, questions, $infoHeader) {
     if(questions['videoId']) {
       var $videoContainer = $("<div>");
       $videoContainer.attr("id", "video-player");
-      $videoContainer.attr("align", "left");
+      if(is_mobile) { 
+        $videoContainer.attr("align", "middle");
+      }
+      else {
+        $videoContainer.attr("align", "left");
+      }
       $scenario_text.append($videoContainer);
 
       player = initVideoPlayer(questions['videoId']);
@@ -342,25 +354,40 @@ function update_exam_room_assets() {
   $('.exam-room .exit-trigger').removeClass('done');
 
   $.each(exam_room_events.all_scenarios, function(i, exam) {
-    var $trigger = $('.exam-room .' + exam + '-trigger');
+    var triggerClass = '.exam-room .' + exam + '-trigger';
+    var $trigger = $(triggerClass);
 
     if($.inArray(exam, exam_room_events.finished_scenarios) >= 0) {
       $trigger.addClass('done');
-      $trigger.find('a').addClass('done').tooltip('disable');
+      $trigger.find('a').addClass('done');
+      if(is_mobile) {
+        $(triggerClass + '-tt-mobile').hide();
+      }
+      else {
+        $trigger.find('a').tooltip('disable');
+      }
+      
       if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
-        $trigger.find('img').attr('src', 'img/exam_room/' + exam + '_done.png');
+        $trigger.find('img.replaceable').attr('src', 'img/exam_room/' + exam + '_done.png');
       } else {
         var src = assets_events.exam_room_asset(exam_room_events.the_case_study, exam + '_done');
-        $trigger.find('img').attr('src', src);
+        $trigger.find('img.replaceable').attr('src', src);
       }
     } else {
       $trigger.removeClass('done');
-      $trigger.find('a').removeClass('done').tooltip('enable');
+      $trigger.find('a').removeClass('done')
+      if(is_mobile) {
+        $(triggerClass + '-tt-mobile').show();
+      }
+      else {
+        $trigger.find('a').tooltip('enable');
+      }
+      
       if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
-        $trigger.find('img').attr('src', 'img/exam_room/' + exam + '.png');
+        $trigger.find('img.replaceable').attr('src', 'img/exam_room/' + exam + '.png');
       } else {
         var src = assets_events.exam_room_asset(exam_room_events.the_case_study, exam);
-        $trigger.find('img').attr('src', src);
+        $trigger.find('img.replaceable').attr('src', src);
       }
     }
   });
@@ -475,7 +502,7 @@ $(document).ready(function() {
     }
   });
 
-  $(".correct-answer-warning .close-warning, .correct-answer-warning .content .text, .incorrect-answer-warning .close-warning, .incorrect-answer-warning .content .text").on('click', function() {
+  $(".correct-answer-warning .close-warning, .correct-answer-warning .content .text, .incorrect-answer-warning .close-warning, .incorrect-answer-warning .content .text, .bg-overlay").on('click', function() {
     hide_question_popup();
   });
 });

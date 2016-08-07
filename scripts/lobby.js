@@ -42,7 +42,7 @@ function lobby_click_events() {
 }
 
 function enter_lobby() {
-  $('#animations').hide();
+  $('.animations').hide();
   $('.lobby').show();
   setImageSize();
   $('map').imageMapResize();
@@ -78,8 +78,8 @@ function read_all_the_documents() {
 function lobby_go_to_case_study_click() {
 	$('.cs-selection').click(function(jsEvent) {
 
-		// if (true /*lobby_events.documents_read()*/) {
-		if (lobby_events.documents_read()) {
+	  // if (true /*lobby_events.documents_read()*/) {
+	  if (lobby_events.documents_read()) {
 			$target = $(jsEvent.target);
 			if ($target.hasClass('cs-selection')) {
 				case_study = $target.attr('id');
@@ -102,7 +102,15 @@ function go_to_case_study(case_study) {
 
 function hide_lobby() {
 	$('.container .lobby').hide();
-  $('.lobby img#lobby').attr('src', "img/lobby.jpg");
+  
+  if(is_mobile) {
+    var imgSrc = "img/lobby-mobile.jpg";
+  }
+  else {
+    var imgSrc = "img/lobby.jpg";
+  }
+  $('.lobby img.lobby-img').attr('src', imgSrc);
+
 }
 
 function lobby_requirements_warning() {
@@ -148,7 +156,11 @@ function read_lobby_document(id) {
 
 function open_exam_room() {
 	play_sound(sounds.door_opening);
-	$('.lobby img#lobby').attr('src', "img/lobby-open.jpg");
+  
+  var imgSrc = "img/lobby-open.jpg";
+  if(is_mobile) { var imgSrc = "img/lobby-open.jpg"; }
+  
+	$('.lobby img.lobby-img').attr('src', imgSrc);
 }
 
 function is_read(doc_id) {
@@ -166,7 +178,12 @@ function set_whiteboard_tooltips() {
     tooltipClass: "tooltip-bubble",
     content: function() {
       var content = $("<div class='content'>");
-      var imgEl = $("<img alt='' src='img/tt-bubble.png' />");
+      if(is_mobile) {
+        var imgEl = $("<img alt='' src='img/tt-bubble-mobile.png' />");
+      }
+      else {
+        var imgEl = $("<img alt='' src='img/tt-bubble.png' />");
+      }
       var textEl = $("<div class='text'>");
       textEl.text($(this).data("tt-text"));
       content.append(imgEl);
