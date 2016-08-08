@@ -94,15 +94,19 @@ function array_equal(arr1, arr2) {
 }
 
 function hide_exam_room() {
-  EndTime = 0
-  if (lobby_events.finished_case_studies.length >= 3) {
-    prompt_evaluation_screen(exam_room_events.the_case_study);
-  }
-  clear_exam_room_assets();
-  $('.container .exam-room').hide();
-  enter_lobby();
-
   $.fancybox.close();
+  $('img#exam_room').attr('src', 'img/exam_room_open.jpg');
+  play_sound(sounds.door_opening);
+  setTimeout( function() { EndTime = 0
+    if (lobby_events.finished_case_studies.length >= 3) {
+      prompt_evaluation_screen(exam_room_events.the_case_study);
+    }
+    clear_exam_room_assets();
+    $('.container .exam-room').hide();
+    enter_lobby();
+    $('img#exam_room').attr('src', 'img/exam_room.jpg');
+  }, 1500);
+  
 }
 
 function clear_exam_room_assets() {
@@ -235,5 +239,33 @@ $(document).ready(function(){
     pause_exam();
   });
 
+  $('#iphone.exam').on('mouseover', function(jsEvent) {
+    ringing_iphone_interval = setInterval(function(){ set_ringing_image('iphone'); play_sound('phone'); }, 150);
+  }).on('mouseout', function(jsEvent) {
+    $('#iphone.exam img').attr('src', 'img/exam_room/iphone.png');
+    clearInterval(ringing_iphone_interval);
+  });
+
+  $('#phone.exam').on('mouseover', function(jsEvent) {
+    ringing_phone_interval = setInterval(function(){ set_ringing_image('phone'); play_sound('phone') }, 150);
+  }).on('mouseout', function(jsEvent) {
+    $('#phone.exam img').attr('src', 'img/exam_room/phone.png');
+    clearInterval(ringing_phone_interval);
+  });
 
 });
+
+function set_ringing_image(id) {
+  var $img = $('#' + id + '.exam img');
+  var phone = '';
+
+  if ($img.data('ringing') != '') {
+    phone = id + '.png';
+    $img.data('ringing', '');
+  } else {
+    phone = id + '_ringing.png';
+    $img.data('ringing', 'ringing');
+  }
+
+  $img.attr('src', 'img/exam_room/' + phone);
+}
