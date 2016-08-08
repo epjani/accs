@@ -240,14 +240,14 @@ $(document).ready(function(){
   });
 
   $('#iphone.exam').on('mouseover', function(jsEvent) {
-    ringing_iphone_interval = setInterval(function(){ set_ringing_image('iphone'); play_sound('phone'); }, 150);
+    ringing_iphone_interval = setInterval(function(){ set_ringing_image('iphone'); play_sound('phone'); }, 320);
   }).on('mouseout', function(jsEvent) {
     $('#iphone.exam img').attr('src', 'img/exam_room/iphone.png');
     clearInterval(ringing_iphone_interval);
   });
 
   $('#phone.exam').on('mouseover', function(jsEvent) {
-    ringing_phone_interval = setInterval(function(){ set_ringing_image('phone'); play_sound('phone') }, 150);
+    ringing_phone_interval = setInterval(function(){ set_ringing_image('phone'); play_sound('phone') }, 320);
   }).on('mouseout', function(jsEvent) {
     $('#phone.exam img').attr('src', 'img/exam_room/phone.png');
     clearInterval(ringing_phone_interval);
