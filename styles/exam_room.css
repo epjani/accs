@@ -9,58 +9,82 @@
   z-index: 5000 !important;
 }
 
-.exam-room .ticker {
-  width: 41.5%;
+.clock-ticker {
   position: absolute;
-  top: 2.3%;
-  left: 17.2%;
-  font-size: 100%;
+  top: 2.2%;
+  left: 3.5%;
+  width: 55%;
+  height: 10%; 
+  z-index: 10;   
 }
 
-.mobile-view .exam-room .ticker {
-  width: 70%;
-  top: 2.8vh;
-  left: auto;
-  right: 1%;
+.mobile-view .clock-ticker {
+  top: 1.5%;
+  left: 1.5%;
+  height: 9%;
+  width: 97%;
+}
+
+.clock-ticker .clock {
+  position: absolute;  
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 21%;
+}
+
+.mobile-view .clock-ticker .clock {
+  width: 25%;  
+}
+
+.clock-ticker .clock img {
+  width: 100%;
+  height: 100%;
+}
+
+.exam-room .ticker {
+  position: absolute;  
+  top: 10%;
+  left: 24%;
+  right: 0;
+  bottom: 10%;    
+}
+
+.exam-room .ticker img {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-view .exam-room .ticker {  
+  left: 28%;
 }
 
 .exam-room .ticker .content {
   font-family: 'digital-7_italic';
   position: absolute;
-  top: 31%;
-  left: 0;
+  top: 0;
+  bottom: 0;
+  left: 3%;
+  right: 3%;
   color: #fff;
-  font-size: 3.5vh;
-  width: 94%;
-  margin-left: 3%;
   color: #0080a5;
 }
 
-.mobile-view .exam-room .ticker .content {
-  top: 1.5vh;
-  font-size: 2.8vh;
-}
-
-.exam-room .clock, .fb-exam .clock {
-  width: 11.8%;
-  position: absolute;
-  top: 2%;
-  left: 3%;
-  font-size: 100%;
+.mobile-view .exam-room .ticker .content {  
 }
 
 .fb-exam .clock {
   position: relative;
-  width: 125px;
-  height: 55px;
+  width: 13.5%;
+  height: 100%;
   float: left;
-  left: -2%;
   white-space: nowrap;
+  min-width: 125px;
 }
 
-.mobile-view .exam-room .clock {
-  top: 2.5vh;
-  width: 23%;
+.mobile-view .fb-exam .clock {
+  width: 37%;
+  min-width: 50px;
 }
 
 .fb-exam .clock img {
@@ -71,59 +95,44 @@
 .clock .content {
   font-family: 'digital-7_italic';
   color: #fff;
-  font-size: 5.3vh;
-  top: 20%;
   position: absolute;
-  width: 100%;
+  top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   color: #c81022;
+  text-align: center;
 }
 
-.mobile-view .clock .content { 
-  font-size: 4vh;
-  top: 1.5vh;
-}
-
-.fancybox-outer .clock .content {
-  font-size: 37px;
-}
-
-.fancybox-outer .exam-room .total-points, .fancybox-outer .fb-exam .total-points {
-  font-size: 30px;
-}
-
-.mobile-view .fancybox-outer .fb-exam .total-points {
-  font-size: 25px;
-  height: 55px;
-  line-height: 55px;
-}
-
-.fb-exam .clock .content {
-  top: 11px;
-}
-
-.exam-room .total-points, .fb-exam .total-points {
+.exam-room .total-points {
   position: absolute;
-  top: 12%;
-  left: 4.3%;
-  font-size: 4vh;
+  top: 11%;
+  left: 3.5%;
+  height: 10%; 
+  z-index: 10;  
   font-weight: bold;
   color: #c81022;
+  padding-left: 10px;
+  text-align: left;
 }
 
 .mobile-view .exam-room .total-points {
-  font-size: 3vh;
-  top: 8.5vh;
+  top: 9%;
+  padding-left: 5px;
 }
 
 .fb-exam .total-points {
   position: static;
-  margin-top: 10px;
   float: left;
+  margin-left: 35px;
+  text-align: left;
+  font-weight: bold;
+  color: #c81022;
+  height: 100%;
 }
 
 .mobile-view .fb-exam .total-points {
-  margin-top: 0;
+   margin-left: 25px;
 }
 
 .tt-static {
@@ -345,27 +354,40 @@
 
 .fb-exam .common-elements {
   position: absolute;
-  top: 2%;
-  left: 3%;
+  top: 1%;
+  left: 1.5%;
   width: 70%;
-  height: 55px;  
+  height: 8.9%; 
+  font-size: 0; /* dynamically set later */
+}
+
+.mobile-view .fb-exam .common-elements {
+  height: 7%;
 }
 
 .fb-exam .icon {
   position: absolute;
   top: 0;
   right: 0;
+  height: 14%;
   z-index: 5;
 }
 
+.fb-exam .icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .fb-exam > .content {
-  margin: 80px 3% 0;
+  position: absolute;
+  top: 11%; 
+  left: 3%;
+  right: 3%;
+  bottom: 140px;
   background-color: #ffffff;
   border: 2px solid #b89a81;
-  border-bottom: none;
-  height: 60%;
+  border-bottom: none;  
   float: left;
-  width: 94%;
   -webkit-box-shadow: 0 8px 6px -6px black;
      -moz-box-shadow: 0 8px 6px -6px black;
           box-shadow: 0 8px 6px -6px black;
@@ -373,7 +395,6 @@
 }
 
 .mobile-view .fb-exam > .content {
-  height: 55%;
   padding-bottom: 10px;
 }
 
@@ -673,10 +694,11 @@
 }
 
 .fb-exam .footer {
-  padding: 0 2%;
-  margin-top: 15px;
+  position: absolute;
+  height: 35px;
+  bottom: 95px;  
+  padding: 0 2%;  
   width: 96%;
-  float: left;
 }
 
 .fb-exam .bottom-menu {
@@ -735,13 +757,5 @@
 
 .correct-answer-warning .content .text, .incorrect-answer-warning .content .text { cursor: pointer; }
 
-/* Firefox specific styles */
-@-moz-document url-prefix() {
-  .exam-room .ticker .content {
-    top: 25%;
-  }
 
-  .exam-room .clock .content {
-    top: 10%;
-  }
 }

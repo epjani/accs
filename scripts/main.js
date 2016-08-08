@@ -13,7 +13,8 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  
+  //is_mobile = true;
+
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
   });
@@ -239,6 +240,40 @@ function getAreaCenter(area) {
       x: minX + (maxX - minX) / 2,
       y: minY + (maxY - minY) / 2
   };
+}
+
+function resizeHandler() {
+  setImageSize();
+  adjustClockTickerFontSize();
+}
+
+function adjustClockTickerFontSize() {
+  var $elements = $('.common-elements:visible, .clock-ticker:visible');  
+  $elements.each(function(_, obj) {
+    var $el = $(obj);
+    var height = parseInt($el.height());
+    var fontSize = parseInt(height * 0.65); // 65% of container height
+    var fontSizeSmaller = parseInt(height * 0.45); // 45% of container height
+
+    // container element
+    $el.css({'font-size': fontSize + 'px', 'line-height': height + 'px'});
+    
+    // total points element
+    var $totalPoints = $el.siblings('.total-points');
+    if($totalPoints.length === 0) {
+      $totalPoints = $el.find('.total-points');
+    }    
+    var totalPointsHeight = parseInt($totalPoints.height());
+    $totalPoints.css({'font-size': fontSizeSmaller + 'px', 'line-height': totalPointsHeight + 'px'});
+        
+    
+    // ticker element
+    var $tickerContent = $el.find('.ticker .content');
+    if($tickerContent.length > 0) {
+      var tickerHeight = parseInt($tickerContent.height());
+      $tickerContent.css({'font-size': fontSizeSmaller + 'px', 'line-height': tickerHeight + 'px'});
+    }    
+  });  
 }
 
 if (typeof(String.prototype.trim) === "undefined")

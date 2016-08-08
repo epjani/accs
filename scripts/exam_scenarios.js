@@ -33,6 +33,9 @@ function attach_common_elements(id) {
   var $score = $('.exam-room .total-points').first().clone();
   var $footer = $('.bottom-menu').first().clone();
 
+  var collection = $().add($clock).add($score)
+  collection.css({'font-size': '', 'line-height': ''});
+
   $common_elements.html('');
   $common_elements.append($clock).append($score);
 
@@ -188,6 +191,9 @@ function start_exam($el) {
     closeBtn: false,
     keys : {
       close  : null
+    },
+    afterShow: function() {
+      adjustClockTickerFontSize();
     }
   });
 

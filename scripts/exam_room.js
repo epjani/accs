@@ -25,9 +25,10 @@ function show_exam_room(case_study) {
   set_exam_room_assets(case_study);
   exam_room_events.update_ticker(exam_room_events.ticker_text());  
   exam_room_events.countdown();  
-  $('.container .exam-room').show();
+  $('.container .exam-room').show();  
   setImageSize();
   $('map').imageMapResize();
+  adjustClockTickerFontSize();
 }
 
 function start_counter() {
@@ -56,7 +57,7 @@ function set_exam_room_assets(case_study) {
   $('.exam-room #poster1 img').attr('src', poster_1);
   $('.exam-room #poster2 img').attr('src', poster_2);
   set_score();
-  update_exam_room_assets();
+  update_exam_room_assets();  
 }
 
 
