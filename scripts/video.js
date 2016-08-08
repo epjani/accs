@@ -1,6 +1,7 @@
 var player, videoDone = false;
 
 function initVideoPlayer(videoId) {
+  videoDone = false;
   return new YT.Player('video-player', {
     height: '390',
     width: '640',
@@ -24,7 +25,8 @@ function onPlayerStateChange(event) {
   }
 }
 function stopVideo() {
-  if(player) {
+  if(player && !videoDone) {
     player.stopVideo();
+    videoDone = true;
   }
 }

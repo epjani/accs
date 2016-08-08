@@ -95,10 +95,10 @@ function set_question_main_text($container, questions, $infoHeader) {
         $img.attr("width", questions['width'])
       }
       else {
-        $img.attr("width", '80%').css('margin', '15px 10%');        
+        $img.attr("width", '80%').css('margin', '15px 10%');
 
       }
-      
+
       $container.find('.icon img').attr('src', questions['icon']);
       $scenario_text.append($img);
     }
@@ -108,7 +108,7 @@ function set_question_main_text($container, questions, $infoHeader) {
     if(questions['videoId']) {
       var $videoContainer = $("<div>");
       $videoContainer.attr("id", "video-player");
-      if(is_mobile) { 
+      if(is_mobile) {
         $videoContainer.attr("align", "middle");
       }
       else {
@@ -366,7 +366,7 @@ function update_exam_room_assets() {
       else {
         $trigger.find('a').tooltip('disable');
       }
-      
+
       if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
         $trigger.find('img.replaceable').attr('src', 'img/exam_room/' + exam + '_done.png');
       } else {
@@ -382,7 +382,7 @@ function update_exam_room_assets() {
       else {
         $trigger.find('a').tooltip('enable');
       }
-      
+
       if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
         $trigger.find('img.replaceable').attr('src', 'img/exam_room/' + exam + '.png');
       } else {
