@@ -155,7 +155,7 @@ var PHONE = {
 								{ text: "Business Plus"},
 								{ text: "Business Class Transcontinental"}
 							],
-							valid: [1]
+							valid: [3]
 						}
 					]
 				}
@@ -282,7 +282,7 @@ var MOUSE = {
 								{ text: "Only at airports that have Air Canada Maple Leaf Lounges"},
 								{ text: "at select airports worldwide with our without Air Canada Maple Leaf Lounges"}
 							],
-							valid: [1,2,3]
+							valid: [3]
 						}
 					]
 				},
