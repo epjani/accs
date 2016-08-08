@@ -79,7 +79,7 @@
   color: #c81022;
 }
 
-.mobile-view .clock .content { 
+.mobile-view .clock .content {
   font-size: 4vh;
   top: 1.5vh;
 }
@@ -186,7 +186,7 @@
 .mobile-view .exam-room .tv-trigger-tt-mobile {
   top: 24.4%;
   left: 72.4%;
-  width: 24.5%;  
+  width: 24.5%;
 }
 
 .exam-room .iphone-trigger {
@@ -348,7 +348,7 @@
   top: 2%;
   left: 3%;
   width: 70%;
-  height: 55px;  
+  height: 55px;
 }
 
 .fb-exam .icon {
@@ -369,7 +369,7 @@
   -webkit-box-shadow: 0 8px 6px -6px black;
      -moz-box-shadow: 0 8px 6px -6px black;
           box-shadow: 0 8px 6px -6px black;
-  overflow: auto;  
+  overflow: auto;
 }
 
 .mobile-view .fb-exam > .content {
@@ -482,7 +482,7 @@
 
 .mobile-view #mouse-exam .scenarios-left-menu .search {
   font-size: 11px;
-  padding-top: 2px; 
+  padding-top: 2px;
 }
 
 #mouse-exam .scenarios-left-menu .search-icon {
@@ -630,6 +630,13 @@
 
 #mouse-exam .view-row .arrow-down, #mouse-exam .view-row .arrange-by {
   float: right;
+}
+
+
+#tv-exam.fb-exam .question {
+  width: 640px;
+  margin: 0 auto;
+  margin-top: 4%;
 }
 
 .fb-exam .question {
