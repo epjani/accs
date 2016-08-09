@@ -89,6 +89,7 @@ function handleLoad(event) {
   if (!initial_sounds_loaded) {
     setTimeout(createjs.Sound.play, 400, "moped_driving");
     setTimeout(createjs.Sound.play, 2600, "steps");
+    setTimeout(createjs.Sound.play, 5200, "door_opening");
     initial_sounds_loaded = true;
   }
 }

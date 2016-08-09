@@ -97,6 +97,7 @@ function hide_exam_room() {
   $.fancybox.close();
   $('img#exam_room').attr('src', 'img/exam_room_open.jpg');
   play_sound(sounds.door_opening);
+  $('[data-praised]').removeAttr('data-praised');
   setTimeout( function() { EndTime = 0
     if (lobby_events.finished_case_studies.length >= 3) {
       prompt_evaluation_screen(exam_room_events.the_case_study);

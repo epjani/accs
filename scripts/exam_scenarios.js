@@ -333,7 +333,7 @@ function end_case_study() {
 }
 
 function is_study_passed() {
-  return exam_room_events.total_points >= 162;
+  return exam_room_events.total_points >= 150;
 }
 
 function get_end_study_text() {
@@ -456,11 +456,11 @@ function get_question_points($container, index, id) {
 
   var valid_answers = get_selected_questions(id)['scenarios'][scenario]['questions'][index]['valid'];
   if ($.isArray(valid_answers)) {
-    var points = array_equal(answers, valid_answers) ? 10 : -5;
+    var points = array_equal(answers, valid_answers) ? 10 : 0;
   } else {
-    var points = array_equal(answers, valid_answers['answers']) ? 10 : -5;
+    var points = array_equal(answers, valid_answers['answers']) ? 10 : 0;
     if (points < 0) {
-      points = array_equal(answers, valid_answers['aggregate']) ? 10 : -5;
+      points = array_equal(answers, valid_answers['aggregate']) ? 10 : 0;
     }
   }
   return points;
