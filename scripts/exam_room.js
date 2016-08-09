@@ -243,14 +243,18 @@ $(document).ready(function(){
     var $target = get_exam_target(jsEvent);
 
     if (!$target.hasClass('done')) {
-      ringing_iphone_interval = setInterval(function(){ set_ringing_image('iphone'); play_sound('phone'); }, 320);
+      ringing_iphone_image_interval = setInterval(function(){ set_ringing_image('iphone'); }, 320);
+      play_sound('phone');
+      ringing_iphone_interval = setInterval(function() { play_sound('phone'); }, 1200);
     }
   }).on('mouseout', function(jsEvent) {
     var $target = get_exam_target(jsEvent);
 
     if (!$target.hasClass('done')) {
       $('#iphone.exam img').attr('src', 'img/exam_room/iphone.png');
+      clearInterval(ringing_iphone_image_interval);
       clearInterval(ringing_iphone_interval);
+      createjs.Sound.stop();
     }
   });
 
@@ -258,11 +262,15 @@ $(document).ready(function(){
     var $target = get_exam_target(jsEvent);
     
     if (!$target.hasClass('done')) {
-      ringing_phone_interval = setInterval(function(){ set_ringing_image('phone'); play_sound('phone') }, 320);
+      ringing_phone_image_interval = setInterval(function(){ set_ringing_image('phone'); }, 320);
+      play_sound('phone');
+      ringing_phone_interval = setInterval(function(){ play_sound('phone'); }, 1200);
     }
   }).on('mouseout', function(jsEvent) {
     $('#phone.exam img').attr('src', 'img/exam_room/phone.png');
+    clearInterval(ringing_phone_image_interval);
     clearInterval(ringing_phone_interval);
+    createjs.Sound.stop();
   });
 
 });
