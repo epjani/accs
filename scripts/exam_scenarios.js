@@ -216,14 +216,16 @@ function next_question(id, skip_warning) {
 
   if (!$current.hasClass('scenario-text')) {
     if (one_question_answered($current) || skip_warning) {
+      if (!skip_warning) {
+        $current.find('input').prop('disabled', 'disabled');
+      }
       go_to_next_question_set($scope, id)
     } else {
       $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
       $scoped_warning_box.show();
       $scoped_warning_box.find('.fancybox').show();
     }
-  } else {
-    $back_btn.addClass('hide');
+  } else {    
     go_to_next_question_set($scope, id)
   }
 }
@@ -243,7 +245,11 @@ function go_to_next_question_set($scope, index) {
   } else {
     change_next_btn_label($scope, index);
     $scope.find('.question.question_' + index).removeClass('hide');
-    handle_points(index-1);
+   
+    if (!$scope.find('.question.question_' + (index-1)).data('praised')) {
+      $scope.find('.question.question_' + (index-1)).attr('data-praised', 'true');
+      handle_points(index-1);
+    }
   }
 
 }
