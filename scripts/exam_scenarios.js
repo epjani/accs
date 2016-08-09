@@ -333,7 +333,7 @@ function end_case_study() {
 }
 
 function is_study_passed() {
-  return exam_room_events.total_points >= 150;
+  return exam_room_events.total_points >= 144;
 }
 
 function get_end_study_text() {
