@@ -191,29 +191,6 @@ img { outline: none; border: none; }
   border-radius: 5px 5px 0 0;
 }
 
-.landscape-warning {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10000;
-  background-color: #f1f1f2;
-  text-align: center;
-  font-size: 18px;
-}
-
-.landscape-warning .content {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-top: -100px;
-  height: 200px;
-}
-
 .mobile-view .inside-fb-warning .fb-notifications {
   width: 80%;
   margin-left: -40%;
@@ -277,6 +254,10 @@ img { outline: none; border: none; }
   position: absolute;
   z-index: 50; 
   text-align: left; 
+}
+
+.mobile-view.landscape #top-menu {
+  background-color: transparent;
 }
 
 #top-menu .links {
@@ -385,6 +366,10 @@ img { outline: none; border: none; }
   width: 100%;
 }
 
+.mobile-view.landscape .container {
+  top: 0;
+}
+
 .mobile-view .container .lobby, .mobile-view .container .exam-room {
   text-align: center;
 }
@@ -409,7 +394,7 @@ img { outline: none; border: none; }
   padding-left: 1%;
 }
 
-.mobile-view .lobby .whiteboard {
+.mobile-view.portrait .lobby .whiteboard {
   width: 17%;
   height: 14.9%;
   top: 16%;

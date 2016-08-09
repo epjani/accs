@@ -7,6 +7,8 @@ TOP_MENU_HEIGHT = 30;
 BOTTOM_MENU_HEIGHT = 90;
 
 var is_mobile = false;
+var isPortrait;
+
 var initial_sounds_loaded = false;
 
 $(document).ready(function() {
@@ -166,15 +168,22 @@ function configure_for_devices() {
 
 function handleMobileOrientation() {
   if(window.orientation == 0) {
-    // portrait
-    $('.landscape-warning').hide();
+    // portrait  
+    isPortrait = true;      
+    $("body").removeClass('landscape').addClass('portrait');
+    $('.lobby-img.show-on-mobile').attr('src', 'img/lobby-mobile.jpg');
+    $('.exam-room-img.show-on-mobile').attr('src', 'img/exam_room-mobile.png');
   }
   else {
     // landscape
-    $('.landscape-warning').show();
+
+    isPortrait = false;    
+    $("body").removeClass('portrait').addClass('landscape');
+    $('.lobby-img.show-on-mobile').attr('src', 'img/lobby.jpg');
+    $('.exam-room-img.show-on-mobile').attr('src', 'img/exam_room.jpg');
   }
 
-  setImageSize();
+  resizeHandler();
 }
 
 function init_bubble_tooltips(selector, tt_class) {

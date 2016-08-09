@@ -1,6 +1,6 @@
 // Helpers intendeng for resizing
 
-function setImageSize(){ 
+function setImageSize(){   
   var $image = $('.resizable:visible');
 
   if(is_mobile) {
@@ -16,7 +16,7 @@ function setImageSize(){
   var height = $image.height();
 
   max_height -= BOTTOM_MENU_HEIGHT;
-  if (is_mobile) { max_height -= TOP_MENU_HEIGHT; }
+  if (is_mobile && isPortrait) { max_height -= TOP_MENU_HEIGHT; }
 
   var dimensions = calculateAspectRatioFit(width, height, max_width, max_height);
 
