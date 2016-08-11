@@ -13,8 +13,8 @@ $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  
-  $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
+
+  $(document).on('click', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
   });
 
@@ -26,10 +26,10 @@ $(document).ready(function() {
     var triggerFor = $(this).data('trigger-for');
     var fancyId = 'fb-' + $(this).data('trigger-for');
 
-    var content = $('#' + triggerFor + '-overlay').find('.content').html();    
+    var content = $('#' + triggerFor + '-overlay').find('.content').html();
     // set overlay content
     $('#' + fancyId).find('.content .text').html(content);
-    
+
     $.fancybox({
       href: '#' + fancyId,
       width: '80%'
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
   if(!is_mobile) {
     init_bubble_tooltips('.tt-bubble', 'small');
-  } 
+  }
 
   $('area').click(function(jsEvent){
     href = $(jsEvent.target).attr('href');
@@ -63,12 +63,12 @@ $(document).ready(function() {
     handleMobileOrientation();
 
     window.onorientationchange = handleMobileOrientation;
-  }  
+  }
 });
 
 function toggleTopMenu() {
     $("#top-menu .links").toggle();
-    
+
     if($("#top-menu .links").is(":visible")) {
       $(document).bind("click", topMenuClickHandler);
     }
@@ -77,7 +77,7 @@ function toggleTopMenu() {
     }
 }
 
-function topMenuClickHandler() {  
+function topMenuClickHandler() {
   toggleTopMenu();
 }
 
