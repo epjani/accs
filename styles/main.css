@@ -252,8 +252,8 @@ img { outline: none; border: none; }
   width: 100%;
   background-color: #f1f1f2;
   position: absolute;
-  z-index: 50; 
-  text-align: left; 
+  z-index: 50;
+  text-align: left;
 }
 
 .mobile-view.landscape #top-menu {
@@ -398,7 +398,7 @@ img { outline: none; border: none; }
   width: 17%;
   height: 14.9%;
   top: 16%;
-  left: 43.2%; 
+  left: 43.2%;
 }
 
 .lobby .whiteboard a {
@@ -550,6 +550,7 @@ img { outline: none; border: none; }
 
 .correct-answer-warning .content.warning, .incorrect-answer-warning .content.warning { padding: 10px 20px; }
 .correct-answer-warning .content.warning.blue, .incorrect-answer-warning .content.warning.red { padding: 10px 70px; }
+.incorrect-answer-warning .content.warning.red { padding-bottom: 40px; }
 
 .correct-answer-warning .fb-notifications { border-bottom: 6px solid #188eae; }
 .correct-answer-warning .content.warning.blue .text { background-color: #188eae; color: #fff; }
