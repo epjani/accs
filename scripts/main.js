@@ -7,13 +7,16 @@ TOP_MENU_HEIGHT = 30;
 BOTTOM_MENU_HEIGHT = 90;
 
 var is_mobile = false;
+var isPortrait;
+
 var initial_sounds_loaded = false;
 
 $(document).ready(function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   is_mobile = md.mobile() != null || md.phone() != null;
-  
+  //is_mobile = true;
+
   $(document).on('mouseenter', '.bottom-menu .menu a.menu-item', function() {
     showOverlay($(this), false);
   });
@@ -166,15 +169,22 @@ function configure_for_devices() {
 
 function handleMobileOrientation() {
   if(window.orientation == 0) {
-    // portrait
-    $('.landscape-warning').hide();
+    // portrait  
+    isPortrait = true;      
+    $("body").removeClass('landscape').addClass('portrait');
+    $('.lobby-img.show-on-mobile').attr('src', 'img/lobby-mobile.jpg');
+    $('.exam-room-img.show-on-mobile').attr('src', 'img/exam_room-mobile.png');
   }
   else {
     // landscape
-    $('.landscape-warning').show();
+
+    isPortrait = false;    
+    $("body").removeClass('portrait').addClass('landscape');
+    $('.lobby-img.show-on-mobile').attr('src', 'img/lobby.jpg');
+    $('.exam-room-img.show-on-mobile').attr('src', 'img/exam_room.jpg');
   }
 
-  setImageSize();
+  resizeHandler();
 }
 
 function init_bubble_tooltips(selector, tt_class) {
@@ -240,6 +250,40 @@ function getAreaCenter(area) {
       x: minX + (maxX - minX) / 2,
       y: minY + (maxY - minY) / 2
   };
+}
+
+function resizeHandler() {
+  setImageSize();
+  adjustClockTickerFontSize();
+}
+
+function adjustClockTickerFontSize() {
+  var $elements = $('.common-elements:visible, .clock-ticker:visible');  
+  $elements.each(function(_, obj) {
+    var $el = $(obj);
+    var height = parseInt($el.height());
+    var fontSize = parseInt(height * 0.65); // 65% of container height
+    var fontSizeSmaller = parseInt(height * 0.45); // 45% of container height
+
+    // container element
+    $el.css({'font-size': fontSize + 'px', 'line-height': height + 'px'});
+    
+    // total points element
+    var $totalPoints = $el.siblings('.total-points');
+    if($totalPoints.length === 0) {
+      $totalPoints = $el.find('.total-points');
+    }    
+    var totalPointsHeight = parseInt($totalPoints.height());
+    $totalPoints.css({'font-size': fontSizeSmaller + 'px', 'line-height': totalPointsHeight + 'px'});
+        
+    
+    // ticker element
+    var $tickerContent = $el.find('.ticker .content');
+    if($tickerContent.length > 0) {
+      var tickerHeight = parseInt($tickerContent.height());
+      $tickerContent.css({'font-size': fontSizeSmaller + 'px', 'line-height': tickerHeight + 'px'});
+    }    
+  });  
 }
 
 if (typeof(String.prototype.trim) === "undefined")

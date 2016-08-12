@@ -16,16 +16,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
 	</head>
-	<body onresize="setImageSize();" class="hide">
-
-		<div class="landscape-warning">
-			<div class="content">
-				<img src="img/warning_ico.png" width="100" height="100" alt="" />
-
-				<div>Application looks best in portrait mode. Please rotate and give it a try</div>
-			</div>
-		</div>
-
+	<body onresize="resizeHandler();" class="hide">
 		<nav id="top-menu" class="show-on-mobile">
       <input type="image" src="img/menu-btn.png" class="toggle-menu" alt="toggle">
       <ul class="links">
@@ -88,21 +79,25 @@
 
 			<!-- .exam-room -->
 			<div class="exam-room resizable">
-				<div class="clock fluid">
-					<img src="img/exam_room/clock.png" alt="Countdown" />
-					<span class="content">
-						<span class="minutes"></span>
-						<span class="delimiter">:</span>
-						<span class="seconds"></span>
-					</span>
+				<div class="clock-ticker">
+					<div class="clock fluid">
+						<img src="img/exam_room/clock.png" alt="Countdown" />
+						<div class="content">
+							<span class="minutes"></span>
+							<span class="delimiter">:</span>
+							<span class="seconds"></span>
+						</div>
+					</div>
+
+					<div class="ticker fluid" >
+						<img src="img/exam_room/ticker.png" alt="Ticker" />
+						<div class="marquee content marquee-speed-normal" data-marquee="test text"></div>
+					</div>
 				</div>
+					
 				<div class="total-points">
 					Score: 0
-				</div>
-				<div class="ticker fluid" >
-					<img src="img/exam_room/ticker.png" alt="Ticker" />
-					<div class="marquee content marquee-speed-normal" data-marquee="test text"></div>
-				</div>
+				</div>				
 
 				<img src="img/exam_room/tooltips/view-me-1.png" class="poster1-trigger-tt-mobile show-on-mobile tt-static" alt="" />
 				<div class="poster1-trigger fluid">
@@ -152,9 +147,9 @@
 					<a id="exit" href="#" class="tt-bubble" data-tt-text="Exit" title=""></a>
 				</div>
 
-				<img name="exam_room" src="img/exam_room.jpg" id="exam_room" alt="" class="hide-on-mobile bg-image" width="2200" height="1197" />
+				<img src="img/exam_room.jpg" alt="" class="exam-room-img hide-on-mobile bg-image" width="2200" height="1197" />
 
-				<img name="exam_room" src="img/exam_room-mobile.png" id="exam_room" alt="" class="show-on-mobile bg-image" width="1080" height="1457" />
+				<img src="img/exam_room-mobile.png" alt="" class="exam-room-img show-on-mobile bg-image" width="1080" height="1457" />
 
 				<!-- .exams -->
 				<div class="exams">
