@@ -23,9 +23,9 @@ function change_ticker_text(text) {
 function show_exam_room(case_study) {
   exam_room_events.the_case_study = case_study;
   set_exam_room_assets(case_study);
-  exam_room_events.update_ticker(exam_room_events.ticker_text());  
-  exam_room_events.countdown();  
-  $('.container .exam-room').show();  
+  exam_room_events.update_ticker(exam_room_events.ticker_text());
+  exam_room_events.countdown();
+  $('.container .exam-room').show();
   setImageSize();
   $('map').imageMapResize();
   adjustClockTickerFontSize();
@@ -57,7 +57,7 @@ function set_exam_room_assets(case_study) {
   $('.exam-room #poster1 img').attr('src', poster_1);
   $('.exam-room #poster2 img').attr('src', poster_2);
   set_score();
-  update_exam_room_assets();  
+  update_exam_room_assets();
 }
 
 
@@ -108,7 +108,7 @@ function hide_exam_room() {
     enter_lobby();
     $('img#exam_room').attr('src', 'img/exam_room.jpg');
   }, 1500);
-  
+
 }
 
 function clear_exam_room_assets() {
@@ -262,7 +262,7 @@ $(document).ready(function(){
 
   $('#phone.exam').on('mouseover', function(jsEvent) {
     var $target = get_exam_target(jsEvent);
-    
+
     if (!$target.hasClass('done')) {
       ringing_phone_image_interval = setInterval(function(){ set_ringing_image('phone'); }, 320);
       play_sound('phone');
@@ -275,12 +275,29 @@ $(document).ready(function(){
     createjs.Sound.stop();
   });
 
+  $('.exam-room #poster1, .exam-room #poster2').on('mouseover', function(jsEvent) {
+    $el = $(jsEvent.target).closest('.exam');
+    pulse(false, $el);
+  }).on('mouseout', function(jsEvent) {
+    $el = $(jsEvent.target).closest('.exam');
+    $el.stop(true);
+    $el.css('opacity', 1);
+  });
+
 });
+
+function pulse(back, $el) {
+    $el.animate(
+    {
+      opacity: (back) ? 1 : 0.8
+    }, 700, function(){pulse(!back, $el)});
+
+}
 
 function get_exam_target(jsEvent) {
   $target = $(jsEvent.target);
   if (!$target.hasClass('exam')) {
-    $target = $target.parents('.exam'); 
+    $target = $target.parents('.exam');
   }
 
   return $target;
