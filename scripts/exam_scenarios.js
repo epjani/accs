@@ -231,7 +231,7 @@ function next_question(id, skip_warning) {
       $scoped_warning_box.show();
       $scoped_warning_box.find('.fancybox').show();
     }
-  } else {    
+  } else {
     go_to_next_question_set($scope, id)
   }
 }
@@ -251,7 +251,7 @@ function go_to_next_question_set($scope, index) {
   } else {
     change_next_btn_label($scope, index);
     $scope.find('.question.question_' + index).removeClass('hide');
-   
+
     if (!$scope.find('.question.question_' + (index-1)).data('praised')) {
       $scope.find('.question.question_' + (index-1)).attr('data-praised', 'true');
       handle_points(index-1);
@@ -421,14 +421,39 @@ function calculate_points($container, id, index) {
   var question_points = get_question_points($container, index, id)
   exam_room_events.total_points += question_points;
   if (question_points > 0) {
-    show_correct_popup();
-    play_sound(sounds.correct);
+    handle_success_exam();
   } else {
-    show_incorrect_popup();
-    play_sound(sounds.incorrect);
+    handle_unsuccess_exam();
   }
 
+  show_exam_credits(question_points > 0);
 }
+
+function show_exam_credits(success) {
+  if (success) {
+    $('#fb-warning .content').html('<div class="text">You have completed this scenario please proceed to the next.</div>');
+  } else {
+    $('#fb-warning .content').html('<div class="text">You have failed the scenario please try again.</div>');
+  }
+
+  $.fancybox({
+    href: '#fb-warning',
+    width: '400px',
+    height: '153px',
+    autoSize: false
+  });
+}
+
+function handle_success_exam() {
+  show_correct_popup();
+  play_sound(sounds.correct);
+}
+
+function handle_unsuccess_exam() {
+  show_incorrect_popup();
+  play_sound(sounds.incorrect);
+}
+
 
 var CORRECT_EXPRESSIONS = ["WAY TO GO!", "CONGRATS!", "SUPERSTAR", "AMAZING!", "PERFECT!"];
 var INCORRECT_EXPRESSIONS = ["BUMMER!", "NEXT TIME!", "SO CLOSE!", "SORRY!", "TRY AGAIN!"];

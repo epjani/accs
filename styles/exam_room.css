@@ -14,8 +14,8 @@
   top: 2.2%;
   left: 3.5%;
   width: 55%;
-  height: 10%; 
-  z-index: 10;   
+  height: 10%;
+  z-index: 10;
 }
 
 .mobile-view.portrait .clock-ticker {
@@ -26,7 +26,7 @@
 }
 
 .clock-ticker .clock {
-  position: absolute;  
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -34,7 +34,7 @@
 }
 
 .mobile-view.portrait .clock-ticker .clock {
-  width: 25%;  
+  width: 25%;
 }
 
 .clock-ticker .clock img {
@@ -43,11 +43,11 @@
 }
 
 .exam-room .ticker {
-  position: absolute;  
+  position: absolute;
   top: 10%;
   left: 24%;
   right: 0;
-  bottom: 10%;    
+  bottom: 10%;
 }
 
 .exam-room .ticker img {
@@ -55,7 +55,7 @@
   height: 100%;
 }
 
-.mobile-view.portrait .exam-room .ticker {  
+.mobile-view.portrait .exam-room .ticker {
   left: 28%;
 }
 
@@ -109,8 +109,8 @@
   position: absolute;
   top: 11%;
   left: 3.5%;
-  height: 10%; 
-  z-index: 10;  
+  height: 10%;
+  z-index: 10;
   font-weight: bold;
   color: #c81022;
   padding-left: 10px;
@@ -214,7 +214,7 @@
 .mobile-view.landscape .exam-room .tv-trigger-tt-mobile {
   top: 1.4%;
   left: 72.4%;
-  height: 24.5%;  
+  height: 24.5%;
 }
 
 .exam-room .iphone-trigger {
@@ -355,7 +355,7 @@
   width: 5.5%;
   height: 17.3%;
   right: auto;
-  left: 67.4%;    
+  left: 67.4%;
 }
 
 .exam-room .break-trigger a, .exam-room .exit-trigger a { height: 100%; width: 100%; }
@@ -381,7 +381,7 @@
   width: 12%;
   height: 39.8%;
   left: 46%;
-  right: auto  
+  right: auto
 }
 
 .mobile-view.portrait .exam-room .exit-trigger-tt-mobile {
@@ -427,7 +427,7 @@
   top: 1%;
   left: 1.5%;
   width: 70%;
-  height: 8.9%; 
+  height: 8.9%;
   font-size: 0; /* dynamically set later */
 }
 
@@ -452,13 +452,13 @@
 
 .fb-exam > .content {
   position: absolute;
-  top: 11%; 
+  top: 11%;
   left: 3%;
   right: 3%;
   bottom: 140px;
   background-color: #ffffff;
   border: 2px solid #b89a81;
-  border-bottom: none;  
+  border-bottom: none;
   float: left;
   -webkit-box-shadow: 0 8px 6px -6px black;
      -moz-box-shadow: 0 8px 6px -6px black;
@@ -783,8 +783,8 @@
 .fb-exam .footer {
   position: absolute;
   height: 35px;
-  bottom: 95px;  
-  padding: 0 2%;  
+  bottom: 95px;
+  padding: 0 2%;
   width: 96%;
 }
 
@@ -848,5 +848,4 @@
 
 .correct-answer-warning .content .text, .incorrect-answer-warning .content .text { cursor: pointer; }
 
-
-}
+#fb-warning .content { padding-left: 40px; padding-right: 40px; }
