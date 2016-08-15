@@ -47,6 +47,7 @@ function enter_lobby() {
   setImageSize();
   $('map').imageMapResize();
   set_lobby_assets();
+  show_whiteboard_tooltips();
 }
 
 function set_lobby_assets() {
@@ -102,7 +103,7 @@ function go_to_case_study(case_study) {
 
 function hide_lobby() {
 	$('.container .lobby').hide();
-  
+
   if(is_mobile) {
     var imgSrc = "img/lobby-mobile.jpg";
   }
@@ -148,18 +149,22 @@ function get_read_element($target) {
 
 function read_lobby_document(id) {
 	lobby_events.clicked_areas[id] = true;
-	if (lobby_events.documents_read()) {
-		set_whiteboard_tooltips();
+	show_whiteboard_tooltips();
+}
+
+function show_whiteboard_tooltips() {
+  if (lobby_events.documents_read()) {
+    set_whiteboard_tooltips();
     $('.whiteboard a').mouseover();
-	}
+  }
 }
 
 function open_exam_room() {
 	play_sound(sounds.door_opening);
-  
+
   var imgSrc = "img/lobby-open.jpg";
   if(is_mobile) { var imgSrc = "img/lobby-open-mobile.jpg"; }
-  
+
 	$('.lobby img.lobby-img').attr('src', imgSrc);
 }
 
