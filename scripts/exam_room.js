@@ -106,7 +106,7 @@ function hide_exam_room() {
   play_sound(sounds.door_opening);
   $('[data-praised]').removeAttr('data-praised');
   setTimeout( function() { EndTime = 0
-    if (lobby_events.finished_case_studies.length >= 3) {
+    if (lobby_events.finished_case_studies.length >= 3 && !EVALUATION_PROMPTED) {
       prompt_evaluation_screen(exam_room_events.the_case_study);
     }
     clear_exam_room_assets();
@@ -168,6 +168,7 @@ function continue_exam() {
 }
 
 function prompt_evaluation_screen(case_study) {
+  EVALUATION_PROMPTED = true;
   $('.evaluation-container').removeClass('hide');
   $('.bg-overlay').removeClass('hide').addClass('grey');
   $('.evaluation-container .evaluation-case-study').val(case_study);

@@ -5,6 +5,7 @@ var main_variables = {
 };
 TOP_MENU_HEIGHT = 30;
 BOTTOM_MENU_HEIGHT = 90;
+EVALUATION_PROMPTED = false;
 
 var is_mobile = false;
 var isPortrait;
@@ -168,8 +169,8 @@ function configure_for_devices() {
 
 function handleMobileOrientation() {
   if(window.orientation == 0) {
-    // portrait  
-    isPortrait = true;      
+    // portrait
+    isPortrait = true;
     $("body").removeClass('landscape').addClass('portrait');
     $('.lobby-img.show-on-mobile').attr('src', 'img/lobby-mobile.jpg');
     $('.exam-room-img.show-on-mobile').attr('src', 'img/exam_room-mobile.png');
@@ -177,7 +178,7 @@ function handleMobileOrientation() {
   else {
     // landscape
 
-    isPortrait = false;    
+    isPortrait = false;
     $("body").removeClass('portrait').addClass('landscape');
     $('.lobby-img.show-on-mobile').attr('src', 'img/lobby.jpg');
     $('.exam-room-img.show-on-mobile').attr('src', 'img/exam_room.jpg');
@@ -257,7 +258,7 @@ function resizeHandler() {
 }
 
 function adjustClockTickerFontSize() {
-  var $elements = $('.common-elements:visible, .clock-ticker:visible');  
+  var $elements = $('.common-elements:visible, .clock-ticker:visible');
   $elements.each(function(_, obj) {
     var $el = $(obj);
     var height = parseInt($el.height());
@@ -266,23 +267,32 @@ function adjustClockTickerFontSize() {
 
     // container element
     $el.css({'font-size': fontSize + 'px', 'line-height': height + 'px'});
-    
+
     // total points element
     var $totalPoints = $el.siblings('.total-points');
     if($totalPoints.length === 0) {
       $totalPoints = $el.find('.total-points');
-    }    
+    }
     var totalPointsHeight = parseInt($totalPoints.height());
-    $totalPoints.css({'font-size': fontSizeSmaller + 'px', 'line-height': totalPointsHeight + 'px'});
-        
-    
+    $totalPoints.css({'font-size': fontSizeSmaller-5 + 'px', 'line-height': totalPointsHeight + 'px'});
+
+
+    // attempts
+    var $attempts = $el.siblings('.attempts');
+    if($attempts.length === 0) {
+      $attempts = $el.find('.attempts');
+    }
+
+    var attemptsHeight = parseInt($attempts.height());
+    $attempts.css({'font-size': fontSizeSmaller-5 + 'px', 'line-height': attemptsHeight + 'px' });
+
     // ticker element
     var $tickerContent = $el.find('.ticker .content');
     if($tickerContent.length > 0) {
       var tickerHeight = parseInt($tickerContent.height());
       $tickerContent.css({'font-size': fontSizeSmaller + 'px', 'line-height': tickerHeight + 'px'});
-    }    
-  });  
+    }
+  });
 }
 
 if (typeof(String.prototype.trim) === "undefined")
