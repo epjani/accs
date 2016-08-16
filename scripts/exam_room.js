@@ -25,10 +25,16 @@ function show_exam_room(case_study) {
   set_exam_room_assets(case_study);
   exam_room_events.update_ticker(exam_room_events.ticker_text());
   exam_room_events.countdown();
+  handle_attempts();
   $('.container .exam-room').show();
   setImageSize();
   $('map').imageMapResize();
   adjustClockTickerFontSize();
+}
+
+function handle_attempts() {
+  lobby_events.attempts[exam_room_events.the_case_study] += 1;
+  $('.attempts').text('Attempts: ' + lobby_events.attempts[exam_room_events.the_case_study]);
 }
 
 function start_counter() {

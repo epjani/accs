@@ -25,7 +25,12 @@ var lobby_events = {
 			leisure_group: "Leisure Group Case Study",
 			network_fleet: "Network Fleet Case Study"
 		}
-	}
+	},
+  attempts: {
+    premium_products: 0,
+    leisure_group: 0,
+    network_fleet: 0
+  }
 };
 
 
@@ -87,11 +92,17 @@ function lobby_go_to_case_study_click() {
 			} else {
 				case_study = $target.parents('.cs-selection').first().data('case-study');
 			}
-      open_exam_room();
-      $('.whiteboard a').mouseout();
-      setTimeout(go_to_case_study, 1500, case_study);
+
+      if (lobby_events.attempts[case_study] >= 2) {
+        lobby_warning("<div class=\"text\">You already attempted this case study 2 times.</div>")
+      } else {
+        open_exam_room();
+        $('.whiteboard a').mouseout();
+        setTimeout(go_to_case_study, 1500, case_study);
+      }
+
 		} else {
-			lobby_requirements_warning();
+			lobby_warning('<div class="text">Please review: Introduction, Instructions, Brochures and Poster before proceeding to case study.</div>');
 		}
 	});
 }
@@ -114,10 +125,9 @@ function hide_lobby() {
 
 }
 
-function lobby_requirements_warning() {
+function lobby_warning(message) {
 	// message = "You have to read: " + non_clicked_elements_stringified();
-	message = 'Please review: Introduction, Instructions, Brochures and Poster before proceeding to case study.'
-	$('#fb-warning .content .text').text(message);
+	$('#fb-warning .content').html(message);
 	$.fancybox({
 	  href: '#fb-warning',
 	  width: 500,

@@ -31,13 +31,14 @@ function attach_common_elements(id) {
 
   var $clock = $('.exam-room .clock').first().clone();
   var $score = $('.exam-room .total-points').first().clone();
+  var $attemts = $('.exam-room .attempts').first().clone();
   var $footer = $('.bottom-menu').first().clone();
 
-  var collection = $().add($clock).add($score)
+  var collection = $().add($clock).add($score).add($attemts);
   collection.css({'font-size': '', 'line-height': ''});
 
   $common_elements.html('');
-  $common_elements.append($clock).append($score);
+  $common_elements.append($clock).append($score).append($attemts);
 
   if($container.find('.bottom-menu').length == 0) {
     $container.append($footer);

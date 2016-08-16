@@ -105,7 +105,7 @@
   text-align: center;
 }
 
-.exam-room .total-points {
+.exam-room .total-points, .exam-room .attempts {
   position: absolute;
   top: 11%;
   left: 3.5%;
@@ -117,12 +117,16 @@
   text-align: left;
 }
 
-.mobile-view.portrait .exam-room .total-points {
+.exam-room .attempts {
+  top: 15%;
+}
+
+.mobile-view.portrait .exam-room .total-points, .mobile-view.portrait .exam-room .attempts {
   top: 9%;
   padding-left: 5px;
 }
 
-.fb-exam .total-points {
+.fb-exam .total-points, .fb-exam .attempts {
   position: static;
   float: left;
   margin-left: 35px;
