@@ -426,12 +426,11 @@ function calculate_points($container, id, index) {
   } else {
     handle_unsuccess_exam();
   }
-
-  show_exam_credits(question_points > 0);
 }
 
-function show_exam_credits(success) {
-  if (success) {
+function show_exam_credits() {
+
+  if (is_study_passed()) {
     $('#fb-warning .content').html('<div class="text">You have completed this scenario please proceed to the next.</div>');
   } else {
     $('#fb-warning .content').html('<div class="text">You have failed the scenario please try again.</div>');
