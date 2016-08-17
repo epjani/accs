@@ -480,7 +480,8 @@ function show_exam_credits() {
     href: '#fb-warning',
     width: '400px',
     height: '153px',
-    autoSize: false
+    autoSize: false,
+    scrolling: 'no'
   });
 }
 
