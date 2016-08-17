@@ -253,8 +253,8 @@ $(document).ready(function(){
 
     if (!$target.hasClass('done')) {
       ringing_iphone_image_interval = setInterval(function(){ set_ringing_image('iphone'); }, 320);
-      play_sound('phone');
-      ringing_iphone_interval = setInterval(function() { play_sound('phone'); }, 1200);
+      play_sound('iphone');
+      ringing_iphone_interval = setInterval(function() { play_sound('iphone'); }, 1200);
     }
   }).on('mouseout', function(jsEvent) {
     var $target = get_exam_target(jsEvent);

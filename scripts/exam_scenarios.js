@@ -169,6 +169,7 @@ function start_exam($el) {
   id = $el.attr('id');
 
   switch (id) {
+    case 'iphone':
     case 'mouse':
     case 'phone': {
       play_sound(id);
