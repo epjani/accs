@@ -1,11 +1,9 @@
 var lobby_events = {
 	clicked_areas: {
-		brouchure1: false,
-		brouchure2: false,
-		brouchure3: false,
 		poster: false,
 		introduction: false,
-		instructions: false
+		instructions: false,
+    globe: false
 	},
 	bind_click_events: lobby_click_events(),
 	bind_go_to_exam_events: lobby_go_to_case_study_click(),
@@ -102,7 +100,7 @@ function lobby_go_to_case_study_click() {
       }
 
 		} else {
-			lobby_warning('<div class="text">Please review: Introduction, Instructions, Brochures and Poster before proceeding to case study.</div>');
+			lobby_warning('<div class="text">Please review introduction, instructions, globe and poster before proceeding to case study.</div>');
 		}
 	});
 }
