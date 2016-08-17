@@ -244,9 +244,9 @@ $(document).ready(function(){
     }
   });
 
-  $('.exam-room').on('click', '#break', function(jsEvent) {
-    pause_exam();
-  });
+  // $('.exam-room').on('click', '#break', function(jsEvent) {
+  //   pause_exam();
+  // });
 
   $('#iphone.exam').on('mouseover', function(jsEvent) {
     var $target = get_exam_target(jsEvent);

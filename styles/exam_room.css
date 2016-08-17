@@ -853,3 +853,4 @@
 .correct-answer-warning .content .text, .incorrect-answer-warning .content .text { cursor: pointer; }
 
 #fb-warning .content { padding-left: 40px; padding-right: 40px; }
+#break { cursor: default; }
