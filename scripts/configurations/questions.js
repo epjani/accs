@@ -27,7 +27,7 @@ var IPHONE = {
 							valid: [1]
 						},
 						{
-							question: "International Business Class passengers on Air Canada can expect access to the airport priority services such as Priority Check-in,  Priority Boarding and Priority Security Clearance, as well as: (select all that apply)",
+							question: "International Business Class passengers on Air Canada can expect access to the airport priority services such as Priority Check-in,  Priority Boarding and Priority Security Clearance, as well as (select all that apply):",
 							answers: [
 								{ text: "Preferred seating at airport gates"},
 								{ text: "Priority Baggage Handling"},
@@ -57,7 +57,7 @@ var IPHONE = {
 							valid: [2]
 						},
 						{
-							question: "Premium rouge also includes all of the perks you would expect from a premium travel experience, including complimentary premium meals, wine & spirits, 2 free checked bags as well as Priority check in and boarding.  For travel within Canada, to the US and Sun routes, Maple Leaf Lounge access is complimentary.  For flights to Europe, Asia, Africa & South America, the Maple Leaf Lounge access fee is:",
+							question: "Premium rouge also includes all of the perks you would expect from a premium travel experience, including complimentary premium meals, wine & spirits, 2 free checked bags as well as Priority check-in and boarding.  For travel within Canada, to the US and Sun routes, Maple Leaf Lounge access is complimentary.  For flights to Europe, Asia, Africa & South America, the Maple Leaf Lounge access fee is:",
 							answers: [
 								{ text: "Complimentary"},
 								{ text: "$25"},
@@ -87,7 +87,7 @@ var IPHONE = {
 					sound: 'network_fleet_iphone',
 					questions: [
 						{
-							question: "Air Canada’s Preferred Seats offer travellers looking for a little extra comfort with (select all that apply) ",
+							question: "Air Canada’s Preferred Seats offer travellers looking for a little extra comfort with (select all that apply): ",
 							answers: [
 								{ text: "Extra leg room"},
 								{ text: "Hot towel service"},
@@ -97,7 +97,7 @@ var IPHONE = {
 							valid: [0, 2]
 						},
 						{
-							question: "Compared to a standard seat pitch of 31” – 33” in economy, Preferred Seats offer 4 more inches of legroom.",
+							question: "Compared to a standard seat pitch of 31” – 33” in the economy, Preferred Seats offer 4 more inches of legroom:",
 							answers: [
 								{ text: "TRUE"},
 								{ text: "FALSE"}
@@ -128,7 +128,7 @@ var PHONE = {
 					sound: 'premium_products_phone',
 					questions: [
 						{
-							question: "Air Canada’s Maple Leaf Lounges provide a private, serene escape from the bustle of airport activity, and are located at all major airports across Canada and at key international locations.  The lounges are equipped with: (select all that apply)",
+							question: "Air Canada’s Maple Leaf Lounges provide a private, serene escape from the bustle of airport activity, and are located at all major airports across Canada and at key international locations.  The lounges are equipped with: (select all that apply):",
 							answers: [
 								{ text: "Complimentary Food and Beverages"},
 								{ text: "News & Entertainment options"},
@@ -138,7 +138,7 @@ var PHONE = {
 							valid: [0, 1, 2]
 						},
 						{
-							question: "Business Class on North America and Caribbean routes offers added comfort, personal entertainment & premium cuisine.  Business Class travellers can enjoy: (select all that apply)",
+							question: "Business Class on North America and Caribbean routes offers added comfort, personal entertainment & premium cuisine.  Business Class travellers can enjoy: (select all that apply):",
 							answers: [
 								{ text: "Concierge service "},
 								{ text: "Seats equipped with Personal touch-screen TVs "},
@@ -148,7 +148,7 @@ var PHONE = {
 							valid: [1, 2, 3]
 						},
 						{
-							question: "Some flights operated within North America by Boeing 787, Boeing 767, Boeing 777 or Airbus A330 aircraft, on routes such as Toronto to Calgary, Los Angeles, San Francisco and Vancouver, or Montreal to Vancouver, offer this service that includes fully lie flat beds. This special Business Class product is called: ",
+							question: "Some flights operated within North America by Boeing 787, Boeing 767, Boeing 777 or Airbus A330 aircraft, on routes such as Toronto to Calgary, Los Angeles, San Francisco and Vancouver, or Montreal to Vancouver, offer this service that includes fully lie-flat beds. This special Business Class product is called: ",
 							answers: [
 								{ text: "Business First"},
 								{ text: "Business North America Plus"},
@@ -168,7 +168,7 @@ var PHONE = {
 					sound: 'leisure_group_phone',
 					questions: [
 						{
-							question: "Travellers can fly individually from cities across Canada and meet at a connecting airport to fly to a destination together.  The minimum number for group travel (including children) is only",
+							question: "Travellers can fly individually from cities across Canada and meet at a connecting airport to fly to a destination together.  The minimum number for group travel (including children) is only:",
 							answers: [
 								{ text: "5"},
 								{ text: "8"},
@@ -178,7 +178,7 @@ var PHONE = {
 							valid: [2]
 						},
 						{
-							question: "Travelling as a group does offer special perks.  Select resorts and destinations may extend special fly, stay, eat for free offers.  Additionally Air Canada Vacations offers 2 FREE flight upgrades & Maple Leaf lounge access on select flights for groups of at least: ",
+							question: "Travelling as a group does offer special perks.  Select resorts and destinations may extend special fly, stay, eat for free offers.  Additionally Air Canada Vacations offers 2 FREE flight upgrades & Maple Leaf lounge access on select flights for groups of at least:",
 							answers: [
 								{ text: "15"},
 								{ text: "20"},
@@ -204,11 +204,11 @@ var PHONE = {
 		network_fleet: {
 			scenarios: [
 				{
-					text: "Hi. I had to call.  Everyone is taking about Air Canada’s Boeing 787 Dreamliner.  What can you tell me about this aircraft?  I’m told to make sure I try and book it if possible. I just don’t know why?",
+					text: "Hi. I had to call.  Everyone is talking about Air Canada’s Boeing 787 Dreamliner.  What can you tell me about this aircraft?  I’m told to make sure I try and book it if possible. I just don’t know why?",
 					sound: 'network_fleet_phone',
 					questions: [
 						{
-							question: "The Boeing 787 aircraft offers travellers many new comforts including: (select all that apply)",
+							question: "The Boeing 787 aircraft offers travellers many new comforts including (select all that apply):",
 							answers: [
 								{ text: "A quieter, smoother flight"},
 								{ text: "Windows that are 30 per cent larger"},
@@ -218,7 +218,7 @@ var PHONE = {
 							valid: [0, 1, 3]
 						},
 						{
-							question: "Air Canada’s new International Business Class cabin on Boeing 787 aircraft, are now also being installed progressively on Boeing 777 aircraft.  Executive pods on these aircraft feature the largest entertainment screen available in business class of any North American carrier and seats that can be extended into a fully lie flat bed that measures :",
+							question: "Air Canada’s new International Business Class cabin on Boeing 787 aircraft, are now also being installed progressively on Boeing 777 aircraft.  Executive pods on these aircraft feature the largest entertainment screen available in business class of any North American carrier and seats that can be extended into a fully lie flat bed that measures:",
 							answers: [
 								{ text: "4 feet 6 inches"},
 								{ text: "5 feet 6 inches"},
@@ -228,10 +228,10 @@ var PHONE = {
 							valid: [2]
 						},
 						{
-							question: "Air Canada’s focus on traveller experience has been recognized by travellers worldwide and again most recently by Skytrax who awarded Air Canada a prestigious designation, making Air Canada the only International Network Carrier in North America to achieve this exceptional milestone.",
+							question: "Air Canada’s focus on traveller experience has been recognized by travellers worldwide and again most recently by Skytrax who awarded Air Canada a prestigious designation, making Air Canada the only International Network Carrier in North America to achieve this exceptional milestone:",
 							answers: [
-								{ text: "Three star airline "},
-								{ text: "Four star airline"},
+								{ text: "Three-star airline "},
+								{ text: "Four-star airline"},
 								{ text: "Canadian airline of the year"},
 								{ text: "Business airline of the year."}
 							],
@@ -255,7 +255,7 @@ var MOUSE = {
 					sound: 'premium_products_mouse_1',
 					questions: [
 						{
-							question: "A reminder that we are a dedicated team responsible to provide service exclusively to (select all that apply).",
+							question: "A reminder that we are a dedicated team responsible to provide service exclusively to (select all that apply):",
 							answers: [
 								{ text: "Altitude Super Elite 100K passengers"},
 								{ text: "North America Business Class Passengers"},
@@ -265,7 +265,7 @@ var MOUSE = {
 							valid: [0, 2]
 						},
 						{
-							question: "Should it be of any help, here is a reminder of what the Air Canada concierge program offers: (select all that apply)",
+							question: "Should it be of any help, here is a reminder of what the Air Canada concierge program offers: (select all that apply):",
 							answers: [
 								{ text: "Dedicated service in airports around the world"},
 								{ text: "Assistance with travel and airport related matters"},
@@ -275,7 +275,7 @@ var MOUSE = {
 							valid: [0, 1, 2]
 						},
 						{
-							question: "Customer can find us conveniently stationed around Business Class check-in areas, departure gates and Maple Leaf Lounges.  We are easily recognizable in our distinctive black uniform and Concierge identification tags.  Air Canada Concierge are available:",
+							question: "The customer can find us conveniently stationed around Business Class check-in areas, departure gates and Maple Leaf Lounges.  We are easily recognizable in our distinctive black uniform and Concierge identification tags.  Air Canada Concierge are available:",
 							answers: [
 								{ text: "Only at Canadian airports that have Air Canada Maple Leaf Lounges"},
 								{ text: "Only at North American airports that have Air Canada Maple Leaf Lounges"},
@@ -289,11 +289,11 @@ var MOUSE = {
 				{
 					from: "Customer",
 					topic: "Latitude fare ticket to Vancouver",
-					text: "Hi.  Thanks for issuing my Latitude fare ticket to Vancouver.  I have a few questions I hope you can answer.  I wasn’t sure what complimentary Priority services I’m entitled to. Can you remind me please? Also, we have employees that will be travelling on regular basis for the next several months.  Are there any Business Class bulk ticket purchase options we should know about?  Lastly, what is the criterion to make Super Elite 100K this year?",
+					text: "Hi.  Thanks for issuing my Latitude fare ticket to Vancouver.  I have a few questions I hope you can answer.  I wasn’t sure what complimentary Priority services I’m entitled to. Can you remind me, please? Also, we have employees that will be travelling on a regular basis for the next several months.  Are there any Business Class bulk ticket purchase options we should know about?  Lastly, what is the criterion to make Super Elite 100K this year?",
 					sound: 'premium_products_mouse_2',
 					questions: [
 						{
-							question: "With Latitude fare you can make use of the following Priority services on a complimentary basis: (select all that apply)",
+							question: "With Latitude fare you can make use of the following Priority services on a complimentary basis: (select all that apply):",
 							answers: [
 								{ text: "Priority Check-in"},
 								{ text: "Priority security Clearance"},
@@ -303,7 +303,7 @@ var MOUSE = {
 							valid: [0, 2, 3]
 						},
 						{
-							question: "Air Canada’s Flight Passes can be purchased at Business Class fare levels.  They offer exceptional savings and cost predictability for frequent flyers.  Just so you are clear, the flight passes work in the following way: (select all that apply)",
+							question: "Air Canada’s Flight Passes can be purchased at Business Class fare levels.  They offer exceptional savings and cost predictability for frequent flyers.  Just so you are clear, the flight passes work in the following way: (select all that apply):",
 							answers: [
 								{ text: "They are prepaid"},
 								{ text: "Each credit is valid for a one-way trip"},
@@ -355,7 +355,7 @@ var MOUSE = {
 							valid: [3]
 						},
 						{
-							question: "I know that you are going to be impressed with the customer service you’ll receive from the rouge crew on board.  The rouge crews went through special Customer Service Excellence training with ",
+							question: "I know that you are going to be impressed with the customer service you’ll receive from the rouge crew on board.  The rouge crews went through special Customer Service Excellence training with: ",
 							answers: [
 								{ text: "Cirque du Soleil"},
 								{ text: "Disney"},
@@ -392,7 +392,7 @@ var MOUSE = {
 							valid: { answers: [0, 1], aggregate: [2] }
 						},
 						{
-							question: "To compliment vacation packages, Flights and Cruises, Air Canada Vacation can also offer (select all that apply)",
+							question: "To compliment vacation packages, Flights and Cruises, Air Canada Vacation can also offer (select all that apply):",
 							answers: [
 								{ text: "Coach & Self-drive tours"},
 								{ text: "multi-city rail tours"},
@@ -414,7 +414,7 @@ var MOUSE = {
 					sound: 'network_fleet_mouse_1',
 					questions: [
 						{
-							question: "Air Canada’s International Business Class features luxurious amenities and priority services such as Priority Check-in, Priority boarding and Priority Security clearance.  In addition to Premium wines, spirits and cuisine, a large pillow and plush duvet, travellers enjoy: (select all that apply)",
+							question: "Air Canada’s International Business Class features luxurious amenities and priority services such as Priority Check-in, Priority boarding and Priority Security clearance.  In addition to Premium wines, spirits and cuisine, a large pillow and plush duvet, travellers enjoy: (select all that apply):",
 							answers: [
 								{ text: "Concierge service"},
 								{ text: "Maple Leaf Lounge access"},
@@ -470,7 +470,7 @@ var POSTER1 = {
 							valid: [0, 1, 3]
 						},
 						{
-							question: "At the airport, Premium Economy travellers can benefit from some of the priority airport services including (select all that apply)",
+							question: "At the airport, Premium Economy travellers can benefit from some of the priority airport services including (select all that apply):",
 							answers: [
 								{ text: "Priority check-in"},
 								{ text: "Priority baggage service"},
@@ -480,7 +480,7 @@ var POSTER1 = {
 							valid: [0, 1, 2]
 						},
 						{
-							question: "For passengers travelling with Air Canada rouge, Premium rouge is available on all of their flights.  Premium rouge provides travellers with (select all that apply)",
+							question: "For passengers travelling with Air Canada rouge, Premium rouge is available on all of their flights.  Premium rouge provides travellers with (select all that apply):",
 							answers: [
 								{ text: "More space in the comfort of a separate cabin"},
 								{ text: "Complimentary premium meals, wine & spirits"},
@@ -501,17 +501,17 @@ var POSTER1 = {
 					sound: 'leisure_group_poster_1',
 					questions: [
 						{
-							question: "Air Canada rouge is Air Canada’s leisure airline offering competitively-priced travel to leisure destinations.  It is part of the Air Canada family so you can still count on (select all that apply)",
+							question: "Air Canada rouge is Air Canada’s leisure airline offering competitively-priced travel to leisure destinations.  It is part of the Air Canada family so you can still count on (select all that apply):",
 							answers: [
 								{ text: "A global reputation for safety and reliability"},
 								{ text: "Smooth and easy connections from anywhere Air Canada flies"},
-								{ text: "Convenient check in options"},
+								{ text: "Convenient check-in options"},
 								{ text: "a business class option with lie flat seat"}
 							],
 							valid: [0, 1, 2]
 						},
 						{
-							question: "The Air Canada rouge network has grown significantly in the last couple of years.  For 2016 the Air Canada rouge network includes flights within Canada, flights to US leisure destinations, flights to the Caribbean & Mexico, flights to Europe as well as flights to (select all that apply)",
+							question: "The Air Canada rouge network has grown significantly in the last couple of years.  For 2016 the Air Canada rouge network includes flights within Canada, flights to US leisure destinations, flights to the Caribbean & Mexico, flights to Europe as well as flights to (select all that apply):",
 							answers: [
 								{ text: "the Middle East"},
 								{ text: "South America"},
@@ -554,7 +554,7 @@ var POSTER1 = {
 							valid: [2]
 						},
 						{
-							question: "Air Canada’s North America mainline fleet is made up primarily of these types of aircraft (select all that apply)",
+							question: "Air Canada’s North America mainline fleet is made up primarily of these types of aircraft (select all that apply):",
 							answers: [
 								{ text: "Airbus"},
 								{ text: "Embraer"},
@@ -602,7 +602,7 @@ var POSTER2 = {
 							valid: [0, 1, 2]
 						},
 						{
-							question: "Outside of North America, Maple Leaf Lounges are located in London (LHR) and: (select all that apply)",
+							question: "Outside of North America, Maple Leaf Lounges are located in London (LHR) and: (select all that apply):",
 							answers: [
 								{ text: "Geneva"},
 								{ text: "Frankfurt"},
@@ -612,7 +612,7 @@ var POSTER2 = {
 							valid: [1, 2]
 						},
 						{
-							question: "Annual memberships to the Air Canada Maple Leaf Lounges can be purchased.  Membership options include (select all that apply)",
+							question: "Annual memberships to the Air Canada Maple Leaf Lounges can be purchased.  Membership options include (select all that apply):",
 							answers: [
 								{ text: "Access to Air Canada Maple Leaf Lounges in Canada only"},
 								{ text: "Access to Air Canada Maple Leaf Lounges in Canada and United’s North American lounges"},
@@ -688,7 +688,7 @@ var POSTER2 = {
 							valid: [2]
 						},
 						{
-							question: "Air Canada's four hubs offer Air Canada customers a streamlined, customer-friendly experience with dedicated transit facilities providing easy security clearance and smooth connections.  Air Canada's Canadian hubs are located in Toronto, Vancouver and:  (select 2)",
+							question: "Air Canada's four hubs offer Air Canada customers a streamlined, customer-friendly experience with dedicated transit facilities providing easy security clearance and smooth connections.  Air Canada's Canadian hubs are located in Toronto, Vancouver and:  (select 2):",
 							answers: [
 								{ text: "Ottawa"},
 								{ text: "Montreal"},

@@ -100,7 +100,7 @@ function lobby_go_to_case_study_click() {
       }
 
 		} else {
-			lobby_warning('<div class="text">Please review introduction, instructions, globe and poster before proceeding to case study.</div>');
+			lobby_warning('<div class="text">Please review introduction, instructions, globe and poster before proceeding to the case study.</div>');
 		}
 	});
 }

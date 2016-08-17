@@ -382,7 +382,7 @@ function is_study_passed() {
 }
 
 function get_end_study_text() {
-  return is_study_passed() ? 'CONGRATULATIONS YOU PASSED!' : 'SORRY YOU WERE UNSUCESSFUL AT THIS ATTEMPT. PLEASE EXIT AND TRY AGAIN.';
+  return is_study_passed() ? 'CONGRATULATIONS YOU PASSED!' : 'SORRY YOU WERE UNSUCCESSFUL AT THIS ATTEMPT. PLEASE EXIT AND TRY AGAIN.';
 }
 
 function set_exam_type_as_finished($container, id) {
