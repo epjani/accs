@@ -42,6 +42,10 @@ function lobby_click_events() {
     	}
     }
   });
+
+  $(".poster-fb-trigger").click(function() {
+  	$('#poster-area').click();
+  });
 }
 
 function enter_lobby() {
@@ -158,6 +162,22 @@ function get_read_element($target) {
 function read_lobby_document(id) {
 	lobby_events.clicked_areas[id] = true;
 	show_whiteboard_tooltips();
+	update_element_assets(id);
+}
+
+function update_element_assets(id) {
+	switch (id) {
+		case 'globe':
+		case 'poster': {
+			$('img#' + id + '-img').attr('src', 'img/' + id + '_done.png');
+			break;
+		}
+		case 'introduction':
+		case 'instructions': {
+			$('li#' + id + '-img').addClass('done');
+		}
+	}
+
 }
 
 function show_whiteboard_tooltips() {

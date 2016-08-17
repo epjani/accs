@@ -299,6 +299,15 @@ img { outline: none; border: none; }
   padding: 10px 15px;
 }
 
+#top-menu .links li.done, #lobby-menu li.done {
+  background-color: #6e221e;
+  border: 2px solid #757575;
+}
+
+#top-menu .links li.done a, #lobby-menu li.done a {
+  color: #757575;
+}
+
 #top-menu .links li a, #lobby-menu li a {
   text-decoration: none;
   color: white;
@@ -389,8 +398,8 @@ img { outline: none; border: none; }
   width: 9.5%;
   height: 24%;
   position: absolute;
-  top: 19.2%;
-  left: 24.5%;
+  top: 21.8%;
+  left: 24.8%;
   padding-left: 1%;
 }
 
@@ -416,12 +425,21 @@ img { outline: none; border: none; }
 .lobby .whiteboard #cs3 img { margin-left: -4px; }
 .lobby .globe-fb-trigger {
   position: absolute;
-  width: 6%;
+  width: 7%;
   height: 12%;
   top: 34.2%;
   left: 35%;
   cursor: pointer;
 }
+
+.lobby .poster-fb-trigger {
+  position: absolute;
+  width: 13%;
+  left: 60%;
+  top: 10%;
+  cursor: pointer;
+}
+
 .ui-tooltip, .arrow:after {
   background: #FFF;
   border: 2px solid white;
