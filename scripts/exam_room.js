@@ -244,9 +244,9 @@ $(document).ready(function(){
     }
   });
 
-  $('.exam-room').on('click', '#break', function(jsEvent) {
-    pause_exam();
-  });
+  // $('.exam-room').on('click', '#break', function(jsEvent) {
+  //   pause_exam();
+  // });
 
   $('#iphone.exam').on('mouseover', function(jsEvent) {
     var $target = get_exam_target(jsEvent);
@@ -284,7 +284,9 @@ $(document).ready(function(){
 
   $('.exam-room #poster1, .exam-room #poster2').on('mouseover', function(jsEvent) {
     $el = $(jsEvent.target).closest('.exam');
-    pulse(false, $el);
+    if (!$el.hasClass('done')) {
+      pulse(false, $el);
+    }
   }).on('mouseout', function(jsEvent) {
     $el = $(jsEvent.target).closest('.exam');
     $el.stop(true);
