@@ -284,7 +284,9 @@ $(document).ready(function(){
 
   $('.exam-room #poster1, .exam-room #poster2').on('mouseover', function(jsEvent) {
     $el = $(jsEvent.target).closest('.exam');
-    pulse(false, $el);
+    if (!$el.hasClass('done')) {
+      pulse(false, $el);
+    }
   }).on('mouseout', function(jsEvent) {
     $el = $(jsEvent.target).closest('.exam');
     $el.stop(true);
