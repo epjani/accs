@@ -98,7 +98,9 @@ function handleLoad(event) {
 }
 window.onload = function(e){
   load_sounds();
-  $('.animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
+  if (navigator.userAgent.match(/firefox/i)) {
+    $('.animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
+  }
   $('body').removeClass('hide');
   setImageSize();
   setTimeout(lobby_events.goto_lobby, 6600);
