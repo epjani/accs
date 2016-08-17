@@ -198,8 +198,11 @@ function start_exam($el) {
     }
   });
 
-  var sound_name = exam_room_events.the_case_study + '_' + id;
+  play_current_text_sound(id);
+}
 
+function play_current_text_sound(id) {
+  var sound_name = exam_room_events.the_case_study + '_' + id;
   setTimeout(play_sound, 800, sound_name);
 }
 
@@ -235,6 +238,7 @@ function next_question(id, skip_warning) {
   } else {
     go_to_next_question_set($scope, id)
   }
+
 }
 
 function quit_submit_warning() {
@@ -245,12 +249,21 @@ function quit_submit_warning() {
 
 function go_to_next_question_set($scope, index) {
   $scope.find('.question').addClass('hide');
+
+  change_next_btn_label($scope, index);
+
+  if (index == "text") {
+    var scenario_index = $scope.data('scenario');
+    var scenario_name = get_scenario_sound_name($scope.parents('.fb-exam'), scenario_index);
+    play_sound(scenario_name);
+  }
+
   if (index == 'scenarios') {
     $container = $scope.parents('.fb-exam').first();
     $container.find('.scenarios').removeClass('hide');
     $container.find('.back-btn').removeClass('hide');
   } else {
-    change_next_btn_label($scope, index);
+
     $scope.find('.question.question_' + index).removeClass('hide');
 
     if (!$scope.find('.question.question_' + (index-1)).data('praised')) {
@@ -258,7 +271,6 @@ function go_to_next_question_set($scope, index) {
       handle_points(index-1, true);
     }
   }
-
 }
 
 function handle_points(index, show_feedback) {
@@ -281,7 +293,12 @@ function change_next_btn_label($container, id) {
     $rootElement = $container.parents('.fb-exam').first();
   }
 
-  var label = $container.hasClass('questions') ? 'Submit' : 'Next';
+  if (parseInt(id) >= 0 ) {
+    var label = 'Submit';
+  } else {
+    var label =  'Next';
+  }
+
   var $btn = $rootElement.find('.next-btn');
   $btn.text(label);
 
@@ -555,7 +572,7 @@ $(document).ready(function() {
     $target = $(jsEvent.target);
     if (!$target.data('finished')){
       $container = $target.parents('.fb-exam');
-      change_next_btn_label($container, 0);
+      change_next_btn_label($container, 'text');
       scenario_index = $target.parents('.select-scenario').data('index');
       start_scenario($container, scenario_index);
     }
