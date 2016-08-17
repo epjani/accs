@@ -281,7 +281,7 @@ function change_next_btn_label($container, id) {
     $rootElement = $container.parents('.fb-exam').first();
   }
 
-  var label = id == '2' || id == 2 ? 'Submit' : 'Next';
+  var label = $container.hasClass('questions') ? 'Submit' : 'Next';
   var $btn = $rootElement.find('.next-btn');
   $btn.text(label);
 
