@@ -90,9 +90,9 @@ function init_sounds() {
 
 function handleLoad(event) {
   if (!initial_sounds_loaded) {
-    setTimeout(createjs.Sound.play, 400, "moped_driving");
+    setTimeout(createjs.Sound.play, 500, "moped_driving");
     setTimeout(createjs.Sound.play, 2600, "steps");
-    setTimeout(createjs.Sound.play, 5200, "door_opening");
+    setTimeout(createjs.Sound.play, 7200, "door_opening");
     initial_sounds_loaded = true;
   }
 }
@@ -103,7 +103,7 @@ window.onload = function(e){
   }
   $('body').removeClass('hide');
   setImageSize();
-  setTimeout(lobby_events.goto_lobby, 6600);
+  setTimeout(lobby_events.goto_lobby, 8200);
   // lobby_events.goto_lobby();
 }
 
