@@ -1,0 +1,856 @@
+/* FANCYBOX OVERRIDES */
+.fancybox-skin {
+  padding: 0 !important;
+  background-color: #d7d7d7 !important;
+}
+
+/* JQUERY TOOLTIP OVERRIDES */
+.ui-tooltip {
+  z-index: 5000 !important;
+}
+
+.clock-ticker {
+  position: absolute;
+  top: 2.2%;
+  left: 3.5%;
+  width: 55%;
+  height: 10%;
+  z-index: 10;
+}
+
+.mobile-view.portrait .clock-ticker {
+  top: 1.5%;
+  left: 1.5%;
+  height: 9%;
+  width: 97%;
+}
+
+.clock-ticker .clock {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 21%;
+}
+
+.mobile-view.portrait .clock-ticker .clock {
+  width: 25%;
+}
+
+.clock-ticker .clock img {
+  width: 100%;
+  height: 100%;
+}
+
+.exam-room .ticker {
+  position: absolute;
+  top: 10%;
+  left: 24%;
+  right: 0;
+  bottom: 10%;
+}
+
+.exam-room .ticker img {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-view.portrait .exam-room .ticker {
+  left: 28%;
+}
+
+.exam-room .ticker .content {
+  font-family: 'digital-7_italic';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3%;
+  right: 3%;
+  color: #fff;
+  color: #0080a5;
+}
+
+.fb-exam .clock {
+  position: relative;
+  width: 13.5%;
+  height: 100%;
+  float: left;
+  white-space: nowrap;
+  min-width: 125px;
+}
+
+.mobile-view.portrait .fb-exam .clock {
+  width: 37%;
+  min-width: 50px;
+}
+
+.mobile-view.landscape .fb-exam .clock {
+  min-width: 30px;
+}
+
+.fb-exam .clock img {
+  width: 100%;
+  height: 100%;
+}
+
+.clock .content {
+  font-family: 'digital-7_italic';
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #c81022;
+  text-align: center;
+}
+
+.exam-room .total-points, .exam-room .attempts {
+  position: absolute;
+  top: 11%;
+  left: 3.5%;
+  height: 10%;
+  z-index: 10;
+  font-weight: bold;
+  color: #c81022;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.exam-room .attempts {
+  top: 15%;
+}
+
+.mobile-view.portrait .exam-room .total-points, .mobile-view.portrait .exam-room .attempts {
+  top: 9%;
+  padding-left: 5px;
+}
+
+.fb-exam .total-points, .fb-exam .attempts {
+  position: static;
+  float: left;
+  margin-left: 35px;
+  text-align: left;
+  font-weight: bold;
+  color: #c81022;
+  height: 100%;
+}
+
+.mobile-view .fb-exam .total-points {
+   margin-left: 15px;
+}
+
+.tt-static {
+  position: absolute;
+  z-index: 10;
+}
+
+.exam-room #poster1 {
+  width: 19%;
+  position: absolute;
+  top: 18%;
+  left: 17%;
+}
+
+.mobile-view.portrait .exam-room #poster1 {
+  width: 28.1%;
+  top: 33.2%;
+  left: 1.7%;
+}
+
+.mobile-view.portrait .exam-room .poster1-trigger-tt-mobile {
+  top: 21%;
+  left: 1.8%;
+  width: 23.5%;
+}
+
+.mobile-view.landscape .exam-room .poster1-trigger-tt-mobile {
+  top: 9%;
+  left: 30.8%;
+  height: 23.5%;
+}
+
+.exam-room #poster2 {
+  width: 8.7%;
+  position: absolute;
+  top: 17.8%;
+  left: 36.5%;
+}
+
+.mobile-view.portrait .exam-room #poster2 {
+  width: 12.9%;
+  top: 33.2%;
+  left: 29.3%;
+}
+
+.mobile-view.portrait .exam-room .poster2-trigger-tt-mobile {
+  top: 21%;
+  left: 27.3%;
+  width: 23.5%;
+}
+
+.mobile-view.landscape .exam-room .poster2-trigger-tt-mobile {
+  top: 10.5%;
+  left: 14.8%;
+  height: 23.5%;
+}
+
+.exam-room #tv {
+  width: 27%;
+  position: absolute;
+  top: 17.8%;
+  right: 6%;
+  transform: skew(0deg, 5deg);
+}
+
+.mobile-view.portrait .exam-room #tv {
+  width: 31.4%;
+  top: 34.2%;
+  left: 66.8%;
+}
+
+.mobile-view.portrait .exam-room .tv-trigger-tt-mobile {
+  top: 24.4%;
+  left: 72.4%;
+  width: 24.5%;
+}
+
+.mobile-view.landscape .exam-room .tv-trigger-tt-mobile {
+  top: 1.4%;
+  left: 72.4%;
+  height: 24.5%;
+}
+
+.exam-room .iphone-trigger {
+  position: absolute;
+  bottom: 6%;
+  width: 5.5%;
+  left: 11%;
+}
+
+.mobile-view.portrait .exam-room .iphone-trigger {
+  top: 76.8%;
+  width: 9.6%;
+  left: 4.4%;
+}
+
+.mobile-view.portrait .exam-room .iphone-trigger-tt-mobile {
+  top: 64.3%;
+  width: 23.4%;
+  left: 1.4%;
+}
+
+.mobile-view.landscape .exam-room .iphone-trigger-tt-mobile {
+  top: 53.3%;
+  height: 23.4%;
+  left: 8.2%;
+}
+
+.exam-room .iphone-trigger.done {
+  width: 12.5%;
+  left: 9%;
+}
+
+.mobile-view.portrait .exam-room .iphone-trigger.done {
+  width: 16.5%;
+  left: 2%;
+  top: 76%;
+}
+
+.mobile-view.landscape .exam-room .iphone-trigger.done {
+  height: 27.5%;
+  left: 8%;
+  top: 66%;
+}
+
+.exam-room .mouse-trigger {
+  position: absolute;
+  bottom: 3.3%;
+  width: 34%;
+  left: 20%;
+}
+
+.mobile-view.portrait .exam-room .mouse-trigger {
+  top: 85.8%;
+  width: 50.7%;
+  left: 15.5%;
+}
+
+.mobile-view.portrait .exam-room .mouse-trigger-tt-mobile {
+  top: 73.8%;
+  width: 24.3%;
+  left: 38.5%;
+}
+
+.mobile-view.landscape .exam-room .mouse-trigger-tt-mobile {
+  top: 65.8%;
+  height: 24.3%;
+  left: 35.5%;
+}
+
+.mobile-view.portrait .exam-room .mouse-trigger.done {
+  top: 81.5%;
+}
+
+.mobile-view.landscape .exam-room .mouse-trigger.done {
+  top: 77.5%;
+}
+
+.exam-room .mouse-trigger a {
+  width: 12%;
+  height: 62%;
+  position: absolute;
+  right: 1%;
+  top: 27%;
+}
+
+.mobile-view.portrait .exam-room .mouse-trigger a {
+  width: 12%;
+  height: 43%;
+  right: 1%;
+  top: 15%;
+}
+
+.exam-room .phone-trigger {
+  position: absolute;
+  bottom: 14.3%;
+  width: 12%;
+  right: 36%;
+}
+
+.mobile-view.portrait .exam-room .phone-trigger {
+  top: 74.9%;
+  width: 18.1%;
+  left: 62.2%;
+}
+
+.mobile-view.portrait .exam-room .phone-trigger-tt-mobile {
+  top: 62.23%;
+  width: 24.3%;
+  left: 65.2%;
+}
+
+.mobile-view.landscape .exam-room .phone-trigger-tt-mobile {
+  top: 45.23%;
+  height: 24.3%;
+  left: 54.2%;
+}
+
+.exam-room .break-trigger {
+  position: absolute;
+  bottom: 4%;
+  width: 6%;
+  height: 18%;
+  right: 26.5%;
+}
+
+.mobile-view.portrait .exam-room .break-trigger {
+  top: 81%;
+  bottom: auto;
+  width: 8.3%;
+  height: 11%;
+  right: auto;
+  left: 82.4%;
+}
+
+.mobile-view.landscape .exam-room .break-trigger {
+  top: 77.5%;
+  bottom: auto;
+  width: 5.5%;
+  height: 17.3%;
+  right: auto;
+  left: 67.4%;
+}
+
+.exam-room .break-trigger a, .exam-room .exit-trigger a { height: 100%; width: 100%; }
+
+.exam-room .exit-trigger {
+  position: absolute;
+  top: 15%;
+  width: 12%;
+  height: 40%;
+  right: 41.5%;
+}
+
+.mobile-view.portrait .exam-room .exit-trigger {
+  top: 31.4%;
+  width: 16%;
+  height: 22.8%;
+  left: 43.8%;
+  right: auto;
+}
+
+.mobile-view.landscape .exam-room .exit-trigger {
+  top: 14.4%;
+  width: 12%;
+  height: 39.8%;
+  left: 46%;
+  right: auto
+}
+
+.mobile-view.portrait .exam-room .exit-trigger-tt-mobile {
+  top: 18.4%;
+  width: 20.1%;
+  left: 51.8%;
+}
+
+.mobile-view.landscape .exam-room .exit-trigger-tt-mobile {
+  top: 9.4%;
+  height: 20.1%;
+  left: 52.8%;
+}
+
+.exam-room .fluid img { width: 100%; }
+.exam-room .fluid a { display: block; }
+.exam-room .fluid.done a { cursor: default; }
+.exam-room .exit-trigger.done a { cursor: pointer; }
+
+.fancybox-overlay.iphone {
+  background: #fff;
+}
+
+.fb-exam {
+  background-color: #d7d7d7;
+  background-image: url('../img/exam_room/exam_fb_bg.jpg');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position: right;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  color: #3c3f43;
+  font-size: 18px;
+}
+
+.mobile-view.portrait .fb-exam {
+  font-size: 14px;
+}
+
+.fb-exam .common-elements {
+  position: absolute;
+  top: 1%;
+  left: 1.5%;
+  width: 70%;
+  height: 8.9%;
+  font-size: 0; /* dynamically set later */
+}
+
+.mobile-view.portrait .fb-exam .common-elements {
+  height: 7%;
+}
+
+.fb-exam .icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 14%;
+  width: 25%;
+  z-index: 5;
+  text-align: right;
+}
+
+.fb-exam .icon img {
+  height: 100%;
+  width: auto;
+}
+
+.fb-exam > .content {
+  position: absolute;
+  top: 11%;
+  left: 3%;
+  right: 3%;
+  bottom: 140px;
+  background-color: #ffffff;
+  border: 2px solid #b89a81;
+  border-bottom: none;
+  float: left;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+  overflow: auto;
+}
+
+.mobile-view .fb-exam > .content {
+  padding-bottom: 10px;
+}
+
+.mobile-view.landscape .fb-exam > .content {
+  bottom: 50px;
+}
+
+.mobile-view.landscape .fb-exam .bottom-menu {
+  display: none;
+}
+
+.fb-exam .info-header {
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+  color: #505359;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.mobile-view .fb-exam .info-header {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.fb-exam .scenario-text {
+  text-align: left;
+  padding: 15px 20px;
+}
+
+.mobile-view .fb-exam .scenario-text {
+  text-align: left;
+  padding: 5px 10px;
+}
+
+#poster1-exam .scenario-text {
+  padding-top: 30px;
+}
+
+.mobile-view #poster1-exam .scenario-text {
+  padding-top: 5px;
+}
+
+#poster1-exam .scenario-text img, #poster2-exam .scenario-text img, #tv-exam iframe {
+  margin-right: 30px;
+}
+
+.mobile-view #tv-exam .questions, .mobile-view #tv-exam .scenario-text {
+  height: 100%;
+}
+
+.mobile-view #tv-exam iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-view #poster1-exam .scenario-text img, .mobile-view #poster2-exam .scenario-text img, .mobile-view #tv-exam iframe {
+  margin-right: 0;
+}
+
+#mouse-exam .content {
+  border-color: #b2cbd9;
+  border-top: none;
+}
+
+.mobile-view #mouse-exam .content {
+  padding-bottom: 0;
+}
+
+#mouse-exam .scenarios .header {
+  position: absolute;
+  width: 100%;
+  height: 23px;
+  background-color: #1791b0;
+}
+
+.mobile-view #mouse-exam .scenarios .header {
+  height: 15px;
+}
+
+#mouse-exam .scenarios {
+  min-height: 100%;
+  position: relative;
+}
+
+#mouse-exam .scenarios-left-menu {
+  position: absolute;
+  top: 23px;
+  left: 0;
+  height: 100%;
+  width: 130px;
+  background-color: #ededed;
+  font-size: 14px;
+  border-right: 1px solid #dde9f0;
+  text-align: left;
+  padding-top: 5px;
+}
+
+.mobile-view #mouse-exam .scenarios-left-menu {
+  top: 15px;
+  width: 100px;
+  font-size: 11px;
+}
+
+#mouse-exam .scenarios-left-menu .search {
+  height: 22px;
+  background-color: #ffffff;
+  line-height: 22px;
+  position: relative;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.mobile-view #mouse-exam .scenarios-left-menu .search {
+  font-size: 11px;
+  padding-top: 2px;
+}
+
+#mouse-exam .scenarios-left-menu .search-icon {
+  width: 17px;
+  height: 18px;
+  background: url(../img/exam_room/search_icon.png);
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+#mouse-exam .scenarios-left-menu ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+}
+
+#mouse-exam .scenarios-left-menu .search, #mouse-exam .scenarios-left-menu ul.menu {
+  width: 90%;
+  padding-left: 3px;
+  margin-left: 5px;
+}
+
+#mouse-exam .scenarios-left-menu ul.menu li {
+  padding: 2px 4px;
+  padding-left: 0;
+}
+
+#mouse-exam .scenarios-left-menu ul.menu li.active {
+  background-color: #e0e0e0;
+}
+
+#mouse-exam .scenarios-left-menu ul.menu li span.text {
+  width: 85%;
+  display: inline-block;
+}
+
+#mouse-exam .left-menu ul.menu li.quick-views {
+  margin-top: 25px;
+}
+
+#mouse-exam .scenarios-content {
+  position: absolute;
+  top: 23px;
+  left: 131px;
+  right: 0;
+  text-align: left;
+  font-size: 16px;
+}
+
+.mobile-view #mouse-exam .scenarios-content {
+  top: 15px;
+  left: 101px;
+  font-size: 13px;
+}
+
+#mouse-exam .view-row {
+  padding: 15px 10px 5px;
+}
+
+#mouse-exam .checkbox {
+  position: relative;
+  border: 1px solid #c7c5c7;
+  width: 15px;
+  height: 15px;
+  float: left;
+}
+
+#mouse-exam .checkbox .check-mark {
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+}
+
+#mouse-exam .done .checkbox .check-mark {
+  display: block;
+}
+
+.mobile-view #mouse-exam .checkbox {
+  width: 10px;
+  height: 10px;
+}
+
+.mobile-view #mouse-exam .checkbox .check-mark {
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+}
+
+#mouse-exam .view, #mouse-exam .view-from, #mouse-exam .view-topic {
+  float: left;
+  margin-left: 10px;
+  margin-top: -2px;
+  width: 42%;
+}
+
+.mobile-view #mouse-exam .view, .mobile-view #mouse-exam .view-from, .mobile-view #mouse-exam .view-topic {
+  margin-left: 5px;
+}
+
+.view-topic {
+  float: right;
+}
+
+#mouse-exam .view-row span, #mouse-exam .select-scenario a span {
+  display: inline-block;
+}
+
+
+#mouse-exam .select-scenario {
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+#mouse-exam .select-scenario a {
+  width: 100%;
+  display: block;
+}
+
+#mouse-exam .select-scenario a:link, #mouse-exam .select-scenario a:visited, #mouse-exam .select-scenario a:hover, #mouse-exam .select-scenario a:active {
+  color: #3c3f43;
+}
+
+#mouse-exam .select-scenario a.done {
+  cursor: default;
+  color: #EBEBE4;
+}
+
+#mouse-exam .select-scenario a .view-from {
+  width: 100px;
+}
+
+#mouse-exam .view-row .arrow-down {
+  width: 14px;
+  height: 11px;
+  background-image: url(../img/exam_room/arrow-down.png);
+  margin-top: 5px;
+  margin-left: 6px;
+}
+
+#mouse-exam .view-row .arrow-down, #mouse-exam .view-row .arrange-by {
+  float: right;
+}
+
+
+#tv-exam.fb-exam .question {
+  width: 640px;
+  margin: 0 auto;
+  margin-top: 4%;
+}
+
+.fb-exam .question {
+  padding: 15px 20px;
+  text-align: left;
+}
+
+.mobile-view .fb-exam .question {
+  padding: 5px 10px;
+}
+
+.fb-exam .questions > .info-header {
+  margin: 15px 20px 0;
+}
+
+.mobile-view .fb-exam .questions > .info-header {
+  margin: 5px 10px 0;
+}
+
+.fb-exam .content .answers {
+  text-align: left;
+}
+
+.fb-exam .content .answer_row {
+  margin-bottom: 20px;
+}
+
+.fb-exam .content .answer_row .icheckbox_minimal-orange {
+  float: left;
+  margin-top: 4px;
+}
+
+.mobile-view .fb-exam .content .answer_row .icheckbox_minimal-orange {
+  margin-top: 0
+}
+
+.fb-exam .content .answers label {
+  margin-left: 30px;
+  cursor: pointer;
+  display: block;
+}
+
+.fb-exam .footer {
+  position: absolute;
+  height: 35px;
+  bottom: 95px;
+  padding: 0 2%;
+  width: 96%;
+}
+
+.mobile-view.landscape .fb-exam .footer {
+  bottom: 5px;
+}
+
+.fb-exam .bottom-menu {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  width: 100% !important;
+  background-color: #edeeef;
+}
+
+.fb-exam .footer button, .break-btn, .red-btn {
+  background-color: #c81022;
+  color: #ffffff;
+  width: 69px;
+  height: 31px;
+  border: none;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.fb-exam .footer button.submit, .blue-btn {
+  background-color: #188eae;
+}
+
+.blue-btn {
+  height: 31px;
+  width: 69px;
+  color: #ffffff;
+  width: 69px;
+  height: 31px;
+  border: none;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-container { margin-top: 15px; }
+.fb-exam .footer button:focus {outline:0;}
+
+.fb-exam .footer .back-btn {
+  float: left;
+}
+
+.fb-exam .footer .next-btn, .fb-exam .footer .close-btn {
+  float: right;
+}
+
+.exam-room #poster_1 a, .exam-room #poster_2 a, .exam-room #tv a {
+  display: block;
+}
+
+.correct-answer-warning .content .text, .incorrect-answer-warning .content .text { cursor: pointer; }
+
+#fb-warning .content { padding-left: 40px; padding-right: 40px; }
+#break { cursor: default; }
