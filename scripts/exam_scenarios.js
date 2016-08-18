@@ -208,7 +208,7 @@ function play_current_text_sound(id) {
 }
 
 function get_next_prev_btn_reference($target, type) {
-  $container = $target.parents('.fb-exam').first().find('.questions');
+  $container = $target.parents('.fb-exam').first().find('.questions.active');
   return $container.children("[data-" + type + "-btn]:visible").first();
 }
 
@@ -338,23 +338,34 @@ function submit_exam(id, forced) {
       $container.parents('.content').find('.scenarios a').addClass('done');
     }
 
-    if (!forced)
-      set_exam_type_as_finished($container, id);
-
-    clean_scenario($container, id);
-
-    $container.removeClass('active');
-    $.fancybox.close();
-    if (!forced && should_end_case_study()) {
-      end_case_study();
-      show_exam_credits();
+    if (!forced) {
+      var all_scenarios_finished = set_exam_type_as_finished($container, id);
+      handle_end_of_scenario($container, all_scenarios_finished);
     }
+    
   } else {
     $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
     $scoped_warning_box.show();
     $scoped_warning_box.find('.fancybox').show();
   }
 
+}
+
+function handle_end_of_scenario($container, scenarios_finished) {
+  clean_scenario($container, id);
+
+  $container.removeClass('active');
+  if ($container.parents('.multiple-scenarios').length > 0 && !scenarios_finished) {
+    $container.parents('.multiple-scenarios').find('.scenarios').removeClass('hide');
+    next_question('scenarios', true);
+  } else {
+    $.fancybox.close();  
+  }
+  
+  if (should_end_case_study()) {
+    end_case_study();
+    show_exam_credits();
+  }
 }
 
 function should_end_case_study() {
@@ -387,10 +398,14 @@ function get_end_study_text() {
 function set_exam_type_as_finished($container, id) {
   scenarios_count = get_selected_questions(id)['scenarios'].length;
   done_scenarios_count = $container.parents('.content').find('.scenarios a.done').length;
-  if (done_scenarios_count >= scenarios_count) {
+  all_scenarios_finished = done_scenarios_count >= scenarios_count;
+
+  if (all_scenarios_finished) {
     exam_room_events.finished_scenarios.push(id);
     update_exam_room_assets();
   }
+  
+  return all_scenarios_finished;
 }
 
 function clean_scenario($container, id) {
