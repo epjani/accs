@@ -371,6 +371,7 @@ function update_exam_room_assets() {
       }
       else {
         $trigger.find('a').tooltip('disable');
+        $trigger.find('a').attr("title", "");   // see http://stackoverflow.com/questions/24704020/how-to-re-enable-jquery-tooltip-after-disabled-true/24707759#24707759
       }
       
       if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
