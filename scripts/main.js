@@ -105,14 +105,6 @@ window.onload = function(e){
 }
 
 function showOverlay($el, autoHide) {
-  var triggerElOffset = $el.offset();
-  var element_id = $el.attr('id');
-  var $overlay = $("#" + element_id + "-overlay");
-
-  $overlay.css({
-    top: triggerElOffset.top - $overlay.height() - 18,
-    left: (triggerElOffset.left + $el.width() / 2) - $overlay.width() / 2
-  });
 
   $(document).bind('keyup', overlayKeyupHandler);
   if (!lobby_events.documents_read()) {
@@ -120,6 +112,17 @@ function showOverlay($el, autoHide) {
   }
   showOverlayBackground($el, autoHide);
   $overlay.show();
+
+  // set position for overlay arrow
+  var triggerElOffset = $el.offset();
+  var element_id = $el.attr('id');
+  var $overlay = $("#" + element_id + "-overlay");
+  var overlayOffset = $overlay.offset();
+  var $arrow = $overlay.find('.arrow');
+  $arrow.css({
+    left: triggerElOffset.left + ($el.width() / 2) - overlayOffset.left
+  });  
+
 }
 
 function showOverlayBackground($initiator, autoHide) {
