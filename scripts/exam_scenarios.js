@@ -223,7 +223,6 @@ function next_question(id, skip_warning) {
 
   $scope = $('.fb-exam:visible .questions.active');
   $current = $scope.find('.question:not(".hide")');
-  $back_btn = $scope.parents('.fb-exam').first().find('.back-btn');
 
   if (!$current.hasClass('scenario-text')) {
     if (one_question_answered($current) || skip_warning) {
@@ -546,14 +545,16 @@ function extract_correct_answers(checkboxes) {
   return answers;
 }
 
-function start_scenario($container, index) {
+function start_scenario($container, index, $target) {
   $container.find('.scenario-text').removeClass('hide');
   $container.find('.scenarios').addClass('hide');
   $container.find('.next-btn, .back-btn').removeClass('hide');
   $container.find('.questions.scenario-' + index).removeClass('hide').addClass('active');
-  $container.find('input:checkbox').prop('checked', false);
-  style_checkboxes($container);
-
+  if (!$target.hasClass('started')) {
+    $container.find('input:checkbox').prop('checked', false);
+    style_checkboxes($container);
+  }
+  $target.addClass('started');
   sound_name = get_scenario_sound_name($container, index);
   play_sound(sound_name);
 }
@@ -576,7 +577,7 @@ $(document).ready(function() {
       $container = $target.parents('.fb-exam');
       change_next_btn_label($container, 'text');
       scenario_index = $target.parents('.select-scenario').data('index');
-      start_scenario($container, scenario_index);
+      start_scenario($container, scenario_index, $target);
     }
   });
 
