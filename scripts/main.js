@@ -105,6 +105,9 @@ window.onload = function(e){
 }
 
 function showOverlay($el, autoHide) {
+  var triggerElOffset = $el.offset();
+  var element_id = $el.attr('id');
+  var $overlay = $("#" + element_id + "-overlay");
 
   $(document).bind('keyup', overlayKeyupHandler);
   if (!lobby_events.documents_read()) {
@@ -112,11 +115,9 @@ function showOverlay($el, autoHide) {
   }
   showOverlayBackground($el, autoHide);
   $overlay.show();
+  $overlay.find(".content").scrollTop(0);
 
-  // set position for overlay arrow
-  var triggerElOffset = $el.offset();
-  var element_id = $el.attr('id');
-  var $overlay = $("#" + element_id + "-overlay");
+  // set position for overlay arrow  
   var overlayOffset = $overlay.offset();
   var $arrow = $overlay.find('.arrow');
   $arrow.css({
