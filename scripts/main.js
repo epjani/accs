@@ -264,7 +264,7 @@ function resizeHandler() {
 }
 
 function adjustClockTickerFontSize() {
-  var $elements = $('.common-elements:visible, .clock-ticker:visible');
+  var $elements = $('.common-elements:visible .clock, .clock-ticker:visible');
   $elements.each(function(_, obj) {
     var $el = $(obj);
     var height = parseInt($el.height());
