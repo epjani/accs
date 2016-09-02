@@ -48,6 +48,10 @@ function lobby_click_events() {
   });
 }
 
+function total_atempts() {
+	return lobby_events.attempts['premium_products'] + lobby_events.attempts['leisure_group'] + lobby_events.attempts['network_fleet'];
+}
+
 function enter_lobby() {
   $('.animations').hide();
   $('.lobby').show();
