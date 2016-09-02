@@ -484,7 +484,7 @@ var POSTER1 = {
 							answers: [
 								{ text: "More space in the comfort of a separate cabin"},
 								{ text: "Complimentary premium meals, wine & spirits"},
-								{ text: "A vseat pitch of 32 inches "},
+								{ text: "A seat pitch of 32 inches "},
 								{ text: "Wider seats"}
 							],
 							valid: [0, 1, 3]
@@ -506,7 +506,7 @@ var POSTER1 = {
 								{ text: "A global reputation for safety and reliability"},
 								{ text: "Smooth and easy connections from anywhere Air Canada flies"},
 								{ text: "Convenient check-in options"},
-								{ text: "a business class option with lie flat seat"}
+								{ text: "a business class option with lie-flat seat"}
 							],
 							valid: [0, 1, 2]
 						},
