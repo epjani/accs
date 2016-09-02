@@ -276,10 +276,12 @@ $(document).ready(function(){
       ringing_phone_interval = setInterval(function(){ play_sound('phone'); }, 1200);
     }
   }).on('mouseout', function(jsEvent) {
-    $('#phone.exam img').attr('src', 'img/exam_room/phone.png');
-    clearInterval(ringing_phone_image_interval);
-    clearInterval(ringing_phone_interval);
-    createjs.Sound.stop();
+    if (!$target.hasClass('done')) {
+      $('#phone.exam img').attr('src', 'img/exam_room/phone.png');
+      clearInterval(ringing_phone_image_interval);
+      clearInterval(ringing_phone_interval);
+      createjs.Sound.stop();
+    }
   });
 
   $('.exam-room #poster1, .exam-room #poster2').on('mouseover', function(jsEvent) {
