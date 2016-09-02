@@ -17,7 +17,7 @@ var IPHONE = {
 							valid: [3]
 						},
 						{
-							question: "The new Executive Pods on Air Canada’s Boeing 787 aircraft are now also being installed on Air Canada’s fleet of:",
+							question: "The new Executive Pods on Air Canada’s Boeing 787 aircraft are now also available on Air Canada’s fleet of:",
 							answers: [
 								{ text: "Boeing 767"},
 								{ text: "Boeing 777"},
@@ -47,7 +47,7 @@ var IPHONE = {
 					sound: 'leisure_group_iphone',
 					questions: [
 						{
-							question: "You do deserve a little indulgence after 15 years.  Travelling in Premium rouge would get your holiday off to a perfect start.  Premium rouge seats are wider and offer more personal space and generous leg room.  Each seat offers roughly 7 more inches.  The premium rouge cabin on Boeing 767 aircraft contains:",
+							question: "You do deserve a little indulgence after 15 years.  Travelling in Premium rouge would get your holiday off to a perfect start. Premium rouge seats are wider and offer more personal space and generous leg room. Each seat offers roughly 7 more inches of legroom. The premium rouge cabin on Boeing 767 aircraft contains:",
 							answers: [
 								{ text: "14 Premium rouge seats"},
 								{ text: "20 Premium rouge seats"},
@@ -218,7 +218,7 @@ var PHONE = {
 							valid: [0, 1, 3]
 						},
 						{
-							question: "Air Canada’s new International Business Class cabin on Boeing 787 aircraft, are now also being installed progressively on Boeing 777 aircraft.  Executive pods on these aircraft feature the largest entertainment screen available in business class of any North American carrier and seats that can be extended into a fully lie flat bed that measures:",
+							question: "Air Canada’s new International Business Class cabin is offered on Boeing 787 and Boeing 777 aircraft. Executive pods on these aircraft feature the largest entertainment screen available in business class of any North American carrier and seats that can be extended into a fully lie flat bed that measures:",
 							answers: [
 								{ text: "4 feet 6 inches"},
 								{ text: "5 feet 6 inches"},
@@ -345,7 +345,7 @@ var MOUSE = {
 							valid: [3]
 						},
 						{
-							question: "Air Canada rouge operate Boeing 767 aircraft that they fly mostly on longer routes between Canada and Europe, Asia, Africa and South America.  They also operate Airbus A319 aircraft on shorter flights within Canada and between Canada and the United States and the Caribbean.  The have recently added new:",
+							question: "Air Canada rouge operate Boeing 767 aircraft that they fly mostly on longer routes between Canada and Europe, Asia, Africa and South America.  They also operate Airbus A319 aircraft on shorter flights within Canada and between Canada and the United States and the Caribbean. They also added:",
 							answers: [
 								{ text: "Boeing 878 aircraft to their fleet"},
 								{ text: "Boeing 777 aircraft to their fleet"},
@@ -484,7 +484,7 @@ var POSTER1 = {
 							answers: [
 								{ text: "More space in the comfort of a separate cabin"},
 								{ text: "Complimentary premium meals, wine & spirits"},
-								{ text: "A seat pitch of 32 inches "},
+								{ text: "A seat pitch of 32 inches"},
 								{ text: "Wider seats"}
 							],
 							valid: [0, 1, 3]
@@ -497,7 +497,7 @@ var POSTER1 = {
 			scenarios: [
 				{
 					img: "img/exam_room/poster_photo.png",
-					text: "Looking for something different for your summer vacation this year?  Air Canada rouge is flying to new destinations this summer.  Air Canada rouge offers stylishly affordable service to great holiday spots  around the world.  Benefit from Air Canada’s extensive network for smooth connections to flights departing from/to Air Canada rouge destinations.",
+					text: "Looking for something different for your summer vacation?  Air Canada rouge is flying to new destinations. Air Canada rouge offers stylishly affordable service to great holiday spots around the world. Benefit from Air Canada’s extensive network for smooth connections to flights departing from/to Air Canada rouge destinations.",
 					sound: 'leisure_group_poster_1',
 					questions: [
 						{
