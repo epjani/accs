@@ -146,12 +146,12 @@ area { outline: none; display: inline-block; }
 }
 
 
-#help-overlay.overlay {
+/*#help-overlay.overlay {
   position: absolute;
   top: 40%;
   left: 30%;
   right: 30%;
-}
+}*/
 
 img { outline: none; border: none; }
 
