@@ -9,7 +9,8 @@ function initVideoPlayer(videoId) {
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
-    }
+    },
+    playerVars: {rel: 0}
   });
 }
 

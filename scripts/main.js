@@ -112,17 +112,21 @@ function showOverlay($el, autoHide) {
   var element_id = $el.attr('id');
   var $overlay = $("#" + element_id + "-overlay");
 
-  $overlay.css({
-    top: triggerElOffset.top - $overlay.height() - 18,
-    left: (triggerElOffset.left + $el.width() / 2) - $overlay.width() / 2
-  });
-
   $(document).bind('keyup', overlayKeyupHandler);
   if (!lobby_events.documents_read()) {
     read_lobby_document(element_id);
   }
   showOverlayBackground($el, autoHide);
   $overlay.show();
+  $overlay.find(".content").scrollTop(0);
+
+  // set position for overlay arrow  
+  var overlayOffset = $overlay.offset();
+  var $arrow = $overlay.find('.arrow');
+  $arrow.css({
+    left: triggerElOffset.left + ($el.width() / 2) - overlayOffset.left
+  });  
+
 }
 
 function showOverlayBackground($initiator, autoHide) {
