@@ -389,7 +389,7 @@ var MOUSE = {
 								{ text: "Description guides for properties"},
 								{ text: "Both A & B"}
 							],
-							valid: { valid: [2] }
+							valid: [2]
 						},
 						{
 							question: "To compliment vacation packages, Flights and Cruises, Air Canada Vacation can also offer (select all that apply):",

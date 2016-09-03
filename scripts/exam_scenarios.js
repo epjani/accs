@@ -566,14 +566,18 @@ function extract_correct_answers(checkboxes) {
 }
 
 function start_scenario($container, index, $target) {
-  $container.find('.scenario-text').removeClass('hide');
+  $container.find('.scenario-text').addClass('hide');
+
   $container.find('.scenarios').addClass('hide');
   $container.find('.next-btn, .back-btn').removeClass('hide');
+  $container.find('.questions').addClass('hide').removeClass('active');
+
+  $container.find('.questions.scenario-' + index + ' .scenario-text').removeClass('hide');
   $container.find('.questions.scenario-' + index).removeClass('hide').addClass('active');
-  if (!$target.hasClass('started')) {
-    $container.find('input:checkbox').prop('checked', false);
-    style_checkboxes($container);
-  }
+  // if (!$target.hasClass('started')) {
+  //   $container.find('input:checkbox').prop('checked', false);
+  //   style_checkboxes($container);
+  // }
   $target.addClass('started');
   sound_name = get_scenario_sound_name($container, index);
   play_sound(sound_name);
