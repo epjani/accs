@@ -120,12 +120,12 @@ function showOverlay($el, autoHide) {
   $overlay.show();
   $overlay.find(".content").scrollTop(0);
 
-  // set position for overlay arrow  
+  // set position for overlay arrow
   var overlayOffset = $overlay.offset();
   var $arrow = $overlay.find('.arrow');
   $arrow.css({
     left: triggerElOffset.left + ($el.width() / 2) - overlayOffset.left
-  });  
+  });
 
 }
 
@@ -280,7 +280,7 @@ function adjustClockTickerFontSize() {
       $totalPoints = $el.find('.total-points');
     }
     var totalPointsHeight = parseInt($totalPoints.height());
-    $totalPoints.css({'font-size': fontSizeSmaller-5 + 'px', 'line-height': totalPointsHeight + 'px'});
+    $totalPoints.css({'font-size': fontSizeSmaller-10 + 'px', 'line-height': totalPointsHeight + 'px'});
 
 
     // attempts
@@ -290,13 +290,13 @@ function adjustClockTickerFontSize() {
     }
 
     var attemptsHeight = parseInt($attempts.height());
-    $attempts.css({'font-size': fontSizeSmaller-5 + 'px', 'line-height': attemptsHeight + 'px' });
+    $attempts.css({'font-size': fontSizeSmaller-10 + 'px', 'line-height': attemptsHeight + 'px' });
 
     // ticker element
     var $tickerContent = $el.find('.ticker .content');
     if($tickerContent.length > 0) {
       var tickerHeight = parseInt($tickerContent.height());
-      $tickerContent.css({'font-size': fontSizeSmaller + 'px', 'line-height': tickerHeight + 'px'});
+      $tickerContent.css({'font-size': fontSizeSmaller - 5 + 'px', 'line-height': tickerHeight + 'px'});
     }
   });
 }

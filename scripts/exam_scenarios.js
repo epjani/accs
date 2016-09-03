@@ -342,7 +342,7 @@ function submit_exam(id, forced) {
       var all_scenarios_finished = set_exam_type_as_finished($container, id);
       handle_end_of_scenario($container, all_scenarios_finished);
     }
-    
+
   } else {
     $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
     $scoped_warning_box.show();
@@ -359,9 +359,9 @@ function handle_end_of_scenario($container, scenarios_finished) {
     $container.parents('.multiple-scenarios').find('.scenarios').removeClass('hide');
     next_question('scenarios', true);
   } else {
-    $.fancybox.close();  
+    $.fancybox.close();
   }
-  
+
   if (should_end_case_study()) {
     end_case_study();
     show_exam_credits();
@@ -404,7 +404,7 @@ function set_exam_type_as_finished($container, id) {
     exam_room_events.finished_scenarios.push(id);
     update_exam_room_assets();
   }
-  
+
   return all_scenarios_finished;
 }
 
@@ -485,10 +485,14 @@ function calculate_points($container, id, index, show_feedback) {
 
 function show_exam_credits() {
 
-  if (is_study_passed()) {
-    $('#fb-warning .content').html('<div class="text">You have completed this scenario please proceed to the next.</div>');
+  if (lobby_events.finished_case_studies.length >= 3) {
+    $('#fb-warning .content').html('<div class="text">Congratulations! You have successfully completed all three Case Studies.</div>');
   } else {
-    $('#fb-warning .content').html('<div class="text">You have failed the scenario please try again.</div>');
+    if (is_study_passed()) {
+      $('#fb-warning .content').html('<div class="text">You have completed this scenario please proceed to the next.</div>');
+    } else {
+      $('#fb-warning .content').html('<div class="text">You have failed the scenario please try again.</div>');
+    }
   }
 
   $.fancybox({
