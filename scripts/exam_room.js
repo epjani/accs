@@ -102,7 +102,7 @@ function array_equal(arr1, arr2) {
 
 function hide_exam_room() {
   $.fancybox.close();
-  $('img#exam_room').attr('src', 'img/exam_room_open.jpg');
+  $('img.exam-room-img.hide-on-mobile').attr('src', 'img/exam_room_open.jpg');
   play_sound(sounds.door_opening);
   $('[data-praised]').removeAttr('data-praised');
   setTimeout( function() { EndTime = 0
@@ -112,7 +112,7 @@ function hide_exam_room() {
     clear_exam_room_assets();
     $('.container .exam-room').hide();
     enter_lobby();
-    $('img#exam_room').attr('src', 'img/exam_room.jpg');
+    $('img.exam-room-img.hide-on-mobile').attr('src', 'img/exam_room.jpg');
   }, 1500);
 
 }
