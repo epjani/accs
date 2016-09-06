@@ -267,12 +267,14 @@ function go_to_next_question_set($scope, index) {
 
   if (index == 'scenarios') {
     $container = $scope.parents('.fb-exam').first();
-    if ($container.find('.scenarios .select-scenario').length > 0 ) {
-      $container.find('.scenarios').removeClass('hide');
-      $container.find('.back-btn').removeClass('hide');
-    } else {
-      $container.find('.questions.active .scenario-text').removeClass('hide');
-      next_question(null, true);
+    if ($container.length > 0) {
+      if ($container.find('.scenarios .select-scenario').length > 0 ) {
+        $container.find('.scenarios').removeClass('hide');
+        $container.find('.back-btn').removeClass('hide');
+      } else {
+        $container.find('.questions.active .scenario-text').removeClass('hide');
+        next_question(null, true);
+      }
     }
   } else {
 
