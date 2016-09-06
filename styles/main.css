@@ -340,6 +340,8 @@ img { outline: none; border: none; }
   margin: 0;
 }
 
+a#tv { cursor: default; }
+
 #lobby-menu {
   position: absolute;
   width: 155px;

@@ -435,8 +435,10 @@ function update_exam_room_assets() {
         $(triggerClass + '-tt-mobile').hide();
       }
       else {
-        $trigger.find('a').tooltip('disable');
-        $trigger.find('a').attr("title", "");   // see http://stackoverflow.com/questions/24704020/how-to-re-enable-jquery-tooltip-after-disabled-true/24707759#24707759
+        if (exam != 'tv') {
+          $trigger.find('a').tooltip('disable');
+          $trigger.find('a').attr("title", "");   // see http://stackoverflow.com/questions/24704020/how-to-re-enable-jquery-tooltip-after-disabled-true/24707759#24707759
+        }
       }
 
       if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
@@ -448,11 +450,13 @@ function update_exam_room_assets() {
     } else {
       $trigger.removeClass('done');
       $trigger.find('a').removeClass('done')
-      if(is_mobile) {
-        $(triggerClass + '-tt-mobile').show();
-      }
-      else {
-        $trigger.find('a').tooltip('enable');
+      if (exam != 'tv') {
+        if(is_mobile) {
+          $(triggerClass + '-tt-mobile').show();
+        }
+        else {
+          $trigger.find('a').tooltip('enable');
+        }  
       }
 
       if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {

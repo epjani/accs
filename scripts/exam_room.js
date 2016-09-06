@@ -9,7 +9,7 @@ var exam_room_events = {
   poster2_questions: {},
   tv_questions: {},
   total_points: 0,
-  all_scenarios: ['iphone', 'phone', 'mouse', 'poster1', 'poster2'],
+  all_scenarios: ['iphone', 'phone', 'mouse', 'poster1', 'poster2', 'tv'],
   finished_scenarios: [],
   the_case_study: '',
   update_ticker: change_ticker_text,
