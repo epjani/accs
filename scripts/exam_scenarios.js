@@ -10,6 +10,7 @@ function attach_questions(id) {
     set_questions($container, questions['scenarios'][0], $infoHeader, 0);
     change_next_btn_label($container, id);
     $container.find('.questions').addClass('active');
+    $container.find('.scenarios .select-scenario-0 .start').click();
   } else {
     $container.find('.questions').addClass('hide');
     setup_scenarios($container, questions);
@@ -260,8 +261,13 @@ function go_to_next_question_set($scope, index) {
 
   if (index == 'scenarios') {
     $container = $scope.parents('.fb-exam').first();
-    $container.find('.scenarios').removeClass('hide');
-    $container.find('.back-btn').removeClass('hide');
+    if ($container.find('.scenarios .select-scenario').length > 0 ) {
+      $container.find('.scenarios').removeClass('hide');
+      $container.find('.back-btn').removeClass('hide');
+    } else {
+      $container.find('.questions.active .scenario-text').removeClass('hide');
+      next_question(null, true);
+    }
   } else {
 
     $scope.find('.question.question_' + index).removeClass('hide');
@@ -459,7 +465,7 @@ function update_exam_room_assets() {
   });
 }
 
-function clean_scenario_content($container, id) {
+function clean_scenario_content($container, id) {  
   $container.find('.scenario-text').html('');
   $.each($container.find('.question'), function(i, q) {
     $(q).find('.text').html('');

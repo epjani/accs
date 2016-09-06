@@ -130,7 +130,11 @@ function clear_exam_room_assets() {
   exam_room_events.finished_scenarios = [];
   exam_room_events.the_case_study = '';
   $('a.start').removeClass('done');
-  $('.scenario-text').text('');
+  if ($('.scenarios .select-scenario').length > 1) {
+    $('.multiple-scenarios .scenarios .select-scenario').last().remove();
+    $('.multiple-scenarios .questions').last().remove();
+  }
+
   $('.questions .question .text, .questions .question .answers').text('');
 }
 
