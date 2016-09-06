@@ -12,9 +12,14 @@ function attach_questions(id) {
     $container.find('.questions').addClass('active');
     $container.find('.scenarios .select-scenario-0 .start').click();
   } else {
+
     $container.find('.questions').addClass('hide');
     setup_scenarios($container, questions);
     show_scenarios($container);
+    if ($container.find('.scenarios a.start.done').length == 0) {
+      $('.inside-fb-select-scenario').show();
+      $('.inside-fb-select-scenario').find('.fancybox').show();
+    }
   }
 
    style_checkboxes($container);
@@ -48,6 +53,7 @@ function attach_common_elements(id) {
 
 function show_scenarios($container) {
   $container.find('.scenarios').removeClass('hide');
+  $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
 }
 
 function setup_scenarios($container, questions) {
@@ -243,7 +249,7 @@ function next_question(id, skip_warning) {
 }
 
 function quit_submit_warning() {
-  $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
+  $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning, .fb-exam:visible .inside-fb-select-scenario');
   $scoped_warning_box.hide();
   $scoped_warning_box.find('.fancybox').hide();
 }
@@ -372,6 +378,7 @@ function handle_end_of_scenario($container, scenarios_finished) {
     end_case_study();
     show_exam_credits();
   }
+  return ;
 }
 
 function should_end_case_study() {
@@ -617,5 +624,9 @@ $(document).ready(function() {
 
   $(".correct-answer-warning .close-warning, .correct-answer-warning .content .text, .incorrect-answer-warning .close-warning, .incorrect-answer-warning .content .text").on('click', function() {
     hide_question_popup();
+  });
+
+  $('.inside-fb-select-scenario .close-warning').on('click', function() {
+    quit_submit_warning();
   });
 });
