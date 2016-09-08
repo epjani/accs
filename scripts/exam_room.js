@@ -107,7 +107,7 @@ function hide_exam_room() {
   play_sound(sounds.door_opening);
   $('[data-praised]').removeAttr('data-praised');
   setTimeout( function() { EndTime = 0
-    if ((lobby_events.finished_case_studies.length >= 3 || total_atempts() == 6) && !EVALUATION_PROMPTED) {
+    if (lobby_events.finished_case_studies.length >= 2 || total_atempts() == 9) {
       prompt_evaluation_screen(exam_room_events.the_case_study);
     }
     clear_exam_room_assets();
