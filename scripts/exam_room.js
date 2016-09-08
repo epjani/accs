@@ -136,7 +136,7 @@ function clear_exam_room_assets() {
     $('.multiple-scenarios .questions').last().remove();
   }
 
-  $('.questions .question .text, .questions .question .answers').text('');
+  $('.questions .question .text, .questions .question .answers, .questions .question.scenario-text').text('');
 }
 
 function default_ticker_text() {
