@@ -384,14 +384,14 @@ function handle_end_of_scenario($container, scenarios_finished) {
 }
 
 function should_end_case_study() {
-  return array_equal(exam_room_events.all_scenarios, exam_room_events.finished_scenarios);
+  return array_equal(exam_room_events.scenarios_with_exam, exam_room_events.finished_scenarios);
 }
 
 function end_case_study() {
   exam_room_events.update_ticker(get_end_study_text());
   $('.exam-room .exit-trigger').addClass('done');
 
-  var undone_exams = $(exam_room_events.all_scenarios).not(exam_room_events.finished_scenarios).get();
+  var undone_exams = $(exam_room_events.scenarios_with_exam).not(exam_room_events.finished_scenarios).get();
   $.each( undone_exams , function(i, id){
     $('.exam-room .exam#' + id).addClass('done');
   });
