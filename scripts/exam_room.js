@@ -35,7 +35,7 @@ function show_exam_room(case_study) {
 
 function handle_attempts() {
   lobby_events.attempts[exam_room_events.the_case_study] += 1;
-  $('.attempts').text('Attempts: ' + lobby_events.attempts[exam_room_events.the_case_study] + 'of 2');
+  $('.attempts').text('Attempts: ' + lobby_events.attempts[exam_room_events.the_case_study] + 'of 3');
 }
 
 function start_counter() {

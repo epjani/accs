@@ -99,8 +99,8 @@ function lobby_go_to_case_study_click() {
 				case_study = $target.parents('.cs-selection').first().data('case-study');
 			}
 
-      if (lobby_events.attempts[case_study] >= 2) {
-        lobby_warning("<div class=\"text\">You already attempted this case study 2 times.</div>")
+      if (lobby_events.attempts[case_study] >= 3) {
+        lobby_warning("<div class=\"text\">You already attempted this case study 3 times.</div>")
       } else {
         open_exam_room();
         $('.whiteboard a').mouseout();
