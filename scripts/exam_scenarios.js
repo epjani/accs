@@ -11,8 +11,9 @@ function attach_questions(id) {
     change_next_btn_label($container, id);
     $container.find('.questions').addClass('active');
     $container.find('.scenarios .select-scenario-0 .start').click();
+    $('.scenario-select-container').hide();
   } else {
-
+    $('.scenario-select-container').show();
     $container.find('.questions').addClass('hide');
     setup_scenarios($container, questions);
     show_scenarios($container);
@@ -585,11 +586,13 @@ function extract_correct_answers(checkboxes) {
 }
 
 function start_scenario($container, index, $target) {
+  createjs.Sound.stop();
   $container.find('.scenario-text').addClass('hide');
 
   $container.find('.scenarios').addClass('hide');
   $container.find('.next-btn, .back-btn').removeClass('hide');
   $container.find('.questions').addClass('hide').removeClass('active');
+  $container.find('.questions .question').addClass('hide');
 
   $container.find('.questions.scenario-' + index + ' .scenario-text').removeClass('hide');
   $container.find('.questions.scenario-' + index).removeClass('hide').addClass('active');
@@ -600,6 +603,14 @@ function start_scenario($container, index, $target) {
   $target.addClass('started');
   sound_name = get_scenario_sound_name($container, index);
   play_sound(sound_name);
+}
+
+function first_scenario() {
+  $('.select-scenario-0 a.start').click();
+}
+
+function last_scenario() {
+  $('.select-scenario-1 a.start').click();
 }
 
 function get_scenario_sound_name($container, index) {
