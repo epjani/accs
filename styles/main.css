@@ -267,7 +267,7 @@ img { outline: none; border: none; }
   border-color: #c2a995;
 }
 
-.text-left { text-align: left; }
+.text-left { text-align: left !important; }
 
 .fancybox-close, .overlay .close {
   position: absolute;
@@ -849,3 +849,5 @@ a#tv { cursor: default; }
   display: block;
   float: right;
 }
+
+.mobile-view.portrait #fb-introduction, .mobile-view.portrait #fb-instructions { text-align: left; }
