@@ -41,5 +41,6 @@ function load_sounds() {
 }
 
 function play_sound(id) {
+  createjs.Sound.stop();
 	createjs.Sound.play(id);
 }

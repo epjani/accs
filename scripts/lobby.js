@@ -171,9 +171,17 @@ function read_lobby_document(id) {
 
 function update_element_assets(id) {
 	switch (id) {
-		case 'globe':
+		case 'globe': {
+      $('img#' + id + '-img').attr('src', 'img/' + id + '_done.png');
+      break;
+    }
 		case 'poster': {
-			$('img#' + id + '-img').attr('src', 'img/' + id + '_done.png');
+      if (is_mobile) {
+        var img_src = 'img/' + id + '-mobile_done.png'
+      } else {
+        var img_src = 'img/' + id + '_done.png'
+      }
+      $('img#' + id + '-img').attr('src', img_src);
 			break;
 		}
 		case 'introduction':

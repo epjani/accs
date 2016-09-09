@@ -59,7 +59,7 @@ $(document).ready(function() {
     open_globe_content();
   });
 
-  init_sounds();
+  if (!is_mobile) { init_sounds(); }
 
   configure_for_devices();
   if(is_mobile) {
@@ -103,8 +103,12 @@ window.onload = function(e){
   }
   $('body').removeClass('hide');
   setImageSize();
-  setTimeout(lobby_events.goto_lobby, 8200);
-  // lobby_events.goto_lobby();
+  if (is_mobile) {
+    lobby_events.goto_lobby();
+  } else {
+    // lobby_events.goto_lobby();
+    setTimeout(lobby_events.goto_lobby, 8200);
+  }
 }
 
 function showOverlay($el, autoHide) {

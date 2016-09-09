@@ -121,9 +121,13 @@
   top: 15%;
 }
 
-.mobile-view.portrait .exam-room .total-points, .mobile-view.portrait .exam-room .attempts {
+.mobile-view.portrait .exam-room .total-points {
   top: 9%;
   padding-left: 5px;
+}
+.mobile-view.portrait .exam-room .attempts {
+  padding-left: 5px;
+  top: 11%;
 }
 
 .fb-exam .total-points, .fb-exam .attempts {
@@ -790,6 +794,7 @@
   bottom: 95px;
   padding: 0 2%;
   width: 96%;
+  display: flex;
 }
 
 .mobile-view.landscape .fb-exam .footer {
