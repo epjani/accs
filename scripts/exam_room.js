@@ -134,7 +134,6 @@ function clear_exam_room_assets() {
   $('a.start').removeClass('done');
   if ($('.scenarios .select-scenario').length > 1) {
     $('.multiple-scenarios .scenarios .select-scenario').last().remove();
-    $('.multiple-scenarios .questions').last().remove();
   }
 
   $('.questions .question .text, .questions .question .answers, .questions .question.scenario-text').text('');

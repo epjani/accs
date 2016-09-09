@@ -12,8 +12,10 @@ function attach_questions(id) {
     $container.find('.questions').addClass('active');
     $container.find('.scenarios .select-scenario-0 .start').click();
     $('.scenario-select-container').hide();
+    $('.scenario-select-container').parents('.footer').css('display', 'block');
   } else {
     $('.scenario-select-container').show();
+    $('.scenario-select-container').parents('.footer').css('display', 'flex');
     $container.find('.questions').addClass('hide');
     setup_scenarios($container, questions);
     show_scenarios($container);
@@ -88,6 +90,13 @@ function set_scenarios_questions($container, questions) {
 function set_scenarios_text(questions, $scenario_container) {
   $.each(questions['scenarios'], function(i, scen) {
     var $template = $scenario_container.find('.scenario-template').clone().removeClass('scenario-template').addClass('select-scenario select-scenario-' + i);
+
+    if ($template.length == 0) {
+      var $template = $scenario_container.find('.select-scenario.select-scenario-' + i);
+      if ($template.length == 0) {
+        var $template = $scenario_container.find('.select-scenario').clone().attr('class', '').addClass('select-scenario select-scenario-' + i);
+      }
+    }
     $template.attr('data-index', i);
     $template.find('.view-from').text(scen['from']);
     $template.find('.view-topic').text(scen['topic']);

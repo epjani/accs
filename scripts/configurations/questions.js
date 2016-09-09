@@ -14,7 +14,8 @@ var IPHONE = {
 								{ text: "170 degree"},
 								{ text: "Into fully flat beds over 6 feet in length"}
 							],
-							valid: [3]
+							valid: [3],
+							index: 0
 						},
 						{
 							question: "The new Executive Pods on Air Canada’s Boeing 787 aircraft are now also available on Air Canada’s fleet of:",
@@ -24,7 +25,8 @@ var IPHONE = {
 								{ text: "Airbus A380"},
 								{ text: "Airbus A321"}
 							],
-							valid: [1]
+							valid: [1],
+							index: 1
 						},
 						{
 							question: "International Business Class passengers on Air Canada can expect access to the airport priority services such as Priority Check-in,  Priority Boarding and Priority Security Clearance, as well as (select all that apply):",
@@ -34,7 +36,40 @@ var IPHONE = {
 								{ text: "Complimentary Maple Leaf Lounge access"},
 								{ text: "Assistance from Air Canada’s Concierge agents"}
 							],
-							valid: [1,2,3]
+							valid: [1,2,3],
+							index: 2
+						}
+					],
+					alternate_questions: [
+						{
+							question: "Question text",
+							answers: [
+								{ text: 'text 1' },
+								{ text: 'text 2' },
+								{ text: 'text 3' },
+								{ text: 'text 4' }
+							],
+							valid: [2]
+						},
+						{
+							question: "Question text 2",
+							answers: [
+								{ text: 'text 5' },
+								{ text: 'text 6' },
+								{ text: 'text 7' },
+								{ text: 'text 8' }
+							],
+							valid: [3]
+						},
+						{
+							question: "Question text 3",
+							answers: [
+								{ text: 'text 9' },
+								{ text: 'text 10' },
+								{ text: 'text 11' },
+								{ text: 'text 12' }
+							],
+							valid: [1]
 						}
 					]
 				}
