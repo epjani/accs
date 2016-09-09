@@ -59,7 +59,7 @@ $(document).ready(function() {
     open_globe_content();
   });
 
-  if (!is_mobile) { init_sounds(); }
+  if (!is_mobile && _employee_data_loaded) { init_sounds(); }
 
   configure_for_devices();
   if(is_mobile) {
@@ -101,14 +101,38 @@ window.onload = function(e){
   if (navigator.userAgent.match(/firefox/i)) {
     $('.animations').attr('src', 'img/animations/intro.gif?rnd=' + Math.random()).removeClass('vis-hidden')
   }
+  if (!_employee_data_loaded) {
+    $('.animations').attr('src', '');
+    $('.bottom-menu').hide();
+  }
+
   $('body').removeClass('hide');
   setImageSize();
-  if (is_mobile) {
-    lobby_events.goto_lobby();
-  } else {
-    // lobby_events.goto_lobby();
-    setTimeout(lobby_events.goto_lobby, 8200);
+  if (_employee_data_loaded) {
+    if (is_mobile) {
+      lobby_events.goto_lobby();
+    } else {
+      // lobby_events.goto_lobby();
+      setTimeout(lobby_events.goto_lobby, 8200);
+    }
   }
+
+  if(!_employee_data_loaded) {
+    $('#fb-warning .content').html('<div class="text">Something went wrong. Please try again.</div>');
+      $.fancybox({
+        href: '#fb-warning',
+        width: '400px',
+        closeBtn: false,
+        helpers     : {
+          overlay : {
+            css      : {
+                cursor : 'default'
+            },
+            closeClick: false
+          }
+        }
+      });
+    }
 }
 
 function showOverlay($el, autoHide) {

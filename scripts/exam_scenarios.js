@@ -466,7 +466,7 @@ function update_exam_room_assets() {
         }
         else {
           $trigger.find('a').tooltip('enable');
-        }  
+        }
       }
 
       if ($.inArray(exam, DEFAULT_IMAGES) >= 0) {
@@ -479,7 +479,7 @@ function update_exam_room_assets() {
   });
 }
 
-function clean_scenario_content($container, id) {  
+function clean_scenario_content($container, id) {
   $container.find('.scenario-text').html('');
   $.each($container.find('.question'), function(i, q) {
     $(q).find('.text').html('');

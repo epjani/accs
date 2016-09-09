@@ -1,43 +1,61 @@
+
+var case_study_mapping = {
+	'skuid1': 'premium_products',
+	'skuid2': 'leisure_group',
+	'skuid3': 'network_fleet'
+};
+
+// TODO: Please set this to 'false' once when endpoint url is set correctly. If false, this raises popup saying that something went wrong with fetching data from server
+var _employee_data_loaded = true;
+
 $(document).ready(function() {
-	var $scope = $('.data-configuration');
-	/* Please set following variables here */
+	main_variables.language = 'en';
 
-	// main_variables.language
-	// Describes language used accross application
-	// Default: main_variables.language = 'en'
-	// Possible values: en/fr
-	var language = $scope.find('.global-configuration').data('language');
-	if (language != '') { main_variables.language = language; }
+	if (typeof(_employee_data) !== "undefined") {
+		main_variables.employee_name = _employee_data.name;
 
-	// main_variables.employee_name
-	// Name of person who is taking the courses
-	// Default: main_variables.employee_name = 'Test name'
-	var employee_name = $scope.find('.employee-data').data('name');
-	if (employee_name != '') { main_variables.employee_name = employee_name; }
+		$.each(_employee_data.case_studies, function(i, cs) {
+			if(cs.passed) {
+				lobby_events.finished_case_studies.push(case_study_by_sku(i));
+			}
 
-	// lobby_events.finished_case_studies
-	// Array of shortcodes for case studies that employee already finished
-	// Default: lobby_events.finished_case_studies = []
-	// Possible values: 'premium_products', 'leisure_group', 'network_fleet'
-	lobby_events.finished_case_studies = $scope.find('.case-study-data[data-passed="true"]').map(function() { return $(this).data('name') });
+			lobby_events.attempts[case_study_by_sku(i)] = cs.attempts;
+		});
 
-	// lobby_events.attempts
-	// Hash with case study shortcodes as keys ('premium_products', 'leisure_group', 'network_fleet') where value represent number of attempts
-	// Default: 0 for each case study
-	var premium_products_attempts = parseInt($scope.find('.case-study-data[data-name="premium_products"]').data('attempts'));
-	var leisure_group_attempts = parseInt($scope.find('.case-study-data[data-name="leisure_group"]').data('attempts'));
-	var network_fleet_attempts = parseInt($scope.find('.case-study-data[data-name="network_fleet"]').data('attempts'));
-	
-	if (!isNaN(premium_products_attempts)) { lobby_events.attempts.premium_products = premium_products_attempts; }
-	if (!isNaN(leisure_group_attempts)) { lobby_events.attempts.leisure_group = leisure_group_attempts; }
-	if (!isNaN(network_fleet_attempts)) { lobby_events.attempts.network_fleet = network_fleet_attempts; }
+		_employee_data_loaded = true;
+
+	}
 });
 
 
 function submit_evaluation() {
-	// Submit following form: $('.evaluation-form')
+	// TODO: Submit following form: $('.evaluation-form')
 }
 
 function submit_case_study(case_study_name, score) {
-	// Implement this
+	var sku = sku_by_case_study(case_study_name);
+	// TODO: Implement this. This only triggers once when case study is passed
+}
+
+function submit_attempts(case_study_name, attempts) {
+	var sku = sku_by_case_study(case_study_name);
+	// TODO: Implement this. Set number of attempts per case study.
+}
+
+function case_study_by_sku(sku) {
+	return case_study_mapping[sku];
+}
+
+function sku_by_case_study(case_study) {
+	return value_to_key(case_study, case_study_mapping);
+}
+
+function value_to_key(val,array){
+    for (var key in array) {
+      this_val = array[key];
+      if(this_val == val){
+          return key;
+          break;
+      }
+    }
 }

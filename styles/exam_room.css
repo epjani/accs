@@ -794,6 +794,9 @@
   bottom: 95px;
   padding: 0 2%;
   width: 96%;
+}
+
+#mouse-exam.fb-exam .footer {
   display: flex;
 }
 
