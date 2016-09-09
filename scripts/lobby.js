@@ -59,6 +59,7 @@ function enter_lobby() {
   $('map').imageMapResize();
   set_lobby_assets();
   show_whiteboard_tooltips();
+  if (lobby_events.finished_case_studies.length > 0) { lobby_events.read_documents(); }
 }
 
 function set_lobby_assets() {
