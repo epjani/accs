@@ -218,6 +218,7 @@ img { outline: none; border: none; }
   -khtml-opacity: 0.5;
   opacity: 0.5;
   position: absolute;
+  z-index: 1;
 }
 
 .bg-overlay {
@@ -244,6 +245,7 @@ img { outline: none; border: none; }
   margin-left: -200px;
   top: 20%;
   border-radius: 5px 5px 0 0;
+  z-index: 100;
 }
 
 .mobile-view .inside-fb-warning .fb-notifications {
@@ -811,4 +813,25 @@ a#tv { cursor: default; }
 
 .ui-loader {
   display: none;
+}
+
+.scenario-select-container {
+  background: url(../img/playbackandforward.png) no-repeat center;
+  height: 33px;
+  width: 120px;
+  margin: 0 auto;
+}
+
+.scenario-select-container .back-scenario {
+  width: 40px;
+  height: 30px;
+  display: block;
+  float: left;
+}
+
+.scenario-select-container .next-scenario {
+  width: 40px;
+  height: 30px;
+  display: block;
+  float: right;
 }
