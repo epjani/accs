@@ -852,3 +852,5 @@ a#tv { cursor: default; }
 
 .mobile-view.portrait #fb-introduction, .mobile-view.portrait #fb-instructions { text-align: left; }
 .scenario-template { display: none; }
+
+#fb-instructions .content ul { word-wrap: break-word; }

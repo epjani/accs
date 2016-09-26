@@ -187,7 +187,7 @@ function update_element_assets(id) {
 		}
 		case 'introduction':
 		case 'instructions': {
-			$('li#' + id + '-img').addClass('done');
+			$('li#' + id + '-img, li#' + id + '-img-mobile').addClass('done');
 		}
 	}
 

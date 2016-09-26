@@ -220,6 +220,7 @@ function start_exam($el) {
 }
 
 function play_current_text_sound(id) {
+  createjs.Sound.stop();
   var sound_name = exam_room_events.the_case_study + '_' + id;
   setTimeout(play_sound, 800, sound_name);
 }
