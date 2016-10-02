@@ -531,7 +531,7 @@ var POSTER1 = {
 		leisure_group: {
 			scenarios: [
 				{
-					img: "img/exam_room/poster_photo.png",
+					img: "img/exam_room/leisure_poster_photo.jpg",
 					text: "Looking for something different for your summer vacation?  Air Canada rouge is flying to new destinations. Air Canada rouge offers stylishly affordable service to great holiday spots around the world. Benefit from Air Canada’s extensive network for smooth connections to flights departing from/to Air Canada rouge destinations.",
 					sound: 'leisure_group_poster_1',
 					questions: [
