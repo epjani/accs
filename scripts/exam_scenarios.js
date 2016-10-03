@@ -161,6 +161,7 @@ function set_questions($container, questions, $infoHeader, scenario_index) {
         html += '<label for="' + chk_id + '">' + answer['text'] + '</label>';
         html += '</div>';
         $question.find('.answers').append(html);
+        $question.find('.answers').attr('data-correct-number', val['valid'].length);
       });
 
       if($infoHeader.length > 0) {
@@ -651,5 +652,26 @@ $(document).ready(function() {
 
   $('.inside-fb-select-scenario .close-warning').on('click', function() {
     quit_submit_warning();
+  });
+
+  $('.answers').on('ifChecked', 'input', function(event){
+    $answers = $(this).parents('.answers').first();
+    correct_count = parseInt($answers.data('correct-number'));
+    answered_count = $answers.find('.checked').length + 1;
+
+    if (answered_count >= correct_count) {
+      $answers.find('.answer_row .icheckbox_minimal-orange:not(".checked") input').prop('disabled', 'disabled');
+      $(this).prop('disabled', '');
+    }
+  });
+
+  $('.answers').on('ifUnchecked', 'input', function(event){
+    $answers = $(this).parents('.answers').first();
+    correct_count = parseInt($answers.data('correct-number'));
+    answered_count = $answers.find('.checked').length - 1;
+
+    if (answered_count < correct_count) {
+      $answers.find('.answer_row input').prop('disabled', '');
+    }
   });
 });
