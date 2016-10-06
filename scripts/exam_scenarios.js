@@ -327,13 +327,13 @@ function go_to_next_question_set($scope, index, alternative=false) {
     if (passed || alternative || index - 1 == -1) {
       $scope.parents('.content').find('.question.question_' + index).removeClass('hide');
     } else {
-      show_alternate($scope, index-1);
+      show_alternate($scope.parents('.content').first(), index-1);
     }
   }
 }
 
 function show_alternate($scope, index) {
-  $container = $scope.parents('.content').first().find('.alternate-questions');
+  $container = $scope.find('.alternate-questions');
   $container.find('.a-question_' + index).removeClass('hide');
 }
 
@@ -377,16 +377,25 @@ function change_next_btn_label($container, id) {
     $btn.addClass('submit');
 }
 
-function last_feedback(id) {
-  var $container = $('.fb-exam#' + id + '-exam .questions.active');
+function last_feedback(id, alternative=false) {
+  if (alternative) {
+    var $container = $('.fb-exam#' + id + '-exam .alternate-questions');
+  } else {
+    var $container = $('.fb-exam#' + id + '-exam .questions.active');
+  }
   var question_points = get_question_points($container, 2, id);
 
   if (question_points > 0) {
     handle_success_exam();
     $('.correct-answer-warning .close-warning, .correct-answer-warning .text').attr('onclick', 'javascript:submit_exam("' + id + '",false);');
   } else {
-    handle_unsuccess_exam();
-    $('.incorrect-answer-warning .close-warning, .incorrect-answer-warning .text').attr('onclick', 'javascript:submit_exam("' + id + '",false);');
+    handle_unsuccess_exam();   
+    if (alternative) {      
+      $('.incorrect-answer-warning .close-warning, .incorrect-answer-warning .text').attr('onclick', 'javascript:submit_exam("' + id + '",false);');
+    } else {
+      $container.find('.question').addClass('hide');
+      show_alternate($container.parents('.content').first(), 2);
+    }
   }
 
 
@@ -398,10 +407,11 @@ function submit_exam(id, forced) {
   $('.correct-answer-warning .close-warning, .correct-answer-warning .text, .incorrect-answer-warning .close-warning, .incorrect-answer-warning .text').attr('onclick', 'javascript:;');
 
   var $container = $('.fb-exam#' + id + '-exam .questions.active');
+  var $question = $container.parents('.content').first().find('.question:not(".hide")');
 
-  if (forced || one_question_answered($container.find('.question:not(".hide")'))) {
+  if (forced || one_question_answered($question)) {
     if (!forced)
-      handle_points(2, false, false);
+      handle_points(2, false, true);
     if ($container.data('scenario') != null && ($container.data('scenario') != undefined )) {
       $container.parents('.content').find('.scenarios .select-scenario-' + $container.data('scenario') + ' a').addClass('done');
     } else {
