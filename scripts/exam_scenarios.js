@@ -169,6 +169,25 @@ function set_questions($container, questions, $infoHeader, scenario_index) {
       }
     }
   });
+
+  html = '<div class="alternate-questions">';
+  $.each(questions['alternate_questions'], function(index, val) {
+    next_btn = $container.find('.questions .question_' + index).data('next-btn');
+    back_btn = $container.find('.questions .question_' + index).data('back-btn');
+    next_btn = next_btn.replace(')', ', true)');
+    back_btn = back_btn.replace(')', ', true)')
+
+    html += '<div class="question hide a-question_' + index + '" data-next-btn="' + next_btn + '" data-back-btn="' + back_btn + '"><p class="text">' + val['question'] + '</p><div class="answers" data-correct-number="' + val['valid'].length + '">';
+    $.each(val['answers'], function(i, answer) {
+      var chk_id = 'chk_a_' + scenario_index + '_' + index + '_' + i;
+      html += '<div class="answer_row"><input type="checkbox" id="' + chk_id + '" name="question_' + index + '" value="' + i + '" />';
+      html += '<label for="' + chk_id + '">' + answer['text'] + '</label></div>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+
+  $container.find('.content').append(html);
 }
 
 function set_question_info_header($question, $infoHeader, values) {
@@ -227,11 +246,11 @@ function play_current_text_sound(id) {
 }
 
 function get_next_prev_btn_reference($target, type) {
-  $container = $target.parents('.fb-exam').first().find('.questions.active');
+  $container = $target.parents('.fb-exam').first().find('.questions.active, .alternate-questions');
   return $container.children("[data-" + type + "-btn]:visible").first();
 }
 
-function next_question(id, skip_warning) {
+function next_question(id, skip_warning, alternative=false) {
   stopVideo();
   createjs.Sound.stop();
 
@@ -240,7 +259,12 @@ function next_question(id, skip_warning) {
     return;
   }
 
-  $scope = $('.fb-exam:visible .questions.active');
+
+  if (alternative) {
+    $scope = $('.fb-exam:visible .alternate-questions');
+  } else {
+    $scope = $('.fb-exam:visible .questions.active');
+  }
   $current = $scope.find('.question:not(".hide")');
 
   if (!$current.hasClass('scenario-text')) {
@@ -248,14 +272,14 @@ function next_question(id, skip_warning) {
       if (!skip_warning) {
         $current.find('input').prop('disabled', 'disabled');
       }
-      go_to_next_question_set($scope, id)
+      go_to_next_question_set($scope, id, alternative)
     } else {
       $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
       $scoped_warning_box.show();
       $scoped_warning_box.find('.fancybox').show();
     }
   } else {
-    go_to_next_question_set($scope, id)
+    go_to_next_question_set($scope, id, alternative)
   }
 
 }
@@ -266,7 +290,8 @@ function quit_submit_warning() {
   $scoped_warning_box.find('.fancybox').hide();
 }
 
-function go_to_next_question_set($scope, index) {
+function go_to_next_question_set($scope, index, alternative=false) {
+  $selector = $scope.parents('.content').find('.question.question_' + (index-1) + ':not(".hide"), .question.a-question_' + (index-1) + ':not(".hide")');
   $scope.find('.question').addClass('hide');
 
   change_next_btn_label($scope, index);
@@ -288,22 +313,41 @@ function go_to_next_question_set($scope, index) {
         next_question(null, true);
       }
     }
-  } else {
+  } else {    
 
-    $scope.find('.question.question_' + index).removeClass('hide');
+    var passed = true;
 
-    if (!$scope.find('.question.question_' + (index-1)).data('praised')) {
-      $scope.find('.question.question_' + (index-1)).attr('data-praised', 'true');
-      handle_points(index-1, true);
+    try {
+      if (!$selector.data('praised') && index != 'text') {
+        $selector.attr('data-praised', 'true');
+        passed = handle_points(index-1, true, alternative);
+      }
+    } catch(e) {}
+
+    if (passed || alternative || index - 1 == -1) {
+      $scope.parents('.content').find('.question.question_' + index).removeClass('hide');
+    } else {
+      show_alternate($scope, index-1);
     }
   }
 }
 
-function handle_points(index, show_feedback) {
-  $container = $target.parents('.fb-exam').first().find('.questions');
+function show_alternate($scope, index) {
+  $container = $scope.parents('.content').first().find('.alternate-questions');
+  $container.find('.a-question_' + index).removeClass('hide');
+}
+
+function handle_points(index, show_feedback, alternative=false) {
+  if (alternative) {
+    $container = $target.parents('.fb-exam').first().find('.alternate-questions');
+  } else {
+    $container = $target.parents('.fb-exam').first().find('.questions');
+  }
   var id = $container.parents('.fb-exam').attr('id').replace('-exam', '');
-  calculate_points($container, id, index, show_feedback);
+  passed = calculate_points($container, id, index, show_feedback, alternative);
   set_score();
+
+  return passed;
 }
 
 function one_question_answered($question_set) {
@@ -357,7 +401,7 @@ function submit_exam(id, forced) {
 
   if (forced || one_question_answered($container.find('.question:not(".hide")'))) {
     if (!forced)
-      handle_points(2, false);
+      handle_points(2, false, false);
     if ($container.data('scenario') != null && ($container.data('scenario') != undefined )) {
       $container.parents('.content').find('.scenarios .select-scenario-' + $container.data('scenario') + ' a').addClass('done');
     } else {
@@ -502,8 +546,8 @@ function set_score() {
   $('.total-points').text('Score: ' + exam_room_events.total_points);
 }
 
-function calculate_points($container, id, index, show_feedback) {
-  var question_points = get_question_points($container, index, id)
+function calculate_points($container, id, index, show_feedback, alternative=false) {
+  var question_points = get_question_points($container, index, id, alternative)
   exam_room_events.total_points += question_points;
   if (show_feedback) {
     if (question_points > 0) {
@@ -512,6 +556,8 @@ function calculate_points($container, id, index, show_feedback) {
       handle_unsuccess_exam();
     }
   }
+
+  return question_points > 0;
 }
 
 function show_exam_credits() {
@@ -565,9 +611,7 @@ function hide_question_popup() {
   $('.bg-overlay, .correct-answer-warning, .incorrect-answer-warning').addClass('hide');
 }
 
-function get_question_points($container, index, id) {
-  var checked = $container.find('.question_' + index + ' input[type="checkbox"]:checked');
-  var answers = extract_correct_answers(checked);
+function get_question_points($container, index, id, alternative=false) {
   var scenario = $('.questions.active').data('scenario');
 
   if (scenario) {
@@ -576,7 +620,17 @@ function get_question_points($container, index, id) {
     scenario = 0;
   }
 
-  var valid_answers = get_selected_questions(id)['scenarios'][scenario]['questions'][index]['valid'];
+
+  if (alternative) {
+    var checked = $container.find('.a-question_' + index + ' input[type="checkbox"]:checked');
+    var valid_answers = get_selected_questions(id)['scenarios'][scenario]['alternate_questions'][index]['valid'];
+  } else {
+    var checked = $container.find('.question_' + index + ' input[type="checkbox"]:checked');
+    var valid_answers = get_selected_questions(id)['scenarios'][scenario]['questions'][index]['valid'];
+  }
+
+  var answers = extract_correct_answers(checked);  
+  
   if ($.isArray(valid_answers)) {
     var points = array_equal(answers, valid_answers) ? 10 : 0;
   } else {
