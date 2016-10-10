@@ -174,8 +174,13 @@ function set_questions($container, questions, $infoHeader, scenario_index) {
   $.each(questions['alternate_questions'], function(index, val) {
     next_btn = $container.find('.questions .question_' + index).data('next-btn');
     back_btn = $container.find('.questions .question_' + index).data('back-btn');
-    next_btn = next_btn.replace(')', ', true)');
-    back_btn = back_btn.replace(')', ', true)')
+    if (next_btn != undefined && back_btn != undefined) {
+      next_btn = next_btn.replace(')', ', true)');
+      back_btn = back_btn.replace(')', ', true)')
+    } else {
+      next_btn = $container.find('.question_' + index).data('next-btn').replace(')', ', true)');
+      back_btn = $container.find('.question_' + index).data('back-btn').replace(')', ', true)');
+    }
 
     html += '<div class="question hide a-question_' + index + '" data-next-btn="' + next_btn + '" data-back-btn="' + back_btn + '"><p class="text">' + val['question'] + '</p><div class="answers" data-correct-number="' + val['valid'].length + '">';
     $.each(val['answers'], function(i, answer) {
@@ -187,7 +192,13 @@ function set_questions($container, questions, $infoHeader, scenario_index) {
   });
   html += '</div>';
 
-  $container.find('.content').append(html);
+  $attach_alternate_to = $container.find('.content');
+  if ($attach_alternate_to.length == 0) {
+    $attach_alternate_to = $container;
+  } else {
+    $attach_alternate_to = $container.find('.questions');
+  }
+  $attach_alternate_to.append(html);
 }
 
 function set_question_info_header($question, $infoHeader, values) {
@@ -246,7 +257,7 @@ function play_current_text_sound(id) {
 }
 
 function get_next_prev_btn_reference($target, type) {
-  $container = $target.parents('.fb-exam').first().find('.questions.active, .alternate-questions');
+  $container = $target.parents('.fb-exam').first().find('.questions.active, .questions.active .alternate-questions');
   return $container.children("[data-" + type + "-btn]:visible").first();
 }
 
@@ -291,7 +302,12 @@ function quit_submit_warning() {
 }
 
 function go_to_next_question_set($scope, index, alternative=false) {
-  $selector = $scope.parents('.content').find('.question.question_' + (index-1) + ':not(".hide"), .question.a-question_' + (index-1) + ':not(".hide")');
+  if (alternative) {
+    $selector = $scope.parents('.content').find('.questions.active .question.a-question_' + (index-1) + ':not(".hide")');
+  } else {
+    $selector = $scope.parents('.content').find('.questions.active .question.question_' + (index-1) + ':not(".hide")');     
+  }
+  
   $scope.find('.question').addClass('hide');
 
   change_next_btn_label($scope, index);
@@ -325,7 +341,7 @@ function go_to_next_question_set($scope, index, alternative=false) {
     } catch(e) {}
 
     if (passed || alternative || index - 1 == -1) {
-      $scope.parents('.content').find('.question.question_' + index).removeClass('hide');
+      $scope.parents('.content').find('.active .question.question_' + index).removeClass('hide');
     } else {
       show_alternate($scope.parents('.content').first(), index-1);
     }
@@ -333,15 +349,15 @@ function go_to_next_question_set($scope, index, alternative=false) {
 }
 
 function show_alternate($scope, index) {
-  $container = $scope.find('.alternate-questions');
+  $container = $scope.find('.active .alternate-questions');
   $container.find('.a-question_' + index).removeClass('hide');
 }
 
 function handle_points(index, show_feedback, alternative=false) {
   if (alternative) {
-    $container = $target.parents('.fb-exam').first().find('.alternate-questions');
+    $container = $target.parents('.fb-exam').first().find('.questions.active .alternate-questions');
   } else {
-    $container = $target.parents('.fb-exam').first().find('.questions');
+    $container = $target.parents('.fb-exam').first().find('.questions.active');
   }
   var id = $container.parents('.fb-exam').attr('id').replace('-exam', '');
   passed = calculate_points($container, id, index, show_feedback, alternative);
@@ -445,6 +461,7 @@ function handle_end_of_scenario($container, scenarios_finished) {
   if (should_end_case_study()) {
     end_case_study();
     show_exam_credits();
+    $container.parents('.content').find('.alternate-questions').remove();
   }
   return ;
 }
@@ -491,7 +508,7 @@ function set_exam_type_as_finished($container, id) {
 
 function clean_scenario($container, id) {
   $container.find('.question').addClass('hide');
-  $container.find('.scenario-text').removeClass('hide');
+  $container.find('.scenario-text').removeClass('hide');  
   clean_scenario_content($container, id);
 }
 

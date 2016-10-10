@@ -111,6 +111,38 @@ var IPHONE = {
 							],
 							valid: [2]
 						}
+					],
+					alternate_questions: [
+						{
+							question: "Question text",
+							answers: [
+								{ text: 'text 111' },
+								{ text: 'text 2' },
+								{ text: 'text 3' },
+								{ text: 'text 4' }
+							],
+							valid: [1]
+						},
+						{
+							question: "Question text 2",
+							answers: [
+								{ text: 'text 5' },
+								{ text: 'text 6' },
+								{ text: 'text 7' },
+								{ text: 'text 8' }
+							],
+							valid: [3]
+						},
+						{
+							question: "Question text 3",
+							answers: [
+								{ text: 'text 9' },
+								{ text: 'text 10' },
+								{ text: 'text 11' },
+								{ text: 'text 12' }
+							],
+							valid: [1]
+						}
 					]
 				}
 			]
@@ -319,6 +351,38 @@ var MOUSE = {
 							],
 							valid: [3]
 						}
+					],
+					alternate_questions: [
+						{
+							question: "Question text",
+							answers: [
+								{ text: 'text 1' },
+								{ text: 'text 2' },
+								{ text: 'text 3' },
+								{ text: 'text 4' }
+							],
+							valid: [2]
+						},
+						{
+							question: "Question text 2",
+							answers: [
+								{ text: 'text 5' },
+								{ text: 'text 6' },
+								{ text: 'text 7' },
+								{ text: 'text 8' }
+							],
+							valid: [3]
+						},
+						{
+							question: "Question text 3",
+							answers: [
+								{ text: 'text 9' },
+								{ text: 'text 10' },
+								{ text: 'text 11' },
+								{ text: 'text 12' }
+							],
+							valid: [1]
+						}
 					]
 				},
 				{
@@ -354,6 +418,38 @@ var MOUSE = {
 								{ text: "100,000 miles or 95 segments"},
 								{ text: "95,000 miles or 100 segments"},
 								{ text: "100,000 miles or 100 segments"}
+							],
+							valid: [1]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "Question text",
+							answers: [
+								{ text: 'text 11' },
+								{ text: 'text 21' },
+								{ text: 'text 31' },
+								{ text: 'text 41' }
+							],
+							valid: [2]
+						},
+						{
+							question: "Question text 2",
+							answers: [
+								{ text: 'text 5' },
+								{ text: 'text 6' },
+								{ text: 'text 7' },
+								{ text: 'text 8' }
+							],
+							valid: [3]
+						},
+						{
+							question: "Question text 3",
+							answers: [
+								{ text: 'text 9' },
+								{ text: 'text 10' },
+								{ text: 'text 11' },
+								{ text: 'text 12' }
 							],
 							valid: [1]
 						}
