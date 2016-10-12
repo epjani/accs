@@ -455,7 +455,7 @@ function last_feedback(id, alternative=false) {
   } else {
     var $container = $('.fb-exam#' + id + '-exam .questions.active');
   }
-  var question_points = get_question_points($container, 2, id);
+  var question_points = get_question_points($container, 2, id, alternative);
 
   if (question_points > 0) {
     handle_success_exam();

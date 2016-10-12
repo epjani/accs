@@ -137,6 +137,7 @@ function clear_exam_room_assets() {
   }
 
   $('.questions .question .text, .questions .question .answers, .questions .question.scenario-text').text('');
+  $('.questions .alternate-questions').remove();
 }
 
 function default_ticker_text() {
