@@ -176,6 +176,35 @@ var IPHONE = {
 							],
 							valid: [1]
 						}
+					],
+					alternate_questions: [
+						{
+							question: "QUESTION MISSING",
+							answers: [
+								{ text: 'missing question' },
+								{ text: 'missing question' },
+								{ text: 'missing question' },
+								{ text: 'missing question.' }
+							],
+							valid: [0,1,2]
+						},
+						{
+							question: "Compared to a standard seat pitch of 31” – 33” in economy, Preferred Seats offer",
+							answers: [
+								{ text: '3 more inches of legroom.' },
+								{ text: '4 more inches of legroom' },
+								{ text: '5 more inches of legroom.' }
+							],
+							valid: [1]
+						},
+						{
+							question: "Preferred seats are available to Altitude members with the fee, if applicable, depending on their Altitude Status and fare paid.  Preferred seat selection is complimentary for passengers travelling on a Latitude fare.  True or false, all travellers can purchase Preferred Seats for a fee.",
+							answers: [
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
+							],
+							valid: [0]
+						}
 					]
 				}
 			]
@@ -358,6 +387,37 @@ var PHONE = {
 								{ text: "Four-star airline"},
 								{ text: "Canadian airline of the year"},
 								{ text: "Business airline of the year."}
+							],
+							valid: [1]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "The Boeing 787 aircraft offers travellers many new comforts including a quieter, smoother flight, a more spacious interior cabin, higher humidity levels that contribute to a more rested feeling upon arrival and windows that are:",
+							answers: [
+								{ text: '10 per cent larger' },
+								{ text: '15 per cent larger' },
+								{ text: '30 per cent larger' },
+								{ text: '40 per cent larger' }
+							],
+							valid: [2]
+						},
+						{
+							question: "Air Canada’s new International Business Class Executive Pods on Boeing 787 aircraft can be extended into a fully lie flat bed that measures 6 feet 6 inches in length.  Which other of Air Canada's aircraft is also equipped with the new International Business Class Pods ?",
+							answers: [
+								{ text: 'Boeing 767' },
+								{ text: 'Boeing 777' },
+								{ text: 'Airbus 330' },
+								{ text: 'Airbus 380' }
+							],
+							valid: [1]
+						},
+						{
+							question: "Air Canada’s focus on traveler experience has been recognized by travellers worldwide and again most recently by Skytrax who awarded Air Canada its prestigious Four Star ranking.  Quite a feat!  Air Canada is",
+							answers: [
+								{ text: 'The only International Network Carrier in Canada to achieve this milestone' },
+								{ text: 'The only International Network Carrier in North America to achieve this milestone' },
+								{ text: 'One of four International Network Carrier in North America to achieve this milestone.' }
 							],
 							valid: [1]
 						}
@@ -681,6 +741,37 @@ var MOUSE = {
 							],
 							valid: [0]
 						}
+					],
+					alternate_questions: [
+						{
+							question: "Air Canada’s International Business Class seats are designed to provide travellers with their own personal space that's ideal for a good night's sleep.  Each seat reclines into a fully flat bed at the touch of a button.  In addition to Concierge service and Maple Leaf Lounge access, travellers can enjoy other luxurious amenities and priority services. Which of the following features is not available to International Business Class passengers?",
+							answers: [
+								{ text: 'Premium wines, spirits and cuisine and a large pillow and plush duvet' },
+								{ text: 'Extra baggage allowance' },
+								{ text: 'Priority Check-in and Priority Boarding' },
+								{ text: 'Dedicated gate seating area' }
+							],
+							valid: [3]
+						},
+						{
+							question: "Air Canada’s leisure airline, Air Canada rouge offers three customer comfort options on all of its flights.  Premium rouge with seats located at the front of the cabin are larger and offer more legroom and more recline.  If you are looking for a middle ground between Premium rouge and rouge class, you may want to consider this Air Canada rouge option that provides travellers with more legroom.",
+							answers: [
+								{ text: 'Burgundy' },
+								{ text: 'Priority Plus' },
+								{ text: 'Rouge plus.' }
+							],
+							valid: [2]
+						},
+						{
+							question: "On Air Canada Rouge Boeing 767 aircraft, Premium rouge seats are configured in a 2 X 2 X 2 configuration.  These wider seats, with a seat pitch of 37” inches provide passengers with ",
+							answers: [
+								{ text: '4 more inches of leg room' },
+								{ text: '6 more inches of leg room ' },
+								{ text: '7 more inches of leg room' },
+								{ text: '8 more inches of leg room' }
+							],
+							valid: [2]
+						}
 					]
 				}
 			]
@@ -752,8 +843,10 @@ var POSTER1 = {
 						{
 							question: "For passengers who may be travelling on Air Canada rouge, Premium rouge provides travellers with more space with wider seats in the comfort of a separate cabin.  Travellers can enjoy complimentary premium meals, wine & spirits.  Premium rouge is available on: a. International flights only, b. Flights operated by Boeing 767 aircraft only, c. All flights.",
 							answers: [
-								{ text: 'TRUE' },
-								{ text: 'FALSE' }
+								{ text: 'MISSING ANSWER' },
+								{ text: 'MISSING ANSWER' },
+								{ text: 'MISSING ANSWER' },
+								{ text: 'MISSING ANSWER' },
 							],
 							valid: [1]
 						}
@@ -869,6 +962,33 @@ var POSTER1 = {
 								{ text: "2 classes"},
 								{ text: "3 classes"},
 								{ text: "4 classes"}
+							],
+							valid: [1]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "Air Canada is Canada's largest airline and serves more than 200 airports on six continents, and is among the 20 largest airlines in the world.  True or False, Air Canada, Air Canada rouge and Air Canada Express have a fleet of just under 250 aircraft combined",
+							answers: [
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
+							],
+							valid: [1]
+						},
+						{
+							question: "Air Canada’s fleet of narrow body single aisle Airbus aircraft offers Business Class seats in a 2x2 configuration. Economy class seats are in a",
+							answers: [
+								{ text: '2 x 2 configuration' },
+								{ text: '2 x 3 configuration' },
+								{ text: '3 x 3 configuration' }
+							],
+							valid: [2]
+						},
+						{
+							question: "Air Canada’s mainline fleet of narrow body single aisle aircraft now offers Premium Economy service on all flights.  ",
+							answers: [
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
 							],
 							valid: [1]
 						}
@@ -1066,6 +1186,37 @@ var POSTER2 = {
 								{ text: "60 cities in Canada"}
 							],
 							valid: [3]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "Combined, Air Canada, Air Canada rouge and Air Canada Express offer service to over 200 airports worldwide. Air Canada is (select all that apply):",
+							answers: [
+								{ text: 'Canada’s largest airline' },
+								{ text: 'North America’s largest airline' },
+								{ text: 'The largest provider of scheduled passenger services between Canada and the U.S.A.' },
+								{ text: 'The largest provider of scheduled passenger services in the International market to and from Canada.' }
+							],
+							valid: [0,1,3]
+						},
+						{
+							question: "Air Canada’s main hub is at Toronto's Lester B. Pearson International Airport.  Which of the following statements is false.",
+							answers: [
+								{ text: 'Air Canada Passengers travelling through Toronto Pearson Airport will enjoy Domestic, Transborder and International operations centralized under one roof' },
+								{ text: 'Air Canada Passengers travelling through Toronto Pearson Airport will enjoy 24 hour concierge service available to all passengers' },
+								{ text: 'Air Canada Passengers travelling through Toronto Pearson Airport will enjoy a simplified baggage process for customers travelling in-transit between the U.S., Europe, Asia and South America via Canada' },
+								{ text: 'Air Canada Passengers travelling through Toronto Pearson Airport will enjoy US Customs and Immigration pre-clearance.' }
+							],
+							valid: [1]
+						},
+						{
+							question: "Air Canada’s network continues to expand with the addition of new international destinations.  The Air Canada, Air Canada rouge and Air Canada Express network provide service to North & South America, Europe, Asia and:( select all that apply)",
+							answers: [
+								{ text: 'Africa' },
+								{ text: 'Australia' },
+								{ text: 'Antarctica' }
+							],
+							valid: [0,1]
 						}
 					]
 				}
