@@ -281,16 +281,17 @@ function next_question(id, skip_warning, alternative=false) {
   if (!$current.hasClass('scenario-text')) {
     if (one_question_answered($current) || skip_warning) {
       if (!skip_warning) {
-        $current.find('input').prop('disabled', 'disabled');
+        $current.find('input').prop('disabled', 'disabled');        
       }
-      go_to_next_question_set($scope, id, alternative)
+      go_to_next_question_set($scope, id, alternative, !skip_warning);
+
     } else {
       $scoped_warning_box = $('.fb-exam:visible .inside-fb-warning');
       $scoped_warning_box.show();
       $scoped_warning_box.find('.fancybox').show();
     }
   } else {
-    go_to_next_question_set($scope, id, alternative)
+    go_to_next_question_set($scope, id, alternative, !skip_warning)
   }
 
 }
@@ -301,22 +302,16 @@ function quit_submit_warning() {
   $scoped_warning_box.find('.fancybox').hide();
 }
 
-function go_to_next_question_set($scope, index, alternative=false) {
-  if (alternative) {
-    $selector = $scope.parents('.content').find('.questions.active .question.a-question_' + (index-1) + ':not(".hide")');
-  } else {
-    $selector = $scope.parents('.content').find('.questions.active .question.question_' + (index-1) + ':not(".hide")');     
-  }
+function go_to_next_question_set($scope, index, alternative=false, is_back) {
+  $current = $scope.parents('.content').find('.questions.active .question:not(".hide")');
+  var current_index = $current.data('index');
   
   $scope.find('.question').addClass('hide');
 
   change_next_btn_label($scope, index);
 
-  if (index == "text") {
-    var scenario_index = $scope.data('scenario');
-    var scenario_name = get_scenario_sound_name($scope.parents('.fb-exam'), scenario_index);
-    play_sound(scenario_name);
-  }
+  var last_index = get_last_index($current);
+  
 
   if (index == 'scenarios') {
     $container = $scope.parents('.fb-exam').first();
@@ -325,7 +320,9 @@ function go_to_next_question_set($scope, index, alternative=false) {
         $container.find('.scenarios').removeClass('hide');
         $container.find('.back-btn').removeClass('hide');
       } else {
-        $container.find('.questions.active .scenario-text').removeClass('hide');
+        var $sc_text = $container.find('.questions.active .scenario-text');
+        $sc_text.removeClass('hide');
+        set_index($sc_text, last_index + 1);
         next_question(null, true);
       }
     }
@@ -334,23 +331,82 @@ function go_to_next_question_set($scope, index, alternative=false) {
     var passed = true;
 
     try {
-      if (!$selector.data('praised') && index != 'text') {
-        $selector.attr('data-praised', 'true');
+      if (!$current.data('praised') && index != 'text' && is_back ) {
+        $current.attr('data-praised', 'true');
         passed = handle_points(index-1, true, alternative);
       }
     } catch(e) {}
 
+
     if (passed || alternative || index - 1 == -1) {
-      $scope.parents('.content').find('.active .question.question_' + index).removeClass('hide');
+      $potential_next = $scope.parents('.content').find('.active .question.question_' + index);
+      if ($potential_next.data('praised')) {        
+        potential_index = $potential_next.data('index');
+
+        if (current_index > potential_index) {
+          if (current_index - potential_index > 1) {
+            $alt_question = $scope.parents('.content').find('.active .question[data-index=' + --current_index + ']');
+            $alt_question.removeClass('hide');
+            set_index($alt_question, last_index + 1);
+          } else {
+            $potential_next.removeClass('hide');
+            set_index($potential_next, last_index + 1);
+            play_question_text($scope, $potential_next.data('index'));
+          }
+        } else {
+          if (potential_index - current_index > 1) {
+            $alt_question = $scope.parents('.content').find('.active .question[data-index=' + ++current_index + ']');
+            $alt_question.removeClass('hide');
+            set_index($alt_question, last_index + 1);
+          } else {
+            $potential_next.removeClass('hide');
+            set_index($potential_next, last_index + 1);
+            play_question_text($scope, $potential_next.data('index'));
+          }
+        }
+      } else {
+        $potential_next.removeClass('hide');
+        set_index($potential_next, last_index + 1);
+        play_question_text($scope, $potential_next.data('index'));
+      }      
     } else {
-      show_alternate($scope.parents('.content').first(), index-1);
+      show_alternate($scope.parents('.content').first(), index-1, last_index);
     }
   }
 }
 
-function show_alternate($scope, index) {
+function play_question_text($scope, index) {
+  if (index == 0) {
+    var scenario_index = $scope.data('scenario');
+    var scenario_name = get_scenario_sound_name($scope.parents('.fb-exam'), scenario_index);
+    play_sound(scenario_name);
+  }
+}
+
+function get_last_index($current) {
+  var indexes = $current.parents('.questions').find('[data-index]').map(function(){
+    return $(this).data('index');
+  }).get();
+  last_index = indexes.sort()[indexes.length - 1];
+
+  if (last_index == undefined) { 
+    last_index = 0; 
+  } else {
+    last_index = parseInt(last_index);
+  }
+  return last_index;
+}
+
+function set_index($el, index) {
+  if (!$el.data('index')) {
+    $el.attr('data-index', index)
+  }
+}
+
+function show_alternate($scope, index, last_index) {
   $container = $scope.find('.active .alternate-questions');
   $container.find('.a-question_' + index).removeClass('hide');
+  set_index($container.find('.a-question_' + index), last_index + 1);
 }
 
 function handle_points(index, show_feedback, alternative=false) {
@@ -410,7 +466,8 @@ function last_feedback(id, alternative=false) {
       $('.incorrect-answer-warning .close-warning, .incorrect-answer-warning .text').attr('onclick', 'javascript:submit_exam("' + id + '",false);');
     } else {
       $container.find('.question').addClass('hide');
-      show_alternate($container.parents('.content').first(), 2);
+      var last_index = get_last_index($container.find('.question'));
+      show_alternate($container.parents('.content').first(), 2, last_index);
     }
   }
 
