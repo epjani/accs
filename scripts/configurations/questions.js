@@ -42,34 +42,32 @@ var IPHONE = {
 					],
 					alternate_questions: [
 						{
-							question: "Question text",
+							question: "Air Canada’s International Business Class service features luxurious amenities and priority services and provides the ultimate in comfort and convenience with seats that recline into fully flat beds over 6 feet in length.  Made for comfort and a good night’s sleep, the seat width on these International Business Class seats is:",
 							answers: [
-								{ text: 'text 1' },
-								{ text: 'text 2' },
-								{ text: 'text 3' },
-								{ text: 'text 4' }
+								{ text: '18.5 inches' },
+								{ text: '19.5 inches' },
+								{ text: '21 inches' },
+								{ text: '21.5 inches' }
 							],
 							valid: [2]
 						},
 						{
-							question: "Question text 2",
+							question: "The seating configuration in Air Canada's International Business Class Cabin on Boeing 787 and Boeing 777 aircraft is:",
 							answers: [
-								{ text: 'text 5' },
-								{ text: 'text 6' },
-								{ text: 'text 7' },
-								{ text: 'text 8' }
+								{ text: '1 X 2 X 1' },
+								{ text: '1 X 1 X 1' },
+								{ text: '2 X 2 X 2' },
+								{ text: '2 X 1 X 2' }
 							],
-							valid: [3]
+							valid: [0]
 						},
 						{
-							question: "Question text 3",
+							question: "International Business Class passengers on Air Canada can expect access to airport priority services such as Priority Check-in,  Priority Boarding, Priority Security Clearance, Complimentary Maple Leaf Lounge access, Assistance from Air Canada Concierge agents as well as Priority Baggage handling.  True or False, International Business Class passengers will also enjoy an Extra baggage allowance?",
 							answers: [
-								{ text: 'text 9' },
-								{ text: 'text 10' },
-								{ text: 'text 11' },
-								{ text: 'text 12' }
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
 							],
-							valid: [1]
+							valid: [0]
 						}
 					]
 				}
@@ -224,6 +222,38 @@ var PHONE = {
 							],
 							valid: [3]
 						}
+					],
+					alternate_questions: [
+						{
+							question: "Air Canada’s Maple Leaf Lounges provide a private, serene escape from the bustle of airport activity.  The lounges are equipped with complimentary food and beverages, News & Entertainment options and Business Centres.  The lounges are located at all major airports across Canada and at key international locations including: ",
+							answers: [
+								{ text: 'Chicago, New York, Frankfurt, London, Tokyo.' },
+								{ text: 'Los Angeles,  New York, Frankfurt, London, Tokyo.' },
+								{ text: 'Chicago, New York,  Frankfurt, Paris, London.' },
+								{ text: ' Los Angeles,  New York,  Frankfurt, Paris, London.' }
+							],
+							valid: [3]
+						},
+						{
+							question: "Business Class on North America & Caribbean routes offers added comfort, personal entertainment & premium cuisine.  Which of the following is not available to North America & Caribbean Business Class travellers?",
+							answers: [
+								{ text: 'Concierge service' },
+								{ text: 'Business Class seats equipped with Personal touch-screen TVs' },
+								{ text: 'Priority Boarding' },
+								{ text: 'Complimentary Maple Leaf Lounge access' }
+							],
+							valid: [0]
+						},
+						{
+							question: "Air Canada’s Business Class Transcontinental is offered on select flights operated within North America by Boeing 787, Boeing 767, Boeing 777 and Airbus A330 aircraft.  On these flights, Business Class Transcontinental passengers will enjoy:",
+							answers: [
+								{ text: 'Seats with four more inches of legroom than economy' },
+								{ text: 'Seats with a 140 degree angle recline' },
+								{ text: 'Seats with a 120 degree angle recline' },
+								{ text: 'Fully lie flat beds' }
+							],
+							valid: [3]
+						}
 					]
 				}
 			]
@@ -354,32 +384,28 @@ var MOUSE = {
 					],
 					alternate_questions: [
 						{
-							question: "Question text",
+							question: "A reminder that we are a dedicated team responsible to provide service exclusively to Altitude Super Elite 100K passengers and  International Business Class Passengers.  True or False?  In addition to being able to assist passengers with Travel and airport related matters, Concierge agents as also able to assist with special requests such as hotel, theatre or restaurant reservations?",
 							answers: [
-								{ text: 'text 1' },
-								{ text: 'text 2' },
-								{ text: 'text 3' },
-								{ text: 'text 4' }
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
 							],
-							valid: [2]
+							valid: [0]
 						},
 						{
-							question: "Question text 2",
+							question: "Dedicated to Altitude Super Elite 100K members and International Business Class Passengers, Air Canada Concierge Agents are located  at: ",
 							answers: [
-								{ text: 'text 5' },
-								{ text: 'text 6' },
-								{ text: 'text 7' },
-								{ text: 'text 8' }
+								{ text: 'Key Canadian Airports only' },
+								{ text: 'Key American Airports only. ' },
+								{ text: 'Key International Airports only.' },
+								{ text: 'Key airports worldwide' }
 							],
 							valid: [3]
 						},
 						{
-							question: "Question text 3",
+							question: "Air Canada's Concierge Agents are easily recognizable in their distinctive black uniform and Concierge identification tags.  The Air Canada concierge Agents are conveniently stationed around International Business Class check-in areas, departure gates and Maple Leaf Lounges.  True or False, Air Canada concierge are located only in airports that have a Maple Leaf Lounge.",
 							answers: [
-								{ text: 'text 9' },
-								{ text: 'text 10' },
-								{ text: 'text 11' },
-								{ text: 'text 12' }
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
 							],
 							valid: [1]
 						}
@@ -424,34 +450,30 @@ var MOUSE = {
 					],
 					alternate_questions: [
 						{
-							question: "Question text",
+							question: "Priority check-in offers personalized full check-in services for eligible customers.  Air Canada offers dedicated counters that are available across the Air Canada network.  True of False, Passengers on a Latitude fare are eligible to use Priority Check in counters?",
 							answers: [
-								{ text: 'text 11' },
-								{ text: 'text 21' },
-								{ text: 'text 31' },
-								{ text: 'text 41' }
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
+							],
+							valid: [0]
+						},
+						{
+							question: "Flight Passes are a prepaid package of electronic one-way flight credits used for travel within a selected geographic zone during a specific period. A Flight Pass is comprised of a fixed or unlimited number of flight credits which can be managed online with ease.  Flight passes",
+							answers: [
+								{ text: 'Can be purchased for travel in Business Class' },
+								{ text: 'Can be purchased for travel in Economy class' },
+								{ text: 'Can be purchased for travel in both Business Class and Economy Class' }
 							],
 							valid: [2]
 						},
 						{
-							question: "Question text 2",
+							question: "Members reach Air Canada Altitude status based on the number of Altitude Qualifying Miles (AQM) or Altitude Qualifying Segments (AQS) earned on eligible flights operated by Air Canada and the Star Alliance member airlines.  Members also need to complete the",
 							answers: [
-								{ text: 'text 5' },
-								{ text: 'text 6' },
-								{ text: 'text 7' },
-								{ text: 'text 8' }
+								{ text: 'Altitude Qualifying Dollars (AQD) requirement' },
+								{ text: 'Altitude Qualifying International Segments (AQIS) requirement' },
+								{ text: 'Altitude Qualifying Business Class Segments (AQBCS) requirement.' }
 							],
-							valid: [3]
-						},
-						{
-							question: "Question text 3",
-							answers: [
-								{ text: 'text 9' },
-								{ text: 'text 10' },
-								{ text: 'text 11' },
-								{ text: 'text 12' }
-							],
-							valid: [1]
+							valid: [0]
 						}
 					]
 				}
@@ -620,6 +642,34 @@ var POSTER1 = {
 							],
 							valid: [0, 1, 3]
 						}
+					],
+					alternate_questions: [
+						{
+							question: "Travelling in Premium Economy provides travellers with benefits including a dedicated cabin with larger seats that are wider and offer more recline, Premium meals and bar service as well as a seat pitch of 38” that offers:",
+							answers: [
+								{ text: 'Four more inches of legroom' },
+								{ text: 'Five more inches of legroom' },
+								{ text: 'Six more inches of legroom' },
+								{ text: 'Seven more inches of legroom.' }
+							],
+							valid: [3]
+						},
+						{
+							question: "At the airport, Premium Economy travellers can benefit from priority airport services including priority check-in, Priority baggage service and Priority Boarding.  Maple Leaf Lounge access is available",
+							answers: [
+								{ text: 'On a complimentary basis' },
+								{ text: 'For a fee.' }
+							],
+							valid: [1]
+						},
+						{
+							question: "For passengers who may be travelling on Air Canada rouge, Premium rouge provides travellers with more space with wider seats in the comfort of a separate cabin.  Travellers can enjoy complimentary premium meals, wine & spirits.  Premium rouge is available on: a. International flights only, b. Flights operated by Boeing 767 aircraft only, c. All flights.",
+							answers: [
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
+							],
+							valid: [1]
+						}
 					]
 				}
 			]
@@ -751,6 +801,37 @@ var POSTER2 = {
 								{ text: "Star Alliance Lounges worldwide"}
 							],
 							valid: [0, 1, 3]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "International Premium rouge, Premium Economy, Latitude and Flex fare passengers can pre-purchase one-time lounge access for a fee.  Complimentary Lounge access is available to eligible Altitude members, Star Alliance Gold members, Select American Express AeroplanPlus card holders as well as (select all that apply)",
+							answers: [
+								{ text: 'Air Canada Business Class passengers' },
+								{ text: 'North America & Sun Premium rouge passengers' },
+								{ text: 'Travellers with Preferred Seats' },
+								{ text: 'Travellers with rouge plus seats. ' }
+							],
+							valid: [0,1]
+						},
+						{
+							question: "At select locations, Maple Leaf Lounges also offer (select all that apply):",
+							answers: [
+								{ text: 'Showers' },
+								{ text: 'Conference Rooms' },
+								{ text: 'Day beds.' }
+							],
+							valid: [0,1]
+						},
+						{
+							question: "Annual memberships to the Air Canada Maple Leaf Lounges can be purchased.  Annual membership for access to Air Canada's Maple Leaf lounges in Canada can be purchased for as little as: ",
+							answers: [
+								{ text: '$375' },
+								{ text: '$475' },
+								{ text: '$575' },
+								{ text: '$675' }
+							],
+							valid: [0]
 						}
 					]
 				}
