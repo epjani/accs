@@ -25,7 +25,8 @@ function attach_questions(id) {
     }
   }
 
-   style_checkboxes($container);
+  style_checkboxes($container);
+  bind_correct_count_checkboxes();
 }
 
 function style_checkboxes($container) {
@@ -773,6 +774,30 @@ function get_scenario_sound_name($container, index) {
   return sound_name;
 }
 
+function bind_correct_count_checkboxes() {
+
+  $('.answers').on('ifChecked', 'input', function(event){
+    $answers = $(this).parents('.answers').first();
+    correct_count = parseInt($answers.attr('data-correct-number'));
+    answered_count = $answers.find('.checked').length + 1;
+
+    if (answered_count >= correct_count) {
+      $answers.find('.answer_row .icheckbox_minimal-orange:not(".checked") input').prop('disabled', 'disabled');
+      $(this).prop('disabled', '');
+    }
+  });
+
+  $('.answers').on('ifUnchecked', 'input', function(event){
+    $answers = $(this).parents('.answers').first();
+    correct_count = parseInt($answers.attr('data-correct-number'));
+    answered_count = $answers.find('.checked').length - 1;
+
+    if (answered_count < correct_count) {
+      $answers.find('.answer_row input').prop('disabled', '');
+    }
+  });
+}
+
 $(document).ready(function() {
   $('.fb-exam .scenarios ').on('click', 'a.start:not(".done")', function(jsEvent){
     $target = $(jsEvent.target);
@@ -792,24 +817,4 @@ $(document).ready(function() {
     quit_submit_warning();
   });
 
-  $('.answers').on('ifChecked', 'input', function(event){
-    $answers = $(this).parents('.answers').first();
-    correct_count = parseInt($answers.data('correct-number'));
-    answered_count = $answers.find('.checked').length + 1;
-
-    if (answered_count >= correct_count) {
-      $answers.find('.answer_row .icheckbox_minimal-orange:not(".checked") input').prop('disabled', 'disabled');
-      $(this).prop('disabled', '');
-    }
-  });
-
-  $('.answers').on('ifUnchecked', 'input', function(event){
-    $answers = $(this).parents('.answers').first();
-    correct_count = parseInt($answers.data('correct-number'));
-    answered_count = $answers.find('.checked').length - 1;
-
-    if (answered_count < correct_count) {
-      $answers.find('.answer_row input').prop('disabled', '');
-    }
-  });
 });
