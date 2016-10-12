@@ -112,32 +112,31 @@ var IPHONE = {
 					],
 					alternate_questions: [
 						{
-							question: "Question text",
+							question: "You do deserve a little indulgence after 15 years.  Travelling in Premium rouge would get your holiday off to a perfect start. The premium rouge cabin on Boeing 767 aircraft contains 24 Premium rouge seats that are (select all that apply)",
 							answers: [
-								{ text: 'text 111' },
-								{ text: 'text 2' },
-								{ text: 'text 3' },
-								{ text: 'text 4' }
+								{ text: 'Wider and offer more personal space and leg room' },
+								{ text: 'Laid out in a 2 X 2 X 2 configuration' },
+								{ text: 'Equipped with 110-volt power plug and High-powered USB port at every seat' },
+								{ text: 'Equipped with Lumbar support and massage function.' }
 							],
-							valid: [1]
+							valid: [0,1,2]
 						},
 						{
-							question: "Question text 2",
+							question: "Premium rouge also includes all of the perks you would expect from a premium travel experience, including complimentary premium meals, wine & spirits, 2 free checked bags as well as Priority check in and boarding.  For flights to Europe, Asia, Africa & South America, the Maple Leaf Lounge access fee is $25.  For flights within Canada, to the USA and to Sun destinations, Maple Leaf Lounge access is",
 							answers: [
-								{ text: 'text 5' },
-								{ text: 'text 6' },
-								{ text: 'text 7' },
-								{ text: 'text 8' }
+								{ text: 'Complimentary' },
+								{ text: '$25' },
+								{ text: '$35' },
+								{ text: '$45' }
 							],
-							valid: [3]
+							valid: [0]
 						},
 						{
-							question: "Question text 3",
+							question: "The other option is rouge plus seating.  While Premium rouge offers a larger seat with more personal space, premium meals and priority services, rouge Plus seats are located in the Economy cabin of the aircraft and offers (select all that apply):",
 							answers: [
-								{ text: 'text 9' },
-								{ text: 'text 10' },
-								{ text: 'text 11' },
-								{ text: 'text 12' }
+								{ text: 'Guaranteed aisle or window seating' },
+								{ text: '7 more inches of leg room than regular rouge economy seats' },
+								{ text: 'Premium meals, wine & spirits. ' }
 							],
 							valid: [1]
 						}
@@ -291,6 +290,34 @@ var PHONE = {
 								{ text: "60"},
 								{ text: "80"},
 								{ text: "100"}
+							],
+							valid: [0]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "Air Canada Vacations offers lots of group vacation package options and deals to choose from when you fly or cruise as a group.  The Group must however travel all segments of the itinerary together.  True False",
+							answers: [
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
+							],
+							valid: [1]
+						},
+						{
+							question: "Travelling as a group does offer special perks.  Air Canada Vacations offers 2 FREE flight upgrades & Maple Leaf lounge access on select flights for groups of 20 or more. Other special groups perks include (select all that apply).",
+							answers: [
+								{ text: 'Guaranteed window or aisle seating' },
+								{ text: 'Special fly, stay, eat for free offers from select resorts and destinations' },
+								{ text: 'Flexibility for guests to leave from different cities, on different days of the week' },
+								{ text: 'Option to pre-purchase meals and headsets on your flight for groups of 40+.' }
+							],
+							valid: [1,2,3]
+						},
+						{
+							question: "Wedding & Incentive Group bookings will also be offered:",
+							answers: [
+								{ text: 'Free seat selection' },
+								{ text: 'Complimentary meals' }
 							],
 							valid: [0]
 						}
@@ -517,6 +544,38 @@ var MOUSE = {
 							],
 							valid: [1]
 						}
+					],
+					alternate_questions: [
+						{
+							question: "I'm happy to hear you are looking forward to your trip on Air Canada rouge.  It was my pleasure to help.  The Air Canada rouge story is incredible. The company started out with just four aircraft in 2013 and now operates more than 40 aircraft.  Flights to Europe, Asia, Africa and South America are all operated by:",
+							answers: [
+								{ text: 'Boeing 737' },
+								{ text: 'Airbus A319' },
+								{ text: 'Boeing 767' },
+								{ text: 'Airbus 321' }
+							],
+							valid: [2]
+						},
+						{
+							question: "This Air Canada rouge double-aisled aircraft has 280 seats and feature a two-cabin configuration with three customer comfort options.  The front cabin features 24 Premium rouge seats.  The rear cabin features  256 seats: 39 rouge plus seats and 217 rouge seats.",
+							answers: [
+								{ text: 'Boeing 737' },
+								{ text: 'Airbus A319' },
+								{ text: 'Boeing 767' },
+								{ text: 'Airbus 321' }
+							],
+							valid: [2]
+						},
+						{
+							question: "I know that you are going to be impressed with the customer service you’ll receive from the rouge crew on board.  You and your husband should have a great flight.  A reminder to bring a laptop or mobile Apple or Android device, loaded with the Air Canada App in order to watch Air Canada Rouge's streaming in-flight entertainment system.  The access fee is:",
+							answers: [
+								{ text: 'Complimentary' },
+								{ text: '$7 for each flight leg' },
+								{ text: '$14 for each flight leg' },
+								{ text: '$21 for each flight leg' }
+							],
+							valid: [0]
+						}
 					]
 				},
 				{
@@ -553,6 +612,34 @@ var MOUSE = {
 								{ text: "attraction tickets"}
 							],
 							valid: [0, 1, 2, 3]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "With Air Canada Vacations, in the unlikely event that a delayed flight causes travellers to miss their cruise departure, they will be rebooked on the next available flight to catch up with the cruise at no extra cost.  Air Canada Vacations’ CruiseAir options offer lots more flexibility including (select all that apply):",
+							answers: [
+								{ text: 'All flights are 100% refundable up to 30 days prior to travel' },
+								{ text: '$100 refundable deposit is all it takes to hold flights' },
+								{ text: 'One name change is permitted up to 30 days prior to travel' }
+							],
+							valid: [0,1,2]
+						},
+						{
+							question: "Air Canada Vacations provides Hotel Classifications and description guides for the properties they sell.  The Classifications and descriptions are available for",
+							answers: [
+								{ text: 'Resorts & hotels' },
+								{ text: 'Condominiums, Bed and breakfasts, and villas' },
+								{ text: 'Resorts, Hotels, Condominiums, Bed and Breakfasts and Villas.' }
+							],
+							valid: [2]
+						},
+						{
+							question: "To compliment vacation packages, Flights and Cruises, Air Canada Vacation can offer coach tours, self-drive tours, multi-city rail tours and attraction tickets.  True or False, Air Canada Vacations can also offer car rentals.",
+							answers: [
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
+							],
+							valid: [0]
 						}
 					]
 				}
@@ -710,6 +797,37 @@ var POSTER1 = {
 								{ text: "Minsk"}
 							],
 							valid: [1, 2]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "Air Canada rouge is Air Canada’s leisure airline offering competitively-priced travel to leisure destinations.  It is part of the Air Canada family so you can still depend on a global reputation for safety and reliability,  as well as connections from anywhere Air Canada flies.  Which of the following statements is false?",
+							answers: [
+								{ text: 'Air Canada Rouge offers a generous baggage (same as Air Canada)' },
+								{ text: 'Aeroplan members can earn and redeem Aeroplan Miles on Air Canada Rouge' },
+								{ text: 'Air Canada Rouge offers complimentary Maple Leaf Lounge access for all Premium rouge passengers.' }
+							],
+							valid: [2]
+						},
+						{
+							question: "The Air Canada rouge network has grown significantly in the last couple of years.  For 2016 the Air Canada rouge network grew to include service to this new destination in Africa.  ",
+							answers: [
+								{ text: 'Cairo' },
+								{ text: 'Algiers' },
+								{ text: 'Casablanca' },
+								{ text: 'Timbuktu' }
+							],
+							valid: [2]
+						},
+						{
+							question: "There is lots of choice when flying with Air Canada and Air Canada Rouge to Europe.  In fact Air Canada's and Air Canada Rouge's summer schedule included service to two different airports in this European City?",
+							answers: [
+								{ text: 'Paris' },
+								{ text: 'Frankfurt' },
+								{ text: 'Zurich' },
+								{ text: 'London' }
+							],
+							valid: [3]
 						}
 					]
 				}
@@ -875,6 +993,36 @@ var POSTER2 = {
 								{ text: "stays for the duration of their choice"}
 							],
 							valid: [3]
+						}
+					],
+					alternate_questions: [
+						{
+							question: "Customers like Air Canada Vacations because of the reliability and extensive network of flights aboard Air Canada & Air Canada rouge.  Air Canada Vacations offers service in the Caribbean to more than",
+							answers: [
+								{ text: '25 destinations' },
+								{ text: '30 destinations' },
+								{ text: '35 destinations' },
+								{ text: '40 destinations' }
+							],
+							valid: [3]
+						},
+						{
+							question: "Air Canada Vacations is especially practical for travellers who live in smaller communities served by regional airports because of the convenient connecting flights from over 63 Canadian cities.",
+							answers: [
+								{ text: 'TRUE' },
+								{ text: 'FALSE' }
+							],
+							valid: [0]
+						},
+						{
+							question: "Another good reason to book with Air Canada Vacations is the flexibility and choices they can provide because of their robust schedule. Travellers can book stays for the duration of their choice when",
+							answers: [
+								{ text: 'Staying at Deluxe accommodations' },
+								{ text: 'at least two excursions are purchased' },
+								{ text: 'Air Canada or Air Canada rouge offer daily service to that destination' },
+								{ text: 'A “flexibility and choice” surcharge is paid.' }
+							],
+							valid: [2]
 						}
 					]
 				}
