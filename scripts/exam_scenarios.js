@@ -171,35 +171,38 @@ function set_questions($container, questions, $infoHeader, scenario_index) {
     }
   });
 
-  html = '<div class="alternate-questions">';
-  $.each(questions['alternate_questions'], function(index, val) {
-    next_btn = $container.find('.questions .question_' + index).data('next-btn');
-    back_btn = $container.find('.questions .question_' + index).data('back-btn');
-    if (next_btn != undefined && back_btn != undefined) {
-      next_btn = next_btn.replace(')', ', true)');
-      back_btn = back_btn.replace(')', ', true)')
-    } else {
-      next_btn = $container.find('.question_' + index).data('next-btn').replace(')', ', true)');
-      back_btn = $container.find('.question_' + index).data('back-btn').replace(')', ', true)');
-    }
-
-    html += '<div class="question hide a-question_' + index + '" data-next-btn="' + next_btn + '" data-back-btn="' + back_btn + '"><p class="text">' + val['question'] + '</p><div class="answers" data-correct-number="' + val['valid'].length + '">';
-    $.each(val['answers'], function(i, answer) {
-      var chk_id = 'chk_a_' + scenario_index + '_' + index + '_' + i;
-      html += '<div class="answer_row"><input type="checkbox" id="' + chk_id + '" name="question_' + index + '" value="' + i + '" />';
-      html += '<label for="' + chk_id + '">' + answer['text'] + '</label></div>';
-    });
-    html += '</div></div>';
-  });
-  html += '</div>';
-
   $attach_alternate_to = $container.find('.content');
   if ($attach_alternate_to.length == 0) {
     $attach_alternate_to = $container;
   } else {
     $attach_alternate_to = $container.find('.questions');
   }
-  $attach_alternate_to.append(html);
+
+  if ($attach_alternate_to.find('.alternate-questions').length == 0) {
+    html = '<div class="alternate-questions">';
+    $.each(questions['alternate_questions'], function(index, val) {
+      next_btn = $container.find('.questions .question_' + index).data('next-btn');
+      back_btn = $container.find('.questions .question_' + index).data('back-btn');
+      if (next_btn != undefined && back_btn != undefined) {
+        next_btn = next_btn.replace(')', ', true)');
+        back_btn = back_btn.replace(')', ', true)')
+      } else {
+        next_btn = $container.find('.question_' + index).data('next-btn').replace(')', ', true)');
+        back_btn = $container.find('.question_' + index).data('back-btn').replace(')', ', true)');
+      }
+
+      html += '<div class="question hide a-question_' + index + '" data-next-btn="' + next_btn + '" data-back-btn="' + back_btn + '"><p class="text">' + val['question'] + '</p><div class="answers" data-correct-number="' + val['valid'].length + '">';
+      $.each(val['answers'], function(i, answer) {
+        var chk_id = 'chk_a_' + scenario_index + '_' + index + '_' + i;
+        html += '<div class="answer_row"><input type="checkbox" id="' + chk_id + '" name="question_' + index + '" value="' + i + '" />';
+        html += '<label for="' + chk_id + '">' + answer['text'] + '</label></div>';
+      });
+      html += '</div></div>';
+    });
+    html += '</div>';
+
+    $attach_alternate_to.append(html);
+  }
 }
 
 function set_question_info_header($question, $infoHeader, values) {
@@ -282,7 +285,7 @@ function next_question(id, skip_warning, alternative=false) {
   if (!$current.hasClass('scenario-text')) {
     if (one_question_answered($current) || skip_warning) {
       if (!skip_warning) {
-        $current.find('input').prop('disabled', 'disabled');        
+        $current.find('input').prop('disabled', 'disabled');
       }
       go_to_next_question_set($scope, id, alternative, !skip_warning);
 
@@ -306,13 +309,13 @@ function quit_submit_warning() {
 function go_to_next_question_set($scope, index, alternative=false, is_back) {
   $current = $scope.parents('.content').find('.questions.active .question:not(".hide")');
   var current_index = $current.data('index');
-  
+
   $scope.find('.question').addClass('hide');
 
   change_next_btn_label($scope, index);
 
   var last_index = get_last_index($current);
-  
+
 
   if (index == 'scenarios') {
     $container = $scope.parents('.fb-exam').first();
@@ -327,7 +330,7 @@ function go_to_next_question_set($scope, index, alternative=false, is_back) {
         next_question(null, true);
       }
     }
-  } else {    
+  } else {
 
     var passed = true;
 
@@ -341,7 +344,7 @@ function go_to_next_question_set($scope, index, alternative=false, is_back) {
 
     if (passed || alternative || index - 1 == -1) {
       $potential_next = $scope.parents('.content').find('.active .question.question_' + index);
-      if ($potential_next.data('praised')) {        
+      if ($potential_next.data('praised')) {
         potential_index = $potential_next.data('index');
 
         if (current_index > potential_index) {
@@ -369,7 +372,7 @@ function go_to_next_question_set($scope, index, alternative=false, is_back) {
         $potential_next.removeClass('hide');
         set_index($potential_next, last_index + 1);
         play_question_text($scope, $potential_next.data('index'));
-      }      
+      }
     } else {
       show_alternate($scope.parents('.content').first(), index-1, last_index);
     }
@@ -390,8 +393,8 @@ function get_last_index($current) {
   }).get();
   last_index = indexes.sort()[indexes.length - 1];
 
-  if (last_index == undefined) { 
-    last_index = 0; 
+  if (last_index == undefined) {
+    last_index = 0;
   } else {
     last_index = parseInt(last_index);
   }
@@ -462,8 +465,8 @@ function last_feedback(id, alternative=false) {
     handle_success_exam();
     $('.correct-answer-warning .close-warning, .correct-answer-warning .text').attr('onclick', 'javascript:submit_exam("' + id + '",false);');
   } else {
-    handle_unsuccess_exam();   
-    if (alternative) {      
+    handle_unsuccess_exam();
+    if (alternative) {
       $('.incorrect-answer-warning .close-warning, .incorrect-answer-warning .text').attr('onclick', 'javascript:submit_exam("' + id + '",false);');
     } else {
       $container.find('.question').addClass('hide');
@@ -566,7 +569,7 @@ function set_exam_type_as_finished($container, id) {
 
 function clean_scenario($container, id) {
   $container.find('.question').addClass('hide');
-  $container.find('.scenario-text').removeClass('hide');  
+  $container.find('.scenario-text').removeClass('hide');
   clean_scenario_content($container, id);
 }
 
@@ -714,8 +717,8 @@ function get_question_points($container, index, id, alternative=false) {
     var valid_answers = get_selected_questions(id)['scenarios'][scenario]['questions'][index]['valid'];
   }
 
-  var answers = extract_correct_answers(checked);  
-  
+  var answers = extract_correct_answers(checked);
+
   if ($.isArray(valid_answers)) {
     var points = array_equal(answers, valid_answers) ? 10 : 0;
   } else {
