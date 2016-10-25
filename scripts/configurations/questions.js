@@ -434,7 +434,7 @@ var MOUSE = {
 			scenarios: [
 				{
 					from: "Air Canada",
-					topic: "A question for You?",
+					topic: "Une question pour vous?",
 					text: "Bonjour, ici Alexi du bureau du Service Concierge d'Air Canada. Nous voulions vous informer que nous avons été en mesure d'aider M. et Mme Jones à prendre leur vol de correspondance. Ce fut un plaisir de les aider.",
 					sound: 'premium_products_mouse_1',
 					questions: [
@@ -500,7 +500,7 @@ var MOUSE = {
 				},
 				{
 					from: "Air Canada",
-					topic: "A question for You?",
+					topic: "Une question pour vous?",
 					text: "Bonjour! Merci d'avoir délivré mon billet au tarif Latitude pour un vol à destination de Vancouver. J'ai quelques questions et j'espère que vous pourrez y répondre. Je n'étais pas certain de savoir de quels services prioritaires je peux profiter gratuitement. Pouvez-vous me les rappeler, s'il vous plaît? De plus, nous avons des employés qui voyageront régulièrement au cours des prochains mois. Y a-t-il des options intéressantes pour l'achat de billets au tarif en vrac en Classe affaires? Enfin, quel est le critère à respecter pour obtenir le statut Altitude Super Élite 100 cette année?",
 					sound: 'premium_products_mouse_2',
 					questions: [
@@ -570,7 +570,7 @@ var MOUSE = {
 			scenarios: [
 				{
 					from: "Air Canada",
-					topic: "A question for You?",
+					topic: "Une question pour vous?",
 					text: "Bonjour. Je tenais à vous faire parvenir un petit mot pour vous remercier d'avoir organisé notre formidable voyage avec Air Canada Rouge. Nous sommes impatients de partir. Mon mari est un passionné d'avion, et je sais qu'il me demandera quels types d'appareils sont exploités par Air Canada Rouge. Pouvez-vous me renseigner à ce sujet?",
 					sound: 'leisure_group_mouse_1',
 					questions: [
@@ -640,7 +640,7 @@ var MOUSE = {
 				},
 				{
 					from: "Air Canada",
-					topic: "A question for You?",
+					topic: "Une question pour vous?",
 					text: "J'ai besoin de votre aide pour décider de projets de vacances. J'envisage de faire une croisière. Puis-je faire une réservation pour mon vol et ma croisière avec Vacances Air Canada? Si j'opte plutôt pour un centre de villégiature, pouvez-vous m'expliquer la façon de comparer facilement la qualité et la valeur des différentes options d'hôtels et de centres de villégiature?",
 					sound: 'leisure_group_mouse_2',
 					questions: [
@@ -709,7 +709,7 @@ var MOUSE = {
 			scenarios: [
 				{
 					from: "Air Canada",
-					topic: "A question for You?",
+					topic: "Une question pour vous?",
 					text: "Bonjour! J'espère que vous allez bien. J'ai vu des tarifs exceptionnels pour la Classe affaires d'Air Canada et j'envisage d'y réserver une place pour mon prochain voyage. Pouvez-vous me donner quelques renseignements sur ce à quoi je devrais m'attendre? Merci.",
 					sound: 'network_fleet_mouse_1',
 					questions: [
