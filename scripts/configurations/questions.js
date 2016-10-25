@@ -525,7 +525,7 @@ var MOUSE = {
 							valid: [0, 1, 2, 3]
 						},
 						{
-							question: "Altitude Members can qualify for status based on the number of Altitude Qualifying Miles (AQM) or Altitude Qualifying Segments (AQS) earned on eligible flights operated between 01 January and 31 December.  Members must all meet Altitude Qualifying Dollars (AQD) requirements.  In addition to $20,000 in Altitude Qualifying Dollars, the requirement for Super Elite 100K is:",
+							question: "Altitude Members can qualify for status based on the number of Altitude Qualifying Miles (AQM) or Altitude Qualifying Segments (AQS) earned on eligible flights operated between 01 January and 31 December.  Members must also meet Altitude Qualifying Dollars (AQD) requirements.  In addition to $20,000 in Altitude Qualifying Dollars, the requirement for Super Elite 100K is:",
 							answers: [
 								{ text: "95,000 miles or 95 segments"},
 								{ text: "100,000 miles or 95 segments"},
@@ -872,7 +872,7 @@ var POSTER1 = {
 							valid: [0, 1, 2]
 						},
 						{
-							question: "The Air Canada rouge network has grown significantly in the last couple of years.  For 2016 the Air Canada rouge network includes flights within Canada, flights to US leisure destinations, flights to the Caribbean & Mexico, flights to Europe as well as flights to (select all that apply):",
+							question: "The Air Canada rouge network has grown significantly in the last couple of years. For 2016 the Air Canada rouge network included flights within Canada, flights to US leisure destinations, flights to the Caribbean & Mexico, flights to Europe as well as flights to (select all that apply):",
 							answers: [
 								{ text: "the Middle East"},
 								{ text: "South America"},
@@ -882,7 +882,7 @@ var POSTER1 = {
 							valid: [1, 2, 3]
 						},
 						{
-							question: "There is lots of new flying over the Atlantic with Air Canada rouge this year.  In addition to existing European flights to Edinburgh, Dublin, Manchester, Venice, Lisbon, Barcelona and Athens, and its new service to Africa with Montreal Casablanca nonstop flights, Air Canada rouge is offering new service from Toronto to London Gatwick, Glasgow, Prague and (select all that apply):",
+							question: "There was lots of new flying over the Atlantic with Air Canada rouge this year. In addition to flights to Edinburgh, Dublin, Manchester, Venice, Lisbon, Barcelona and Athens, and service to Africa with Montreal Casablanca nonstop flights, Air Canada rouge offered new service from Toronto to London Gatwick, Glasgow, Prague and (select all that apply):",
 							answers: [
 								{ text: "Valencia"},
 								{ text: "Budapest"},
@@ -1011,7 +1011,7 @@ var POSTER2 = {
 					sound: 'premium_products_poster_2',
 					questions: [
 						{
-							question: "Maple Leaf Lounge access is available on a complimentary basis to Air Canada Business Class passengers and Air Canada Premium rouge passengers on Canada, Sun and North America routes.  Passengers travelling on a Latitude fare, as well as the following can purchase one-time lounge access for a fee (select all that apply):",
+							question: "Maple Leaf Lounge access is available on a complimentary basis to Air Canada Business Class passengers. Air Canada Premium rouge passengers on Sun and North America routes can also access the lounges on a complimentary basis. Passengers travelling on a Latitude fare, as well as the following can purchase one-time lounge access for a fee (select all that apply):",
 							answers: [
 								{ text: "International Premium rouge"},
 								{ text: "Premium Economy"},
