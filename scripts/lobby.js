@@ -45,6 +45,7 @@ function lobby_click_events() {
 
   $(".poster-fb-trigger").click(function() {
   	$('#poster-area').click();
+    open_poster_content();
   });
 }
 
@@ -248,4 +249,11 @@ function open_globe_content() {
 		width			: '90%',
 		height    : 'auto'
 	});
+}
+
+function open_poster_content() {
+  $.fancybox({
+    href: 'files/poster_text.pdf',
+    type      : 'iframe'
+  });
 }
