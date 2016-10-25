@@ -24,7 +24,7 @@ var CountDown = (function ($) {
             }
             if (should_end_exam(Minutes, Seconds)) {
                 Running = false;
-                end_case_study();
+                end_case_study(true);
             }
         }
         var minutes_left = (Minutes < 10 ? '0' : '') + Minutes;

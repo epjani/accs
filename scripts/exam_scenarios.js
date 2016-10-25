@@ -523,7 +523,7 @@ function handle_end_of_scenario($container, scenarios_finished) {
   }
 
   if (should_end_case_study()) {
-    end_case_study();
+    end_case_study(false);
     show_exam_credits();
     $container.parents('.content').find('.alternate-questions').remove();
   }
@@ -534,8 +534,14 @@ function should_end_case_study() {
   return array_equal(exam_room_events.scenarios_with_exam, exam_room_events.finished_scenarios);
 }
 
-function end_case_study() {
-  exam_room_events.update_ticker(get_end_study_text());
+function end_case_study(timed) {
+  var append_string = '';
+
+  if (timed) {
+    append_string = 'Your time run out. ';
+  }
+
+  exam_room_events.update_ticker(append_string + get_end_study_text());
   $('.exam-room .exit-trigger').addClass('done');
 
   var undone_exams = $(exam_room_events.scenarios_with_exam).not(exam_room_events.finished_scenarios).get();
