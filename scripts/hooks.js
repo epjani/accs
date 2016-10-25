@@ -123,9 +123,11 @@ function submit_attempts(case_study_name, attempts) {
   var sku = sku_by_case_study(case_study_name);
   // TODO: Implement this. Set number of attempts per case study.
   //alert('asking for submit attempts ' + case_study_name + ' - ' + attempts);
-  _employee_data.case_studies[sku].attempts++;
+  if (typeof (_employee_data) !== "undefined") {
+    _employee_data.case_studies[sku].attempts++;
 
-  sys_save_data();
+    sys_save_data();
+  }
 
   return 3;
 }
