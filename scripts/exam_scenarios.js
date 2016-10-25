@@ -553,6 +553,7 @@ function end_case_study(timed) {
     lobby_events.finished_case_studies.push(exam_room_events.the_case_study);
     lobby_events.finished_case_studies = Array.from(new Set(lobby_events.finished_case_studies));
   }
+  $.fancybox.close();
 }
 
 function is_study_passed() {
