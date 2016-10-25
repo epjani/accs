@@ -1,3 +1,6 @@
+var PASSING_SCORE = 144;
+var NETWORK_FLEET_PASSING_SCORE = 120;
+
 var player;
 
 function attach_questions(id) {
@@ -547,7 +550,11 @@ function end_case_study() {
 }
 
 function is_study_passed() {
-  return exam_room_events.total_points >= 144;
+  if (exam_room_events.the_case_study == 'network_fleet') {
+    return exam_room_events.total_points >= NETWORK_FLEET_PASSING_SCORE;
+  } else {
+    return exam_room_events.total_points >= PASSING_SCORE;
+  }
 }
 
 function get_end_study_text() {
