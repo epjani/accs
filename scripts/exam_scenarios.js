@@ -1,3 +1,6 @@
+var PASSING_SCORE = 144;
+var NETWORK_FLEET_PASSING_SCORE = 120;
+
 var player;
 
 function attach_questions(id) {
@@ -520,7 +523,7 @@ function handle_end_of_scenario($container, scenarios_finished) {
   }
 
   if (should_end_case_study()) {
-    end_case_study();
+    end_case_study(false);
     show_exam_credits();
     $container.parents('.content').find('.alternate-questions').remove();
   }
@@ -531,8 +534,14 @@ function should_end_case_study() {
   return array_equal(exam_room_events.scenarios_with_exam, exam_room_events.finished_scenarios);
 }
 
-function end_case_study() {
-  exam_room_events.update_ticker(get_end_study_text());
+function end_case_study(timed) {
+  var append_string = '';
+
+  if (timed) {
+    append_string = 'Your time run out. ';
+  }
+
+  exam_room_events.update_ticker(append_string + get_end_study_text());
   $('.exam-room .exit-trigger').addClass('done');
 
   var undone_exams = $(exam_room_events.scenarios_with_exam).not(exam_room_events.finished_scenarios).get();
@@ -544,10 +553,15 @@ function end_case_study() {
     lobby_events.finished_case_studies.push(exam_room_events.the_case_study);
     lobby_events.finished_case_studies = Array.from(new Set(lobby_events.finished_case_studies));
   }
+  $.fancybox.close();
 }
 
 function is_study_passed() {
-  return exam_room_events.total_points >= 144;
+  if (exam_room_events.the_case_study == 'network_fleet') {
+    return exam_room_events.total_points >= NETWORK_FLEET_PASSING_SCORE;
+  } else {
+    return exam_room_events.total_points >= PASSING_SCORE;
+  }
 }
 
 function get_end_study_text() {
