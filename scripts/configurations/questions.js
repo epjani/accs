@@ -858,7 +858,7 @@ var POSTER1 = {
 			scenarios: [
 				{
 					img: "img/exam_room/leisure_poster_photo.jpg",
-					text: "Vous cherchez quelque chose de différent pour vos vacances estivales? Air Canada Rouge dessert de nouvelles destinations. Air Canada Rouge offre un service chic et abordable pour de formidables destinations vacances partout dans le monde. Profitez du vaste réseau d'Air Canada permettant des correspondances faciles avec des vols au départ ou à destination des villes desservies par Air Canada Rouge.",
+					text: "Nouvelle de dernière heure! Nous avons entendu dire que les clients réclament des vols d'Air Canada et Air Canada Rouge pour de nouvelles destinations. Par le lancement de nouveaux vols, Air Canada (avec Air Canada Rouge) devient l'une des quelque 12 sociétés à desservir 6 continents.",
 					sound: 'leisure_group_poster_1',
 					questions: [
 						{
