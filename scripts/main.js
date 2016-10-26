@@ -112,8 +112,8 @@ window.onload = function(e){
     if (is_mobile) {
       lobby_events.goto_lobby();
     } else {
-      // lobby_events.goto_lobby();
-      setTimeout(lobby_events.goto_lobby, 8200);
+      lobby_events.goto_lobby();
+      // setTimeout(lobby_events.goto_lobby, 8200);
     }
   }
 
