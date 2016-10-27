@@ -147,7 +147,7 @@ function set_question_main_text($container, questions, $infoHeader) {
     $scenario_text.append(questions['text']);
 
     if($infoHeader.length > 0) {
-      set_question_info_header($scenario_text, $infoHeader.clone(), {to: 'You', from: questions['from'], topic: questions['topic']});
+      set_question_info_header($scenario_text, $infoHeader.clone(), {to: 'Vous', from: questions['from'], topic: questions['topic']});
     }
   }
 }
@@ -443,16 +443,16 @@ function change_next_btn_label($container, id) {
   }
 
   if (parseInt(id) >= 0 ) {
-    var label = 'Submit';
+    var label = 'SOUMETTRE';
   } else {
-    var label =  'Next';
+    var label =  'SUIVANT';
   }
 
   var $btn = $rootElement.find('.next-btn');
   $btn.text(label);
 
   $btn.removeClass('submit');
-  if(label == 'Submit')
+  if(label == 'SOUMETTRE')
     $btn.addClass('submit');
 }
 
@@ -668,9 +668,9 @@ function show_exam_credits() {
     $('#fb-warning .content').html('<div class="text">Congratulations! You have successfully completed all three Case Studies.</div>');
   } else {
     if (is_study_passed()) {
-      $('#fb-warning .content').html('<div class="text">You have completed this scenario please proceed to the next.</div>');
+      $('#fb-warning .content').html('<div class="text"> Vous avez terminé ce scénario, passez au suivant.</div>');
     } else {
-      $('#fb-warning .content').html('<div class="text">You have failed the scenario please try again.</div>');
+      $('#fb-warning .content').html('<div class="text">Vous avez échoué au scénario, veuillez réessayer.</div>');
     }
   }
 
@@ -693,9 +693,8 @@ function handle_unsuccess_exam() {
   play_sound(sounds.incorrect);
 }
 
-
-var CORRECT_EXPRESSIONS = ["WAY TO GO!", "CONGRATS!", "SUPERSTAR", "AMAZING!", "PERFECT!"];
-var INCORRECT_EXPRESSIONS = ["BUMMER!", "NEXT TIME!", "SO CLOSE!", "SORRY!", "TRY AGAIN!"];
+var CORRECT_EXPRESSIONS = ["BIEN JOUÉ!", "FÉLICITATIONS!", "LA CLASSE", "INCROYABLE!", "FANTASTIQUE!"];
+var INCORRECT_EXPRESSIONS = ["DOMMAGE!", "LA PROCHAINE FOIS!", "SI PRÈS DU BUT!", "DÉSOLÉ!", "RÉESSAYEZ!"];
 
 function show_correct_popup() {
   $('.bg-overlay').removeClass('hide');

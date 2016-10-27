@@ -102,7 +102,7 @@ function lobby_go_to_case_study_click() {
 			}
 
       if (lobby_events.attempts[case_study] >= 3) {
-        lobby_warning("<div class=\"text\">You already attempted this case study 3 times.</div>")
+        lobby_warning("<div class=\"text\">Vous avez déjà essayé d’effectuer cette étude de cas 3 fois.</div>")
       } else {
         open_exam_room();
         $('.whiteboard a').mouseout();
@@ -110,7 +110,7 @@ function lobby_go_to_case_study_click() {
       }
 
 		} else {
-			lobby_warning('<div class="text">Please review introduction, instructions, globe and poster before proceeding to the case study.</div>');
+			lobby_warning('<div class="text"> Veuillez passer en revue l’introduction, les instructions, le globe et l’affiche avant de procéder à l’étude de cas.</div>');
 		}
 	});
 }

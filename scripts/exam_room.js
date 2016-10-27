@@ -36,7 +36,7 @@ function show_exam_room(case_study) {
 function handle_attempts() {
   lobby_events.attempts[exam_room_events.the_case_study] += 1;
   submit_attempts(exam_room_events.the_case_study, lobby_events.attempts[exam_room_events.the_case_study]);
-  $('.attempts').text('Attempts: ' + lobby_events.attempts[exam_room_events.the_case_study] + 'of 3');
+  $('.attempts').text('Tentatives: ' + lobby_events.attempts[exam_room_events.the_case_study] + 'sur 3');
 }
 
 function start_counter() {
@@ -188,7 +188,7 @@ function clear_evaluation() {
   $('.evaluation-container .first-slide').removeClass('hide');
   $('.evaluation-container .second-slide').addClass('hide');
   $('.evaluation-container .previous').addClass('hide');
-  $('.evaluation-container .next').text("NEXT");
+  $('.evaluation-container .next').text("SUIVANT");
 }
 
 
@@ -197,14 +197,14 @@ $(document).ready(function(){
   $('.evaluation-container').on('click', '.next', function(jsEvent) {
     jsEvent.stopPropagation();
     jsEvent.preventDefault();
-    if ($(jsEvent.target).text() == "SUBMIT") {
+    if ($(jsEvent.target).text() == "SOUMETTRE") {
       submit_evaluation();
       clear_evaluation();
     } else {
       $('.evaluation-container .first-slide').addClass('hide');
       $('.evaluation-container .second-slide').removeClass('hide');
       $('.evaluation-container .previous').removeClass('hide');
-      $('.evaluation-container .next').text("SUBMIT");
+      $('.evaluation-container .next').text("SOUMETTRE");
     }
   });
 
@@ -214,7 +214,7 @@ $(document).ready(function(){
     $('.evaluation-container .first-slide').removeClass('hide');
     $('.evaluation-container .second-slide').addClass('hide');
     $('.evaluation-container .previous').addClass('hide');
-    $('.evaluation-container .next').text("NEXT");
+    $('.evaluation-container .next').text("SUIVANT");
   });
 
   $('.exam-room').on('click', ".exam:not(.done)", function(jsEvent){
@@ -242,7 +242,7 @@ $(document).ready(function(){
     if ($target.hasClass('done')) {
       exam_room_events.exit_room();
     } else {
-      $('#fb-warning .content').html('<div class="text">Are you sure you want to exit?<br />If you choose to exit now, your progress will not be saved.</div><div class="btn-container"><button class="red-btn" onclick="exam_room_events.exit_room();">Yes</button><button style="margin-left:10px;" class="blue-btn" onclick="$.fancybox.close();">Cancel</button></div>');
+      $('#fb-warning .content').html('<div class="text"> Voulez-vous vraiment quitter cette page?<br />Si vous choisissez de quitter la page maintenant, votre progression ne sera pas enregistrée.</div><div class="btn-container"><button class="red-btn" onclick="exam_room_events.exit_room();">Oui</button><button style="margin-left:10px;" class="blue-btn" onclick="$.fancybox.close();">Annuler</button></div>');
       $.fancybox({
         href: '#fb-warning',
         width: '400px'
